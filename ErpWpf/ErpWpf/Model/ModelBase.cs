@@ -12,7 +12,7 @@ namespace Erp.Model
 {
     public class ModelBase : INotifyPropertyChanged, IDataErrorInfo
     {
-
+        protected string MensagemFuncaoNaoSuportada = "Esta função não é suportada pelo formulário";
         private Visibility _isVisible;
         private bool _isCancelado;
 
@@ -83,6 +83,8 @@ namespace Erp.Model
         
         private Dictionary<string, string> errorMessages = new Dictionary<string, string>();
         private string _error;
+        private string _mensagemOperacaoConcluida;
+        private string _complementoMensagem;
 
 
         public string Error
@@ -95,6 +97,7 @@ namespace Erp.Model
             }
         }
 
+
         public static void MensagemErro(string mensagem)
         {
             DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -105,9 +108,25 @@ namespace Erp.Model
             DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
-        public String ComplementoMensagem { get; set; }
+        public String ComplementoMensagem
+        {
+            get { return _complementoMensagem ?? (_complementoMensagem = ""); }
+            set
+            {
+                _complementoMensagem = value; 
+                OnPropertyChanged("ComplementoMensagem");
+            }
+        }
 
-        public string MensagemOperacaoConcluida { get; set; }
+        public string MensagemOperacaoConcluida
+        {
+            get { return _mensagemOperacaoConcluida ?? (_mensagemOperacaoConcluida = "Operação concluída com sucesso."); }
+            set
+            {
+                _mensagemOperacaoConcluida = value; 
+                OnPropertyChanged("MensagemOperacaoConcluida");
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

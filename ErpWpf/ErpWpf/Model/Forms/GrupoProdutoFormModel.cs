@@ -1,16 +1,16 @@
 ﻿using System;
-using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
+using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
 using Erp.Business.Enum;
 using Erp.Model.Grids;
 
 namespace Erp.Model.Forms
 {
-    public class CondicaoPagamentoFormModel : ModelFormGeneric<CondicaoPagamento>
+    public class GrupoProdutoFormModel : ModelFormGeneric<GrupoProduto>
     {
-        public CondicaoPagamentoFormModel()
+        public GrupoProdutoFormModel()
         {
-            Entity = new CondicaoPagamento();
-            ModelSelect = new CondicaoPagamentoSelectModel();
+            Entity = new GrupoProduto();
+            ModelSelect = new GrupoProdutoSelectModel();
         }
 
         public override void Excluir()
@@ -20,15 +20,14 @@ namespace Erp.Model.Forms
                 if (ConfirmDelete())
                 {
                     Entity.Status = Status.Excluido;
-                    CondicaoPagamentoRepository.Save(Entity);
-                    Entity = new CondicaoPagamento();
+                    GrupoProdutoRepository.Save(Entity);
+                    Entity = new GrupoProduto();
                     base.Excluir();
                 }
-                
             }
             catch (Exception ex)
             {
-                MensagemErroBancoDados( ex.Message);
+                MensagemErroBancoDados(ex.Message);
             }
             
         }
@@ -39,19 +38,16 @@ namespace Erp.Model.Forms
             {
                 if (IsValid(Entity))
                 {
-                    CondicaoPagamentoRepository.Save(Entity);
-                    Entity = new CondicaoPagamento();
+                    GrupoProdutoRepository.Save(Entity);
+                    Entity = new GrupoProduto();
                     base.Salvar();
                 }
-                
             }
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
             }
+            
         }
-        
-
-        
     }
 }

@@ -77,6 +77,11 @@ namespace Erp.Model
         #endregion
         #region Commands
 
+        public ICommand CmdAbrirTelaGrupoProduto
+        {
+            get { return new RelayCommandBase(x=> AbrirTelaGrupoProduto());}
+        }
+
         public ICommand CmdAbrirTelaProduto
         {
             get { return new RelayCommandBase(o=>AbrirTelaProduto()); }
@@ -103,6 +108,10 @@ namespace Erp.Model
 
         #region Comandos de abertura de tela
 
+        public void AbrirTelaGrupoProduto()
+        {
+            new GrupoProdutoFormView().ShowDialog();
+        }
         public void AbrirTelaProduto()
         {
             new ProdutoFormView().ShowDialog();

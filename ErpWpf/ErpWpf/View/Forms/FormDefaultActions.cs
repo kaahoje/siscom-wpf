@@ -26,7 +26,7 @@ namespace Erp.View.Forms
             window.WindowStyle = WindowStyle.ToolWindow;
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.ResizeMode = ResizeMode.NoResize;
-
+            
 
         }
 
@@ -49,11 +49,14 @@ namespace Erp.View.Forms
                         case Key.F7:
                             Model.Excluir();
                             break;
-                        case Key.Escape:
-                            Model.Sair();
-                            if (Model.IsVisible == Visibility.Hidden)
+                        case Key.F4:
+                            if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
                             {
-                                Window.Close();
+                                Model.Sair();
+                                if (Model.IsVisible == Visibility.Hidden)
+                                {
+                                    Window.Close();
+                                }
                             }
                             break;
                     }

@@ -8,7 +8,7 @@
              xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
              xmlns:rest="clr-namespace:Erp.View.Rest" x:Class="Erp.View.Forms.CondicaoPagamentoFormView"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="400" Title="Condições de pagamento">
+             d:DesignHeight="400" d:DesignWidth="400" Title="Condições de pagamento" Visibility="{Binding IsVisible, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
 
 
     <Grid>

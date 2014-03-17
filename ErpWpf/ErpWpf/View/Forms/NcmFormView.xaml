@@ -5,7 +5,7 @@
         xmlns:Forms="clr-namespace:Erp.Model.Forms" xmlns:Rest="clr-namespace:Erp.View.Rest"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     x:Class="Erp.View.Forms.NcmFormView"
-        Title="Cadastro de NCM" Height="300" Width="600">
+        Title="Cadastro de NCM" Height="300" Width="600" Visibility="{Binding IsVisible, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
     <dx:DXWindow.DataContext>
         <Forms:NcmFormModel/>
     </dx:DXWindow.DataContext>

@@ -58,7 +58,7 @@ namespace Erp.Model
 
         public KeyGesture KeySair
         {
-            get { return _keySair ?? (_keySair = new KeyGesture(Key.Escape)); }
+            get { return _keySair ?? (_keySair = new KeyGesture(Key.F4,ModifierKeys.Control)); }
             set
             {
                 _keySair = value;

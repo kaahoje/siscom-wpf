@@ -1,0 +1,44 @@
+﻿<dx:DXWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:rest="clr-namespace:Erp.View.Rest"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:grids="clr-namespace:Erp.Model.Grids" x:Class="Erp.View.Selections.NcmSelectView"
+        Title="Seleção de NCM" Height="400" Width="724">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <rest:RestPesquisa x:Name="RestCommands" HorizontalAlignment="Left" 
+                           DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type dx:DXWindow}}}"
+                           Margin="0" Grid.Row="0" VerticalAlignment="Top" Width="716"/>
+
+        <Label Content="Filtro:" Grid.Row="1" Margin="5"/>
+        <dxe:TextEdit Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <dxg:GridControl HorizontalAlignment="Left"  x:Name="GridControl"
+			Margin="10" Grid.Row="2" VerticalAlignment="Top"
+			Width="702" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                         SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Codigo" Header="Código" IsSmart="True" Width="100"/>
+                <dxg:GridColumn FieldName="Descricao" Header="Descrição" IsSmart="True" Width="250"/>
+                <dxg:GridColumn FieldName="TributosNacionalIbpt" Header="Trib. nacional" IsSmart="True" Width="100"/>
+                <dxg:GridColumn FieldName="TributosImportadoIbpt" Header="Trib. importação" IsSmart="True" Width="100"/>
+                <dxg:GridColumn FieldName="Excessao" Header="Excessão" IsSmart="True" Width="100"/>
+
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView ShowTotalSummary="True" ShowGroupPanel="False"/>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+
+
+
+    </Grid>
+</dx:DXWindow>

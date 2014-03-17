@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{55625D1A-6E40-4259-93E8-4933525B96A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Erp.Business</RootNamespace>
+    <AssemblyName>Erp.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.AspNet">
+      <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.1.8.3\lib\net45\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip.1.9.2\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\packages\Npgsql.2.0.14.3\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Web.Optimization">
+      <HintPath>..\packages\Web.Optimization.0.0.8\lib\net40\Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Annotations\GridAnnotation.cs" />
+    <Compile Include="Annotations\IMenuDataAnnotation.cs" />
+    <Compile Include="Annotations\MenuDataAnnotation.cs" />
+    <Compile Include="AttributesFunctions.cs" />
+    <Compile Include="Common\CustomAttributes\ClassAttribute.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Common\CustomAttributes\MaskAttribute.cs" />
+    <Compile Include="DicionaryConverter.cs" />
+    <Compile Include="DicionaryEnumBase.cs" />
+    <Compile Include="DicionaryItem.cs" />
+    <Compile Include="Dicionary\FabricanteEcfDictionary.cs" />
+    <Compile Include="Dicionary\IatDictionary.cs" />
+    <Compile Include="Dicionary\IpptDictionary.cs" />
+    <Compile Include="Dicionary\LocalPedidoRestauranteDictionary.cs" />
+    <Compile Include="Dicionary\ModeloNotaFiscalDictionary.cs" />
+    <Compile Include="Dicionary\NaturezaContaDictionary.cs" />
+    <Compile Include="Dicionary\OperacaoNotaDaGenteDictionary.cs" />
+    <Compile Include="Dicionary\OrigemProdutoDictionary.cs" />
+    <Compile Include="Dicionary\RegimeTributacaoDictionary.cs" />
+    <Compile Include="Dicionary\SexoDictionary.cs" />
+    <Compile Include="Dicionary\SituacaoTributariaDictionary.cs" />
+    <Compile Include="Dicionary\SPEDInstituicaoResponsavelDictionary.cs" />
+    <Compile Include="Dicionary\TipoAmbienteDictionary.cs" />
+    <Compile Include="Dicionary\TipoContaDictionary.cs" />
+    <Compile Include="Dicionary\TipoEmailDictionary.cs" />
+    <Compile Include="Dicionary\TipoEnderecoDictionary.cs" />
+    <Compile Include="Dicionary\TipoPessoaDictionary.cs" />
+    <Compile Include="Dicionary\TipoProdutoDictionary.cs" />
+    <Compile Include="Dicionary\TipoTelefoneDictionary.cs" />
+    <Compile Include="Dicionary\TipoUsuarioDictionary.cs" />
+    <Compile Include="Entity\Configuracao\ConfiguracaoGeral.cs" />
+    <Compile Include="Entity\Configuracao\ConfiguracaoGeralMap.cs" />
+    <Compile Include="Entity\Configuracao\ConfiguracaoGeralRepository.cs" />
+    <Compile Include="Entity\Contabil\ClassesRelacoinadas\MesGerado.cs" />
+    <Compile Include="Entity\Contabil\ClassesRelacoinadas\MesGeradoMap.cs" />
+    <Compile Include="Entity\Contabil\ClassesRelacoinadas\MesGeradoRepository.cs" />
+    <Compile Include="Entity\Contabil\CustoFixo.cs" />
+    <Compile Include="Entity\Contabil\CustoFixoMap.cs" />
+    <Compile Include="Entity\Contabil\CustoFixoRepository.cs" />
+    <Compile Include="Entity\Contabil\Lancamento.cs" />
+    <Compile Include="Entity\Contabil\LancamentoMap.cs" />
+    <Compile Include="Entity\Contabil\LancamentoRepository.cs" />
+    <Compile Include="Entity\Contabil\PartidasLancamento.cs" />
+    <Compile Include="Entity\Contabil\PartidasLancamentoMap.cs" />
+    <Compile Include="Entity\Contabil\PartidasLancamentoRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\Endereco.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoBairro.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoBairroMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoBairroRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoCidade.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoCidadeMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoCidadeRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoEstado.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoEstadoMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoEstadoRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoPais.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoPaisMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoPaisRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\Endereco\EnderecoRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\PessoaContatoEletronico.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\PessoaContatoEletronicoMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\PessoaContatoEletronicoRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\PessoaEndereco.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\PessoaEnderecoMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\PessoaEnderecoRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\PessoaTelefone.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\PessoaTelefoneMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\ClassesRelacionadas\PessoaTelefoneRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\Pessoa.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\PessoaMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\PessoaRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\PessoaFisicaMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\PessoaFisicaRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaFisica.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaFisicaMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaFisicaRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeClasse.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeClasseMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeClasseRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeDivisao.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeDivisaoMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeDivisaoRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeGrupo.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeGrupoMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeGrupoRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeSecao.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeSecaoMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeSecaoRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeSubClasse.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeSubClasseMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\CnaeSubClasseRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\PessoaJuridicaXcnaeSubClasse.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\PessoaJuridicaXcnaeSubClasseMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\PessoaJuridicaXcnaeSubClasseRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\PessoaJuridicaMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\PessoaJuridicaRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaJuridicaRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaJuridica.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaJuridicaMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\Filial\Filial.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\Filial\FilialMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\Filial\FilialRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\PessoaFisica.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\PessoaJuridica.cs" />
+    <Compile Include="Entity\Contabil\TipoLancamento.cs" />
+    <Compile Include="Entity\Contabil\TipoLancamentoMap.cs" />
+    <Compile Include="Entity\Contabil\TipoLancamentoRepository.cs" />
+    <Compile Include="Entity\Contabil\Titulo.cs" />
+    <Compile Include="Entity\Contabil\TituloMap.cs" />
+    <Compile Include="Entity\Contabil\TituloRepository.cs" />
+    <Compile Include="Entity\Contabil\Transferencia.cs" />
+    <Compile Include="Entity\Contabil\TransferenciaMap.cs" />
+    <Compile Include="Entity\Contabil\TransferenciaRepository.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\GrupoProduto.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\GrupoProdutoMap.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\GrupoProdutoRepository.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\MovimentacaoProduto.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\MovimentacaoProdutoMap.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\Receita.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\ReceitaMap.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\ReceitaRepository.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\SubGrupoProduto.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\SubGrupoProdutoMap.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\SubGrupoProdutoRepository.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\Unidade.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\UnidadeMap.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\UnidadeRepository.cs" />
+    <Compile Include="Entity\Sistema\Seguranca\FormularioPermissao.cs" />
+    <Compile Include="Entity\Sistema\Seguranca\FormularioPermissaoMap.cs" />
+    <Compile Include="Entity\Sistema\Seguranca\RelatorioPermissao.cs" />
+    <Compile Include="Entity\Sped\CstCofinsRepository.cs" />
+    <Compile Include="Entity\Sped\CstIpiRepository.cs" />
+    <Compile Include="Entity\Sped\CstPisRepository.cs" />
+    <Compile Include="Enum\EnderecoTipo.cs" />
+    <Compile Include="Enum\Formulario.cs" />
+    <Compile Include="Enum\OrigemProduto.cs" />
+    <Compile Include="Entity\Estoque\Produto\Produto.cs" />
+    <Compile Include="Entity\Estoque\Produto\ProdutoMap.cs" />
+    <Compile Include="Entity\Estoque\Produto\ProdutoRepository.cs" />
+    <Compile Include="Entity\Estoque\Produto\SubClass\Filme\ClassesRelacionadas\Genero.cs" />
+    <Compile Include="Entity\Estoque\Produto\SubClass\Filme\ClassesRelacionadas\GeneroMap.cs" />
+    <Compile Include="Entity\Estoque\Produto\SubClass\Filme\Filme.cs" />
+    <Compile Include="Entity\Estoque\Produto\SubClass\Filme\FilmeMap.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\CFOP.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\CFOPMap.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\CfopRepository.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\NaturezaInterna.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\NaturezaInternaMap.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\NaturezaInternaRepository.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\NotaFiscalPagamento.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\NotaFiscalPagamentoMap.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\NotaFiscalPagamentoRepository.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\ProdutoNotaFiscal.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\ProdutoNotaFiscalMap.cs" />
+    <Compile Include="Entity\Fiscal\ClassesRelacionadas\ProdutoNotaFiscalRepository.cs" />
+    <Compile Include="Entity\Fiscal\NotaFiscal.cs" />
+    <Compile Include="Entity\Fiscal\NotaFiscalMap.cs" />
+    <Compile Include="Entity\Fiscal\NotaFiscalRepository.cs" />
+    <Compile Include="Entity\GestaoDeArquivos\ArquivoDigital.cs" />
+    <Compile Include="Entity\GestaoDeArquivos\ArquivoDigitalMap.cs" />
+    <Compile Include="Entity\GestaoDeArquivos\ArquivoDigitalRepository.cs" />
+    <Compile Include="Entity\GestaoDeArquivos\TipoArquivoDigital.cs" />
+    <Compile Include="Entity\GestaoDeArquivos\TipoArquivoDigitalMap.cs" />
+    <Compile Include="Entity\GestaoDeArquivos\TipoArquivoDigitalRepository.cs" />
+    <Compile Include="Entity\NomesTabela.cs" />
+    <Compile Include="Entity\Sistema\Menu\SistemaMenu.cs" />
+    <Compile Include="Entity\Sistema\Menu\SistemaMenuMap.cs" />
+    <Compile Include="Entity\Sistema\Menu\SistemaMenuRepository.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\Tributacao.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\TributacaoMap.cs" />
+    <Compile Include="Entity\Estoque\Produto\ClassesRelacionadas\TributacaoRepository.cs" />
+    <Compile Include="Entity\Sped\Cst.cs" />
+    <Compile Include="Entity\Sped\CstCofins.cs" />
+    <Compile Include="Entity\Sped\CstCofinsMap.cs" />
+    <Compile Include="Entity\Sped\CstIpi.cs" />
+    <Compile Include="Entity\Sped\CstIpiMap.cs" />
+    <Compile Include="Entity\Sped\CstMap.cs" />
+    <Compile Include="Entity\Sped\CstPis.cs" />
+    <Compile Include="Entity\Sped\CstPisMap.cs" />
+    <Compile Include="Entity\Sped\CstRepository.cs" />
+    <Compile Include="Entity\Sped\Ncm.cs" />
+    <Compile Include="Entity\Sped\NcmMap.cs" />
+    <Compile Include="Entity\Sped\NcmRepository.cs" />
+    <Compile Include="Entity\Sped\PlanoContaReferencial.cs" />
+    <Compile Include="Entity\Sped\PlanoContaReferencialMap.cs" />
+    <Compile Include="Entity\Sped\PlanoContaReferencialRepository.cs" />
+    <Compile Include="Entity\Sped\SPEDInstituicaoResponsavelCadastro.cs" />
+    <Compile Include="Entity\Sped\SPEDInstituicaoResponsavelCadastroMap.cs" />
+    <Compile Include="Entity\Sped\SPEDInstituicaoResponsavelCadastroRepositorio.cs" />
+    <Compile Include="Entity\Sped\Tipi.cs" />
+    <Compile Include="Entity\Sped\TipiMap.cs" />
+    <Compile Include="Entity\Sped\TipiRepositorio.cs" />
+    <Compile Include="Entity\Vendas\Ecf\ReducaoZ.cs" />
+    <Compile Include="Entity\Vendas\Ecf\ReducaoZMap.cs" />
+    <Compile Include="Entity\Vendas\Ecf\ReducaoZRepository.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\MovimentacaoCaixa.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\MovimentacaoCaixaMap.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\MovimentacaoCaixaRepository.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\LancamentoInicial\LancamentoInicial.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\LancamentoInicial\LancamentoInicialMap.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\LancamentoInicial\LancamentoInicialRepository.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\MovimentacaoVendedor\MovimentacaoVendedor.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\MovimentacaoVendedor\MovimentacaoVendedorMap.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\MovimentacaoVendedor\MovimentacaoVendedorRepository.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\PagamentoCliente\ClassesRelacionadas\TipoRecebimentoCliente.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\PagamentoCliente\ClassesRelacionadas\TipoRecebimentoClienteMap.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\PagamentoCliente\ClassesRelacionadas\TipoRecebimentoClienteRepository.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\PagamentoCliente\PagamentoCliente.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\PagamentoCliente\PagamentoClienteMap.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\PagamentoCliente\PagamentoClienteRepository.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\RecebimentoVenda\RecebimentoVenda.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\RecebimentoVenda\RecebimentoVendaMap.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\RecebimentoVenda\RecebimentoVendaRepository.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\Sangria\Sangria.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\Sangria\SangriaMap.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\Sangria\SangriaRepository.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\Suprimento\Suprimento.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\Suprimento\SuprimentoMap.cs" />
+    <Compile Include="Entity\Vendas\MovimentacaoCaixa\SubClass\Suprimento\SuprimentoRepository.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\CondicaoPagamento.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\CondicaoPagamentoMap.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\CondicaoPagamentoRepository.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\ControlePedido.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\ControlePedidoMap.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\ControlePedidoRepository.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\FormaPagamento.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\FormaPagamentoMap.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\FormaPagamentoRepository.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\PagamentoPedido.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\PagamentoPedidoMap.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\PagamentoPedidoRepository.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\PrazoPagamentoCondicaoPagamento.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\PrazoPagamentoCondicaoPagamentoMap.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\PrazoPagamentoCondicaoPagamentoRepository.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\ProdutoPedido.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\ProdutoPedidoMap.cs" />
+    <Compile Include="Entity\Vendas\Pedido\ClassesRelacionadas\ProdutoPedidoRepository.cs" />
+    <Compile Include="Entity\Vendas\Pedido\Mercearia\Mercearia.cs" />
+    <Compile Include="Entity\Vendas\Pedido\Mercearia\MerceariaMap.cs" />
+    <Compile Include="Entity\Vendas\Pedido\Mercearia\MerceariaRepository.cs" />
+    <Compile Include="Entity\Vendas\Pedido\Pedido.cs" />
+    <Compile Include="Entity\Vendas\Pedido\PedidoMap.cs" />
+    <Compile Include="Entity\Vendas\Pedido\PedidoRepository.cs" />
+    <Compile Include="Entity\Vendas\Pedido\Restaurante\ClassesRelacionadas\ComposicaoProduto.cs" />
+    <Compile Include="Entity\Vendas\Pedido\Restaurante\ClassesRelacionadas\ComposicaoProdutoMap.cs" />
+    <Compile Include="Entity\Vendas\Pedido\Restaurante\ClassesRelacionadas\ComposicaoProdutoRepository.cs" />
+    <Compile Include="Entity\Vendas\Pedido\Restaurante\PedidoRestaurante.cs" />
+    <Compile Include="Entity\Vendas\Pedido\Restaurante\PedidoRestauranteMap.cs" />
+    <Compile Include="Entity\Vendas\Pedido\Restaurante\PedidoRestauranteRepository.cs" />
+    <Compile Include="Enum\ConfNomesBancoDados.cs" />
+    <Compile Include="Enum\EntradaSaida.cs" />
+    <Compile Include="Enum\FabricanteEcf.cs" />
+    <Compile Include="Enum\Iat.cs" />
+    <Compile Include="Enum\Idioma.cs" />
+    <Compile Include="Enum\IndicadorTotalizacao.cs" />
+    <Compile Include="Enum\Ippt.cs" />
+    <Compile Include="Enum\LocalPedidoRestaurante.cs" />
+    <Compile Include="Enum\ModeloNotaFiscal.cs" />
+    <Compile Include="Enum\NaturecaConta.cs" />
+    <Compile Include="Enum\NFeFinalidadeEmissao.cs" />
+    <Compile Include="Enum\NFeFormatoDanfe.cs" />
+    <Compile Include="Enum\NFeIndicadorPagamento.cs" />
+    <Compile Include="Enum\NFeIndicadorTotal.cs" />
+    <Compile Include="Enum\NFeTipoAmbiente.cs" />
+    <Compile Include="Enum\NFeTipoEmissao.cs" />
+    <Compile Include="Enum\NFeTipoOperacao.cs" />
+    <Compile Include="Enum\NivelRelatorio.cs" />
+    <Compile Include="Enum\OperacaoNotaDaGente.cs" />
+    <Compile Include="Enum\RegimeTributacao.cs" />
+    <Compile Include="Enum\Relatorio.cs" />
+    <Compile Include="Enum\Sexo.cs" />
+    <Compile Include="Enum\SituacaoTributaria.cs" />
+    <Compile Include="Enum\SPEDIndicadorSituacaoEspecial.cs" />
+    <Compile Include="Enum\SPEDInstituicaoResponsavel.cs" />
+    <Compile Include="Enum\SPEDQualificacaoAssinantes.cs" />
+    <Compile Include="Enum\SPEDTipoRelacionamento.cs" />
+    <Compile Include="Enum\Status.cs" />
+    <Compile Include="Enum\TelefoneTipo.cs" />
+    <Compile Include="Enum\Theme.cs" />
+    <Compile Include="Enum\TipoAmbiente.cs" />
+    <Compile Include="Enum\TipoConta.cs" />
+    <Compile Include="Enum\TipoContato.cs" />
+    <Compile Include="Enum\TipoContatoEletronico.cs" />
+    <Compile Include="Enum\TipoPessoa.cs" />
+    <Compile Include="Enum\TipoProduto.cs" />
+    <Compile Include="Enum\TipoTerminal.cs" />
+    <Compile Include="Enum\TipoUsuario.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="InformacoesIniciais\DadosDemonstracao.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciaiEstoque.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciais.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciaisCfop.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciaisCnae.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciaisCst.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciaisFinanceiro.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciaisMenu.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciaisNcm.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciaisPerfil.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciaisSPED.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciaisTerminal.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciaisVenda.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciais_Administrador.cs" />
+    <Compile Include="InformacoesIniciais\DadosIniciais_Endereco.cs" />
+    <Compile Include="DataBaseManager.cs" />
+    <Compile Include="InformacoesIniciais\MapeamentoXML\PaisList.cs" />
+    <Compile Include="InformacoesIniciais\MapeamentoXML\PlanoContaReferencialXml.cs" />
+    <Compile Include="NHibernateHttpModule.cs" />
+    <Compile Include="NotaDaGente\ClassesRelacionadas\AbstractRegister.cs" />
+    <Compile Include="NotaDaGente\ClassesRelacionadas\NotaDaGenteNotaFiscal.cs" />
+    <Compile Include="NotaDaGente\ClassesRelacionadas\NotaDaGenteProdutoNotaFiscal.cs" />
+    <Compile Include="NotaDaGente\NotaDaGente.cs" />
+    <Compile Include="NotaFiscalEletronica\CupomFiscalReferenciado.cs" />
+    <Compile Include="NotaFiscalEletronica\EnderecoDestinatario.cs" />
+    <Compile Include="NotaFiscalEletronica\EnderecoEmitente.cs" />
+    <Compile Include="NotaFiscalEletronica\FiscoEmitente.cs" />
+    <Compile Include="NotaFiscalEletronica\IdentificacaoEmitente.cs" />
+    <Compile Include="NotaFiscalEletronica\IdentificacaoNFe.cs" />
+    <Compile Include="NotaFiscalEletronica\InformacaoDestinatario.cs" />
+    <Compile Include="NotaFiscalEletronica\InformacaoReferenciada.cs" />
+    <Compile Include="NotaFiscalEletronica\LocalEntrega.cs" />
+    <Compile Include="NotaFiscalEletronica\LocalRetirada.cs" />
+    <Compile Include="NotaFiscalEletronica\NotaFiscal.cs" />
+    <Compile Include="NotaFiscalEletronica\NotaModelo1AReferenciada.cs" />
+    <Compile Include="NotaFiscalEletronica\NotaProdutorRuralReferenciada.cs" />
+    <Compile Include="NotaFiscalEletronica\ProdutoNotaFiscal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryBase.cs" />
+    <Compile Include="Seguranca\SegurancaUtils.cs" />
+    <Compile Include="SqlInterceptor.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="Validation\CustomValidations\PessoaFisicaValidation.cs" />
+    <Compile Include="Validation\CustomValidations\ProdutoDescricaoUniqueValidation.cs" />
+    <Compile Include="Validation\CustomValidations\CpfCnpjValidation.cs" />
+    <Compile Include="Validation\DataValidation.cs" />
+    <Compile Include="Validation\EntityValidationResult.cs" />
+    <Compile Include="Validation\EntityValidator.cs" />
+    <Compile Include="Validation\Validation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entity\Sistema\Administrador\" />
+    <Folder Include="Entity\Sped\ClassesRelacionadas\" />
+    <Folder Include="Entity\Vendas\Pedido\Locadora\" />
+    <Folder Include="EventArgs\" />
+    <Folder Include="Events\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{88f82ef3-de24-491f-89ed-93b4dc95af6c}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll">
+      <Link>AutoMapper.Net4.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8998C18A-F179-4A28-8515-C02982BFF7D5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Erp</RootNamespace>
+    <AssemblyName>Erp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Docking.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Layout.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Mvvm.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Printing.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Ribbon.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Scheduler.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="FluentNHibernate, Version=1.4.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Npgsql.2.0.14.3\lib\net45\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.0.14.3, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Npgsql.2.0.14.3\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Model\Forms\CondicaoPagamentoFormModel.cs" />
+    <Compile Include="Model\Forms\FormaPagamentoFormModel.cs" />
+    <Compile Include="Model\Forms\NcmFormModel.cs" />
+    <Compile Include="Model\Forms\ProdutoFormModel.cs" />
+    <Compile Include="Model\Grids\CondicaoPagamentoSelectModel.cs" />
+    <Compile Include="Model\Grids\FormaPagamentoSelectModel.cs" />
+    <Compile Include="Model\Grids\NcmSelectModel.cs" />
+    <Compile Include="Model\Grids\ProdutoSelectModel.cs" />
+    <Compile Include="Model\ModelBase.cs" />
+    <Compile Include="Model\ModelFormGeneric.cs" />
+    <Compile Include="Model\ModelSelectBase.cs" />
+    <Compile Include="Model\ModelSelectGeneric.cs" />
+    <Compile Include="Properties\Annotations1.cs" />
+    <Compile Include="View\Forms\CondicaoPagamentoFormView.xaml.cs">
+      <DependentUpon>CondicaoPagamentoFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\FormaPagamentoFormView.xaml.cs">
+      <DependentUpon>FormaPagamentoFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\FormDefaultActions.cs" />
+    <Compile Include="View\Forms\NcmFormView.xaml.cs">
+      <DependentUpon>NcmFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\ProdutoFormView.xaml.cs">
+      <DependentUpon>ProdutoFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rest\RestForm.xaml.cs">
+      <DependentUpon>RestForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rest\RestPesquisa.xaml.cs">
+      <DependentUpon>RestPesquisa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\CondicaoPagamentoSelectView.xaml.cs">
+      <DependentUpon>CondicaoPagamentoSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\FormaPagamentoSelectView.xaml.cs">
+      <DependentUpon>FormaPagamentoSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\NcmSelectView.xaml.cs">
+      <DependentUpon>NcmSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\ProdutoSelectView.xaml.cs">
+      <DependentUpon>ProdutoSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\SelectionDefaultActions.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\Forms\CondicaoPagamentoFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\FormaPagamentoFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\NcmFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\ProdutoFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Rest\RestForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Rest\RestPesquisa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\CondicaoPagamentoSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\FormaPagamentoSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\NcmSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\ProdutoSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\ModelFormBase.cs" />
+    <Compile Include="Model\RetaguardaModel.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Arquivos\dados.zip" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.FabricanteEcfDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.IatDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.IpptDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.LocalPedidoRestauranteDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.ModeloNotaFiscalDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.NaturezaContaDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.OperacaoNotaDaGenteDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.OrigemProdutoDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.RegimeTributacaoDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.SexoDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.SituacaoTributariaDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.SpedInstituicaoResponsavelDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoAmbienteDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoContaDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoEmailDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoEnderecoDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoPessoaDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoProdutoDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoTelefoneDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoUsuarioDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas.GrupoProduto.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas.SubGrupoProduto.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas.Unidade.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Estoque.Produto.Produto.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Sped.Ncm.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\sair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Erp.Business\Erp.Business.csproj">
+      <Project>{55625d1a-6e40-4259-93e8-4933525b96a9}</Project>
+      <Name>Erp.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{88f82ef3-de24-491f-89ed-93b4dc95af6c}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\adicionar pedido.png" />
+    <Resource Include="Images\agenda.png" />
+    <Resource Include="Images\cancelar.png" />
+    <Resource Include="Images\cash.png" />
+    <Resource Include="Images\cliente.png" />
+    <Resource Include="Images\configuracao.png" />
+    <Resource Include="Images\consulta pedido.png" />
+    <Resource Include="Images\custo fixo.png" />
+    <Resource Include="Images\encerrar dia.png" />
+    <Resource Include="Images\formapagamento.png" />
+    <Resource Include="Images\novo pedido.png" />
+    <Resource Include="Images\ordem de producao.png" />
+    <Resource Include="Images\produto.png" />
+    <Resource Include="Images\titulos.png" />
+    <Resource Include="Images\titulos2.png" />
+    <Resource Include="Images\usuario.png" />
+    <Resource Include="Images\vendedor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mercosul.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

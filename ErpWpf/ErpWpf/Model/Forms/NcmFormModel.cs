@@ -9,8 +9,18 @@ namespace Erp.Model.Forms
         {
             ModelSelect = new NcmSelectModel();
             Entity = new Ncm();
+            IsSalvar = false;
+            IsExcluir = false;
         }
 
-        
+        public override void Salvar()
+        {
+            MensagemErro(MensagemFuncaoNaoSuportada);
+        }
+
+        public override void Excluir()
+        {
+            MensagemErro(MensagemFuncaoNaoSuportada);
+        }
     }
 }

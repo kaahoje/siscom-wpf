@@ -101,10 +101,12 @@
     </ApplicationDefinition>
     <Compile Include="Model\Forms\CondicaoPagamentoFormModel.cs" />
     <Compile Include="Model\Forms\FormaPagamentoFormModel.cs" />
+    <Compile Include="Model\Forms\GrupoProdutoFormModel.cs" />
     <Compile Include="Model\Forms\NcmFormModel.cs" />
     <Compile Include="Model\Forms\ProdutoFormModel.cs" />
     <Compile Include="Model\Grids\CondicaoPagamentoSelectModel.cs" />
     <Compile Include="Model\Grids\FormaPagamentoSelectModel.cs" />
+    <Compile Include="Model\Grids\GrupoProdutoSelectModel.cs" />
     <Compile Include="Model\Grids\NcmSelectModel.cs" />
     <Compile Include="Model\Grids\ProdutoSelectModel.cs" />
     <Compile Include="Model\ModelBase.cs" />
@@ -119,6 +121,9 @@
       <DependentUpon>FormaPagamentoFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\FormDefaultActions.cs" />
+    <Compile Include="View\Forms\GrupoProdutoFormView.xaml.cs">
+      <DependentUpon>GrupoProdutoFormView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\NcmFormView.xaml.cs">
       <DependentUpon>NcmFormView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +141,9 @@
     </Compile>
     <Compile Include="View\Selections\FormaPagamentoSelectView.xaml.cs">
       <DependentUpon>FormaPagamentoSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\GrupoProdutoSelectView.xaml.cs">
+      <DependentUpon>GrupoProdutoSelectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Selections\NcmSelectView.xaml.cs">
       <DependentUpon>NcmSelectView.xaml</DependentUpon>
@@ -164,6 +172,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Forms\GrupoProdutoFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Forms\NcmFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Selections\FormaPagamentoSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\GrupoProdutoSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

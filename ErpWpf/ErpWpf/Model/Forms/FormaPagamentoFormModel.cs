@@ -18,6 +18,7 @@ namespace Erp.Model.Forms
                 if (IsValid(Entity))
                 {
                     FormaPagamentoRepository.Save(Entity);
+                    Entity = new FormaPagamento();
                     base.Salvar();
                 }
             }
@@ -44,16 +45,6 @@ namespace Erp.Model.Forms
             }
         }
 
-        private FormaPagamento _entity;
-
-        public new FormaPagamento Entity
-        {
-            get { return _entity ?? (_entity = new FormaPagamento()); }
-            set
-            {
-                _entity = value; 
-                OnPropertyChanged("Entity");
-            }
-        }
+        
     }
 }

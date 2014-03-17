@@ -26,8 +26,14 @@ namespace Erp.View.Forms
             window.WindowStyle = WindowStyle.ToolWindow;
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.ResizeMode = ResizeMode.NoResize;
-            
 
+            Model.Fechar += Model_Fechar;
+
+        }
+
+        void Model_Fechar(object sender, EventArgs e)
+        {
+            Window.Close();
         }
 
 
@@ -53,10 +59,6 @@ namespace Erp.View.Forms
                             if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
                             {
                                 Model.Sair();
-                                if (Model.IsVisible == Visibility.Hidden)
-                                {
-                                    Window.Close();
-                                }
                             }
                             break;
                     }

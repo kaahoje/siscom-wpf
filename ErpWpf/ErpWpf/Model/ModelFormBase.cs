@@ -6,6 +6,7 @@ using Util.Wpf;
 
 namespace Erp.Model
 {
+    public delegate void FecharEventHandler(object sender, EventArgs e);
     public class ModelFormBase : ModelBase
     {
         public ModelFormBase()
@@ -135,6 +136,7 @@ namespace Erp.Model
             if (result == MessageBoxResult.Yes)
             {
                 IsVisible = Visibility.Hidden;
+                OnFechar();
             }
 
         }
@@ -164,7 +166,13 @@ namespace Erp.Model
 
         #region Eventos
 
+        public event FecharEventHandler Fechar;
 
+        protected virtual void OnFechar()
+        {
+            FecharEventHandler handler = Fechar;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
 
         #endregion
 

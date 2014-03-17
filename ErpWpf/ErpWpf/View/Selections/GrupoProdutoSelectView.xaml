@@ -1,13 +1,11 @@
-﻿<dx:DXWindow
+﻿<dx:DXWindow x:Class="Erp.View.Selections.GrupoProdutoSelectView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:rest="clr-namespace:Erp.View.Rest"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-        xmlns:grids="clr-namespace:Erp.Model.Grids" x:Class="Erp.View.Selections.NcmSelectView"
-        Title="Seleção de NCM" Height="400" Width="708">
-
+        Title="GrupoProdutoSelectView" Height="393.609" Width="468.045">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -23,22 +21,14 @@
 
         <dxg:GridControl HorizontalAlignment="Left"  x:Name="GridControl"
 			Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"
-			Width="684" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+			Width="445" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                          SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <dxg:GridControl.Columns>
-                <dxg:GridColumn FieldName="Codigo" Header="Código" IsSmart="True" Width="100"/>
                 <dxg:GridColumn FieldName="Descricao" Header="Descrição" IsSmart="True" Width="250"/>
-                <dxg:GridColumn FieldName="TributosNacionalIbpt" Header="Trib. nacional" IsSmart="True" Width="100"/>
-                <dxg:GridColumn FieldName="TributosImportadoIbpt" Header="Trib. importação" IsSmart="True" Width="100"/>
-                <dxg:GridColumn FieldName="Excessao" Header="Excessão" IsSmart="True" Width="100"/>
-
             </dxg:GridControl.Columns>
             <dxg:GridControl.View>
-                <dxg:TableView ShowGroupPanel="False"/>
+                <dxg:TableView ShowGroupPanel="False" Margin="0,0,0,-8"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
-
-
-
     </Grid>
 </dx:DXWindow>

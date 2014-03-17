@@ -34,6 +34,7 @@ namespace Erp.Model.Forms
                 if (IsValid(Entity))
                 {
                     ProdutoRepository.Save(Entity);
+                    Entity = new Produto();
                     base.Salvar();
                 }
                 
@@ -52,6 +53,7 @@ namespace Erp.Model.Forms
                 {
                     Entity.Status = Status.Excluido;
                     ProdutoRepository.Save(Entity);
+                    Entity = new Produto();
                     base.Excluir();
                 }
                 

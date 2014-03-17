@@ -6,7 +6,8 @@
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:forms="clr-namespace:Erp.Model.Forms"
         x:Class="Erp.View.Forms.FormaPagamentoFormView"
-        Title="Forma de pagamento" Height="400" Width="500">
+        Title="Forma de pagamento" Height="400" Width="500"
+    Visibility="{Binding IsVisible, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" WindowStyle="None">
     <dx:DXWindow.DataContext>
         <forms:FormaPagamentoFormModel/>
     </dx:DXWindow.DataContext>
@@ -21,7 +22,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="200"/>
-                
+
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="75"/>

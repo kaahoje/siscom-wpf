@@ -157,7 +157,7 @@ namespace Erp.Model
         protected virtual void OperacaoConcluida()
         {
             DXMessageBox.Show(string.Format(MensagemOperacaoConcluida, ComplementoMensagem));
-            IsVisible = Visibility.Hidden;
+            
         }
 
 

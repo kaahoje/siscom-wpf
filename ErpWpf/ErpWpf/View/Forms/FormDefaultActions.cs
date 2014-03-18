@@ -6,13 +6,13 @@ using Erp.Model;
 
 namespace Erp.View.Forms
 {
-    public class FormDefaultActions
+    public class FormDefaultActions<T>
     {
         private DXWindow Window { get; set; }
         public bool IsEnableShortcuts { get; set; }
-        private ModelFormBase Model
+        private ModelFormGeneric<T> Model
         {
-            get { return (ModelFormBase)Window.DataContext; }
+            get { return (ModelFormGeneric<T>)Window.DataContext; }
         }
 
         public FormDefaultActions(DXWindow window)
@@ -24,6 +24,9 @@ namespace Erp.View.Forms
             window.WindowStyle = WindowStyle.ToolWindow;
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.ResizeMode = ResizeMode.NoResize;
+
+            // Adiciona o contexto do modelo do formulário à tela de pesquisa.
+            Model.ModelSelect.WindowSelect.DataContext = Model.ModelSelect;
 
             Model.Fechar += Model_Fechar;
 

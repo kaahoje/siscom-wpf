@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B1C00F5-A902-4AC8-8B0F-F735375C6477}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ecf</RootNamespace>
+    <AssemblyName>Ecf</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bematech">
+      <HintPath>..\..\Bematech F. B\Bematech.dll</HintPath>
+    </Reference>
+    <Reference Include="Bematech.Fiscal">
+      <HintPath>..\..\Bematech F. B\Bematech.Fiscal.dll</HintPath>
+    </Reference>
+    <Reference Include="Bematech.MiniImpressoras">
+      <HintPath>..\..\Bematech F. B\Bematech.MiniImpressoras.dll</HintPath>
+    </Reference>
+    <Reference Include="Bematech.Perifericos">
+      <HintPath>..\..\Bematech F. B\Bematech.Perifericos.dll</HintPath>
+    </Reference>
+    <Reference Include="Bematech.Relatorios">
+      <HintPath>..\..\Bematech F. B\Bematech.Relatorios.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="FluentNHibernate, Version=1.3.0.733, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Mono.Security">
+      <HintPath>..\packages\Npgsql.2.0.14.3\lib\net45\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\packages\Npgsql.2.0.14.3\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractEcf.cs" />
+    <Compile Include="Dicionary\TipoAliquotaDicionary.cs" />
+    <Compile Include="Enum\TipoAliquota.cs" />
+    <Compile Include="Forms\FormCadastrarAliquota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCadastrarAliquota.Designer.cs">
+      <DependentUpon>FormCadastrarAliquota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCadastrarFormaPagameto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCadastrarFormaPagameto.Designer.cs">
+      <DependentUpon>FormCadastrarFormaPagameto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImplementacaoEcf\BematechEcf.cs" />
+    <Compile Include="ClienteCupom.cs" />
+    <Compile Include="ImplementacaoEcf\ClassesRelacionadas\Aliquota.cs" />
+    <Compile Include="ImplementacaoEcf\ClassesRelacionadas\Metodos.cs" />
+    <Compile Include="ImplementacaoEcf\DarumaEcf.cs" />
+    <Compile Include="EcfHelper.cs" />
+    <Compile Include="Enum\CupomFiscalAdicional.cs" />
+    <Compile Include="Enum\RetornoTef.cs" />
+    <Compile Include="Enum\StatusCupomFiscal.cs" />
+    <Compile Include="Enum\StatusRelatorioGerencial.cs" />
+    <Compile Include="Enum\TipoDescontoAcressimo.cs" />
+    <Compile Include="Forms\FormLeituraMemoriaFiscal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLeituraMemoriaFiscal.Designer.cs">
+      <DependentUpon>FormLeituraMemoriaFiscal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormMenuFiscal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMenuFiscal.Designer.cs">
+      <DependentUpon>FormMenuFiscal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSolicitaDadosCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSolicitaDadosCliente.Designer.cs">
+      <DependentUpon>FormSolicitaDadosCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImplementacaoEcf\ErroConfiguracaoEcf.cs" />
+    <Compile Include="Pagamento.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormCadastrarAliquota.resx">
+      <DependentUpon>FormCadastrarAliquota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCadastrarFormaPagameto.resx">
+      <DependentUpon>FormCadastrarFormaPagameto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLeituraMemoriaFiscal.resx">
+      <DependentUpon>FormLeituraMemoriaFiscal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMenuFiscal.resx">
+      <DependentUpon>FormMenuFiscal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSolicitaDadosCliente.resx">
+      <DependentUpon>FormSolicitaDadosCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Fakes Include="Fakes\Bematech.fakes" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Ecf.Dicionary.TipoAliquotaDicionary.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Erp.Business\Erp.Business.csproj">
+      <Project>{55625D1A-6E40-4259-93E8-4933525B96A9}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{88F82EF3-DE24-491F-89ED-93B4DC95AF6C}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsControls\WindowsControls.csproj">
+      <Project>{235bab0d-accc-4ff1-a1ff-3d2f647bb85b}</Project>
+      <Name>WindowsControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

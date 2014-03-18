@@ -26,7 +26,7 @@ namespace Erp.Business.Entity.Estoque.Produto
         public virtual int Id { get; set; }
 
         [Required(ErrorMessage = Constants.MessageRequiredError)]
-        [StringLength(50, MinimumLength = 5, ErrorMessage = Constants.MessageLengthDescriptionError)]
+        [StringLength(Constants.MaxLengthNames, MinimumLength = Constants.MinLengthNames, ErrorMessage = Constants.MessageLengthDescriptionError)]
         [Display(Name = "Descrição", Order = 1)]
         public virtual string Descricao { get; set; }
 

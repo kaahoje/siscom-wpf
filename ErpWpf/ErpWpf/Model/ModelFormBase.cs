@@ -6,7 +6,7 @@ using Util.Wpf;
 
 namespace Erp.Model
 {
-    public delegate void FecharEventHandler(object sender, EventArgs e);
+    
     public class ModelFormBase : ModelBase
     {
         public ModelFormBase()
@@ -164,17 +164,7 @@ namespace Erp.Model
 
         #endregion
 
-        #region Eventos
-
-        public event FecharEventHandler Fechar;
-
-        protected virtual void OnFechar()
-        {
-            FecharEventHandler handler = Fechar;
-            if (handler != null) handler(this, EventArgs.Empty);
-        }
-
-        #endregion
+        
 
         #region Propriedades
 

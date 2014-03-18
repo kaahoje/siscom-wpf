@@ -25,8 +25,7 @@ namespace Erp.View.Selections
             window.WindowStyle = WindowStyle.ToolWindow;
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.ResizeMode = ResizeMode.NoResize;
-            window.WindowStyle = WindowStyle.None;
-            
+           
             CreateBindings();
         }
 

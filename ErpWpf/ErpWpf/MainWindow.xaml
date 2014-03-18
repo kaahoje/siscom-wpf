@@ -5,7 +5,7 @@
     xmlns:model1="clr-namespace:Erp.Model"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     x:Class="Erp.MainWindow"
-        Title="Sistema ERP" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="MainWindow_OnLoaded">
+        Title="Sistema ERP" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="MainWindow_OnLoaded" Closed="MainWindow_OnClosed">
     <Window.DataContext>
         <model1:RetaguardaModel/>
     </Window.DataContext>
@@ -18,20 +18,22 @@
                 <dxb:BarButtonItem x:Name="barButtonItem3" Content="Forma. Pagamento" RibbonStyle="Large" Glyph="pack://application:,,,/Erp;component/Images/formapagamento.png" Command="{Binding CmdAbrirTelaFormaPagamento}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem5" Content="Ncm" Command="{Binding CmdAbrirTelaNcm}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem4" Content="Grupo de produto" Command="{Binding CmdAbrirTelaGrupoProduto}"/>
-                <dxb:BarButtonItem x:Name="barButtonItem6" Content="Subgrupo de produto"/>
-                <dxb:BarButtonItem x:Name="barButtonItem7" Content="Unidades"/>
+                <dxb:BarButtonItem x:Name="barButtonItem6" Content="Subgrupo de produto" Command="{Binding CmdAbrirTelaSubGrupoProduto}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem7" Content="Unidades" Command="{Binding CmdAbrirTelaUnidade}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem8" Content="Parceiros" RibbonStyle="Large"/>
+                <dxb:BarButtonItem x:Name="barButtonItem9" Content="Atualizar produtos" RibbonStyle="Large" Command="{Binding CmdAbrirTelaAtualizacaoProduto}"/>
             </dxb:BarManager.Items>
             <DockPanel>
-                
+
                 <dxr:RibbonControl DockPanel.Dock="Top">
                     <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
                         <dxr:RibbonPage Caption="Cadastros">
-                            <dxr:RibbonPageGroup Caption="Principais" ShowCaptionButton="False">
+                            <dxr:RibbonPageGroup Caption="Principais" ShowCaptionButton="True">
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem1"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem2"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem3"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem8"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem9"/>
                             </dxr:RibbonPageGroup>
                             <dxr:RibbonPageGroup Caption="Demais cadastros">
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem5"/>

@@ -1,0 +1,71 @@
+﻿<dx:DXWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rest="clr-namespace:Erp.View.Rest"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:Grids="clr-namespace:Erp.Model.Grids" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:Extras="clr-namespace:Erp.Model.Extras"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    x:Class="Erp.View.Extras.AtualizacaoProdutoFormView"
+        Title="Atualização do cadastro de produtos" Height="439.85" Width="768.045" WindowStartupLocation="CenterScreen" Visibility="{Binding IsVisible}">
+    <Window.DataContext>
+        <Extras:AtualizacaoProdutoFormModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Filtro:" Grid.Row="1" Margin="5"/>
+        <dxe:TextEdit Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <dxg:GridControl HorizontalAlignment="Left" 
+			Margin="10" Grid.Row="2" VerticalAlignment="Top"
+			Width="740" Height="253" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Descricao" Header="Descrição" Width="300"/>
+                <dxg:GridColumn FieldName="NumeroCardapio" Header="N. cardápio" Width="75"/>
+                <dxg:GridColumn FieldName="Tamanho" Header="Tamanho" Width="70"/>
+                <dxg:GridColumn FieldName="PrecoVenda" Header="Preço" Width="150">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:SpinEditSettings MinValue="0" Mask="c" MaskUseAsDisplayFormat="True" HorizontalContentAlignment="Right"/>
+                    </dxg:GridColumn.EditSettings>
+
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="Ncm" Header="NCM" Width="100">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:ComboBoxEditSettings ItemsSource="{Binding Ncms}" DisplayMember="Codigo" AutoComplete="True" IncrementalFiltering="True"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView ShowTotalSummary="True" ShowGroupPanel="False"/>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+        <dxb:BarManager Grid.Row="0" CreateStandardLayout="False">
+            <dxb:BarManager.Items>
+                <dxb:BarButtonItem x:Name="barButtonItem1" Content="Salvar" RibbonStyle="Large" LargeGlyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Save/Save_32x32.png" Command="{Binding CmdSalvar}" KeyGesture="{Binding KeySalvar, Mode=OneWay}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem3" Content="Desfazer" RibbonStyle="Large" LargeGlyph="pack://application:,,,/Erp;component/Images/Recycle.png" Command="{Binding CmdDesfazer}" KeyGesture="{Binding KeyDesfazer, Mode=OneWay}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem2" Content="Sair" RibbonStyle="Large" LargeGlyph="pack://application:,,,/Erp;component/Images/sair.png" Command="{Binding CmdSair}" KeyGesture="{Binding KeySair, Mode=OneWay}"/>
+
+            </dxb:BarManager.Items>
+            <DockPanel>
+                <dxr:RibbonControl Grid.RowSpan="3" DockPanel.Dock="Top" RibbonHeaderVisibility="Collapsed">
+                    <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
+                        <dxr:RibbonPage Caption="Home">
+                            <dxr:RibbonPageGroup Caption="Funções disponíveis">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem1"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem3"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem2"/>
+                            </dxr:RibbonPageGroup>
+                        </dxr:RibbonPage>
+                    </dxr:RibbonDefaultPageCategory>
+                </dxr:RibbonControl>
+                <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
+                <Grid Background="Transparent"/>
+            </DockPanel>
+        </dxb:BarManager>
+    </Grid>
+</dx:DXWindow>

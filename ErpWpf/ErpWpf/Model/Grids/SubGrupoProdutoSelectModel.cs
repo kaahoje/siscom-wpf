@@ -1,17 +1,17 @@
 ﻿using System.Collections.ObjectModel;
 using DevExpress.Xpf.Ribbon.Customization;
-using Erp.Business.Entity.Sped;
+using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
 using Erp.Properties;
 using Erp.View.Selections;
 
 namespace Erp.Model.Grids
 {
-    public class NcmSelectModel : ModelSelectGeneric<Ncm>
+    public class SubGrupoProdutoSelectModel : ModelSelectGeneric<SubGrupoProduto>
     {
-        public NcmSelectModel()
+        public SubGrupoProdutoSelectModel()
         {
-            WindowSelect = new NcmSelectView();
-            Collection = new ObservableCollection<Ncm>();
+            WindowSelect = new SubGrupoProdutoSelectView();
+            Collection = new ObservableCollection<SubGrupoProduto>();
         }
 
         protected override void Filtrar()
@@ -19,9 +19,8 @@ namespace Erp.Model.Grids
             if (!string.IsNullOrEmpty(Filter) && Filter.Length >= Settings.Default.MinLenghtPesquisa)
             {
                 Collection.Clear();
-                Collection.AddRange(NcmRepository.GetByRange(Filter, Settings.Default.TakePesquisa));
+                Collection.AddRange(SubGrupoProdutoRepository.GetByRange(Filter, Settings.Default.TakePesquisa));
             }
-            base.Filtrar();
         }
     }
 }

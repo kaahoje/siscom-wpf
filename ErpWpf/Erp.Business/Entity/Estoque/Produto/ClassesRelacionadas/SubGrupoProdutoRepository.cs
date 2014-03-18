@@ -24,6 +24,12 @@ namespace Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas
             }
             return GetQueryOver().Where(produto => produto.Id == int.Parse(args.Value.ToString())).List<SubGrupoProduto>();
         }
+
+        public static IList<SubGrupoProduto> GetByRange(string filter, int takePesquisa)
+        {
+            
+            return GetQueryOver().Where(x => x.Descricao.IsInsensitiveLike(ContainsStringFilter(filter))).List();
+        }
     }
 
 }

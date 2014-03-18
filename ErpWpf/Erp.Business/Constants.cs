@@ -11,7 +11,7 @@
         
         
         public const int MinLengthNames = 4;
-        public const int MaxLengthNames = 50;
+        public const int MaxLengthNames = 60;
         public const int MinLengthFone = 8;
         public const int MaxLengthFone = 20;
         public const int MinLengthPassword = 4;

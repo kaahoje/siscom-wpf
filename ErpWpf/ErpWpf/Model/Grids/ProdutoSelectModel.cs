@@ -1,8 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using DevExpress.Xpf.Ribbon.Customization;
 using Erp.Business.Entity.Estoque.Produto;
+using Erp.Business.Entity.Sped;
 using Erp.Properties;
-using Erp.View.Forms;
 using Erp.View.Selections;
 
 namespace Erp.Model.Grids
@@ -24,6 +25,6 @@ namespace Erp.Model.Grids
             }
             base.Filtrar();
         }
-        
+        public IList<Ncm> Ncms { get { return App.Ncms; } } 
     }
 }

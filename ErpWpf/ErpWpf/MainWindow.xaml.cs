@@ -1,12 +1,10 @@
-﻿using System.Configuration;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Configuration;
+using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
-using DevExpress.Xpf.Docking;
-using DevExpress.Xpf.Docking.Base;
-using DevExpress.Xpf.Layout.Core;
 using Erp.Business;
+using Erp.Business.Entity.Sped;
 using Erp.Model;
 
 namespace Erp
@@ -33,6 +31,13 @@ namespace Erp
                         break;
                 }
             }
+            
+            App.Ncms = new ObservableCollection<Ncm>(NcmRepository.GetList());
+            App.Csts = new ObservableCollection<Cst>(CstRepository.GetList());
+            App.CstPis = new ObservableCollection<CstPis>(CstPisRepository.GetList());
+            App.CstCofins = new ObservableCollection<CstCofins>(CstCofinsRepository.GetList());
+            App.CstIpi = new ObservableCollection<CstIpi>(CstIpiRepository.GetList());
+
             Model = new RetaguardaModel();
             Model.TelaAberta += model_TelaAberta;
             DataContext = Model;
@@ -50,6 +55,10 @@ namespace Erp
 
         }
 
-        
+
+        private void MainWindow_OnClosed(object sender, EventArgs e)
+        {
+            Process.GetCurrentProcess().Kill();
+        }
     }
 }

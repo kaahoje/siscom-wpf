@@ -1,5 +1,4 @@
 using System;
-using System.Configuration;
 using System.Web;
 using System.Web.SessionState;
 using Erp.Business.Entity.Contabil.Pessoa;

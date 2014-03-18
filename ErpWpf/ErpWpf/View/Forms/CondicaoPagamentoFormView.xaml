@@ -17,7 +17,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <Rest:RestForm HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top"/>
+        <Rest:RestForm HorizontalAlignment="Left" Margin="0" x:Name="RestCommands" VerticalAlignment="Top"/>
         <Grid Grid.Row="1" Height="220">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -28,15 +28,18 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label Content="Descrição:" Margin="5"/>
-            <dxe:TextEdit Grid.Row="0" Grid.Column="1" Width="300" Margin="5" />
+            <dxe:TextEdit Grid.Row="0" Grid.Column="1" Width="300" Margin="5" Text="{Binding Entity.Descricao,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
             <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="180">
-                <dxg:GridControl Width="150" HorizontalAlignment="Left" Margin="10" >
+                <dxg:GridControl Width="150" HorizontalAlignment="Left" Margin="10" ItemsSource="{Binding Prazos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding PrazoAtual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                    <dxg:GridControl.Columns>
+                        <dxg:GridColumn FieldName="Prazo" Width="100"/>
+                    </dxg:GridControl.Columns>
                     <dxg:GridControl.View>
                         <dxg:TableView ShowGroupPanel="False"/>
                     </dxg:GridControl.View>
                 </dxg:GridControl>
-                <Button  HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top" Width="40" Height="40"/>
-                <Button HorizontalAlignment="Left" Margin="165,55,0,0" VerticalAlignment="Top" Width="40" Height="40"/>
+                <Button Content="+" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top" Width="40" Height="40" FontSize="22" FontWeight="Bold" Command="{Binding CmdAddPrazo}"/>
+                <Button Content="-" HorizontalAlignment="Left" Margin="165,55,0,0" VerticalAlignment="Top" Width="40" Height="40" FontSize="22" FontWeight="Bold" Command="{Binding CmdRemovePrazo}"/>
             </Grid>
 
         </Grid>

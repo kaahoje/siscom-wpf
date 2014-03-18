@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
-using Erp.Business.Entity.Configuracao;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 
 namespace Erp.Business

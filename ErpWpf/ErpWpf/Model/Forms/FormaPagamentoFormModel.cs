@@ -1,6 +1,7 @@
 ﻿using System;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Enum;
+using Erp.Model.Grids;
 
 namespace Erp.Model.Forms
 {
@@ -9,7 +10,7 @@ namespace Erp.Model.Forms
         public FormaPagamentoFormModel()
         {
             Entity = new FormaPagamento();
-            ModelSelect = new ModelSelectGeneric<FormaPagamento>();
+            ModelSelect = new FormaPagamentoSelectModel();
         }
         public override void Salvar()
         {
@@ -17,7 +18,12 @@ namespace Erp.Model.Forms
             {
                 if (IsValid(Entity))
                 {
+                    Entity.ExigeIdentificacaoCliente = false;
+                    Entity.MovimentaLimiteCliente = false;
+                    Entity.PodeReceber = false;
+                    
                     FormaPagamentoRepository.Save(Entity);
+                    
                     Entity = new FormaPagamento();
                     base.Salvar();
                 }

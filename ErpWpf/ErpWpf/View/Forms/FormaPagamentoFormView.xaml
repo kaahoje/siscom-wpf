@@ -21,15 +21,26 @@
         <Grid Grid.Row="1" Width="auto">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
-                <RowDefinition Height="200"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
 
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="125"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <Label Content="Descrição:" Margin="5"/>
             <dxe:TextEdit Grid.Row="0" Text="{Binding Entity.Descricao, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" Margin="7" Width="300" />
+            <Label Grid.Row="1" Grid.Column="0" Content="À vista:" Margin="5"/>
+            <dxe:CheckEdit Grid.Row="1" IsChecked="{Binding Entity.AVista, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" Margin="7" Width="300" />
+            <Label Grid.Row="2" Grid.Column="0" Content="Compensa em:" Margin="5"/>
+            <dxe:SpinEdit Grid.Row="2" EditValue="{Binding Entity.PrazoCompensacao, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" Margin="7" Width="100" HorizontalAlignment="Left"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Tax. Administração:" Margin="5"/>
+            <dxe:SpinEdit Grid.Row="3" EditValue="{Binding Entity.TaxaAdministracao, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" Margin="7" Width="100" HorizontalAlignment="Left" Mask="P0" MaskUseAsDisplayFormat="True"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Tax. juros ao cliente:" Margin="5"/>
+            <dxe:SpinEdit Grid.Row="4" EditValue="{Binding Entity.TaxaJurosCliente, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" Margin="7" Width="100" HorizontalAlignment="Left" Mask="P0" MaskUseAsDisplayFormat="True"/>
         </Grid>
     </Grid>
 </dx:DXWindow>

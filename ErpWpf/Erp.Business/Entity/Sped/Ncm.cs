@@ -1,5 +1,4 @@
 ﻿using System;
-using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
 
 namespace Erp.Business.Entity.Sped
 {

@@ -1,6 +1,5 @@
 ﻿using System;
 using Erp.Business.Entity.Fiscal.ClassesRelacionadas;
-using Erp.Business.Entity.Sped;
 
 namespace Erp.Business.NotaDaGente.ClassesRelacionadas
 {

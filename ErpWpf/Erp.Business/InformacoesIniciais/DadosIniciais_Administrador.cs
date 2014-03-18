@@ -5,7 +5,6 @@ using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Enum;
-using Util.Seguranca;
 
 namespace Erp.Business.InformacoesIniciais
 {

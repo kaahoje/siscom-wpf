@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using AutoMapper;
+using DevExpress.Xpf.Ribbon.Customization;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Enum;
 using Erp.Model.Grids;
@@ -45,10 +46,10 @@ namespace Erp.Model.Forms
         {
             try
             {
+                Mapper.CreateMap(typeof(CondicaoPagamentoFormModel), typeof(CondicaoPagamento));
+                Mapper.Map(this, Entity);
                 if (IsValid(Entity))
                 {
-                    Mapper.CreateMap(typeof (CondicaoPagamentoFormModel), typeof (CondicaoPagamento));
-                    Mapper.Map(this, Entity);
                     CondicaoPagamentoRepository.Save(Entity);
                     Entity = new CondicaoPagamento();
                     base.Salvar();
@@ -73,7 +74,7 @@ namespace Erp.Model.Forms
 
         public ObservableCollection<PrazoPagamentoCondicaoPagamento> Prazos
         {
-            get { return _prazos; }
+            get { return _prazos ?? (_prazos = new ObservableCollection<PrazoPagamentoCondicaoPagamento>()); }
             set
             {
                 _prazos = value;
@@ -110,6 +111,16 @@ namespace Erp.Model.Forms
                 return;
             }
             Prazos.Remove(PrazoAtual);
+        }
+
+        protected override void OnPropertyChanged(string propertyName = null)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (propertyName == "Entity")
+            {
+                Prazos.Clear();
+                Prazos.AddRange(Entity.Prazos);
+            }
         }
     }
 }

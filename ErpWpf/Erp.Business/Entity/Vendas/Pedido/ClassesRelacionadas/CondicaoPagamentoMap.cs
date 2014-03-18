@@ -11,7 +11,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
             Map(x => x.Descricao).Not.Nullable().Length(100);
             Map(x => x.Status);
 
-            HasMany(x => x.Prazos).Cascade.All().OrderBy("prazo");
+            HasMany(x => x.Prazos).Cascade.All();
         }
     }
 }

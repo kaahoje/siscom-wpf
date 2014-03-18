@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
 using Erp.Business.Entity.Sped;
 using Erp.Business.Enum;
-using Erp.Business.Validation.CustomValidations;
 
 namespace Erp.Business.Entity.Estoque.Produto
 {

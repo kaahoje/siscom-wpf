@@ -12,7 +12,7 @@ namespace Erp.View.Selections
         public FormaPagamentoSelectView()
         {
             InitializeComponent();
-            DataContext = new FormaPagamentoSelectModel();
+            RestCommands.DataContext = DataContext;
             SelectionDefault = new SelectionDefaultActions(this);
         }
     }

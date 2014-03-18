@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Security.Principal;
 using System.Web;
 using System.Web.Security;
 using Util.Seguranca;

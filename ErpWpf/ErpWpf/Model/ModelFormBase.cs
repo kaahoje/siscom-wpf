@@ -25,9 +25,10 @@ namespace Erp.Model
         private KeyGesture _keySair;
         private KeyGesture _keyExcluir;
         private KeyGesture _keySalvar;
-        private bool _isSalvar = true;
-        private bool _isExcluir = true;
         private ICommand _cmdPesquisar;
+        private bool _isSalvar = true;
+        private bool _isExcluir = false; 
+        private bool _isPesquisar = true;
 
         #region Keys
         public KeyGesture KeyPesquisa
@@ -37,6 +38,7 @@ namespace Erp.Model
                 return new KeyGesture(Key.F5);
             }
         }
+
         public KeyGesture KeySalvar
         {
             get { return _keySalvar ?? (_keyExcluir = new KeyGesture(Key.F6)); }
@@ -168,11 +170,17 @@ namespace Erp.Model
 
         #endregion
 
-        
-
         #region Propriedades
 
-
+        public bool IsPesquisar
+        {
+            get { return _isPesquisar; }
+            set
+            {
+                _isPesquisar = value; 
+                OnPropertyChanged("IsPesquisar");
+            }
+        }
 
         public bool IsExcluir
         {
@@ -198,8 +206,6 @@ namespace Erp.Model
 
 
         #endregion
-
-
 
     }
 

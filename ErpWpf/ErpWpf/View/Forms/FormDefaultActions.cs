@@ -48,13 +48,23 @@ namespace Erp.View.Forms
                     {
 
                         case Key.F5:
-                            Model.Pesquisar();
+                            if (Model.IsPesquisar)
+                            {
+                                Model.Pesquisar();
+                            }
+                            
                             break;
                         case Key.F6:
-                            Model.Salvar();
+                            if (Model.IsSalvar)
+                            {
+                                Model.Salvar();
+                            }
                             break;
                         case Key.F7:
-                            Model.Excluir();
+                            if (Model.IsExcluir)
+                            {
+                                Model.Excluir();
+                            }
                             break;
                         
                             
@@ -67,7 +77,10 @@ namespace Erp.View.Forms
                                 Model.Sair();
                                 break;
                             case Key.L:
-                                Model.Limpar();
+                                if (Model.IsLimpar)
+                                {
+                                    Model.Limpar();
+                                }
                                 break;
                         }
                         

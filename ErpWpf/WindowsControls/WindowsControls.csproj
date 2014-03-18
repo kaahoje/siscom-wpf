@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{235BAB0D-ACCC-4FF1-A1FF-3D2F647BB85B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsControls</RootNamespace>
+    <AssemblyName>WindowsControls</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="FluentNHibernate, Version=1.4.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\CommandBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CommandCancel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CommandDelete.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CommandNovo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CommandReload.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CommandSave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CommandUpdate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\FormProdutosEncontrados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormProdutosEncontrados.Designer.cs">
+      <DependentUpon>FormProdutosEncontrados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAutenticacaoInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAutenticacaoInicial.Designer.cs">
+      <DependentUpon>FormAutenticacaoInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDadosArquivoDigital.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDadosArquivoDigital.Designer.cs">
+      <DependentUpon>FormDadosArquivoDigital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDataLancamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDataLancamento.Designer.cs">
+      <DependentUpon>FormDataLancamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDefault.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDefault.Designer.cs">
+      <DependentUpon>FormDefault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRecebeChave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRecebeChave.Designer.cs">
+      <DependentUpon>FormRecebeChave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IForm.cs" />
+    <Compile Include="Forms\ListDefault.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListDefault.Designer.cs">
+      <DependentUpon>ListDefault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperacaoDbWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperacaoDbWait.Designer.cs">
+      <DependentUpon>OperacaoDbWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Functions.cs" />
+    <Compile Include="Util\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CommandBase.resx">
+      <DependentUpon>CommandBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommandCancel.resx">
+      <DependentUpon>CommandCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommandDelete.resx">
+      <DependentUpon>CommandDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommandNovo.resx">
+      <DependentUpon>CommandNovo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommandReload.resx">
+      <DependentUpon>CommandReload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommandSave.resx">
+      <DependentUpon>CommandSave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommandUpdate.resx">
+      <DependentUpon>CommandUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormProdutosEncontrados.resx">
+      <DependentUpon>FormProdutosEncontrados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAutenticacaoInicial.resx">
+      <DependentUpon>FormAutenticacaoInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDadosArquivoDigital.resx">
+      <DependentUpon>FormDadosArquivoDigital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDataLancamento.resx">
+      <DependentUpon>FormDataLancamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDefault.resx">
+      <DependentUpon>FormDefault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRecebeChave.resx">
+      <DependentUpon>FormRecebeChave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListDefault.resx">
+      <DependentUpon>ListDefault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperacaoDbWait.resx">
+      <DependentUpon>OperacaoDbWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bloqueio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Erp.Business\Erp.Business.csproj">
+      <Project>{55625D1A-6E40-4259-93E8-4933525B96A9}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{88F82EF3-DE24-491F-89ED-93B4DC95AF6C}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

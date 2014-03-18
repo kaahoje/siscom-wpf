@@ -1,0 +1,90 @@
+﻿<dx:DXWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:Grids="clr-namespace:Vendas.ViewModel.Grids" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pedidoRestaurante="clr-namespace:Vendas.Component.View.UserControls.PedidoRestaurante"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    mc:Ignorable="d" x:Class="Vendas.RestauranteWindow"
+        Title="Vendas restaurante" Height="408.947" Width="715.526" Closed="RestauranteWindow_OnClosed" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None" Loaded="Window_Loaded" 
+    >
+    <Window.DataContext>
+        <Grids:RestauranteModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <dxb:BarManager CreateStandardLayout="True">
+            <dxb:BarManager.Items>
+                <dxb:BarButtonItem x:Name="barButtonItem1" Content="Adicionar" RibbonStyle="Large" Command="{Binding CmdNovaMesa, Mode=OneWay}" KeyGesture="{Binding KeyNovaMesa, Mode=OneWay}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Reports/AddFooter_32x32.png"/>
+                <dxb:BarButtonItem x:Name="barButtonItem2" Content="Parcial" RibbonStyle="Large" Command="{Binding CmdParcialMesa, Mode=OneWay}" KeyGesture="{Binding KeyParcialMesa, Mode=OneWay}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Reports/InsertHeader_32x32.png"/>
+                <dxb:BarButtonItem x:Name="barButtonItem3" Content="Trocar" RibbonStyle="Large" Command="{Binding CmdTrocarMesa, Mode=OneWay}" KeyGesture="{Binding KeyTrocaMesa, Mode=OneWay}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Actions/Convert_32x32.png"/>
+                <dxb:BarButtonItem x:Name="barButtonItem5" Content="Entregas" RibbonStyle="Large" Command="{Binding CmdNovaEntrega, Mode=OneWay}" KeyGesture="{Binding KeyNovaEntrega, Mode=OneWay}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Tasks/NewTask_32x32.png"/>
+                <dxb:BarButtonItem x:Name="barButtonItem6" Content="Balcão" RibbonStyle="Large" Command="{Binding CmdNovoBalcao, Mode=OneWay}" KeyGesture="{Binding KeyNovoBalcao, Mode=OneWay}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/People/AssignTo_32x32.png"/>
+                <dxb:BarButtonItem x:Name="barButtonItem7" Content="Exibir" RibbonStyle="Large"/>
+                <dxb:BarButtonItem x:Name="barButtonItem8" Content="Procurar" RibbonStyle="Large"/>
+                <dxb:BarButtonItem x:Name="barButtonItem9" Content="Cancelar" RibbonStyle="Large"/>
+                <dxb:BarButtonItem x:Name="barButtonItem10" Content="Confirmar" RibbonStyle="Large" Command="{Binding CmdConfirmarPedido}" IsVisible="{Binding ConfirmarPedidoVisible, BindsDirectlyToSource=True, IsAsync=True, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}" KeyGesture="{Binding KeyConfirmarPedido, Mode=OneWay}" Glyph="Images/concluir.png"/>
+                <dxb:BarButtonItem x:Name="barButtonItem11" Content="Fechar" RibbonStyle="Large" Command="{Binding CmdFecharPedido}" KeyGesture="{Binding KeyFecharPedido, Mode=OneWay}" LargeGlyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Content/CheckBox_32x32.png"/>
+                <dxb:BarButtonItem x:Name="barButtonItem12" Content="Cancelar" RibbonStyle="Large" Command="{Binding CmdCancelarPedido}" KeyGesture="{Binding KeyCancelarPedido, Mode=OneWay}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Actions/Close_32x32.png"/>
+                <dxb:BarButtonItem x:Name="barButtonItem4" Content="Procurar" RibbonStyle="Large" Glyph="pack://application:,,,/Vendas;component/Images/search.png" Command="{Binding CmdProcurarMesa}" KeyGesture="{Binding KeyProcurarMesa, Mode=OneWay}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem15" Content="Receber" RibbonStyle="Large" Glyph="pack://application:,,,/Vendas;component/Images/receber.png"/>
+                <dxb:BarButtonItem x:Name="barButtonItem13" Content="Menu fiscal" RibbonStyle="Large" LargeGlyph="pack://application:,,,/Vendas;component/Images/menuFiscal.png" Command="{Binding CmdMenuFiscal}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem14" Content="Encerramento" RibbonStyle="Large" LargeGlyph="pack://application:,,,/Vendas;component/Images/money.png"/>
+
+            </dxb:BarManager.Items>
+            <DockPanel>
+
+                <dxr:RibbonControl DockPanel.Dock="Top" ShowApplicationButton="False" RibbonHeaderVisibility="Collapsed"
+					ToolbarShowMode="Hide" RibbonStyle="Office2007">
+                    <dxr:RibbonControl.ApplicationMenu>
+                        <dxr:ApplicationMenu/>
+                    </dxr:RibbonControl.ApplicationMenu>
+                    <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
+                        <dxr:RibbonPage Caption="Vendas">
+                            <dxr:RibbonPageGroup Caption="Salão" ShowCaptionButton="False" IsCaptionButtonEnabled="True">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem1"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem2"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem3"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem4"/>
+                            </dxr:RibbonPageGroup>
+                            <dxr:RibbonPageGroup Caption="Entregas">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem5"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem6"/>
+                            </dxr:RibbonPageGroup>
+                            <dxr:RibbonPageGroup Caption="Funções de pedido" >
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem10"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem11"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem12"/>
+                            </dxr:RibbonPageGroup>
+                            <dxr:RibbonPageGroup Caption="Ribbon Page Group">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem13"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem14"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem15"/>
+                            </dxr:RibbonPageGroup>
+                        </dxr:RibbonPage>
+                    </dxr:RibbonDefaultPageCategory>
+
+                </dxr:RibbonControl>
+                <Grid Background="Transparent">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto" MinWidth="112"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1"/>
+                    <dxg:GridControl x:Name="GridMesas" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"
+						ItemsSource="{Binding Collection}" Margin="0,10,0,0" SelectionMode="Row" Height="286" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <dxg:GridControl.Columns>
+                            <dxg:GridColumn FieldName="Entity.Mesa" IsSmart="True" Header="Mesa" Width="70"/>
+                        </dxg:GridControl.Columns>
+                        <dxg:GridControl.View>
+                            <dxg:TableView AllowEditing="False" ShowTotalSummary="True" AutoWidth="True" ShowGroupPanel="False"/>
+                        </dxg:GridControl.View>
+                    </dxg:GridControl>
+                    <pedidoRestaurante:PedidoUserControl x:Name="PedidoUserControl" Grid.Column="0" DataContext="{Binding CurrentItem}" />
+
+
+                </Grid>
+            </DockPanel>
+        </dxb:BarManager>
+    </Grid>
+</dx:DXWindow>

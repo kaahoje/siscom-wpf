@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Vendas.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TipoPdv" Type="Vendas.Enums.TipoPdv" Scope="User">
+      <Value Profile="(Default)">Restaurante</Value>
+    </Setting>
+    <Setting Name="NumeroControle" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="Caixa" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="IdEmpresa" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="FabricanteEcf" Type="Erp.Business.Enum.FabricanteEcf" Scope="User">
+      <Value Profile="(Default)">Daruma</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

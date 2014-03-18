@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Input;
 using DevExpress.Xpf.Core;
 using Erp.Annotations;
 using FluentNHibernate.Conventions;
+using Util.Wpf;
 
 namespace Erp.Model
 {
@@ -17,6 +19,139 @@ namespace Erp.Model
         private Visibility _isVisible;
         private bool _isCancelado;
 
+
+
+
+        private Dictionary<string, string> errorMessages = new Dictionary<string, string>();
+        private string _error;
+        private string _mensagemOperacaoConcluida;
+        private string _complementoMensagem;
+
+        #region KeyGestures
+
+        public KeyGesture KeyLimpar { get { return new KeyGesture(Key.L, ModifierKeys.Control); } }
+
+        #endregion
+
+        #region Eventos
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public event FecharEventHandler Fechar;
+
+        protected virtual void OnFechar()
+        {
+            FecharEventHandler handler = Fechar;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        #endregion
+
+        #region Propriedades
+
+        public String ComplementoMensagem
+        {
+            get { return _complementoMensagem ?? (_complementoMensagem = ""); }
+            set
+            {
+                _complementoMensagem = value;
+                OnPropertyChanged("ComplementoMensagem");
+            }
+        }
+
+        public string MensagemOperacaoConcluida
+        {
+            get { return _mensagemOperacaoConcluida ?? (_mensagemOperacaoConcluida = "Operação concluída com sucesso."); }
+            set
+            {
+                _mensagemOperacaoConcluida = value;
+                OnPropertyChanged("MensagemOperacaoConcluida");
+            }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                if (errorMessages.ContainsKey(columnName))
+                    return errorMessages[columnName];
+                return null;
+
+            }
+        }
+
+
+
+
+        public string Error
+        {
+            get { return _error; }
+            private set
+            {
+                _error = value;
+                OnPropertyChanged("Error");
+            }
+        }
+
+        public bool IsCancelado
+        {
+            get { return _isCancelado; }
+            set
+            {
+                _isCancelado = value;
+                OnPropertyChanged("IsCancelado");
+            }
+        }
+
+        public Visibility IsVisible
+        {
+            get { return _isVisible; }
+            set
+            {
+                _isVisible = value;
+                OnPropertyChanged("IsVisible");
+            }
+        }
+
+        #endregion
+
+        #region Commands
+
+        public ICommand CmdLimpar
+        {
+            get
+            {
+                return new RelayCommandBase(x => Limpar());
+            }
+        }
+
+        #endregion
+
+        #region Operações
+        public static void MensagemErro(string mensagem)
+        {
+            DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+        public static void MensagemInformativa(string mensagem)
+        {
+            DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public static void MensagemErroBancoDados(string mensagem)
+        {
+            DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+        public virtual void Limpar()
+        {
+
+        }
         protected bool ConfirmDelete()
         {
             var result = DXMessageBox.Show(null, "Deseja realmente excluir este registro?", "Atenção",
@@ -61,16 +196,6 @@ namespace Erp.Model
         }
 
 
-        public string this[string columnName]
-        {
-            get
-            {
-                if (errorMessages.ContainsKey(columnName))
-                    return errorMessages[columnName];
-                return null;
-
-            }
-        }
 
 
 
@@ -80,98 +205,6 @@ namespace Erp.Model
             if (errorMessages.IsEmpty()) return true;
             return false;
         }
-
-        
-        private Dictionary<string, string> errorMessages = new Dictionary<string, string>();
-        private string _error;
-        private string _mensagemOperacaoConcluida;
-        private string _complementoMensagem;
-
-
-        public string Error
-        {
-            get { return _error; }
-            private set
-            {
-                _error = value;
-                OnPropertyChanged("Error");
-            }
-        }
-
-
-        public static void MensagemErro(string mensagem)
-        {
-            DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-        }
-        public static void MensagemInformativa(string mensagem)
-        {
-            DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        public static void MensagemErroBancoDados(string mensagem)
-        {
-            DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Warning);
-        }
-
-        public String ComplementoMensagem
-        {
-            get { return _complementoMensagem ?? (_complementoMensagem = ""); }
-            set
-            {
-                _complementoMensagem = value; 
-                OnPropertyChanged("ComplementoMensagem");
-            }
-        }
-
-        public string MensagemOperacaoConcluida
-        {
-            get { return _mensagemOperacaoConcluida ?? (_mensagemOperacaoConcluida = "Operação concluída com sucesso."); }
-            set
-            {
-                _mensagemOperacaoConcluida = value; 
-                OnPropertyChanged("MensagemOperacaoConcluida");
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public bool IsCancelado
-        {
-            get { return _isCancelado; }
-            set
-            {
-                _isCancelado = value;
-                OnPropertyChanged("IsCancelado");
-            }
-        }
-
-        public Visibility IsVisible
-        {
-            get { return _isVisible; }
-            set
-            {
-                _isVisible = value;
-                OnPropertyChanged("IsVisible");
-            }
-        }
-
-        #region Eventos
-
-        public event FecharEventHandler Fechar;
-
-        protected virtual void OnFechar()
-        {
-            FecharEventHandler handler = Fechar;
-            if (handler != null) handler(this, EventArgs.Empty);
-        }
-
         #endregion
     }
 }

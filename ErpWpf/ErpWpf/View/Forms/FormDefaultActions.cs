@@ -6,7 +6,7 @@ using Erp.Model;
 
 namespace Erp.View.Forms
 {
-    public class FormDefaultActions<T>
+    public class FormDefaultActions<T> where T : new()
     {
         private DXWindow Window { get; set; }
         public bool IsEnableShortcuts { get; set; }
@@ -56,12 +56,21 @@ namespace Erp.View.Forms
                         case Key.F7:
                             Model.Excluir();
                             break;
-                        case Key.F4:
-                            if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
-                            {
+                        
+                            
+                    }
+                    if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+                    {
+                        switch (e.Key)
+                        {
+                            case Key.F4:
                                 Model.Sair();
-                            }
-                            break;
+                                break;
+                            case Key.L:
+                                Model.Limpar();
+                                break;
+                        }
+                        
                     }
                 }
 

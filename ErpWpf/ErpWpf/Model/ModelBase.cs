@@ -10,6 +10,7 @@ using FluentNHibernate.Conventions;
 
 namespace Erp.Model
 {
+    public delegate void FecharEventHandler(object sender, EventArgs e);
     public class ModelBase : INotifyPropertyChanged, IDataErrorInfo
     {
         protected string MensagemFuncaoNaoSuportada = "Esta função não é suportada pelo formulário";
@@ -102,6 +103,10 @@ namespace Erp.Model
         {
             DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
+        public static void MensagemInformativa(string mensagem)
+        {
+            DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
 
         public static void MensagemErroBancoDados(string mensagem)
         {
@@ -157,6 +162,16 @@ namespace Erp.Model
             }
         }
 
+        #region Eventos
 
+        public event FecharEventHandler Fechar;
+
+        protected virtual void OnFechar()
+        {
+            FecharEventHandler handler = Fechar;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        #endregion
     }
 }

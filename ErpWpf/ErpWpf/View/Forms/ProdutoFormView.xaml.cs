@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using Erp.Model.Forms;
 
 namespace Erp.View.Forms
 {
@@ -14,7 +13,7 @@ namespace Erp.View.Forms
             InitializeComponent();
             
             RestCommands.DataContext = DataContext;
-            FormDefaultActions = new FormDefaultActions(this);
+            FormDefaultActions = new FormDefaultActions(this){IsEnableShortcuts = true};
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

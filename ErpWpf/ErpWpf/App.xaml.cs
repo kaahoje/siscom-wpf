@@ -20,11 +20,7 @@ namespace Erp
 
         public App()
         {
-            Ncms = new ObservableCollection<Ncm>(NcmRepository.GetList());
-            Csts = new ObservableCollection<Cst>(CstRepository.GetList());
-            CstPis = new ObservableCollection<CstPis>(CstPisRepository.GetList());
-            CstCofins = new ObservableCollection<CstCofins>(CstCofinsRepository.GetList());
-            CstIpi = new ObservableCollection<CstIpi>(CstIpiRepository.GetList());
+            
 
         }
     }

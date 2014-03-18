@@ -38,21 +38,45 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Images.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Core.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Docking.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Grid.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Grid.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Layout.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Mvvm.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Printing.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Ribbon.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Scheduler.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraScheduler.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Mvvm.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Scheduler.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FluentNHibernate, Version=1.4.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
@@ -81,39 +105,59 @@
     <Reference Include="System.Printing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="UIAutomationProvider" />
-    <Reference Include="UIAutomationTypes" />
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
+    <Reference Include="UIAutomationProvider">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Extras\AtualizacaoProdutoFormModel.cs" />
     <Compile Include="Model\Forms\CondicaoPagamentoFormModel.cs" />
     <Compile Include="Model\Forms\FormaPagamentoFormModel.cs" />
     <Compile Include="Model\Forms\GrupoProdutoFormModel.cs" />
     <Compile Include="Model\Forms\NcmFormModel.cs" />
     <Compile Include="Model\Forms\ProdutoFormModel.cs" />
+    <Compile Include="Model\Forms\SubGrupoProdutoFormModel.cs" />
+    <Compile Include="Model\Forms\UnidadeFormModel.cs" />
     <Compile Include="Model\Grids\CondicaoPagamentoSelectModel.cs" />
     <Compile Include="Model\Grids\FormaPagamentoSelectModel.cs" />
     <Compile Include="Model\Grids\GrupoProdutoSelectModel.cs" />
     <Compile Include="Model\Grids\NcmSelectModel.cs" />
     <Compile Include="Model\Grids\ProdutoSelectModel.cs" />
+    <Compile Include="Model\Grids\SubGrupoProdutoSelectModel.cs" />
+    <Compile Include="Model\Grids\UnidadeSelectModel.cs" />
     <Compile Include="Model\ModelBase.cs" />
     <Compile Include="Model\ModelFormGeneric.cs" />
     <Compile Include="Model\ModelSelectBase.cs" />
     <Compile Include="Model\ModelSelectGeneric.cs" />
     <Compile Include="Properties\Annotations1.cs" />
+    <Compile Include="View\Extras\AtualizacaoProdutoFormView.xaml.cs">
+      <DependentUpon>AtualizacaoProdutoFormView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\CondicaoPagamentoFormView.xaml.cs">
       <DependentUpon>CondicaoPagamentoFormView.xaml</DependentUpon>
     </Compile>
@@ -129,6 +173,12 @@
     </Compile>
     <Compile Include="View\Forms\ProdutoFormView.xaml.cs">
       <DependentUpon>ProdutoFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\SubGrupoProdutoFormView.xaml.cs">
+      <DependentUpon>SubGrupoProdutoFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\UnidadeFormView.xaml.cs">
+      <DependentUpon>UnidadeFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Rest\RestForm.xaml.cs">
       <DependentUpon>RestForm.xaml</DependentUpon>
@@ -152,6 +202,12 @@
       <DependentUpon>ProdutoSelectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Selections\SelectionDefaultActions.cs" />
+    <Compile Include="View\Selections\SubGrupoProdutoSelectView.xaml.cs">
+      <DependentUpon>SubGrupoProdutoSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\UnidadeSelectView.xaml.cs">
+      <DependentUpon>UnidadeSelectView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -164,6 +220,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Extras\AtualizacaoProdutoFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Forms\CondicaoPagamentoFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,6 +241,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Forms\ProdutoFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\SubGrupoProdutoFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\UnidadeFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,6 +277,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Selections\ProdutoSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\SubGrupoProdutoSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\UnidadeSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -271,7 +347,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Recycle.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\sair.png" />
   </ItemGroup>

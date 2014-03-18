@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using FluentNHibernate.Conventions;
 
 namespace Erp.Model
@@ -28,9 +29,17 @@ namespace Erp.Model
             }
         }
 
+        public override void CancelarPesquisa()
+        {
+            CurrentItem = Activator.CreateInstance<T>();
+
+            base.CancelarPesquisa();
+        }
+
         public override void Sair()
         {
-            CurrentItem = default(T);
+            CurrentItem = Activator.CreateInstance<T>();
+
             base.Sair();
             
         }

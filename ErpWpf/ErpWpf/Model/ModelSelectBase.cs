@@ -54,7 +54,7 @@ namespace Erp.Model
                 return new KeyGesture(Key.Enter);
             }
         }
-        public KeyGesture KeySair
+        public virtual KeyGesture KeySair
         {
             get
             {
@@ -106,7 +106,7 @@ namespace Erp.Model
         {
             if (WindowSelect != null)
             {
-                WindowSelect.DataContext = this;
+                //WindowSelect.DataContext = this;
                 WindowSelect.ShowDialog();
             }
             else
@@ -129,6 +129,7 @@ namespace Erp.Model
 
             IsCancelado = true;
             IsVisible = Visibility.Hidden;
+            OnFechar();
         }
 
         
@@ -144,7 +145,7 @@ namespace Erp.Model
         }
 
 
-        public void CancelarPesquisa()
+        public virtual void CancelarPesquisa()
         {
             IsCancelado = true;
             IsVisible = Visibility.Hidden;

@@ -3,15 +3,16 @@
 namespace Erp.View.Selections
 {
     /// <summary>
-    /// Interaction logic for ProdutoSelectView.xaml
+    /// Interaction logic for UnidadeSelectView.xaml
     /// </summary>
-    public partial class ProdutoSelectView 
+    public partial class UnidadeSelectView 
     {
         private SelectionDefaultActions SelectionDefault { [UsedImplicitly] get; set; }
-        public ProdutoSelectView()
+        public UnidadeSelectView()
         {
             InitializeComponent();
             SelectionDefault = new SelectionDefaultActions(this);
+
         }
     }
 }

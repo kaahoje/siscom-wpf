@@ -26,6 +26,7 @@ namespace Erp.Model
         private string _error;
         private string _mensagemOperacaoConcluida;
         private string _complementoMensagem;
+        private bool _isLimpar = true;
 
         #region KeyGestures
 
@@ -117,6 +118,16 @@ namespace Erp.Model
             {
                 _isVisible = value;
                 OnPropertyChanged("IsVisible");
+            }
+        }
+
+        public bool IsLimpar
+        {
+            get { return _isLimpar; }
+            set
+            {
+                _isLimpar = value; 
+                OnPropertyChanged("IsLimpar");
             }
         }
 

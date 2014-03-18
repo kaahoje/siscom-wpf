@@ -33,7 +33,27 @@ namespace Erp.Model
                 try
                 {
                     var prop = ModelSelect.GetType().GetProperty("CurrentItem");
+                    
                     Entity = (T) prop.GetValue(ModelSelect);
+                    if (Entity != null)
+                    {
+                        var propId = Entity.GetType().GetProperty("Id");
+                        if (propId != null)
+                        {
+                            if ((int) propId.GetValue(Entity) == 0)
+                            {
+                                IsExcluir = false;
+                            }
+                            else
+                            {
+                                IsExcluir = true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        IsExcluir = false;
+                    }
                 }
                 catch (Exception ex)
                 {

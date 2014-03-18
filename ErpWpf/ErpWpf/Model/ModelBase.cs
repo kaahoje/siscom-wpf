@@ -187,8 +187,7 @@ namespace Erp.Model
                 {
                     var attr = attribute as ValidationAttribute;
                     var displayName = "";
-
-                    displayName = displayAttributes.IsEmpty() ? propertyInfo.Name : ((DisplayAttribute)displayAttributes[0]).Name;
+                    if(displayAttributes.IsNotEmpty())displayName = displayAttributes.IsEmpty() ? propertyInfo.Name : ((DisplayAttribute)displayAttributes[0]).Name;
                     if (attr == null) continue;
 
                     var propValue = propertyInfo.GetValue(entity);

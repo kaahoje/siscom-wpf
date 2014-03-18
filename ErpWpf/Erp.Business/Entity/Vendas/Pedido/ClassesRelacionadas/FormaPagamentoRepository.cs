@@ -24,7 +24,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
 
         public static IList<FormaPagamento> GetByRange(string filter, int takePesquisa)
         {
-            return GetList().Where(x => x.Descricao.IsInsensitiveLike("%" + filter + "%")).Take(takePesquisa).ToList();
+            return GetQueryOver().Where(x => x.Descricao.IsInsensitiveLike("%" + filter + "%")).Take(takePesquisa).List();
         }
     }
 }

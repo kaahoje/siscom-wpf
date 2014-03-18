@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Web.ModelBinding;
-using NHibernate.Hql.Ast.ANTLR;
 
 namespace Erp.Business.Common.CustomAttributes
 {

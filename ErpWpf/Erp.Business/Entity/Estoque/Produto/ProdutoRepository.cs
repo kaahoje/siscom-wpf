@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Erp.Business.Enum;
 using NHibernate;
 using NHibernate.Criterion;

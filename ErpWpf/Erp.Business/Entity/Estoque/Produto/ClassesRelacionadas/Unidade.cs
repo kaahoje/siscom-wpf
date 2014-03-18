@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography;
 using Erp.Business.Enum;
 
 namespace Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas

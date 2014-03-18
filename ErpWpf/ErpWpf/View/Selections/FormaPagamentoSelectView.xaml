@@ -12,7 +12,7 @@
             <RowDefinition Height="35"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <rest:RestPesquisa HorizontalAlignment="Left" Margin="0" Grid.Row="0" VerticalAlignment="Top" Width="442"/>
+        <rest:RestPesquisa HorizontalAlignment="Left" x:Name="RestCommands" Margin="0" Grid.Row="0" VerticalAlignment="Top" Width="442"/>
 
         <Label Content="Filtro:" Grid.Row="1" Margin="5"/>
         <dxe:TextEdit Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>

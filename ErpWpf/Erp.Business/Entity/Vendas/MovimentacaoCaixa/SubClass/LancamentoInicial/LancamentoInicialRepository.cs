@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
-using NHibernate.Criterion;
 
 namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.LancamentoInicial
 {

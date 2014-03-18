@@ -8,7 +8,6 @@ using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using Erp.Business.Entity.Fiscal;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Enum;
-using NHibernate.Type;
 using Remotion.Linq.Collections;
 
 namespace Erp.Business.Entity.Vendas.Pedido

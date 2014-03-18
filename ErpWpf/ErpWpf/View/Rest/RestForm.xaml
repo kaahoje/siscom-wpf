@@ -14,9 +14,11 @@
         <dxb:BarManager CreateStandardLayout="False"  >
             <dxb:BarManager.Items>
                 <dxb:BarButtonItem x:Name="barButtonItem4" Content="Pesquisar" Glyph="pack://application:,,,/Erp;component/Images/consulta%20pedido.png" RibbonStyle="Large" KeyGesture="{Binding KeyPesquisa, Mode=OneWay}" Command="{Binding CmdPesquisar}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem5" Content="Limpar" RibbonStyle="Large" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Actions/Clear_32x32.png" Command="{Binding CmdLimpar}" KeyGesture="{Binding KeyLimpar, Mode=OneWay}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem1" Content="Salvar" RibbonStyle="Large" Command="{Binding CmdSalvar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Save/Save_32x32.png" KeyGesture="{Binding KeySalvar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSalvar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem2" Content="Excluir" RibbonStyle="Large" Command="{Binding CmdExcluir, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Actions/Close_32x32.png" KeyGesture="{Binding KeyExcluir, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsExcluir, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem3" Content="Sair" RibbonStyle="Large" Command="{Binding CmdSair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Glyph="pack://application:,,,/Erp;component/Images/sair.png" KeyGesture="{Binding KeySair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                
 
             </dxb:BarManager.Items>
             <DockPanel>
@@ -25,9 +27,11 @@
                         <dxr:RibbonPage Caption="Home">
                             <dxr:RibbonPageGroup Caption="Operações disponíveis">
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem4"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem5"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem1"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem2"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem3"/>
+                                
                             </dxr:RibbonPageGroup>
                         </dxr:RibbonPage>
                     </dxr:RibbonDefaultPageCategory>

@@ -2,7 +2,7 @@
 
 namespace Erp.Model
 {
-    public class ModelFormGeneric<T> : ModelFormBase
+    public class ModelFormGeneric<T> : ModelFormBase where T : new()
     {
         private T _entity;
         private ModelSelectGeneric<T> _modelSelect;
@@ -41,6 +41,12 @@ namespace Erp.Model
                 }
                 
             }
+        }
+
+        public override void Limpar()
+        {
+            Entity = new T();
+            base.Limpar();
         }
 
         public override void Pesquisar()

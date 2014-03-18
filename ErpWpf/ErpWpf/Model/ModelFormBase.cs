@@ -81,6 +81,8 @@ namespace Erp.Model
             }
         }
 
+        
+
         public ICommand CmdExcluir
         {
             get { return _cmdExcluir ?? (_cmdExcluir = new RelayCommandBase(x => Excluir())); }
@@ -124,6 +126,8 @@ namespace Erp.Model
         {
             OperacaoConcluida();
         }
+
+        
 
         public virtual void Excluir()
         {

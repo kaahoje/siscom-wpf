@@ -1,18 +1,20 @@
-﻿namespace Erp.View.Forms
+﻿using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
+
+namespace Erp.View.Forms
 {
     /// <summary>
     /// Interaction logic for UnidadeFormView.xaml
     /// </summary>
     public partial class UnidadeFormView
     {
-        private FormDefaultActions FormDefaultActions { get; set; }
+        private FormDefaultActions<Unidade> FormDefaultActions { get; set; }
         public UnidadeFormView()
         {
             InitializeComponent();
             
             RestCommands.DataContext = DataContext;
 
-            FormDefaultActions = new FormDefaultActions(this) { IsEnableShortcuts = false };
+            FormDefaultActions = new FormDefaultActions<Unidade>(this) { IsEnableShortcuts = false };
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Erp.Business.Entity.Estoque.Produto;
 
 namespace Erp.View.Forms
 {
@@ -7,13 +8,13 @@ namespace Erp.View.Forms
     /// </summary>
     public partial class ProdutoFormView 
     {
-        private FormDefaultActions FormDefaultActions { get; set; }
+        private FormDefaultActions<Produto> FormDefaultActions { get; set; }
         public ProdutoFormView()
         {
             InitializeComponent();
             
             RestCommands.DataContext = DataContext;
-            FormDefaultActions = new FormDefaultActions(this){IsEnableShortcuts = true};
+            FormDefaultActions = new FormDefaultActions<Produto>(this){IsEnableShortcuts = true};
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

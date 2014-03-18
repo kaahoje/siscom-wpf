@@ -29,7 +29,7 @@ namespace Erp.Business.Entity.Estoque.Produto
             References(x => x.UnidadeCompra).Not.Nullable().LazyLoad();
             References(x => x.UnidadeVenda).Not.Nullable().LazyLoad();
             References(x => x.SubGrupo).Not.Nullable().LazyLoad();
-            References(x => x.Tributacao).LazyLoad();
+            References(x => x.Tributacao).LazyLoad().Cascade.All();
 
 
             HasMany(x => x.Receitas).KeyColumn("produto_id").Cascade.All().LazyLoad();

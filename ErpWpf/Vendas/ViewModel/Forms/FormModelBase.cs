@@ -14,7 +14,8 @@ namespace Vendas.ViewModel.Forms
             set
             {
                 _entity = value; 
-                OnPropertyChanged();
+                
+                OnPropertyChanged("Entity");
             }
         }
 

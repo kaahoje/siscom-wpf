@@ -17,7 +17,7 @@ using MessageBox = System.Windows.MessageBox;
 
 namespace Vendas.ViewModel.Forms
 {
-
+    
     public class PedidoRestauranteModel : PedidoModel
     {
         public PedidoRestauranteModel()
@@ -37,6 +37,7 @@ namespace Vendas.ViewModel.Forms
 
 
         private ProdutoPedido _produtoComposicaoAtual;
+        
 
 
         public PedidoRestaurante EntityRestaurante
@@ -66,9 +67,7 @@ namespace Vendas.ViewModel.Forms
             }
         }
 
-
-
-
+        
 
 
         public ObservableCollection<ComposicaoProduto> Produtos
@@ -104,6 +103,7 @@ namespace Vendas.ViewModel.Forms
                 {
                     switch (propertyName)
                     {
+                       
                         case "Pedido":
                             Produtos = new ObservableCollection<ComposicaoProduto>(Produtos);
                             Pagamento = new ObservableCollection<PagamentoPedido>(Entity.Pagamento);
@@ -235,7 +235,8 @@ namespace Vendas.ViewModel.Forms
                 CupomFiscal.FecharPedidoRestaurante((PedidoRestaurante)Entity);
                 NHibernateHttpModule.Session.Flush();
                 PedidoRestauranteRepository.Save((PedidoRestaurante)Entity);
-
+                Entity = null;
+                OnPedidoFinalizado(this,EventArgs.Empty);
             }
             else
             {

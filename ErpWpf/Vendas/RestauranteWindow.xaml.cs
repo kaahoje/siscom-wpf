@@ -13,14 +13,24 @@ namespace Vendas
     /// </summary>
     public partial class RestauranteWindow
     {
-        private RestauranteModel Model { get; set; }
+        private RestauranteModel Model
+        {
+            get { return (RestauranteModel) DataContext; }
+        }
+
         public RestauranteWindow()
         {
             InitializeComponent();
             GridMesas.SelectedItemChanged += GridMesasOnSelectedItemChanged;
-            Model = new RestauranteModel();
+            //Model = new RestauranteModel();
             Model.PropertyChanged += Model_PropertyChanged;
+            Model.AcaoConcluida += Model_AcaoConcluida;
             
+        }
+
+        void Model_AcaoConcluida(object sender, EventArgs e)
+        {
+            //PedidoUserControl.Visibility = Model.TelaPedidoVisible;
         }
 
         private void Model_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -32,6 +42,7 @@ namespace Vendas
                     : Visibility.Visible;
                 PedidoUserControl.DataContext = Model.CurrentItem;
             }
+            
         }
 
         private void GridMesasOnSelectedItemChanged(object sender, SelectedItemChangedEventArgs selectedItemChangedEventArgs)

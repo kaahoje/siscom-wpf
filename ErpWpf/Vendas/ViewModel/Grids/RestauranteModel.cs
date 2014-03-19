@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Web.Routing;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Ecf.Forms;
-using Erp.Business.Entity.Vendas.Pedido.Restaurante;
 using Erp.Business.Enum;
+using Util;
 using Util.Wpf;
 using Vendas.Component.View.Telas;
 using Vendas.ViewModel.Forms;
@@ -16,6 +14,8 @@ using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Vendas.ViewModel.Grids
 {
+    public delegate void AcaoConcluidaEventHandler(object sender, EventArgs e);
+
     public class RestauranteModel : GridModelBase<PedidoRestauranteModel>
     {
 
@@ -195,7 +195,7 @@ namespace Vendas.ViewModel.Grids
         private ICommand _cmdFecharPedido;
         private bool _confirmarPedidoVisible;
         private ICommand _cmdCancelarPedido;
-        private Visibility _telaPedidoVisible;
+        private Visibility _telaPedidoVisible = Visibility.Hidden;
         private ICommand _cmdProcurarMesa;
         private ICommand _cmdMenuFiscal;
 
@@ -279,6 +279,7 @@ namespace Vendas.ViewModel.Grids
             get { return _funcoesPedidoVisible; }
             set
             {
+                
                 _funcoesPedidoVisible = value;
                 OnPropertyChanged();
             }
@@ -391,17 +392,49 @@ namespace Vendas.ViewModel.Grids
 
         }
 
+        public event AcaoConcluidaEventHandler AcaoConcluida;
+
+        protected virtual void OnAcaoConcluida()
+        {
+            AcaoConcluidaEventHandler handler = AcaoConcluida;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
         private void FecharPedido()
         {
-            if (CurrentItem.EntityRestaurante.Local == LocalPedidoRestaurante.Mesa)
+            try
             {
-                FecharMesa();
+                if (CurrentItem == null)
+                {
+                    return;
+                }
+                if (CurrentItem.EntityRestaurante.Local == LocalPedidoRestaurante.Mesa)
+                {
+                    var ped = GetMesa(CurrentItem.EntityRestaurante.Mesa);
+                    FecharMesa();
+                    Collection.Remove(ped);
+                    FilaSalao.Remove(ped);
+                }
+                else
+                {
+                    var ped = GetEntrega(CurrentItem.EntityRestaurante.Controle.Controle);
+                    FecharEntrega();
+                    FilaEntrega.Remove(ped);
+
+                }
+                if (CurrentItem == null)
+                {
+                    TelaPedidoVisible = Visibility.Hidden;
+                }
+                OnAcaoConcluida();
             }
-            else
+            catch (Exception ex)
             {
-                FecharEntrega();
+                CustomMessageBox.MensagemErro(ex.Message);
             }
+            
         }
+
         private void FecharMesa()
         {
             try
@@ -409,6 +442,7 @@ namespace Vendas.ViewModel.Grids
                 if (CurrentItem.EntityRestaurante.Local == LocalPedidoRestaurante.Mesa)
                 {
                     CurrentItem.FecharPedido();
+                    CurrentItem = null;
                 }
                 else
                 {
@@ -460,7 +494,10 @@ namespace Vendas.ViewModel.Grids
         private void CancelarPedido()
         {
 
-
+            if (CurrentItem == null)
+            {
+                return ;
+            }
 
             if (CurrentItem.EntityRestaurante.Local == LocalPedidoRestaurante.Mesa)
             {
@@ -484,7 +521,10 @@ namespace Vendas.ViewModel.Grids
         }
         private void ConfirmarPedido()
         {
-
+            if (CurrentItem == null)
+            {
+                return;
+            }
             if (!CurrentItem.EntityRestaurante.Confirmado)
             {
                 switch (CurrentItem.EntityRestaurante.Local)

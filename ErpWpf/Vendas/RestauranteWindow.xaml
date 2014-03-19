@@ -50,7 +50,7 @@
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem5"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem6"/>
                             </dxr:RibbonPageGroup>
-                            <dxr:RibbonPageGroup Caption="Funções de pedido" >
+                            <dxr:RibbonPageGroup Caption="Funções de pedido" IsVisible="{Binding FuncoesPedidoVisible}" >
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem10"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem11"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem12"/>

@@ -31,13 +31,20 @@ namespace Erp
                         break;
                 }
             }
-            
-            App.Ncms = new ObservableCollection<Ncm>(NcmRepository.GetList());
-            App.Csts = new ObservableCollection<Cst>(CstRepository.GetList());
-            App.CstPis = new ObservableCollection<CstPis>(CstPisRepository.GetList());
-            App.CstCofins = new ObservableCollection<CstCofins>(CstCofinsRepository.GetList());
-            App.CstIpi = new ObservableCollection<CstIpi>(CstIpiRepository.GetList());
-
+            try
+            {
+                App.Ncms = new ObservableCollection<Ncm>(NcmRepository.GetList());
+                App.Csts = new ObservableCollection<Cst>(CstRepository.GetList());
+                App.CstPis = new ObservableCollection<CstPis>(CstPisRepository.GetList());
+                App.CstCofins = new ObservableCollection<CstCofins>(CstCofinsRepository.GetList());
+                App.CstIpi = new ObservableCollection<CstIpi>(CstIpiRepository.GetList());
+            }
+            catch (Exception ex)
+            {
+                ModelBase.MensagemErroBancoDados("Erro ao carregar aplicação.\n\n" + ex.Message + 
+                    "\n\nA aplicação será encerrada para evitar danos ao banco de dados.");
+                Process.GetCurrentProcess().Kill();
+            }
             Model = new RetaguardaModel();
             Model.TelaAberta += model_TelaAberta;
             DataContext = Model;

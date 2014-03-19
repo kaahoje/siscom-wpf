@@ -4,7 +4,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+using AutoMapper;
 using Ecf.Forms;
+using Erp.Business.Entity.Vendas.Pedido.Restaurante;
 using Erp.Business.Enum;
 using Util;
 using Util.Wpf;
@@ -279,7 +281,7 @@ namespace Vendas.ViewModel.Grids
             get { return _funcoesPedidoVisible; }
             set
             {
-                
+
                 _funcoesPedidoVisible = value;
                 OnPropertyChanged();
             }
@@ -381,9 +383,16 @@ namespace Vendas.ViewModel.Grids
                     var mesa = GetMesa(numMesa.Value);
                     if (mesa != null)
                     {
+                        Mapper.CreateMap(typeof (PedidoRestauranteModel), typeof (PedidoRestaurante));
+                        Mapper.Map(mesa, mesa.EntityRestaurante);
                         Utils.ParcialMesa(mesa.EntityRestaurante);
                     }
+                    else
+                    {
+                        CustomMessageBox.MensagemInformativa("A mesa não está aberta ou não foi confirmada ainda.");
+                    }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -412,15 +421,21 @@ namespace Vendas.ViewModel.Grids
                 {
                     var ped = GetMesa(CurrentItem.EntityRestaurante.Mesa);
                     FecharMesa();
-                    Collection.Remove(ped);
-                    FilaSalao.Remove(ped);
+                    if (!ped.IsPagamentoCancelado)
+                    {
+                        Collection.Remove(ped);
+                        FilaSalao.Remove(ped);
+                    }
+
                 }
                 else
                 {
                     var ped = GetEntrega(CurrentItem.EntityRestaurante.Controle.Controle);
                     FecharEntrega();
-                    FilaEntrega.Remove(ped);
-
+                    if (!ped.IsPagamentoCancelado)
+                    {
+                        FilaEntrega.Remove(ped);
+                    }
                 }
                 if (CurrentItem == null)
                 {
@@ -432,7 +447,7 @@ namespace Vendas.ViewModel.Grids
             {
                 CustomMessageBox.MensagemErro(ex.Message);
             }
-            
+
         }
 
         private void FecharMesa()
@@ -496,7 +511,7 @@ namespace Vendas.ViewModel.Grids
 
             if (CurrentItem == null)
             {
-                return ;
+                return;
             }
 
             if (CurrentItem.EntityRestaurante.Local == LocalPedidoRestaurante.Mesa)
@@ -563,7 +578,7 @@ namespace Vendas.ViewModel.Grids
         private void RemoveEntrega(PedidoRestauranteModel entrega)
         {
             FilaEntrega.Remove(entrega);
-            if (CurrentItem.IdGuid == entrega.IdGuid)
+            if (CurrentItem != null && CurrentItem.IdGuid == entrega.IdGuid)
             {
                 CurrentItem = null;
             }
@@ -571,13 +586,16 @@ namespace Vendas.ViewModel.Grids
 
         private void RemoveMesa(PedidoRestauranteModel mesa)
         {
-            Collection.Remove(mesa);
-            Collection = Collection;
-            FilaSalao.Remove(mesa);
-            if (CurrentItem.IdGuid == mesa.IdGuid)
+            if (mesa.EntityRestaurante.Confirmado)
+            {
+                Collection.Remove(mesa);
+            }
+            if ( CurrentItem != null  && CurrentItem.EntityRestaurante.Mesa == mesa.EntityRestaurante.Mesa)
             {
                 CurrentItem = null;
             }
+            FilaSalao.Remove(mesa);
+            
         }
 
         private PedidoRestauranteModel GetMesa(int mesa)

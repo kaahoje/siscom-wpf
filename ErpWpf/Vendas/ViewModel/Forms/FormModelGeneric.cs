@@ -2,6 +2,11 @@
 {
     public class FormModelGeneric<T> : FormModelBase
     {
+        protected virtual void CalculaPedido()
+        {
+            
+        }
+
         private T _entity;
 
         public T Entity

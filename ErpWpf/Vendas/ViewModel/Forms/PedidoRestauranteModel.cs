@@ -207,9 +207,7 @@ namespace Vendas.ViewModel.Forms
                 System.Windows.Forms.MessageBox.Show("Informe ao menos um produto para fechar o pedido");
                 return false;
             }
-            var pagamento = new PagamentoPedidoView(this);
-            pagamento.PagamentoCancelado += pagamento_PagamentoCancelado;
-            pagamento.DataContext = this;
+            var pagamento = new PagamentoPedidoRestauranteView(this);
             pagamento.ShowDialog();
 
             if (!IsPagamentoCancelado && IsPagamentoEfetuado)

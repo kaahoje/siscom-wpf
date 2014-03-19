@@ -137,6 +137,9 @@
     <Compile Include="Component\View\Telas\MenuFiscalView.xaml.cs">
       <DependentUpon>MenuFiscalView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\View\Telas\PagamentoPedidoRestauranteView.xaml.cs">
+      <DependentUpon>PagamentoPedidoRestauranteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Enums\TipoPdv.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Utils.cs" />
@@ -172,9 +175,6 @@
     <Compile Include="Component\View\Telas\NumeroView.xaml.cs">
       <DependentUpon>NumeroView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Component\View\Telas\PagamentoPedidoView.xaml.cs">
-      <DependentUpon>PagamentoPedidoView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Component\View\Telas\ProdutosEncontradosView.xaml.cs">
       <DependentUpon>ProdutosEncontradosView.xaml</DependentUpon>
     </Compile>
@@ -189,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\View\Telas\MenuFiscalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\View\Telas\PagamentoPedidoRestauranteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -221,10 +225,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\View\Telas\NumeroView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Component\View\Telas\PagamentoPedidoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

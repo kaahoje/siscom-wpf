@@ -6,13 +6,14 @@ using System.Windows.Input;
 using Erp.Business;
 using Erp.Business.Entity.Vendas.Pedido;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
+using Util;
 using Util.Wpf;
 
 namespace Vendas.ViewModel.Forms
 {
     public delegate void PedidoFinalizadoEventHandler(object o, EventArgs e);
     public delegate void PedidoVoltarEventHandler(object o, EventArgs e);
-    public abstract class PedidoModel : FormModelGeneric<Pedido>
+    public  class PedidoModel : FormModelGeneric<Pedido>
     {
         public PedidoModel()
         {
@@ -27,7 +28,7 @@ namespace Vendas.ViewModel.Forms
             }
             catch (Exception ex)
             {
-
+                CustomMessageBox.MensagemErro(ex.Message);
             }
         }
 
@@ -58,8 +59,13 @@ namespace Vendas.ViewModel.Forms
         private ObservableCollection<CondicaoPagamento> _condicoesPagamento;
         private decimal _quantidadeAtual;
         private bool _isPagamentoCancelado;
+        private Guid _idGuid = Guid.NewGuid();
 
-        public Guid IdGuid { get; set; }
+        public Guid IdGuid
+        {
+            get { return _idGuid; }
+            set { _idGuid = value; }
+        }
 
         public FormaPagamento FormaPagamentoPadrao { get; set; }
         
@@ -239,6 +245,7 @@ namespace Vendas.ViewModel.Forms
             set
             {
                 _voltarAoPedido = value;
+                
                 OnPropertyChanged("CmdVoltarAoPedido");
             }
         }
@@ -272,6 +279,7 @@ namespace Vendas.ViewModel.Forms
         {
             if (IsPagamentoEfetuado)
             {
+                IsPagamentoCancelado = false;
                 OnPedidoFinalizado(this, EventArgs.Empty);
                 return true;
             }
@@ -287,7 +295,7 @@ namespace Vendas.ViewModel.Forms
             return true;
         }
 
-        protected abstract void CalculaPedido();
+        
     }
 
 }

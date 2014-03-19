@@ -44,8 +44,11 @@ namespace Vendas
                     throw new Exception("Informe ao menos um produto para poder fechar o pedido.");
                 }
 
-                
-                
+
+                foreach (var pag in pedido.Pagamento)
+                {
+                    pag.Pedido = pedido;
+                }
                 if (!FecharPedidoRestaurante(pedido, GetProdutosDeComposicao(pedido), pedido.Pagamento)) return false;
                 pedido.Coo = EcfHelper.Ecf.UltimoCupomEmitido();
                 

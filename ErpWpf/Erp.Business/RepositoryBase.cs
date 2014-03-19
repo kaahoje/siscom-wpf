@@ -39,7 +39,7 @@ namespace Erp.Business
         }
         protected static string EndStringFilter(String filter)
         {
-            return "%" +filter ;
+            return "%" + filter;
         }
 
         public static ISession Session { get; set; }
@@ -178,15 +178,7 @@ namespace Erp.Business
 
         public static IList<T> GetList()
         {
-            try
-            {
-                return NHibernateHttpModule.Session.QueryOver<T>().List();
-            }
-            catch (Exception)
-            {
-                return GetEmptyList();
-            }
-            
+            return NHibernateHttpModule.Session.QueryOver<T>().List();
         }
 
         public static IList<T> GetListAtivos()
@@ -282,7 +274,7 @@ namespace Erp.Business
             return NHibernateHttpModule.Session.QueryOver<T>();
         }
 
-      
+
 
         public static ICriteria GetCriteria()
         {

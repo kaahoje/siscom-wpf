@@ -21,17 +21,24 @@ namespace Erp.Business
             get
             {
                 string machine = Environment.MachineName;
-                
+                var cnn = "";
                 switch (machine)
                 {
                     case "BONEDEV":
-                        return ConfigurationManager.AppSettings["cnnAdailton"];
-
+                        cnn= ConfigurationManager.AppSettings["cnnAdailton"];
+                        break;
                     case "JMW-JOAO-PC":
-                        return ConfigurationManager.AppSettings["cnnJunior"];
+                        cnn = ConfigurationManager.AppSettings["cnnJunior"];
+                        break;
                     default:
-                        return ConfigurationManager.AppSettings["cnnDeploy"];
+                        cnn = ConfigurationManager.AppSettings["cnnDeploy"];
+                        break;
                 }
+                if (String.IsNullOrEmpty(cnn))
+                {
+                    throw new Exception("Não foi possível determinar as informações de conexão com o banco de dados.");
+                }
+                return cnn;
             }
         }
         

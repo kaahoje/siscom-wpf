@@ -10,8 +10,9 @@
     mc:Ignorable="d" x:Class="Erp.View.Forms.ProdutoFormView"
         Title="Produto" Height="472" Width="808" Loaded="Window_Loaded" Visibility="{Binding IsVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ResizeMode="NoResize" Icon="pack://application:,,,/Erp;component/Images/produto.png">
     <dx:DXWindow.Resources>
-        <dicionary:IpptDictionary x:Key="ipptDictionary" />
-        <dicionary:OrigemProdutoDictionary x:Key="origemProdutoDictionary" />
+        <dicionary:IpptDictionary x:Key="IpptDictionary" />
+        <dicionary:OrigemProdutoDictionary x:Key="OrigemProdutoDictionary" />
+        <dicionary:SituacaoTributariaDictionary x:Key="SituacaoTributariaDictionary" />
     </dx:DXWindow.Resources>
     <dx:DXWindow.DataContext>
         <forms:ProdutoFormModel/>
@@ -22,7 +23,7 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <rest:RestForm HorizontalAlignment="Left" x:Name="RestCommands" IsTabStop="False" VerticalAlignment="Top" Width="802" />
-        
+
         <Grid Grid.Row="1">
             <dx:DXTabControl Grid.Row="1" Margin="5">
                 <dx:DXTabItem Header="Dados do produto">
@@ -102,19 +103,41 @@
                             <dxe:ComboBoxEdit x:Name="origemComboBoxEdit" Grid.Column="1" DisplayMember="Description" HorizontalAlignment="Left"  Margin="5" Grid.Row="7" 
                                           VerticalAlignment="Center" Width="150"  ValueMember="Value" AutoComplete="True" IncrementalFiltering="True"  
                                           IsSynchronizedWithCurrentItem="True" ImmediatePopup="True" 
-                                          SelectedItem="{Binding Entity.Origem, Converter={StaticResource origemProdutoDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                          ItemsSource="{Binding Values, Mode=TwoWay, Source={StaticResource origemProdutoDictionary}, UpdateSourceTrigger=PropertyChanged}"/>
+                                          SelectedItem="{Binding Entity.Origem, Converter={StaticResource OrigemProdutoDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                          ItemsSource="{Binding Values, Mode=TwoWay, Source={StaticResource OrigemProdutoDictionary}, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="IPPT:" Grid.Column="2" HorizontalAlignment="Left" Margin="5" Grid.Row="7" VerticalAlignment="Center"/>
                             <dxe:ComboBoxEdit x:Name="ipptComboBoxEdit" Grid.Column="3" DisplayMember="Description" HorizontalAlignment="Left" Margin="5" Grid.Row="7" 
                                           VerticalAlignment="Center" Width="150"  ValueMember="Value" AutoComplete="True" IncrementalFiltering="True" 
-                                          SelectedItem="{Binding Entity.Ippt, Converter={StaticResource ipptDictionary}}" 
-                                          ItemsSource="{Binding Values, Mode=TwoWay, Source={StaticResource ipptDictionary}, UpdateSourceTrigger=PropertyChanged}"/>
+                                          SelectedItem="{Binding Entity.Ippt, Converter={StaticResource IpptDictionary}}" 
+                                          ItemsSource="{Binding Values, Mode=TwoWay, Source={StaticResource IpptDictionary}, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem Header="Tributação">
-                    <Grid Background="Transparent"/>
+                    <Grid Background="Transparent">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Trib. ICMS:" Margin="5"></Label>
+                        <dxe:ComboBoxEdit Grid.Row="0" Grid.Column="1" Margin="5" ItemsSource="{Binding Values, Source={StaticResource SituacaoTributariaDictionary}}" SelectedItem="{Binding Entity.Tributacao.TipoTributacaoIcms, Converter={StaticResource SituacaoTributariaDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoComplete="True" DisplayMember="Description" ValueMember="Value" IncrementalFiltering="True"></dxe:ComboBoxEdit>
+                        <Label Grid.Row="0" Grid.Column="2" Content="Valor ICMS:" Margin="5"/>
+                        <dxe:SpinEdit Grid.Row="0" Grid.Column="3" Margin="5" EditValue="{Binding Entity.Tributacao.IcmsDevedor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Mask="p" MaskUseAsDisplayFormat="True"></dxe:SpinEdit>
+                        <Label Grid.Row="1" Grid.Column="0" Content="Trib. ISS:" Margin="5"/>
+                        <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="1" Margin="5" ItemsSource="{Binding Values, Source={StaticResource SituacaoTributariaDictionary}}" SelectedItem="{Binding Entity.Tributacao.TipoTributacaoIss, Converter={StaticResource SituacaoTributariaDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMember="Description" ValueMember="Value" AutoComplete="True" IncrementalFiltering="True"></dxe:ComboBoxEdit>
+                        <Label Grid.Row="1" Grid.Column="2" Content="Valor ISS:" Margin="5" />
+                        <dxe:SpinEdit Grid.Row="1" Grid.Column="3" Margin="5" EditValue="{Binding Entity.Tributacao.IssDevedor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Mask="p" MaskUseAsDisplayFormat="True"></dxe:SpinEdit>
+                    </Grid>
                 </dx:DXTabItem>
             </dx:DXTabControl>
         </Grid>

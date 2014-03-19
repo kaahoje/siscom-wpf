@@ -88,7 +88,7 @@ namespace Erp.Business
 
         private static ISessionFactory GetFactory()
         {
-            
+
             if (_factory != null) return _factory;
             _factory = CreateSessionFactory();
 
@@ -102,19 +102,20 @@ namespace Erp.Business
         {
             var connectionString = DataBaseManager.CnnStr;
 
-           
+
             #region PostGre
 
             return Fluently
-                .Configure()
-                .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(connectionString))
+            .Configure()
+            .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(connectionString))
 
-                .Mappings(m => m.FluentMappings
-                    .AddFromAssemblyOf<Pessoa>()
-                )
+            .Mappings(m => m.FluentMappings
+                .AddFromAssemblyOf<Pessoa>()
+            )
 
-                .BuildSessionFactory();
-            
+            .BuildSessionFactory();
+
+
             #endregion
 
         }

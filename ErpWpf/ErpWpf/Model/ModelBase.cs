@@ -7,7 +7,9 @@ using System.Windows;
 using System.Windows.Input;
 using DevExpress.Xpf.Core;
 using Erp.Annotations;
+using Erp.Business;
 using FluentNHibernate.Conventions;
+using Util;
 using Util.Wpf;
 
 namespace Erp.Model
@@ -148,16 +150,19 @@ namespace Erp.Model
         #region Operações
         public static void MensagemErro(string mensagem)
         {
-            DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            CustomMessageBox.MensagemErro(mensagem);
+            
         }
         public static void MensagemInformativa(string mensagem)
         {
-            DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Information);
+            CustomMessageBox.MensagemInformativa(mensagem);
+            
         }
 
         public static void MensagemErroBancoDados(string mensagem)
         {
-            DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Warning);
+            CustomMessageBox.MensagemErroBancoDados(mensagem);
+            
         }
         public virtual void Limpar()
         {

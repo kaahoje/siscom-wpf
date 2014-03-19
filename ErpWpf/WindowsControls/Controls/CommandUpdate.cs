@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using WindowsControls.Forms;
-using Erp.Business.Seguranca;
 
 namespace WindowsControls.Controls
 {

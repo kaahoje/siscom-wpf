@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using WindowsControls.Forms;
 using Erp.Business.Validation;
 
 namespace WindowsControls.Controls

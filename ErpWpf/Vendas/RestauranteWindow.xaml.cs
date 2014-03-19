@@ -52,7 +52,7 @@ namespace Vendas
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            Utils.VerificaLancamentoInicial();
             //EcfHelper.FabricanteEcf = Settings.Default.FabricanteEcf;
             //DataContext = Model;
             //var dia = EcfHelper.Ecf.DataMovimento();

@@ -86,13 +86,6 @@ namespace Vendas.ViewModel.Forms
             }
         }
 
-
-
-
-
-
-
-
         #endregion Fim propriedades
         protected override void OnPropertyChanged(string propertyName = null)
         {
@@ -215,8 +208,11 @@ namespace Vendas.ViewModel.Forms
                 return false;
             }
             var pagamento = new PagamentoPedidoView(this);
+            pagamento.PagamentoCancelado += pagamento_PagamentoCancelado;
+            pagamento.DataContext = this;
             pagamento.ShowDialog();
-            if (!pagamento.CancelarPagamento && IsPagamentoEfetuado)
+
+            if (!IsPagamentoCancelado && IsPagamentoEfetuado)
             {
                 Mapper.CreateMap<PedidoRestauranteModel, PedidoRestaurante>();
                 Mapper.Map(this, Entity);
@@ -243,6 +239,11 @@ namespace Vendas.ViewModel.Forms
                 return false;
             }
             return true;
+        }
+
+        void pagamento_PagamentoCancelado(object sender, EventArgs e)
+        {
+            IsPagamentoCancelado = true;
         }
 
 

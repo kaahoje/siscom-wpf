@@ -1,12 +1,11 @@
-﻿using System.Web.UI.WebControls;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Util.Wpf;
 
 namespace Vendas.ViewModel.Forms
 {
-    public class LoginModel : FormModelBase<PessoaFisica>
+    public class LoginModel : FormModelGeneric<PessoaFisica>
     {
         private ICommand _cmdLogin;
         private bool _usuarioLogado;

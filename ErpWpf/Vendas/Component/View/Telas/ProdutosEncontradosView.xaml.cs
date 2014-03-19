@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using DevExpress.Xpf.Ribbon.Customization;
 using Erp.Business.Entity.Estoque.Produto;
@@ -13,7 +12,7 @@ namespace Vendas.Component.View.Telas
     /// <summary>
     /// Interaction logic for ProdutosEncontradosView.xaml
     /// </summary>
-    public partial class ProdutosEncontradosView : Window
+    public partial class ProdutosEncontradosView
     {
         public bool Cancelado { get; set; }
         private ProdutoEncontradoModel Model { get; set; }

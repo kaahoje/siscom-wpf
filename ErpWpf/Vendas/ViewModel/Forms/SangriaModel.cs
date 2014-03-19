@@ -2,7 +2,7 @@
 
 namespace Vendas.ViewModel.Forms
 {
-    public class SangriaFormModel : FormModelBase<Sangria>
+    public class SangriaFormModel : FormModelGeneric<Sangria>
     {
     }
 }

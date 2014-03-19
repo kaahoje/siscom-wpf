@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using NHibernate.Criterion;
 
 namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas

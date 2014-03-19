@@ -12,7 +12,7 @@ namespace Vendas.ViewModel.Forms
 {
     public delegate void PedidoFinalizadoEventHandler(object o, EventArgs e);
     public delegate void PedidoVoltarEventHandler(object o, EventArgs e);
-    public abstract class PedidoModel : FormModelBase<Pedido>
+    public abstract class PedidoModel : FormModelGeneric<Pedido>
     {
         public PedidoModel()
         {
@@ -57,6 +57,7 @@ namespace Vendas.ViewModel.Forms
         private ObservableCollection<FormaPagamento> _formasPagamento;
         private ObservableCollection<CondicaoPagamento> _condicoesPagamento;
         private decimal _quantidadeAtual;
+        private bool _isPagamentoCancelado;
 
         public Guid IdGuid { get; set; }
 
@@ -189,6 +190,17 @@ namespace Vendas.ViewModel.Forms
             }
 
         }
+
+        public bool IsPagamentoCancelado
+        {
+            get { return _isPagamentoCancelado; }
+            set
+            {
+                _isPagamentoCancelado = value; 
+                OnPropertyChanged("IsPagamentoCancelado");
+            }
+        }
+
         #endregion
 
         #region KeyGestures
@@ -269,7 +281,9 @@ namespace Vendas.ViewModel.Forms
 
         public bool CancelarPagamento()
         {
+            IsPagamentoCancelado = true;
             OnPedidoVoltar(this, EventArgs.Empty);
+
             return true;
         }
 

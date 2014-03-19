@@ -131,6 +131,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Component\View\Rest\RestTela.xaml.cs">
+      <DependentUpon>RestTela.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\View\Telas\MenuFiscalView.xaml.cs">
       <DependentUpon>MenuFiscalView.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,7 @@
     <Compile Include="CupomFiscal.cs" />
     <Compile Include="ViewModel\Forms\EcfDadosClienteModel.cs" />
     <Compile Include="ViewModel\Forms\FechamentoVendasModel.cs" />
+    <Compile Include="ViewModel\Forms\FormModelGeneric.cs" />
     <Compile Include="ViewModel\Forms\LancamentoInicialModel.cs" />
     <Compile Include="ViewModel\Forms\FormModelBase.cs" />
     <Compile Include="ViewModel\Forms\LoginModel.cs" />
@@ -180,6 +184,10 @@
     <Compile Include="Component\View\UserControls\PedidoRestaurante\PedidoUserControl.xaml.cs">
       <DependentUpon>PedidoUserControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="Component\View\Rest\RestTela.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Component\View\Telas\MenuFiscalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -289,6 +297,7 @@
       <Link>AutoMapper.Net4.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\sair.png" />
     <Resource Include="Images\abrirMesa.png" />
     <Resource Include="Images\addmesa.png" />
     <Resource Include="Images\addReceita.png" />

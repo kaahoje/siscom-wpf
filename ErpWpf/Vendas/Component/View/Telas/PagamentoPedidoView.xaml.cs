@@ -1,6 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Forms.VisualStyles;
 using System.Windows.Input;
-using Erp.Business.Entity.Vendas.Pedido.Restaurante;
 using Vendas.ViewModel.Forms;
 
 namespace Vendas.Component.View.Telas
@@ -8,34 +9,42 @@ namespace Vendas.Component.View.Telas
     /// <summary>
     /// Interaction logic for Fechamento.xaml
     /// </summary>
-    public partial class PagamentoPedidoView 
+    public partial class PagamentoPedidoView
     {
-        private PedidoModel Model { get; set; }
-        public PagamentoPedidoView(PedidoModel model)
-        {
-            
-            Model = model;
-            InitializeComponent();
-            
+        public delegate void PagamentoCanceladoEventHandler(object sender, EventArgs e);
 
+        private PedidoModel Model
+        {
+            get { return (PedidoModel) DataContext; }
         }
 
+        public PagamentoPedidoView(PedidoModel model)
+        {
+            InitializeComponent();
+            DataContext = model;
+        }
+
+        public event PagamentoCanceladoEventHandler PagamentoCancelado;
         protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
         {
             base.OnPropertyChanged(e);
-            if (e.Property.Name == "DataContext")
+            if (e.Property.Name.Equals("DataContext"))
             {
-                var model = DataContext as PedidoModel;
-                if (model != null)
-                {
-                    model.PedidoFinalizado += model_PedidoFinalizado;
-                    model.PedidoVoltar += model_PedidoVoltar;
-                }
+                Model.PedidoVoltar += model_PedidoVoltar;
+                Model.PedidoFinalizado += model_PedidoFinalizado;
             }
+        }
+
+        protected virtual void OnPagamentoCancelado()
+        {
+            PagamentoCanceladoEventHandler handler = PagamentoCancelado;
+            if (handler != null) handler(this, EventArgs.Empty);
         }
 
         void model_PedidoVoltar(object o, System.EventArgs e)
         {
+            Model.IsPagamentoCancelado = true;
+            OnPagamentoCancelado();
             Hide();
         }
 
@@ -44,7 +53,7 @@ namespace Vendas.Component.View.Telas
             Hide();
         }
 
-        public bool CancelarPagamento { get; set; }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = Model;

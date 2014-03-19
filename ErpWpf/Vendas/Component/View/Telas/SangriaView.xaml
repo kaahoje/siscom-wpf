@@ -1,8 +1,9 @@
-﻿<Window x:Class="Vendas.Component.View.Telas.SangriaView"
+﻿<dx:DXWindow x:Class="Vendas.Component.View.Telas.SangriaView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         Title="Sangria" Height="300" Width="300" PreviewKeyDown="SangriaView_OnPreviewKeyDown">
     <Grid>
         
     </Grid>
-</Window>
+</dx:DXWindow>

@@ -3,7 +3,6 @@ using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
-using Erp.Business;
 using Erp.Business.Entity.Configuracao;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 

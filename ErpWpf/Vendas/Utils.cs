@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using Ecf;
 using Erp.Business.Entity.Estoque.Produto;
+using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.LancamentoInicial;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante;
 using Erp.Business.Enum;
 using Vendas.Component.View.Telas;
@@ -279,6 +280,18 @@ namespace Vendas
                 // Comanda a impressão na impressora fiscal.
                 Imprimir(parcial, true);
             }
+        }
+
+        public static void VerificaLancamentoInicial()
+        {
+            var diaEcf = EcfHelper.Ecf.DataMovimento();
+            var diaLancado = LancamentoInicialRepository.DiaLancado(Settings.Default.Caixa, DateTime.Now.Date,
+                App.Proprietaria);
+            if (diaEcf.Date.Equals(DateTime.Parse("01/01/2000").Date) && diaLancado == null )
+            {
+                new LancamentoInicialView().ShowDialog();
+            }
+            
         }
     }
 }

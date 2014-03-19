@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Ecf;
 using Erp.Business;
 using Erp.Business.Dicionary;
 using Erp.Business.Entity.Contabil.Pessoa;
-using Erp.Business.Enum;
-using Util.Wpf;
 
 namespace Vendas.ViewModel.Forms
 {
-    public class EcfDadosClienteModel : FormModelBase<object>
+    public class EcfDadosClienteModel : FormModelBase
     {
         public EcfDadosClienteModel()
         {

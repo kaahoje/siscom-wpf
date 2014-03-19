@@ -1,12 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace Vendas.Component.View.Telas
 {
     /// <summary>
     /// Interaction logic for Sangria.xaml
     /// </summary>
-    public partial class SangriaView : Window
+    public partial class SangriaView
     {
         public SangriaView()
         {

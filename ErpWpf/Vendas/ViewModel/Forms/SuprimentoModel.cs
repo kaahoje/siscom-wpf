@@ -2,7 +2,7 @@
 
 namespace Vendas.ViewModel.Forms
 {
-    public class SuprimentoModel : FormModelBase<Suprimento>
+    public class SuprimentoModel : FormModelGeneric<Suprimento>
     {
     }
 }

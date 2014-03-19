@@ -17,7 +17,7 @@ namespace Vendas.ViewModel.Grids
             set
             {
                 _collection = value; 
-                OnPropertyChanged();
+                OnPropertyChanged("Collection");
             }
         }
 

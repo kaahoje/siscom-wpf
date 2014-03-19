@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
-using Erp.Business.Seguranca;
 
 namespace WindowsControls.Forms
 {

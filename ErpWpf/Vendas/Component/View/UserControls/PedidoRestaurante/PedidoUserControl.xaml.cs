@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Forms;
 using System.Windows.Input;
 using AutoMapper;
 using Erp.Business.Entity.Estoque.Produto;

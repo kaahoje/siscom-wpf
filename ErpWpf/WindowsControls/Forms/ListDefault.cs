@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using WindowsControls.Controls;
 using DevExpress.XtraEditors;
-using Erp.Business.Seguranca;
 
 namespace WindowsControls.Forms
 {

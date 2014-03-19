@@ -1,8 +1,9 @@
-﻿<Window
+﻿<dx:DXWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:grids="clr-namespace:Vendas.ViewModel.Grids" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     x:Class="Vendas.Component.View.Telas.ProdutosEncontradosView"
         Title="Produtos encontrados" Height="479.051" Width="728.477" WindowStartupLocation="CenterScreen" Loaded="ProdutosEncontradosView_OnLoaded" WindowStyle="None" KeyDown="ProdutosEncontradosView_OnKeyDown" >
     <Window.DataContext>
@@ -19,8 +20,8 @@
     <Grid>
         <dxb:BarManager CreateStandardLayout="True">
             <dxb:BarManager.Items>
-                <dxb:BarButtonItem x:Name="CmdAdicionar" Content="Adicionar" RibbonStyle="Large" KeyGesture="{Binding KeySelecionarProduto, Mode=OneWay}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Actions/Add_32x32.png" Command="{Binding CmdAdicionar}"/>
-                <dxb:BarButtonItem x:Name="CmdCancelar" Content="Cancelar" RibbonStyle="Large" KeyGesture="{Binding KeyCancelar, Mode=OneWay}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/History/Undo_32x32.png" Command="{Binding CmdCancelar}"/>
+                <dxb:BarButtonItem x:Name="CmdAdicionar" Content="Adicionar" RibbonStyle="Large" KeyGesture="{Binding KeySelecionarProduto, Mode=OneWay}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Content/CheckBox_32x32.png" Command="{Binding CmdAdicionar}"/>
+                <dxb:BarButtonItem x:Name="CmdCancelar" Content="Cancelar" RibbonStyle="Large" KeyGesture="{Binding KeyCancelar, Mode=OneWay}" Glyph="pack://application:,,,/Vendas;component/Images/sair.png" Command="{Binding CmdCancelar}"/>
             </dxb:BarManager.Items>
             <DockPanel>
                 <dxr:RibbonControl DockPanel.Dock="Top" ToolbarShowMode="Hide" ShowApplicationButton="True" RibbonHeaderVisibility="Collapsed"  >
@@ -56,4 +57,4 @@
             </dxg:GridControl.View>
         </dxg:GridControl>
     </Grid>
-</Window>
+</dx:DXWindow>

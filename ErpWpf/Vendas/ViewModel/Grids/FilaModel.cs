@@ -1,5 +1,4 @@
-﻿using System.Windows.Controls;
-using Vendas.ViewModel.Forms;
+﻿using Vendas.ViewModel.Forms;
 
 namespace Vendas.ViewModel.Grids
 {

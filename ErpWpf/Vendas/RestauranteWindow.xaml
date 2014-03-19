@@ -71,8 +71,9 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="1"/>
-                    <dxg:GridControl x:Name="GridMesas" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"
-						ItemsSource="{Binding Collection}" Margin="0,10,0,0" SelectionMode="Row" Height="286" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                    <dxg:GridControl x:Name="GridMesas" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+						ItemsSource="{Binding Collection}" Margin="5" SelectionMode="Row"                                      
+                                     SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
                         <dxg:GridControl.Columns>
                             <dxg:GridColumn FieldName="Entity.Mesa" IsSmart="True" Header="Mesa" Width="70"/>
                         </dxg:GridControl.Columns>

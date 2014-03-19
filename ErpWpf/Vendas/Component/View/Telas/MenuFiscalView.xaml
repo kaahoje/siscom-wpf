@@ -1,6 +1,7 @@
-﻿<Window x:Class="Vendas.Component.View.Telas.MenuFiscalView"
+﻿<dx:DXWindow x:Class="Vendas.Component.View.Telas.MenuFiscalView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         Title="Menu fiscal" Height="426.09" Width="331.579" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -50,4 +51,4 @@
         <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="5,5,0,0" Grid.Row="9" VerticalAlignment="Top" Width="150" Height="28"/>
 
     </Grid>
-</Window>
+</dx:DXWindow>

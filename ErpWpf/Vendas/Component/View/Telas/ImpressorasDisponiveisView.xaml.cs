@@ -1,5 +1,4 @@
 ﻿using System.Drawing.Printing;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Vendas.Component.View.Telas
@@ -7,7 +6,7 @@ namespace Vendas.Component.View.Telas
     /// <summary>
     /// Interaction logic for ImpressorasDisponiveisView.xaml
     /// </summary>
-    public partial class ImpressorasDisponiveisView : Window
+    public partial class ImpressorasDisponiveisView 
     {
         public ImpressorasDisponiveisView()
         {

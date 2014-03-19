@@ -1,12 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace Vendas.Component.View.Telas
 {
     /// <summary>
     /// Interaction logic for NumeroView.xaml
     /// </summary>
-    public partial class NumeroView : Window
+    public partial class NumeroView
     {
         public NumeroView()
         {

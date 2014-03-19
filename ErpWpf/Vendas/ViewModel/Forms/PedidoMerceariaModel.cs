@@ -2,7 +2,7 @@
 
 namespace Vendas.ViewModel.Forms
 {
-    public class PedidoMerceariaModel : FormModelBase<Mercearia>
+    public class PedidoMerceariaModel : FormModelGeneric<Mercearia>
     {
     }
 }

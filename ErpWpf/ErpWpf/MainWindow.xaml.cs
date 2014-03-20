@@ -56,25 +56,25 @@ namespace Erp
             //{
             //    var empresa = new PessoaJuridica()
             //    {
-            //        Cnpj = "13049042000240",
+            //        Cnpj = "13049042000169",
             //        RazaoSocial = "BONE PIZZA FRIOS BEBIDAS LTDA ME",
-            //        NomeFantasia = "BONE PIZZA FILIAL 1",
+            //        NomeFantasia = "BONE PIZZA MATRIZ",
             //        DataAbertura = DateTime.Parse("01/01/2012"),
-            //        InscricaoEstadual = "271371099",
+            //        InscricaoEstadual = "271301171",
             //        DataCadastro = DateTime.Now,
             //        ContatoTelefonicos = new PessoaTelefone[] { 
             //            new PessoaTelefone()
             //                {
             //                    DdiPais = "55",
             //                    DddTelefone = "79",
-            //                    Numero = "35229059",
+            //                    Numero = "35441378",
             //                    TelefoneTipo = TelefoneTipo.Comercial
             //                },  
             //             new PessoaTelefone()
             //                {
             //                    DdiPais = "55",
             //                    DddTelefone = "79",
-            //                    Numero = "99193007",
+            //                    Numero = "99914541",
             //                    TelefoneTipo = TelefoneTipo.Comercial
             //                }  
             //        },
@@ -82,8 +82,8 @@ namespace Erp
             //        {
             //            new PessoaEndereco()
             //            {
-            //                Logradouro = "RUA PEDRO HOMEM DA COSTA",
-            //                Numero = "292",
+            //                Logradouro = "PRACA OLIMPIO CAMPOS",
+            //                Numero = "4",
             //                Endereco = EnderecoRepository.GetByCep("492900000"),
             //                InformadoManualmente = true,
             //                TipoEndereco = TipoEndereco.Comercial

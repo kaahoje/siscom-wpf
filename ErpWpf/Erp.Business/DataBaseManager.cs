@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Erp.Business.Entity.Contabil;
@@ -10,6 +11,7 @@ using FluentNHibernate.Cfg.Db;
 using Ionic.Zip;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
+using Util;
 
 namespace Erp.Business
 {
@@ -25,7 +27,7 @@ namespace Erp.Business
                 switch (machine)
                 {
                     case "BONEDEV":
-                        cnn= ConfigurationManager.AppSettings["cnnAdailton"];
+                        cnn = ConfigurationManager.AppSettings["cnnAdailton"];
                         break;
                     case "JMW-JOAO-PC":
                         cnn = ConfigurationManager.AppSettings["cnnJunior"];
@@ -34,9 +36,11 @@ namespace Erp.Business
                         cnn = ConfigurationManager.AppSettings["cnnDeploy"];
                         break;
                 }
+                
                 if (String.IsNullOrEmpty(cnn))
                 {
-                    throw new Exception("Não foi possível determinar as informações de conexão com o banco de dados.");
+                    CustomMessageBox.MensagemErro("Não foi possível determinar as informações de conexão com o banco de dados.");
+                    Process.GetCurrentProcess().Kill();
                 }
                 return cnn;
             }

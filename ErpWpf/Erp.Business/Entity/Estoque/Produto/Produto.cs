@@ -18,6 +18,7 @@ namespace Erp.Business.Entity.Estoque.Produto
         {
             Receitas = new List<Receita>();
             UltimaCompra = DateTime.Now;
+            Tributacao = new Tributacao();
             //Detalhe = new DetalhesProduto();
             //Tributacao = new Tributacao();
         }

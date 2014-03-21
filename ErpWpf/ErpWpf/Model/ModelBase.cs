@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using DevExpress.Xpf.Core;
 using Erp.Annotations;
+using Erp.Business;
 using FluentNHibernate.Conventions;
 using Util;
 using Util.Wpf;
@@ -19,8 +20,7 @@ namespace Erp.Model
         protected string MensagemFuncaoNaoSuportada = "Esta função não é suportada pelo formulário";
         private Visibility _isVisible;
         private bool _isCancelado;
-
-
+        public Constants Constants {get {return new Constants();}}
 
 
         private Dictionary<string, string> errorMessages = new Dictionary<string, string>();

@@ -425,6 +425,7 @@
     </EmbeddedResource>
     <None Include="Arquivos\dados.zip" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Erp.Business.Constants.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Dicionary.FabricanteEcfDictionary.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Dicionary.IatDictionary.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Dicionary.IpptDictionary.datasource" />

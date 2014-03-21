@@ -1,11 +1,69 @@
-﻿<UserControl x:Class="Erp.View.Forms.Pessoa.PessoaFisica.PessoaFisicaUserControl"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dicionary="clr-namespace:Erp.Business.Dicionary;assembly=Erp.Business" xmlns:pessoaFisica="clr-namespace:Erp.Model.Forms.Pessoa.PessoaFisica" x:Class="Erp.View.Forms.Pessoa.PessoaFisica.PessoaFisicaUserControl"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="290" d:DesignWidth="640" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <dicionary:SexoDictionary x:Key="SexoDictionaryViewSource"/>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <pessoaFisica:PessoaFisicaFormModel/>
+    </UserControl.DataContext>
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="270"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Label Content="Nome:" Margin="5"/>
+        <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" EditValue="{Binding EntityPessoaFisica.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Label Grid.Row="0" Grid.Column="2" Content="Alias:" Margin="5"/>
+        <dxe:TextEdit Grid.Row="0" Grid.Column="3" Margin="7" />
+        
+        <Label Grid.Row="1" Grid.Column="0" Content="CPF:" Margin="5"/>
+        <dxe:TextEdit Grid.Row="1" Grid.Column="1" Margin="7" Mask="{Binding Constants.MaskCpfProperty}" 
+                      Width="150" MaskUseAsDisplayFormat="True" HorizontalAlignment="Left"
+                      EditValue="{Binding EntityPessoaFisica.Cpf,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Label Grid.Row="1" Grid.Column="2" Content="Sexo:" Margin="5"/>
+        <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="3" Margin="7" ItemsSource="{Binding Values, Source={StaticResource SexoDictionaryViewSource}}" SelectedItem="{Binding Entity.Sexo, Converter={StaticResource SexoDictionaryViewSource}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMember="Description" ValueMember="Value" AutoComplete="True" IncrementalFiltering="True"
+                          EditValue="{Binding EntityPessoaFisica.Sexo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Label Grid.Row="2" Grid.Column="0" Content="Usuario:" Margin="5"/>
+        <dxe:TextEdit Grid.Row="2" Grid.Column="1" Margin="7" Width="200" HorizontalAlignment="Left"
+                      EditValue="{Binding EntityPessoaFisica.Login,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Label Grid.Row="3" Grid.Column="0" Content="Senha:" Margin="5"/>
+        <dxe:PasswordBoxEdit Grid.Row="3" Grid.Column="1" Margin="7" Width="150" HorizontalAlignment="Left"
+                             EditValue="{Binding EntityPessoaFisica.Senha,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Label Grid.Row="4" Grid.Column="0" Content="Nova senha:" Margin="5"/>
+        <dxe:PasswordBoxEdit Grid.Row="4" Grid.Column="1" Margin="7" Width="150" HorizontalAlignment="Left"
+                             EditValue="{Binding EntityPessoaFisica.NovaSenha,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Label Grid.Row="5" Grid.Column="0" Content="Confirmar:" Margin="5"/>
+        <dxe:PasswordBoxEdit Grid.Row="5" Grid.Column="1" Margin="7" Width="150" HorizontalAlignment="Left"
+                             EditValue="{Binding EntityPessoaFisica.ConfirmarSenha,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Label Grid.Row="6" Grid.Column="0" Content="Frase:" Margin="5"/>
+        <dxe:TextEdit Grid.Row="6" Grid.Column="1" Margin="7" 
+                      EditValue="{Binding EntityPessoaFisica.PalavraChave,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+
     </Grid>
 </UserControl>

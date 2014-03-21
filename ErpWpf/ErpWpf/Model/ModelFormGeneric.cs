@@ -5,7 +5,7 @@ namespace Erp.Model
     public class ModelFormGeneric<T> : ModelFormBase where T : new()
     {
         private T _entity;
-        private ModelSelectGeneric<T> _modelSelect;
+        private ModelSelectBase _modelSelect;
         public T Entity
         {
             get { return _entity; }
@@ -15,7 +15,7 @@ namespace Erp.Model
                 OnPropertyChanged("Entity");
             }
         }
-        public ModelSelectGeneric<T> ModelSelect
+        public ModelSelectBase ModelSelect
         {
             get { return _modelSelect; }
             set

@@ -6,15 +6,15 @@
              xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:Pessoa="clr-namespace:Erp.Model.Forms.Pessoa"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-    xmlns:Dicionary="clr-namespace:Erp.Business.Dicionary;assembly=Erp.Business"
+    xmlns:dicionary="clr-namespace:Erp.Business.Dicionary;assembly=Erp.Business"
     x:Class="Erp.View.Forms.Pessoa.PessoaUserControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="700" Loaded="UserControl_Loaded">
 
     <UserControl.Resources>
-        <Dicionary:TipoEnderecoDictionary x:Key="TipoEnderecoDictionary" />
-        <Dicionary:TipoEmailDictionary x:Key="TipoEmailDictionary" />
-        <Dicionary:TipoTelefoneDictionary x:Key="TipoTelefoneDictionary" />
+        <dicionary:TipoEnderecoDictionary x:Key="TipoEnderecoDictionary" />
+        <dicionary:TipoEmailDictionary x:Key="TipoEmailDictionary" />
+        <dicionary:TipoTelefoneDictionary x:Key="TipoTelefoneDictionary" />
     </UserControl.Resources>
 
     <UserControl.DataContext>
@@ -70,9 +70,9 @@
 
                     </Grid.ColumnDefinitions>
                     <Label Content="Logradouro:" Margin="5" Grid.Row="0" Grid.RowSpan="2"/>
-                    <dxe:TextEdit Grid.Row="0" Grid.RowSpan="2" Margin="7" Grid.Column="1"/>
+                    <dxe:TextEdit Grid.Row="0" Grid.RowSpan="2" EditValue="{Binding CurrentEndereco.Logradouro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="7" Grid.Column="1"/>
                     <Label Content="Número:" Grid.Row="0" Grid.RowSpan="2" Margin="5" Grid.Column="2"/>
-                    <dxe:SpinEdit Grid.Row="0" Grid.Column="3" Margin="7" Width="70" HorizontalAlignment="Left"/>
+                    <dxe:SpinEdit Grid.Row="0" Grid.Column="3" Margin="7" Width="70" EditValue="{Binding CurrentEndereco.Numero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"/>
 
                 </Grid>
 
@@ -98,18 +98,20 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Cep:" Margin="5"/>
-                        <dxe:TextEdit  Grid.Row="0" Margin="7" Grid.Column="1"/>
+                        <dxe:TextEdit  Grid.Row="0" Margin="7" Grid.Column="1" EditValue="{Binding CurrentEndereco.Endereco.Cep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <Button Grid.Column="2" Margin="5" Command="{Binding CmdBuscarEndereco, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
                     </Grid>
 
                     <Label Grid.Row="1" Grid.Column="0" Margin="5" Content="Cidade:" />
-                    <dxe:TextEdit Grid.Row="1" Margin="7" Grid.Column="1" />
-                    <Label Grid.Row="1" Grid.Column="2" Margin="5" Content="UF:" HorizontalAlignment="Left" />
-                    <dxe:TextEdit Grid.Row="1" Margin="7" Grid.Column="3" Width="100" HorizontalAlignment="Left" />
+                    <dxe:TextEdit Grid.Row="1" Margin="7" Grid.Column="1" EditValue="{Binding CurrentEndereco.Endereco.Cidade.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Label Grid.Row="1" Grid.Column="2" Margin="5" Content="UF:" HorizontalAlignment="Left"/>
+                    <dxe:TextEdit Grid.Row="1" Margin="7" Grid.Column="3" Width="100" HorizontalAlignment="Left"  EditValue="{Binding CurrentEndereco.Endereco.Cidade.Estado.UF, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Grid.Row="2" Grid.Column="0" Margin="5" Content="Bairro:" />
-                    <dxe:TextEdit Grid.Row="2" Margin="7" Grid.Column="1" />
+                    <dxe:TextEdit Grid.Row="2" Margin="7" Grid.Column="1" EditValue="{Binding CurrentEndereco.Endereco.Bairro.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Grid.Row="3" Grid.Column="0" Margin="5" Content="Tipo:" />
-                    <dxe:ComboBoxEdit HorizontalAlignment="Left" Grid.Row="3" Margin="7" Grid.Column="1" Width="150" ItemsSource="{Binding Values, Mode=TwoWay, Source={StaticResource TipoEnderecoDictionary}, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentEndereco, Converter={StaticResource TipoEnderecoDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMember="Description" ValueMember="Value" />
+                    <dxe:ComboBoxEdit HorizontalAlignment="Left" Grid.Row="3" Margin="7" Grid.Column="1" Width="150" ItemsSource="{Binding Values, Mode=TwoWay, Source={StaticResource TipoEnderecoDictionary}, UpdateSourceTrigger=PropertyChanged}" 
+                                      EditValue="{Binding CurrentEndereco, Converter={StaticResource TipoEnderecoDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMember="Description" ValueMember="Value" 
+                                      />
                 </Grid>
             </Grid>
         </dx:DXTabItem>
@@ -161,15 +163,21 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Margin="5" Content="DDI:" />
-                    <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="50" HorizontalAlignment="Left"/>
+                    <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="50" HorizontalAlignment="Left"
+                                  EditValue="{Binding CurrentContatoTelefonico.DdiPais, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Grid.Row="1" Grid.Column="0" Margin="5" Content="DDD:" />
-                    <dxe:TextEdit Grid.Row="1" Grid.Column="1" Margin="7" Width="50" HorizontalAlignment="Left"/>
+                    <dxe:TextEdit Grid.Row="1" Grid.Column="1" Margin="7" Width="50" HorizontalAlignment="Left"
+                                  EditValue="{Binding CurrentContatoTelefonico.DddTelefone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Grid.Row="2" Grid.Column="0" Margin="5" Content="Telefone:" />
-                    <dxe:TextEdit Grid.Row="2" Grid.Column="1" Margin="7"/>
+                    <dxe:TextEdit Grid.Row="2" Grid.Column="1" Margin="7" 
+                                  EditValue="{Binding CurrentContatoTelefonico.Numero}"/>
                     <Label Grid.Row="3" Grid.Column="0" Margin="5" Content="Ramal:" />
-                    <dxe:TextEdit Grid.Row="3" Grid.Column="1" Margin="7" Width="70" HorizontalAlignment="Left"/>
+                    <dxe:TextEdit Grid.Row="3" Grid.Column="1" Margin="7" Width="70" HorizontalAlignment="Left"
+                                  EditValue="{Binding CurrentContatoTelefonico.Ramal}"/>
                     <Label Grid.Row="4" Grid.Column="0" Margin="5" Content="Tipo:" />
-                    <dxe:ComboBoxEdit Grid.Row="4" Grid.Column="1" Margin="7" ItemsSource="{Binding Values, Mode=TwoWay, Source={StaticResource TipoTelefoneDictionary}, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentContatoTelefonico.TelefoneTipo, Converter={StaticResource TipoTelefoneDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <dxe:ComboBoxEdit Grid.Row="4" Grid.Column="1" Margin="7" ItemsSource="{Binding Values, Mode=TwoWay, Source={StaticResource TipoTelefoneDictionary}, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentContatoTelefonico.TelefoneTipo, Converter={StaticResource TipoTelefoneDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      EditValue="{Binding CurrentContatoTelefonico.TelefoneTipo,Converter={StaticResource TipoTelefoneDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    
                 </Grid>
             </Grid>
         </dx:DXTabItem>
@@ -212,7 +220,8 @@
                         <ColumnDefinition Width="Auto" MinWidth="320" />
                     </Grid.ColumnDefinitions>
                     <Label Content="E-Mail:" Margin="5"/>
-                    <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Text="{Binding CurrentEnderecoEletronico.Nick}"/>
+                    <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" 
+                                  Text="{Binding CurrentEnderecoEletronico.Nick, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <!--<Grid Row="1" ColumnSpan="2" Grid.Column="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="145"/>
@@ -228,7 +237,10 @@
                         <dxe:CheckEdit Grid.Column="3" Width="15" Margin="5"></dxe:CheckEdit>
                     </Grid>-->
                     <Label Grid.Row="2" Grid.Column="0" Content="Tipo:" Margin="5" />
-                    <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" Margin="7" EditValue="{Binding CurrentEnderecoEletronico.Tipo}" HorizontalAlignment="Left" Width="150" ItemsSource="{Binding Source={StaticResource tipoEmailDictionaryViewSource}}" />
+                    <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" Margin="7" 
+                        EditValue="{Binding CurrentEnderecoEletronico.Tipo, Converter={StaticResource 
+                        TipoEmailDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        HorizontalAlignment="Left" Width="150"  />
                 </Grid>
             </Grid>
         </dx:DXTabItem>

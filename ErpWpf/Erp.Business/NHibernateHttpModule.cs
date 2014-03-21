@@ -6,8 +6,6 @@ using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 
-//http://www.leandroprado.com.br/2012/01/mapeiamentos-com-fluent-nhibernate/
-using Util;
 
 namespace Erp.Business
 {

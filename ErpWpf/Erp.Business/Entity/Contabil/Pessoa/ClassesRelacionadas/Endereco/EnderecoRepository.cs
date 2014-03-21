@@ -67,36 +67,18 @@ namespace Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco
             return stringBuilder.ToString();
         }
 
-        public static object GetEnderecoRange(ListEditItemsRequestedByFilterConditionEventArgs args)
+        public static IList<Endereco> GetEnderecoRange(string filter, int skip, int take)
         {
-            if (!string.IsNullOrEmpty(args.Filter))
+            if (!string.IsNullOrEmpty(filter))
             {
-                var skip = args.BeginIndex;
-                var take = args.EndIndex - args.BeginIndex + 1;
-                var filter = Util.Functions.RemoverAcentos(args.Filter.ToLower());
 
-                var enderecos = NHibernateHttpModule.Session.Query<Endereco>();
-
-                var list = (from endereco in enderecos
-
-                            where (
-                                //Cep
-                                endereco.Cep.Contains("%" + filter + "%") ||
-                                //Logradouro
-                                endereco.Nome.Contains("%" + filter + "%") 
-                                //Bairro
-                                //endereco.Bairro.Nome.Contains("%" + filter + "%") ||
-                                //Cidade
-                                //endereco.Cidade.Nome.Contains("%" + filter + "%") ||
-                                //Estado
-                                //endereco.Cidade.Estado.Nome.Contains("%" + filter + "%")
-
-                                )
-                            orderby endereco.Nome
-                            select endereco).OrderBy(x => x.Nome).Skip(skip).Take(take);
-
-
-                return list.ToList();
+                if (Validation.Validation.GetOnlyNumber(filter).Length == filter.Length)
+                {
+                    return GetQueryOver().Where(x=>x.Cep.IsInsensitiveLike(ContainsStringFilter(filter))).List();
+                }
+                return GetQueryOver().Where(x => x.Cep.IsInsensitiveLike(ContainsStringFilter(filter))
+                    || x.Nome.IsInsensitiveLike(ContainsStringFilter(filter))
+                    ).List();
             }
 
             return null;

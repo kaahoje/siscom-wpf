@@ -2,14 +2,12 @@
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Diagnostics;
+using System.Globalization;
 using System.Windows;
 using Erp.Business;
-using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
-using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
-using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using Erp.Business.Entity.Sped;
-using Erp.Business.Enum;
 using Erp.Model;
+using FluentNHibernate.Utils;
 
 namespace Erp
 {
@@ -22,19 +20,19 @@ namespace Erp
         public MainWindow()
         {
             InitializeComponent();
-            var initType = ConfigurationManager.AppSettings["initDbType"];
-            if (!string.IsNullOrEmpty(initType))
-            {
-                switch (initType)
-                {
-                    case "init":
-                        DataBaseManager.InitDb();
-                        break;
-                    case "update":
-                        DataBaseManager.UpdateDb();
-                        break;
-                }
-            }
+            //var initType = ConfigurationManager.AppSettings["initDbType"];
+            //if (!string.IsNullOrEmpty(initType))
+            //{
+            //    switch (initType)
+            //    {
+            //        case "init":
+            //            DataBaseManager.InitDb();
+            //            break;
+            //        case "update":
+            //            DataBaseManager.UpdateDb();
+            //            break;
+            //    }
+            //}
             try
             {
                 App.Ncms = new ObservableCollection<Ncm>(NcmRepository.GetList());
@@ -45,6 +43,7 @@ namespace Erp
             }
             catch (Exception ex)
             {
+                Utils.GerarLog(ex);
                 ModelBase.MensagemErroBancoDados("Erro ao carregar aplicação.\n\n" + ex.Message +
                     "\n\nA aplicação será encerrada para evitar danos ao banco de dados.");
                 Process.GetCurrentProcess().Kill();

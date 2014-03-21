@@ -7,6 +7,7 @@ using FluentNHibernate.Cfg.Db;
 using NHibernate;
 
 //http://www.leandroprado.com.br/2012/01/mapeiamentos-com-fluent-nhibernate/
+using Util;
 
 namespace Erp.Business
 {
@@ -100,24 +101,29 @@ namespace Erp.Business
 
         public static ISessionFactory CreateSessionFactory()
         {
-            var connectionString = DataBaseManager.CnnStr;
-
-
+            string connectionString = DataBaseManager.CnnStr;
             #region PostGre
 
-            return Fluently
-            .Configure()
-            .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(connectionString))
 
-            .Mappings(m => m.FluentMappings
-                .AddFromAssemblyOf<Pessoa>()
-            )
 
-            .BuildSessionFactory();
-
+            try
+            {
+                var fact = Fluently
+                .Configure()
+                    .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(connectionString))
+                    .Mappings(m => m.FluentMappings
+                    .AddFromAssemblyOf<Pessoa>()).BuildSessionFactory();
+                _session = fact.OpenSession();
+                return fact;
+            }
+            catch (Exception ex)
+            {
+                Utils.GerarLogDataBase(ex);
+                throw;
+            }
+            return null;
 
             #endregion
-
         }
     }
 }

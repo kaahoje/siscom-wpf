@@ -99,24 +99,51 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\Npgsql.2.0.14.3\lib\net45\Npgsql.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Activities" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Printing" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Activities">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Printing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>True</Private>
     </Reference>
     <Reference Include="UIAutomationProvider">
       <Private>True</Private>
@@ -144,13 +171,24 @@
     <Compile Include="Model\Forms\FormaPagamentoFormModel.cs" />
     <Compile Include="Model\Forms\GrupoProdutoFormModel.cs" />
     <Compile Include="Model\Forms\NcmFormModel.cs" />
+    <Compile Include="Model\Forms\Pessoa\IPessoa.cs" />
+    <Compile Include="Model\Forms\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaFormModel.cs" />
+    <Compile Include="Model\Forms\Pessoa\PessoaFisica\PessoaFisicaFormModel.cs" />
+    <Compile Include="Model\Forms\Pessoa\PessoaFormModel.cs" />
+    <Compile Include="Model\Forms\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaFormModel.cs" />
+    <Compile Include="Model\Forms\Pessoa\PessoaJuridica\PessoaJuridicaFormModel.cs" />
     <Compile Include="Model\Forms\ProdutoFormModel.cs" />
     <Compile Include="Model\Forms\SubGrupoProdutoFormModel.cs" />
     <Compile Include="Model\Forms\UnidadeFormModel.cs" />
     <Compile Include="Model\Grids\CondicaoPagamentoSelectModel.cs" />
+    <Compile Include="Model\Grids\EnderecoSelectModel.cs" />
     <Compile Include="Model\Grids\FormaPagamentoSelectModel.cs" />
     <Compile Include="Model\Grids\GrupoProdutoSelectModel.cs" />
     <Compile Include="Model\Grids\NcmSelectModel.cs" />
+    <Compile Include="Model\Grids\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaSelectModel.cs" />
+    <Compile Include="Model\Grids\Pessoa\PessoaFisica\PessoaFisicaSelectModel.cs" />
+    <Compile Include="Model\Grids\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaSelectModel.cs" />
+    <Compile Include="Model\Grids\Pessoa\PessoaJuridica\PessoaJuridicaSelectModel.cs" />
     <Compile Include="Model\Grids\ProdutoSelectModel.cs" />
     <Compile Include="Model\Grids\SubGrupoProdutoSelectModel.cs" />
     <Compile Include="Model\Grids\UnidadeSelectModel.cs" />
@@ -175,6 +213,33 @@
     <Compile Include="View\Forms\NcmFormView.xaml.cs">
       <DependentUpon>NcmFormView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaFormView.xaml.cs">
+      <DependentUpon>ParceiroNegocioPessoaFisicaFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaUserControl.xaml.cs">
+      <DependentUpon>ParceiroNegocioPessoaFisicaUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Pessoa\PessoaFisica\PessoaFisicaFormView.xaml.cs">
+      <DependentUpon>PessoaFisicaFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Pessoa\PessoaFisica\PessoaFisicaUserControl.xaml.cs">
+      <DependentUpon>PessoaFisicaUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaFormView.xaml.cs">
+      <DependentUpon>ParceiroNegocioPessoaJuridicaFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaUserControl.xaml.cs">
+      <DependentUpon>ParceiroNegocioPessoaJuridicaUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Pessoa\PessoaJuridica\PessoaJuridicaFormView.xaml.cs">
+      <DependentUpon>PessoaJuridicaFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Pessoa\PessoaJuridica\PessoaJuridicaUserControl.xaml.cs">
+      <DependentUpon>PessoaJuridicaUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Pessoa\PessoaUserControl.xaml.cs">
+      <DependentUpon>PessoaUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\ProdutoFormView.xaml.cs">
       <DependentUpon>ProdutoFormView.xaml</DependentUpon>
     </Compile>
@@ -192,6 +257,9 @@
     </Compile>
     <Compile Include="View\Selections\CondicaoPagamentoSelectView.xaml.cs">
       <DependentUpon>CondicaoPagamentoSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\EnderecoSelectView.xaml.cs">
+      <DependentUpon>EnderecoSelectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Selections\FormaPagamentoSelectView.xaml.cs">
       <DependentUpon>FormaPagamentoSelectView.xaml</DependentUpon>
@@ -244,6 +312,42 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Forms\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\Pessoa\PessoaFisica\PessoaFisicaFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\Pessoa\PessoaFisica\PessoaFisicaUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\Pessoa\PessoaJuridica\PessoaJuridicaFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\Pessoa\PessoaJuridica\PessoaJuridicaUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\Pessoa\PessoaUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Forms\ProdutoFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -265,6 +369,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Selections\CondicaoPagamentoSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\EnderecoSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -349,7 +457,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Recycle.png" />
@@ -388,6 +498,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\mercosul.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\addGrid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\removeGrid.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

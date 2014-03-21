@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Input;
 using AutoMapper;
-using DevExpress.Xpf.Mvvm.POCO;
-using Erp.Business;
 using Erp.Business.Entity.Estoque.Produto;
-using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
-using Erp.Business.Enum;
 using Erp.Model.Grids;
 using Util.Wpf;
 

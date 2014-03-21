@@ -29,7 +29,7 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.PagamentoCliente
 
                 pag.Caixa = pedido.Caixa;
                 pag.DataMovimento = pedido.DataPedido;
-                pag.Usuario = Utils.UsuarioAtual;
+                pag.Usuario = pedido.Usuario;
 
                 var lanc = new Lancamento
                 {

@@ -1,4 +1,5 @@
 ﻿using System;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.LancamentoInicial;
 using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.RecebimentoVenda;
@@ -23,7 +24,7 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa
                     
                     DataMovimento = pedido.DataPedido,
                     Caixa = pedido.Caixa,
-                    Usuario = Utils.UsuarioAtual,
+                    Usuario = pedido.Usuario,
                     FormaPagamento = pag.FormaPagamento,
                     Historico = "Pagamento do pedido: " + pedido.Id
                                 + " parcela: " + pag.Parcela,
@@ -35,13 +36,14 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa
             return true;
         }
 
-        public static bool LancarSangria(Decimal valor, String historico,int caixa, DateTime dia, PessoaJuridica empresa)
+        public static bool LancarSangria(Decimal valor, String historico,int caixa, DateTime dia, PessoaJuridica empresa,
+            PessoaFisica usuario)
         {
             var lanc = new Sangria
             {
                 DataMovimento = dia,
                 Caixa = caixa,
-                Usuario = Utils.UsuarioAtual,
+                Usuario = usuario,
                 Empresa = empresa,
                 Historico = historico,
                 Valor = valor
@@ -52,14 +54,14 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa
             return true;
         }
 
-        public static bool LancarInicial(Decimal valor,int caixa, DateTime dia , PessoaJuridica empresa)
+        public static bool LancarInicial(Decimal valor,int caixa, DateTime dia , PessoaJuridica empresa, PessoaFisica usuario)
         {
             var lanc = new LancamentoInicial
             {
                 DataMovimento = dia,
                 Empresa = empresa,
                 Caixa = caixa,
-                Usuario = Utils.UsuarioAtual,
+                Usuario = usuario,
                 Historico = "LANCAMENTO INICIAL",
                 Valor = valor
             };

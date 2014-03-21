@@ -7,7 +7,6 @@ using System.Windows;
 using System.Windows.Input;
 using DevExpress.Xpf.Core;
 using Erp.Annotations;
-using Erp.Business;
 using FluentNHibernate.Conventions;
 using Util;
 using Util.Wpf;

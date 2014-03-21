@@ -8,11 +8,9 @@ namespace Erp.Business
 {
     public class Utils
     {
-       
-        
-        public static PessoaFisica UsuarioAtual { get; set; }
 
-        
+
+
 
         //public static ConfTerminal Terminal
         //{
@@ -24,12 +22,12 @@ namespace Erp.Business
         //            if (_Terminal == null)
         //            {
         //                throw new Exception("Terminal não cadastrado!");
-                        
+
         //            }
         //            if (_Terminal != null && !_Terminal.Ativo)
         //            {
         //                throw new Exception("Terminal não autorizado!");
-                        
+
         //            }
         //        }
         //        return _Terminal;
@@ -37,10 +35,7 @@ namespace Erp.Business
         //    set { _Terminal = value; }
         //}
 
-        public String NomeUsuario
-        {
-            get { return UsuarioAtual.Nome; }
-        }
+
 
         //public static bool SolicitaBackup()
         //{
@@ -232,7 +227,7 @@ namespace Erp.Business
         {
             if ((valor) >= 97 && (valor) <= 122)
             {
-                return (char) (valor - 32);
+                return (char)(valor - 32);
             }
             if ((valor < 48 || valor > 122))
             {
@@ -240,15 +235,54 @@ namespace Erp.Business
                     && valor != 46 && valor != 8 && valor != 9
                     && valor != 44 && valor != 13)
                 {
-                    return (char) 0;
+                    return (char)0;
                 }
             }
             if (valor >= 58 && valor <= 63)
             {
-                return (char) 0;
+                return (char)0;
             }
 
             return valor;
+        }
+
+        public static void GerarLog(Exception ex)
+        {
+            var message = GetMessage(ex);
+            var path = Environment.CurrentDirectory + "\\log";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            path += "\\log" + DateTime.Now.Date.ToString("yyyy-mm-dd") + ".txt";
+
+            GravarArquivo(path, message);
+        }
+        public static void GerarLogDataBase(Exception ex)
+        {
+            var message = GetMessage(ex);
+            var path = Environment.CurrentDirectory + "\\DbLog";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            path += "\\log" + DateTime.Now.Date.ToString("yyyy-mm-dd") + ".txt";
+
+            GravarArquivo(path, message);
+        }
+
+        private static string GetMessage(Exception ex)
+        {
+            var e = ex.InnerException;
+            var trace = ex.StackTrace;
+            var message = "";
+            
+            while (e != null)
+            {
+                message += e.Message + Environment.NewLine;
+                e = e.InnerException;
+            }
+            return message + trace;
         }
     }
 }

@@ -10,7 +10,7 @@
     <UserControl.DataContext>
         <model1:ModelFormBase/>
     </UserControl.DataContext>
-    <Grid>
+    
         <dxb:BarManager CreateStandardLayout="False"  >
             <dxb:BarManager.Items>
                 <dxb:BarButtonItem x:Name="barButtonItem4" Content="Pesquisar" Glyph="pack://application:,,,/Erp;component/Images/consulta%20pedido.png" RibbonStyle="Large" KeyGesture="{Binding KeyPesquisa, Mode=OneWay}" Command="{Binding CmdPesquisar}" IsEnabled="{Binding IsPesquisar}"/>
@@ -40,5 +40,5 @@
 
             </DockPanel>
         </dxb:BarManager>
-    </Grid>
+    
 </UserControl>

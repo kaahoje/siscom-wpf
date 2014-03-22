@@ -5,7 +5,7 @@
     xmlns:model1="clr-namespace:Erp.Model"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     x:Class="Erp.MainWindow"
-        Title="Sistema ERP" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="MainWindow_OnLoaded" Closed="MainWindow_OnClosed">
+        Title="Sistema ERP" Height="350" Width="825" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="MainWindow_OnLoaded" Closed="MainWindow_OnClosed">
     <Window.DataContext>
         <model1:RetaguardaModel/>
     </Window.DataContext>
@@ -20,7 +20,7 @@
                 <dxb:BarButtonItem x:Name="barButtonItem4" Content="Grupo de produto" Command="{Binding CmdAbrirTelaGrupoProduto}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem6" Content="Subgrupo de produto" Command="{Binding CmdAbrirTelaSubGrupoProduto}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem7" Content="Unidades" Command="{Binding CmdAbrirTelaUnidade}"/>
-                <dxb:BarButtonItem x:Name="barButtonItem8" Content="Parceiros" RibbonStyle="Large"/>
+                <dxb:BarButtonItem x:Name="barButtonItem8" Content="Parceiros" RibbonStyle="Large" />
                 <dxb:BarButtonItem x:Name="barButtonItem9" Content="Atualizar produtos" RibbonStyle="Large" Command="{Binding CmdAbrirTelaAtualizacaoProduto}"/>
             </dxb:BarManager.Items>
             <DockPanel>

@@ -1,4 +1,5 @@
-﻿using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
+﻿using System.Windows.Input;
+using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 
 namespace Erp.View.Forms
 {
@@ -12,7 +13,7 @@ namespace Erp.View.Forms
         {
             InitializeComponent();
             RestCommands.DataContext = DataContext;
-
+            
             FormDefaultActions = new FormDefaultActions<CondicaoPagamento>(this) { IsEnableShortcuts = false };
         }
     }

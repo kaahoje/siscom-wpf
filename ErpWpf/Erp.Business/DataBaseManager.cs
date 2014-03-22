@@ -23,18 +23,19 @@ namespace Erp.Business
             get
             {
                 string machine = Environment.MachineName;
-                var cnn = ConfigurationManager.AppSettings["ConnectionString"];
+                var cnn = "";
                 switch (machine)
                 {
-                    //case "BONEDEV":
-                    //    cnn = ConfigurationManager.AppSettings["cnnAdailton"];
-                    //    break;
-                    //case "JMW-JOAO-PC":
-                    //    cnn = ConfigurationManager.AppSettings["cnnJunior"];
-                    //    break;
-                    //default:
-                    //    cnn = ConfigurationManager.AppSettings["cnnDeploy"];
-                    //    break;
+                    case "BONEDEV":
+                        cnn = ConfigurationManager.AppSettings["cnnAdailton"];
+                        break;
+                    case "JMW-JOAO-PC":
+                        cnn = ConfigurationManager.AppSettings["cnnJunior"];
+                        break;
+                    default:
+
+                        cnn = ConfigurationManager.AppSettings["cnnDeploy"];
+                        break;
                 }
                 if (String.IsNullOrEmpty(cnn))
                 {

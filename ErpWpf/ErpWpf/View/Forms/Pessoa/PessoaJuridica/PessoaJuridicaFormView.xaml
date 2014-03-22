@@ -6,7 +6,7 @@
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:Rest="clr-namespace:Erp.View.Rest" xmlns:local="clr-namespace:Erp.View.Forms.Pessoa.PessoaJuridica" x:Class="Erp.View.Forms.Pessoa.PessoaJuridica.PessoaJuridicaFormView"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="800" Title="Pessoa jurídica">
+             d:DesignHeight="540" d:DesignWidth="800" Title="Pessoa jurídica">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>

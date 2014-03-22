@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using System.Web;
 using System.Web.SessionState;
 using Erp.Business.Entity.Contabil.Pessoa;
@@ -106,6 +107,7 @@ namespace Erp.Business
 
             try
             {
+                Utils.GerarLogDataBase(new Exception("Connection string: " + connectionString));
                 var fact = Fluently
                 .Configure()
                     .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(connectionString))
@@ -114,14 +116,36 @@ namespace Erp.Business
                 _session = fact.OpenSession();
                 return fact;
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                Utils.GerarLogDataBase(ex);
+                LogException(exception);
+                Utils.GerarLogDataBase(exception);
                 throw;
             }
             return null;
 
             #endregion
+        }
+
+        private static void LogException(Exception exception)
+        {
+            if (exception is ReflectionTypeLoadException)
+            {
+                Utils.GerarLogDataBase(exception);
+                foreach (Exception loaderException in ((ReflectionTypeLoadException)exception).LoaderExceptions)
+                {
+                    LogException(loaderException);
+                }
+                if (null != exception.InnerException)
+                {
+                    LogException(exception);
+                }
+            }
+            else if (null != exception.InnerException)
+            {
+                LogException(exception.InnerException);
+            }
+
         }
     }
 }

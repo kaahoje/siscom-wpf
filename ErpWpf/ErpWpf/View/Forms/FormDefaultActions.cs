@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 using DevExpress.Xpf.Core;
 using Erp.Model;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
 namespace Erp.View.Forms
 {
@@ -42,6 +44,24 @@ namespace Erp.View.Forms
         {
             try
             {
+                if (e.Key == Key.Enter)
+                {
+                    var ue = Keyboard.FocusedElement as UIElement;
+                    if (ue != null)
+                    {
+                        ue.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                    }
+                    //var element = Window.PredictFocus(FocusNavigationDirection.Next);
+                    //if (Window.Tag != null && Window.Tag.ToString().Equals("IgnoreEnterKeyTraversal"))
+                    //{
+                    //    //ignore
+                    //}
+                    //else
+                    //{
+                    //    e.Handled = true;
+                    //    Window.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                    //}
+                }
                 if (IsEnableShortcuts)
                 {
                     switch (e.Key)

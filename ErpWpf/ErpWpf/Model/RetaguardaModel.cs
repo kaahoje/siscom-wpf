@@ -6,6 +6,7 @@ using System.Windows.Input;
 using DevExpress.Xpf.Docking;
 using Erp.View.Extras;
 using Erp.View.Forms;
+using Erp.View.Forms.Pessoa;
 using ErpWpf.Annotations;
 using Util.Wpf;
 
@@ -78,6 +79,13 @@ namespace Erp.Model
         #endregion
         #region Commands
 
+        public ICommand CmdAbrirTelaParceiroNegocio
+        {
+            get { return new RelayCommandBase(x => AbrirTelaParceiroNegocio()); }
+        }
+
+        
+
         public ICommand CmdAbrirTelaUnidade
         {
             get { return new RelayCommandBase(x => AbrirTelaUnidade()); }
@@ -124,6 +132,11 @@ namespace Erp.Model
 
         #endregion
         #region Comandos de abertura de tela
+
+        public void AbrirTelaParceiroNegocio()
+        {
+            new SelecaoTipoPessoaView().ShowDialog();
+        }
 
         public void AbrirTelaUnidade()
         {

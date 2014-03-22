@@ -1,11 +1,35 @@
-﻿<UserControl x:Class="Erp.View.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica.ParceiroNegocioPessoaJuridicaUserControl"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:pessoaJuridica="clr-namespace:Erp.View.Forms.Pessoa.PessoaJuridica"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:parceiroNegocioPessoaJuridica="clr-namespace:Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica"
+    x:Class="Erp.View.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica.ParceiroNegocioPessoaJuridicaUserControl" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="200" d:DesignWidth="760">
+    <UserControl.DataContext>
+        <parceiroNegocioPessoaJuridica:ParceiroNegocioPessoaJuridicaFormModel/>
+    </UserControl.DataContext>
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <pessoaJuridica:PessoaJuridicaUserControl HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="115"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Limite de crédito:" Margin="5"/>
+            <dxe:SpinEdit Grid.Column="1"  Width="150" Margin="7" Mask="{Binding Constants.MaskMoneyProperty}"
+                          MaskUseAsDisplayFormat="True"
+                          EditValue="{Binding EntityParceiroNegocioPessoaJuridica.LimiteCredito, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
     </Grid>
 </UserControl>

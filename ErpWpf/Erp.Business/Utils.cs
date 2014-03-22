@@ -261,6 +261,7 @@ namespace Erp.Business
         public static void GerarLogDataBase(Exception ex)
         {
             var message = GetMessage(ex);
+            
             var path = Environment.CurrentDirectory + "\\DbLog";
             if (!Directory.Exists(path))
             {
@@ -275,13 +276,15 @@ namespace Erp.Business
         {
             var e = ex.InnerException;
             var trace = ex.StackTrace;
-            var message = "";
+
+            var message ="Source:" + ex.Source + "\n";
             
             while (e != null)
             {
-                message += e.Message + Environment.NewLine;
+                message += "Excepton:"+ e.Message + Environment.NewLine;
                 e = e.InnerException;
             }
+
             return message + trace;
         }
     }

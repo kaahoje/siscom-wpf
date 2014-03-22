@@ -12,6 +12,7 @@
         <Forms:CondicaoPagamentoFormModel/>
     </dx:DXWindow.DataContext>
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="auto"/>

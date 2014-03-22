@@ -1,9 +1,9 @@
-﻿<dx:DXWindow
+﻿<dx:DXWindow xmlns:Pessoa="clr-namespace:Erp.View.Forms.Pessoa"  xmlns:ParceiroNegocioPessoaJuridica="clr-namespace:Erp.View.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:Rest="clr-namespace:Erp.View.Rest" x:Class="Erp.View.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica.ParceiroNegocioPessoaJuridicaFormView"
-        Title="Parceiro de negocios pessoa jurídica" Height="500" Width="700">
+        Title="Parceiro de negocios pessoa jurídica" Height="540" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -11,6 +11,19 @@
         </Grid.RowDefinitions>
 
         <Rest:RestForm/>
+        <dx:DXTabControl Margin="0" Grid.Row="1">
+            <dx:DXTabItem Header="Informações da pessoa">
+                <Grid Background="Transparent">
+                    <ParceiroNegocioPessoaJuridica:ParceiroNegocioPessoaJuridicaUserControl 
+                        Height="350"/>
+                </Grid>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Informações para contato">
+                <Grid Background="Transparent">
+                    <Pessoa:PessoaUserControl Margin="0" Height="350" />
+                </Grid>
+            </dx:DXTabItem>
+        </dx:DXTabControl>
 
     </Grid>
 </dx:DXWindow>

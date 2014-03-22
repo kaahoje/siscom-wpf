@@ -25,7 +25,7 @@
         <dx:DXTabItem Header="Endereços">
             <Grid Background="Transparent">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="100"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="212"/>
                     <RowDefinition Height="36"/>

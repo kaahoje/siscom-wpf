@@ -17,7 +17,7 @@ namespace Erp.Business.Entity.Contabil
             l.DataLancamento = dataLancamento;
             l.Vencimento = titulo.DataVencimento;
             l.Pessoa = titulo.Pessoa;
-            l.TipoLancmento = titulo.TipoLancamento;
+            l.TipoTitulo = titulo.TipoTitulo;
             l.Valor = titulo.Valor;
             l.Juros = titulo.Juros + titulo.Acressimos;
             l.Desconto = titulo.Desconto;

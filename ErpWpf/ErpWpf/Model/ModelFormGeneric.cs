@@ -6,7 +6,7 @@ namespace Erp.Model
     {
         private T _entity;
         private ModelSelectBase _modelSelect;
-        public T Entity
+        public virtual T Entity
         {
             get { return _entity; }
             set

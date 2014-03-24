@@ -18,7 +18,7 @@ namespace Erp.Business.Entity.Configuracao
         public virtual int Id { get; set; }
 
         #region Financeiro
-        public virtual TipoLancamento TipoLancamentoTransferencia { get; set; }
+        public virtual TipoTitulo TipoTituloTransferencia { get; set; }
         #endregion
 
         #region Business

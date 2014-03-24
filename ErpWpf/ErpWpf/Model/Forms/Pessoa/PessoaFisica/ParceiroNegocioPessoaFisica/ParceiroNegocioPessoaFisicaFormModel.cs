@@ -9,18 +9,33 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
 {
    public  class ParceiroNegocioPessoaFisicaFormModel : PessoaFisicaFormModel,IPessoa
    {
+       private Business.Entity.Contabil.Pessoa.Pessoa _entity1;
+
        public ParceiroNegocioPessoaFisicaFormModel()
        {
            Entity = new Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica();
            ModelSelect = new ParceiroNegocioPessoaFisicaSelectModel();
            IsSalvar = true; 
        }
-
+       
        public Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica
            EntityParceiroNegocioPessoaFisica
        {
            get { return (Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica) Entity; }
            set { Entity = value; }
+       }
+
+       public override Business.Entity.Contabil.Pessoa.Pessoa Entity
+       {
+           get { return _entity1; }
+           set
+           {
+               if (Equals(value, _entity1)) return;
+               _entity1 = value;
+               OnPropertyChanged();
+               OnPropertyChanged("EntityPessoaFisica");
+               OnPropertyChanged("EntityParceiroNegocioPessoaFisica");
+           }
        }
 
        public override void Excluir()

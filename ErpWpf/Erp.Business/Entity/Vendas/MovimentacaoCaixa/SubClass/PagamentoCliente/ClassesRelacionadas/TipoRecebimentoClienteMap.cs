@@ -13,7 +13,7 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.PagamentoCliente
 
             Map(x => x.Descricao).Not.Nullable().Unique();
 
-            References(x => x.TipoLancamento).Not.Nullable();
+            References(x => x.TipoTitulo).Not.Nullable();
         }
     }
 }

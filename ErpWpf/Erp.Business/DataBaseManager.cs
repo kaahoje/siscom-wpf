@@ -69,7 +69,7 @@ namespace Erp.Business
                 ISession s = Fluently
                     .Configure()
                     .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(CnnStr))
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<TipoLancamento>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<TipoTitulo>())
                     .ExposeConfiguration(config => new SchemaExport(config).Create(true, true))
                     .BuildSessionFactory().OpenSession();
                 DadosIniciais.Iniciar();
@@ -108,7 +108,7 @@ namespace Erp.Business
                     .Configure()
                     .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(
                         CnnStr))
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<TipoLancamento>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<TipoTitulo>())
                     .ExposeConfiguration(config => new SchemaUpdate(config).Execute(false, true))
                     .BuildSessionFactory().OpenSession();
                 var listaAtual = SistemaMenuRepository.GetList();

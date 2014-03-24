@@ -16,7 +16,7 @@ namespace Erp.Business.Entity.Contabil
             Map(x => x.Desconto).Not.Nullable();
             Map(x => x.Historico);
             Map(x => x.Status);
-            References(x => x.TipoLancmento).Not.Nullable();
+            References(x => x.TipoTitulo).Not.Nullable();
             References(x => x.Pessoa).Not.Nullable();
 
             HasMany(x => x.Partidas);

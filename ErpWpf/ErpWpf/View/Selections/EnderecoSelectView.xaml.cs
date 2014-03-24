@@ -5,9 +5,11 @@
     /// </summary>
     public partial class EnderecoSelectView 
     {
+        private SelectionDefaultActions Actions { get; set; }
         public EnderecoSelectView()
         {
             InitializeComponent();
+            Actions = new SelectionDefaultActions(this);
         }
     }
 }

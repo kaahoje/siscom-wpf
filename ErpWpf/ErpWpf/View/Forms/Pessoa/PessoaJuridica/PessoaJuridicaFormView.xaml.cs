@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using Erp.Model.Forms.Pessoa.PessoaJuridica;
 
 namespace Erp.View.Forms.Pessoa.PessoaJuridica
 {
@@ -20,9 +7,14 @@ namespace Erp.View.Forms.Pessoa.PessoaJuridica
     /// </summary>
     public partial class PessoaJuridicaFormView 
     {
+        private FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa> FormActions { get; set; } 
         public PessoaJuridicaFormView()
         {
+            
             InitializeComponent();
+            DataContext = new PessoaJuridicaFormModel();
+            RestCommands.DataContext = DataContext;
+            FormActions = new FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa>(this){IsEnableShortcuts = false};
         }
     }
 }

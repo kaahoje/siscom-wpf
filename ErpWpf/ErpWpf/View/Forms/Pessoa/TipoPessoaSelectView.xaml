@@ -1,0 +1,40 @@
+﻿<dx:DXWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:Pessoa="clr-namespace:Erp.Model.Forms.Pessoa" x:Class="Erp.View.Forms.Pessoa.TipoPessoaSelectView"
+        Title="Seleção do tipo de pessoa" Height="109" Width="153" WindowStyle="None" Visibility="{Binding IsTelaVisibility}" PreviewKeyDown="ParceiroNegocioSelectView_OnPreviewKeyDown" WindowStartupLocation="CenterScreen">
+    <dx:DXWindow.DataContext>
+        <Pessoa:ParceiroNegocioSelectFormModel/>
+    </dx:DXWindow.DataContext>
+    <Grid>
+
+
+        <dxb:BarManager CreateStandardLayout="False">
+            <dxb:BarManager.Items>
+                <dxb:BarButtonItem x:Name="barButtonItem1" Content="Jurídica" RibbonStyle="Large" Command="{Binding CmdAbrirParceiroNegocioPessoaJuridica}" KeyGesture="{Binding KeyParceiroNegocioPessoaJuridica, Mode=OneWay}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem2" Content="Física" RibbonStyle="Large" Command="{Binding CmdAbrirParceiroNegocioPessoaFisica}" KeyGesture="{Binding KeyParceiroNegocioPessoaFisica, Mode=OneWay}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem3" Content="Sair" RibbonStyle="Large" Command="{Binding CmdSair}" KeyGesture="{Binding KeySair, Mode=OneWay}" Glyph="pack://application:,,,/Erp;component/Images/sair.png"/>
+            </dxb:BarManager.Items>
+            <DockPanel>
+
+
+                <dxr:RibbonControl DockPanel.Dock="Top" RibbonHeaderVisibility="Collapsed">
+                    <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
+                        <dxr:RibbonPage Caption="Home">
+                            <dxr:RibbonPageGroup Caption="Selecione o tipo">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem1"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem2"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem3"/>
+                            </dxr:RibbonPageGroup>
+                        </dxr:RibbonPage>
+                    </dxr:RibbonDefaultPageCategory>
+
+                </dxr:RibbonControl>
+                <Grid Background="Transparent"/>
+            </DockPanel>
+        </dxb:BarManager>
+
+
+    </Grid>
+</dx:DXWindow>

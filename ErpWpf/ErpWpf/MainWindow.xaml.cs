@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Configuration;
 using System.Diagnostics;
-using System.Globalization;
 using System.Windows;
 using Erp.Business;
 using Erp.Business.Entity.Sped;
 using Erp.Model;
-using FluentNHibernate.Utils;
 
 namespace Erp
 {

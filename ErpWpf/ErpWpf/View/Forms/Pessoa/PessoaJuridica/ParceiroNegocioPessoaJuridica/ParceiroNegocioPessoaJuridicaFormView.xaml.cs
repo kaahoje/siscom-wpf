@@ -1,27 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-namespace Erp.View.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
+﻿namespace Erp.View.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
 {
     /// <summary>
     /// Interaction logic for ParceiroNegocioPessoaJuridicaFormView.xaml
     /// </summary>
     public partial class ParceiroNegocioPessoaJuridicaFormView 
     {
+        private FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa> FormActions { get; set; } 
         public ParceiroNegocioPessoaJuridicaFormView()
         {
             InitializeComponent();
+            //DataContext = new ParceiroNegocioPessoaJuridicaFormModel();
+            PessoaUserControl.DataContext = DataContext;
+            RestCommand.DataContext = DataContext;
+            FormActions = new FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa>(this){IsEnableShortcuts = false};
         }
     }
 }

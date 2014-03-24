@@ -12,6 +12,7 @@ namespace Erp.Model.Grids
         {
             WindowSelect = new FormaPagamentoSelectView();
             Collection = new ObservableCollection<FormaPagamento>();
+            WindowSelect.DataContext = this;
         }
         protected override void Filtrar()
         {

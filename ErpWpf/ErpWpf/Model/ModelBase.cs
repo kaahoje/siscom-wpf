@@ -28,6 +28,7 @@ namespace Erp.Model
         private string _mensagemOperacaoConcluida;
         private string _complementoMensagem;
         private bool _isLimpar = true;
+        private Visibility _isTelaVisibility;
 
         #region KeyGestures
 
@@ -89,7 +90,15 @@ namespace Erp.Model
             }
         }
 
-
+        public Visibility IsTelaVisibility
+        {
+            get { return _isTelaVisibility; }
+            set
+            {
+                _isTelaVisibility = value;
+                OnPropertyChanged("IsTelaVisibility");
+            }
+        }
 
 
         public string Error

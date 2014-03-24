@@ -135,7 +135,7 @@ namespace Erp.Model
 
         public void AbrirTelaParceiroNegocio()
         {
-            new SelecaoTipoPessoaView().ShowDialog();
+            new TipoPessoaSelectView().ShowDialog();
         }
 
         public void AbrirTelaUnidade()

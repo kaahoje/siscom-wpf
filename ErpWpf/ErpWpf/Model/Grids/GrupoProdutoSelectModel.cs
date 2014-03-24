@@ -12,7 +12,7 @@ namespace Erp.Model.Grids
         {
             WindowSelect = new GrupoProdutoSelectView();
             Collection = new ObservableCollection<GrupoProduto>();
-            
+            WindowSelect.DataContext = this;
         }
 
         protected override void Filtrar()

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Windows.Input;
-using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
-using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using Erp.Business.Enum;
-using Erp.Model.Grids;
 using Erp.Model.Grids.Pessoa.PessoaJuridica;
-using FluentNHibernate.Conventions;
+using Erp.View.Forms.Pessoa.PessoaFisica;
 using Util.Wpf;
 
 namespace Erp.Model.Forms.Pessoa.PessoaJuridica
@@ -19,7 +16,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica
         {
             Entity = new Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.PessoaJuridica();
             ModelSelect = new PessoaJuridicaSelectModel();
-            
+            IsSalvar = false;
         }
 
         public override void Salvar()
@@ -54,7 +51,22 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica
                 MensagemErroBancoDados(ex.Message);
             }
         }
+        #region Commands
 
-       
+        public ICommand CmdIrParaPessoaJuridica { get { return new RelayCommandBase(x=>IrParaPessoaJuridica());} }
+
+        
+
+        #endregion
+
+        #region Operations
+
+        public virtual void IrParaPessoaJuridica()
+        {
+            new PessoaFisicaFormView().ShowDialog();
+        }
+
+        #endregion
+
     }
 }

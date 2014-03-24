@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica;
 
 namespace Erp.View.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
 {
@@ -19,9 +7,14 @@ namespace Erp.View.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
     /// </summary>
     public partial class ParceiroNegocioPessoaFisicaFormView 
     {
+        private FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa> FormActions { get; set; } 
         public ParceiroNegocioPessoaFisicaFormView()
         {
             InitializeComponent();
+            DataContext = new ParceiroNegocioPessoaFisicaFormModel();
+            PessoaUserControl.DataContext = DataContext;
+            RestCommands.DataContext = DataContext;
+            FormActions = new FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa>(this) { IsEnableShortcuts = false };
         }
     }
 }

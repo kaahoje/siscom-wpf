@@ -86,5 +86,15 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
             return GetQueryOver().Where(pessoa => pessoa.Id == int.Parse(args.Value.ToString())).Take(1)
                 .List<ParceiroNegocioPessoaFisica>();
         }
+
+        public static IList<ParceiroNegocioPessoaFisica> GetByRange(string filter, int takePesquisa)
+        {
+            if (Validation.Validation.GetOnlyNumber(filter).Length == filter.Length)
+            {
+                return GetQueryOver().Where(x => x.Cpf.IsInsensitiveLike(StartStringFilter(filter))).List();
+            }
+            return GetQueryOver().Where(x => x.Nome.IsInsensitiveLike(ContainsStringFilter(filter)) ||
+                x.Alias.IsInsensitiveLike(ContainsStringFilter(filter))).List();
+        }
     }
 }

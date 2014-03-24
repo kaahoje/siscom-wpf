@@ -25,7 +25,7 @@
         <dx:DXTabItem Header="Endereços">
             <Grid Background="Transparent">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="150"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="212"/>
                     <RowDefinition Height="36"/>
@@ -34,23 +34,26 @@
                     <ColumnDefinition Width="620"/>
                     <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
-                <dxg:GridControl Grid.Row="0" ItemsSource="{Binding Entity.Enderecos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <dxg:GridControl Grid.Row="0" 
+                                 ItemsSource="{Binding Enderecos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                 SelectedItem="{Binding CurrentEndereco, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <dxg:GridControl.Columns>
                         <dxg:GridColumn FieldName="Logradouro" Width="250"/>
                         <dxg:GridColumn FieldName="Numero" Width="70"/>
-                        <dxg:GridColumn FieldName="Endereco.Cep" Header="Cep"/>
+                        <dxg:GridColumn FieldName="Endereco.Cep" IsEnabled="False" Header="Cep"/>
                         <dxg:GridColumn FieldName="PontoReferencia" Width="250"/>
                     </dxg:GridControl.Columns>
                     <dxg:GridControl.View>
-                        <dxg:TableView ShowGroupPanel="False"/>
+                        <dxg:TableView ShowGroupPanel="False" />
                     </dxg:GridControl.View>
                 </dxg:GridControl>
-                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5,5,5,0" VerticalAlignment="Top">
+                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5,5,5,0" Command="{Binding CmdAddEndereco}" VerticalAlignment="Top">
                     <Button.Background>
                         <ImageBrush ImageSource="/Erp;component/Images/addGrid.png" Stretch="None" />
                     </Button.Background>
                 </Button>
-                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5,50,5,0" VerticalAlignment="Top">
+                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5,50,5,0" VerticalAlignment="Top"
+                        Command="{Binding CmdRemoveEndereco}">
                     <Button.Background>
                         <ImageBrush ImageSource="/Erp;component/Images/removeGrid.png" Stretch="None" />
                     </Button.Background>
@@ -98,28 +101,27 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Cep:" Margin="5"/>
-                        <dxe:TextEdit  Grid.Row="0" Margin="7" Grid.Column="1" EditValue="{Binding CurrentEndereco.Endereco.Cep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <Button Grid.Column="2" Margin="5" Command="{Binding CmdBuscarEndereco, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                        <dxe:TextEdit  Grid.Row="0" Margin="7" Grid.Column="1" EditValue="{Binding Cep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Button Grid.Column="2" Margin="5" Command="{Binding CmdBuscarEndereco, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="30" IsTabStop="False"/>
                     </Grid>
 
                     <Label Grid.Row="1" Grid.Column="0" Margin="5" Content="Cidade:" />
-                    <dxe:TextEdit Grid.Row="1" Margin="7" Grid.Column="1" EditValue="{Binding CurrentEndereco.Endereco.Cidade.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <dxe:TextEdit Grid.Row="1" Margin="7" Grid.Column="1" EditValue="{Binding CurrentEndereco.Endereco.Cidade.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" Focusable="False" IsEnabled="False" />
                     <Label Grid.Row="1" Grid.Column="2" Margin="5" Content="UF:" HorizontalAlignment="Left"/>
-                    <dxe:TextEdit Grid.Row="1" Margin="7" Grid.Column="3" Width="100" HorizontalAlignment="Left"  EditValue="{Binding CurrentEndereco.Endereco.Cidade.Estado.UF, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <dxe:TextEdit Grid.Row="1" Margin="7" Grid.Column="3" Width="100" HorizontalAlignment="Left"  EditValue="{Binding CurrentEndereco.Endereco.Cidade.Estado.UF, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" Focusable="False" IsEnabled="False"/>
                     <Label Grid.Row="2" Grid.Column="0" Margin="5" Content="Bairro:" />
-                    <dxe:TextEdit Grid.Row="2" Margin="7" Grid.Column="1" EditValue="{Binding CurrentEndereco.Endereco.Bairro.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <dxe:TextEdit Grid.Row="2" Margin="7" Grid.Column="1" EditValue="{Binding CurrentEndereco.Endereco.Bairro.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsTabStop="False" Focusable="False" IsEnabled="False"/>
                     <Label Grid.Row="3" Grid.Column="0" Margin="5" Content="Tipo:" />
                     <dxe:ComboBoxEdit HorizontalAlignment="Left" Grid.Row="3" Margin="7" Grid.Column="1" Width="150" ItemsSource="{Binding Values, Mode=TwoWay, Source={StaticResource TipoEnderecoDictionary}, UpdateSourceTrigger=PropertyChanged}" 
-                                      EditValue="{Binding CurrentEndereco, Converter={StaticResource TipoEnderecoDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMember="Description" ValueMember="Value" 
+                                      SelectedItem="{Binding CurrentEndereco.TipoEndereco, Converter={StaticResource TipoEnderecoDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMember="Description" ValueMember="Value" 
                                       />
                 </Grid>
             </Grid>
         </dx:DXTabItem>
         <dx:DXTabItem Header="Telefones">
-
             <Grid Background="Transparent">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="150"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -127,7 +129,8 @@
                     <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
 
-                <dxg:GridControl  ItemsSource="{Binding Entity.ContatoTelefonicos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <dxg:GridControl  ItemsSource="{Binding ContatoTelefonicos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedItem="{Binding CurrentContatoTelefonico,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <dxg:GridControl.Columns>
                         <dxg:GridColumn FieldName="DdiPais" Header="DDI" Width="60"/>
                         <dxg:GridColumn FieldName="DddTelefone" Header="DDD" Width="60"/>
@@ -138,12 +141,13 @@
                         <dxg:TableView ShowGroupPanel="False"/>
                     </dxg:GridControl.View>
                 </dxg:GridControl>
-                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5" VerticalAlignment="Top">
+                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5" VerticalAlignment="Top" Command="{Binding CmdAddContatoTelefonico}">
                     <Button.Background>
                         <ImageBrush ImageSource="/Erp;component/Images/addGrid.png" Stretch="None" />
                     </Button.Background>
                 </Button>
-                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5,50" VerticalAlignment="Top">
+                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5,50" VerticalAlignment="Top"
+                        Command="{Binding CmdRemoveContatoTelefonico}">
                     <Button.Background>
                         <ImageBrush ImageSource="/Erp;component/Images/removeGrid.png" Stretch="None" />
                     </Button.Background>
@@ -164,47 +168,54 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Margin="5" Content="DDI:" />
                     <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="50" HorizontalAlignment="Left"
+                                  
                                   EditValue="{Binding CurrentContatoTelefonico.DdiPais, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Grid.Row="1" Grid.Column="0" Margin="5" Content="DDD:" />
                     <dxe:TextEdit Grid.Row="1" Grid.Column="1" Margin="7" Width="50" HorizontalAlignment="Left"
                                   EditValue="{Binding CurrentContatoTelefonico.DddTelefone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Grid.Row="2" Grid.Column="0" Margin="5" Content="Telefone:" />
                     <dxe:TextEdit Grid.Row="2" Grid.Column="1" Margin="7" 
-                                  EditValue="{Binding CurrentContatoTelefonico.Numero}"/>
+                                  EditValue="{Binding CurrentContatoTelefonico.Numero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Grid.Row="3" Grid.Column="0" Margin="5" Content="Ramal:" />
                     <dxe:TextEdit Grid.Row="3" Grid.Column="1" Margin="7" Width="70" HorizontalAlignment="Left"
-                                  EditValue="{Binding CurrentContatoTelefonico.Ramal}"/>
+                                  EditValue="{Binding CurrentContatoTelefonico.Ramal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Label Grid.Row="4" Grid.Column="0" Margin="5" Content="Tipo:" />
-                    <dxe:ComboBoxEdit Grid.Row="4" Grid.Column="1" Margin="7" ItemsSource="{Binding Values, Mode=TwoWay, Source={StaticResource TipoTelefoneDictionary}, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentContatoTelefonico.TelefoneTipo, Converter={StaticResource TipoTelefoneDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                      EditValue="{Binding CurrentContatoTelefonico.TelefoneTipo,Converter={StaticResource TipoTelefoneDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                    
+                    <dxe:ComboBoxEdit Grid.Row="4" Grid.Column="1" Margin="7" ItemsSource="{Binding Values, Mode=TwoWay, Source={StaticResource TipoTelefoneDictionary}, UpdateSourceTrigger=PropertyChanged}" 
+                                      SelectedItem="{Binding CurrentContatoTelefonico.TelefoneTipo, Converter={StaticResource TipoTelefoneDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      DisplayMember="Description" ValueMember="Value"
+                                      />
+
                 </Grid>
             </Grid>
         </dx:DXTabItem>
         <dx:DXTabItem Header="Endereços eletrônicos">
             <Grid Background="Transparent">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="150"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="420"/>
                     <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
-                <dxg:GridControl >
+                <dxg:GridControl ItemsSource="{Binding EnderecoEletronicos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 SelectedItem="{Binding CurrentEnderecoEletronico,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                     <dxg:GridControl.Columns>
-                        <dxg:GridColumn FieldName="Column"/>
+                        <dxg:GridColumn FieldName="Nick" Header="E-Mail" Width="250"/>
+                        
                     </dxg:GridControl.Columns>
                     <dxg:GridControl.View>
                         <dxg:TableView ShowGroupPanel="False"/>
                     </dxg:GridControl.View>
                 </dxg:GridControl>
-                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5" VerticalAlignment="Top">
+                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5" VerticalAlignment="Top"
+                        Command="{Binding CmdAddEnderecoEletronico}">
                     <Button.Background>
                         <ImageBrush ImageSource="/Erp;component/Images/addGrid.png" Stretch="None" />
                     </Button.Background>
                 </Button>
-                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5,50" VerticalAlignment="Top">
+                <Button Grid.Row="0" Grid.Column="1" Height="40" Margin="5,50" VerticalAlignment="Top"
+                        Command="{Binding CmdRemoveEnderecoEletronico}">
                     <Button.Background>
                         <ImageBrush ImageSource="/Erp;component/Images/removeGrid.png" Stretch="None" />
                     </Button.Background>
@@ -238,6 +249,7 @@
                     </Grid>-->
                     <Label Grid.Row="2" Grid.Column="0" Content="Tipo:" Margin="5" />
                     <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" Margin="7" 
+                                      DisplayMember="Description" ValueMember="Value"
                         EditValue="{Binding CurrentEnderecoEletronico.Tipo, Converter={StaticResource 
                         TipoEmailDictionary}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         HorizontalAlignment="Left" Width="150"  />

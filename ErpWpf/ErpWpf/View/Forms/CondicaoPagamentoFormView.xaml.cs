@@ -1,5 +1,4 @@
-﻿using System.Windows.Input;
-using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
+﻿using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 
 namespace Erp.View.Forms
 {

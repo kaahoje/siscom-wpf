@@ -17,7 +17,7 @@
             <RowDefinition Height="130"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <pessoaJuridica:PessoaJuridicaUserControl HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top"/>
+        <pessoaJuridica:PessoaJuridicaUserControl HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" x:Name="JuridicaUserControl"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>

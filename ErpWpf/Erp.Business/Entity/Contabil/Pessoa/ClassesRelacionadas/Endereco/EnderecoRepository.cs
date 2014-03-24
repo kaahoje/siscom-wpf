@@ -74,7 +74,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco
 
                 if (Validation.Validation.GetOnlyNumber(filter).Length == filter.Length)
                 {
-                    return GetQueryOver().Where(x=>x.Cep.IsInsensitiveLike(ContainsStringFilter(filter))).List();
+                    return GetQueryOver().Where(x=>x.Cep.IsInsensitiveLike(StartStringFilter(filter))).List();
                 }
                 return GetQueryOver().Where(x => x.Cep.IsInsensitiveLike(ContainsStringFilter(filter))
                     || x.Nome.IsInsensitiveLike(ContainsStringFilter(filter))

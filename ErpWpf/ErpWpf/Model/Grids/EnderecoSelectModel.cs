@@ -11,6 +11,7 @@ namespace Erp.Model.Grids
         {
             Collection = new ObservableCollection<Endereco>();
             WindowSelect = new EnderecoSelectView();
+            WindowSelect.DataContext = this;
         }
 
         protected override void Filtrar()

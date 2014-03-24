@@ -24,16 +24,19 @@ namespace Erp.Business
             {
                 string machine = Environment.MachineName;
                 var cnn = "";
+                Utils.GerarLogDataBase(new Exception("Machine"));
                 switch (machine)
                 {
                     case "BONEDEV":
+                        Utils.GerarLogDataBase(new Exception("BONEDEV"));
                         cnn = ConfigurationManager.AppSettings["cnnAdailton"];
                         break;
                     case "JMW-JOAO-PC":
+                        Utils.GerarLogDataBase(new Exception("JMW-JOAO-PC"));
                         cnn = ConfigurationManager.AppSettings["cnnJunior"];
                         break;
                     default:
-
+                        Utils.GerarLogDataBase(new Exception("Default"));
                         cnn = ConfigurationManager.AppSettings["cnnDeploy"];
                         break;
                 }

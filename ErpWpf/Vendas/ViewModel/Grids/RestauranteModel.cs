@@ -383,7 +383,7 @@ namespace Vendas.ViewModel.Grids
                     var mesa = GetMesa(numMesa.Value);
                     if (mesa != null)
                     {
-                        Mapper.CreateMap(typeof (PedidoRestauranteModel), typeof (PedidoRestaurante));
+                        Mapper.CreateMap(typeof(PedidoRestauranteModel), typeof(PedidoRestaurante));
                         Mapper.Map(mesa, mesa.EntityRestaurante);
                         Utils.ParcialMesa(mesa.EntityRestaurante);
                     }
@@ -392,7 +392,7 @@ namespace Vendas.ViewModel.Grids
                         CustomMessageBox.MensagemInformativa("A mesa não está aberta ou não foi confirmada ainda.");
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -421,12 +421,16 @@ namespace Vendas.ViewModel.Grids
                 {
                     var ped = GetMesa(CurrentItem.EntityRestaurante.Mesa);
                     FecharMesa();
+                    if (ped == null)
+                    {
+                        return;
+                    }
                     if (!ped.IsPagamentoCancelado)
                     {
                         Collection.Remove(ped);
                         FilaSalao.Remove(ped);
+                        CurrentItem = null;
                     }
-
                 }
                 else
                 {
@@ -435,11 +439,8 @@ namespace Vendas.ViewModel.Grids
                     if (!ped.IsPagamentoCancelado)
                     {
                         FilaEntrega.Remove(ped);
+                        CurrentItem = null;
                     }
-                }
-                if (CurrentItem == null)
-                {
-                    TelaPedidoVisible = Visibility.Hidden;
                 }
                 OnAcaoConcluida();
             }
@@ -457,7 +458,7 @@ namespace Vendas.ViewModel.Grids
                 if (CurrentItem.EntityRestaurante.Local == LocalPedidoRestaurante.Mesa)
                 {
                     CurrentItem.FecharPedido();
-                    CurrentItem = null;
+
                 }
                 else
                 {
@@ -590,12 +591,12 @@ namespace Vendas.ViewModel.Grids
             {
                 Collection.Remove(mesa);
             }
-            if ( CurrentItem != null  && CurrentItem.EntityRestaurante.Mesa == mesa.EntityRestaurante.Mesa)
+            if (CurrentItem != null && CurrentItem.EntityRestaurante.Mesa == mesa.EntityRestaurante.Mesa)
             {
                 CurrentItem = null;
             }
             FilaSalao.Remove(mesa);
-            
+
         }
 
         private PedidoRestauranteModel GetMesa(int mesa)

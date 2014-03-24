@@ -2,7 +2,7 @@
 {
     public class FormModelGeneric<T> : FormModelBase
     {
-        protected virtual void CalculaPedido()
+        public virtual void CalculaPedido()
         {
             
         }

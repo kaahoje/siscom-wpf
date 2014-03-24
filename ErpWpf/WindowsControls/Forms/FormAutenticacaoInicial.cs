@@ -58,10 +58,7 @@ namespace WindowsControls.Forms
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            if (Utils.UsuarioAtual != null)
-            {
-                Close();
-            }
+            
         }
 
         private void cmdCriarBancoDeDadosToolStrip_Click(object sender, EventArgs e)

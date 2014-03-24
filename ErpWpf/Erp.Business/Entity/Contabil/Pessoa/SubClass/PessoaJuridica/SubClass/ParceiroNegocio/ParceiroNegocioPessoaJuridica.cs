@@ -10,18 +10,18 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.P
     {
         private decimal _limiteCredito;
 
-        public virtual decimal SaldoDevedorAtual
-        {
-            get
-            {
-                return PessoaRepository.GetSaldoDevedorById(Id);
-            }
-        }
+        //public virtual decimal SaldoDevedorAtual
+        //{
+        //    get
+        //    {
+        //        return PessoaRepository.GetSaldoDevedorById(Id);
+        //    }
+        //}
 
-        public virtual decimal SaldoAtual
-        {
-            get { return LimiteCredito - SaldoDevedorAtual; }
-        }
+        //public virtual decimal SaldoAtual
+        //{
+        //    get { return LimiteCredito - SaldoDevedorAtual; }
+        //}
 
         [Required(ErrorMessage = Constants.MessageRequiredError)]
         [Display(Description = "Limite de crédito", Name = "Limite de crédito", Order = 7)]

@@ -12,7 +12,7 @@ namespace Erp.Business.Entity.Contabil
             Map(x => x.Valor);
             Map(x => x.Observacoes);
             Map(x => x.Status);
-            References(x => x.Pessoa).Not.Nullable();
+            
             References(x => x.TipoTitulo).Not.Nullable();
         }
     }

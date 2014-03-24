@@ -11,31 +11,31 @@ namespace Erp.Business.Entity.Contabil
         {
         }
 
-        public static void BaixarTitulo(Titulo titulo,DateTime dataLancamento)
-        {
-            var l = new Lancamento();
-            l.DataLancamento = dataLancamento;
-            l.Vencimento = titulo.DataVencimento;
-            l.Pessoa = titulo.Pessoa;
-            l.TipoTitulo = titulo.TipoTitulo;
-            l.Valor = titulo.Valor;
-            l.Juros = titulo.Juros + titulo.Acressimos;
-            l.Desconto = titulo.Desconto;
-            l.Historico = titulo.Historico;
+        //public static void BaixarTitulo(Titulo titulo,DateTime dataLancamento)
+        //{
+        //    var l = new Lancamento();
+        //    l.DataLancamento = dataLancamento;
+        //    l.Vencimento = titulo.DataVencimento;
+        //    l.Pessoa = titulo.Pessoa;
+        //    l.TipoTitulo = titulo.TipoTitulo;
+        //    l.Valor = titulo.Valor;
+        //    l.Juros = titulo.Juros + titulo.Acressimos;
+        //    l.Desconto = titulo.Desconto;
+        //    l.Historico = titulo.Historico;
 
-            ISession s = NHibernateHttpModule.Session;
-            using (ITransaction t = s.BeginTransaction())
-            {
-                LancamentoRepository.Session = s;
-                LancamentoRepository.Save(l);
-                titulo.Lancamento = l;
-                titulo.Baixa = DateTime.Now;
-                titulo.Baixado = true;
-                titulo.DataLancamento = l.DataLancamento;
-                s.Update(titulo);
-                t.Commit();
-            }
-        }
+        //    ISession s = NHibernateHttpModule.Session;
+        //    using (ITransaction t = s.BeginTransaction())
+        //    {
+        //        LancamentoRepository.Session = s;
+        //        LancamentoRepository.Save(l);
+        //        titulo.Lancamento = l;
+        //        titulo.Baixa = DateTime.Now;
+        //        titulo.Baixado = true;
+        //        titulo.DataLancamento = l.DataLancamento;
+        //        s.Update(titulo);
+        //        t.Commit();
+        //    }
+        //}
 
         public static IList<Titulo> TitulosAPagarAReceber(DateTime inicio, DateTime fim)
         {

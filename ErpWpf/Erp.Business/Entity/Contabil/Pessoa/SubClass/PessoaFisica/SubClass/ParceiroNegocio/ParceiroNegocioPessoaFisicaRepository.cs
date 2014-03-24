@@ -55,10 +55,10 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
         public static bool IsLimiteDisponivel(int pessoa, decimal saldoADebitar)
         {
             
-            if (GetById(pessoa).SaldoAtual < saldoADebitar)
-            {
-                return false;
-            }
+            //if (GetById(pessoa).SaldoAtual < saldoADebitar)
+            //{
+            //    return false;
+            //}
             return true;
         }
 

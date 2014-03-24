@@ -19,16 +19,16 @@ namespace Erp.Business.Entity.Vendas.Pedido
             return "Recebimento efetuado por sucesso do pedido: " + pedido.Id;
         }
 
-        internal static Lancamento CriaLancamento(Pedido pedido, string historico)
-        {
-            return new Lancamento
-            {
-                DataLancamento = pedido.DataPedido,
-                Historico = historico,
-                Pessoa = pedido.Cliente,
-                Vencimento = pedido.DataPedido,
-            };
-        }
+        //internal static Lancamento CriaLancamento(Pedido pedido, string historico)
+        //{
+        //    return new Lancamento
+        //    {
+        //        DataLancamento = pedido.DataPedido,
+        //        Historico = historico,
+        //        Pessoa = pedido.Cliente,
+        //        Vencimento = pedido.DataPedido,
+        //    };
+        //}
 
         internal static void DeterminarPartida(Lancamento lanc, Produto prod, FormaPagamento formaPag)
         {
@@ -50,34 +50,34 @@ namespace Erp.Business.Entity.Vendas.Pedido
         }
 
 
-        internal static Boolean LancaTitulo(PagamentoPedido pag)
-        {
-            return LancaTituloInTransaction(pag, Session);
-        }
+        //internal static Boolean LancaTitulo(PagamentoPedido pag)
+        //{
+        //    return LancaTituloInTransaction(pag, Session);
+        //}
 
-        public static Boolean LancaTituloInTransaction(PagamentoPedido pag, ISession session)
-        {
-            var titulo = new Titulo
-            {
-                DataLancamento = pag.Pedido.DataPedido,
-                DataVencimento = pag.Vencimento,
-                Historico = CriaHistorico(pag.Pedido),
-                NotaFiscal = pag.Pedido.NotaFiscal,
-                NumeroOrdem = CriaDocumento(pag.Pedido, pag.Parcela),
-                Pessoa = pag.Pedido.Cliente,
-                Valor = pag.Valor,
-                Juros = pag.Juros,
-                TipoTitulo = pag.FormaPagamento.TipoTitulo
-            };
-            try
-            {
-                session.Save(titulo);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return true;
-        }
+        //public static Boolean LancaTituloInTransaction(PagamentoPedido pag, ISession session)
+        //{
+        //    var titulo = new Titulo
+        //    {
+        //        DataLancamento = pag.Pedido.DataPedido,
+        //        DataVencimento = pag.Vencimento,
+        //        Historico = CriaHistorico(pag.Pedido),
+        //        NotaFiscal = pag.Pedido.NotaFiscal,
+        //        NumeroOrdem = CriaDocumento(pag.Pedido, pag.Parcela),
+        //        Pessoa = pag.Pedido.Cliente,
+        //        Valor = pag.Valor,
+        //        Juros = pag.Juros,
+        //        TipoTitulo = pag.FormaPagamento.TipoTitulo
+        //    };
+        //    try
+        //    {
+        //        session.Save(titulo);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
     }
 }

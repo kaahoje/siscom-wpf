@@ -31,19 +31,19 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.PagamentoCliente
                 pag.DataMovimento = pedido.DataPedido;
                 pag.Usuario = pedido.Usuario;
 
-                var lanc = new Lancamento
-                {
-                    DataLancamento = pag.DataMovimento,
-                    TipoTitulo = pag.TipoRecebimento.TipoTitulo,
-                    Pessoa = pag.Cliente,
-                    Valor = pag.Valor,
-                    Desconto = pag.Descontos,
-                    Historico = pag.Historico,
-                    Documento = pag.Documento
-                };
-                LancamentoRepository.GeraPartida(lanc);
+                //var lanc = new Lancamento
+                //{
+                //    DataLancamento = pag.DataMovimento,
+                //    TipoTitulo = pag.TipoRecebimento.TipoTitulo,
+                //    Pessoa = pag.Cliente,
+                //    Valor = pag.Valor,
+                //    Desconto = pag.Descontos,
+                //    Historico = pag.Historico,
+                //    Documento = pag.Documento
+                //};
+                //LancamentoRepository.GeraPartida(lanc);
                 NHibernateHttpModule.Session.Save(pag);
-                NHibernateHttpModule.Session.Save(lanc);
+                //NHibernateHttpModule.Session.Save(lanc);
             }
             catch (Exception)
             {

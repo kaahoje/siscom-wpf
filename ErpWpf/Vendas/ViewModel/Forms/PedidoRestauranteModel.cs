@@ -209,7 +209,7 @@ namespace Vendas.ViewModel.Forms
             }
             var pagamento = new PagamentoPedidoRestauranteView(this);
             pagamento.ShowDialog();
-
+            
             if (!IsPagamentoCancelado && IsPagamentoEfetuado)
             {
                 Mapper.CreateMap<PedidoRestauranteModel, PedidoRestaurante>();
@@ -239,12 +239,6 @@ namespace Vendas.ViewModel.Forms
             return true;
         }
 
-        void pagamento_PagamentoCancelado(object sender, EventArgs e)
-        {
-            IsPagamentoCancelado = true;
-        }
-
-
         public ComposicaoProduto GerarComposicao(Produto prod, decimal quantidade)
         {
             return ComposicaoProdutoRepository.CreateComposicaoProduto(prod, quantidade);
@@ -269,10 +263,13 @@ namespace Vendas.ViewModel.Forms
             CalculaPedido();
         }
 
-        protected override void CalculaPedido()
+        public override void CalculaPedido()
         {
             decimal total = 0;
-
+            if (_produtos == null)
+            {
+                return;
+            }
             int cont = 1;
             foreach (var composicaoProduto in _produtos)
             {

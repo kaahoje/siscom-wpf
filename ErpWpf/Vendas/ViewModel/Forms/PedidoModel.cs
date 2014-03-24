@@ -13,7 +13,7 @@ namespace Vendas.ViewModel.Forms
 {
     public delegate void PedidoFinalizadoEventHandler(object o, EventArgs e);
     public delegate void PedidoVoltarEventHandler(object o, EventArgs e);
-    public  class PedidoModel : FormModelGeneric<Pedido>
+    public class PedidoModel : FormModelGeneric<Pedido>
     {
         public PedidoModel()
         {
@@ -42,7 +42,7 @@ namespace Vendas.ViewModel.Forms
                     CondicaoPagamento = condicao;
                 }
             }
-            
+
         }
         #region Properties
         private CondicaoPagamento _condicaoPagamento;
@@ -68,7 +68,7 @@ namespace Vendas.ViewModel.Forms
         }
 
         public FormaPagamento FormaPagamentoPadrao { get; set; }
-        
+
         public decimal QuantidadeAtual
         {
             get { return _quantidadeAtual; }
@@ -120,8 +120,9 @@ namespace Vendas.ViewModel.Forms
                     });
                     parcela += 1;
                 }
-                Pagamento= Pagamento;
+                Pagamento = Pagamento;
                 OnPropertyChanged("CondicaoPagamento");
+                OnPropertyChanged("Pagamento");
             }
         }
 
@@ -130,7 +131,7 @@ namespace Vendas.ViewModel.Forms
             get { return _pagamentoPedido ?? (_pagamentoPedido = new ObservableCollection<PagamentoPedido>()); }
             set
             {
-                
+
                 _pagamentoPedido = value;
                 OnPropertyChanged("Pagamento");
             }
@@ -175,7 +176,7 @@ namespace Vendas.ViewModel.Forms
                 OnPropertyChanged("TotalProduto");
             }
         }
-        
+
         [DisplayFormat(DataFormatString = Constants.MaskMoney)]
         public decimal TotalPedido
         {
@@ -202,7 +203,7 @@ namespace Vendas.ViewModel.Forms
             get { return _isPagamentoCancelado; }
             set
             {
-                _isPagamentoCancelado = value; 
+                _isPagamentoCancelado = value;
                 OnPropertyChanged("IsPagamentoCancelado");
             }
         }
@@ -245,7 +246,7 @@ namespace Vendas.ViewModel.Forms
             set
             {
                 _voltarAoPedido = value;
-                
+
                 OnPropertyChanged("CmdVoltarAoPedido");
             }
         }
@@ -295,7 +296,7 @@ namespace Vendas.ViewModel.Forms
             return true;
         }
 
-        
+
     }
 
 }

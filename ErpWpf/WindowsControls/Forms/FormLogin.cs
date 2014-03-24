@@ -66,10 +66,7 @@ namespace WindowsControls.Forms
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            if (Utils.UsuarioAtual != null)
-            {
-                Close();
-            }
+            
         }
 
 

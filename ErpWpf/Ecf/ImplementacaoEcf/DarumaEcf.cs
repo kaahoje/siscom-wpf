@@ -30,6 +30,7 @@ namespace Ecf.ImplementacaoEcf
             {
                 Directory.CreateDirectory(LocalArquivosRelatoriosFiscais);
             }
+            VerificaImpressora();
         }
 
         public String TipoDescontoAcressimoToString(TipoDescontoAcressimo tipoDescontoAcressimo)

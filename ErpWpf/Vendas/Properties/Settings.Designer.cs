@@ -73,7 +73,7 @@ namespace Vendas.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Daruma")]
+        [global::System.Configuration.DefaultSettingValueAttribute("NaoConfigurado")]
         public global::Erp.Business.Enum.FabricanteEcf FabricanteEcf {
             get {
                 return ((global::Erp.Business.Enum.FabricanteEcf)(this["FabricanteEcf"]));

@@ -4,6 +4,7 @@ using System.Windows;
 using Ecf;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
+using Erp.Business.Enum;
 using Util;
 using Vendas.Enums;
 using Vendas.Properties;
@@ -30,6 +31,7 @@ namespace Vendas
                     CustomMessageBox.MensagemCritica("Já existe uma instancia do aplicativo rodando.\n\nA aplicação será encerrada.");
                     Process.GetCurrentProcess().Kill();
                 }
+                Settings.Default.FabricanteEcf = FabricanteEcf.NaoConfigurado;
                 EcfHelper.FabricanteEcf = Settings.Default.FabricanteEcf;
                 Usuario = PessoaFisicaRepository.GetByLogin("admin");
                 Proprietaria = PessoaJuridicaRepository.GetById(Settings.Default.IdEmpresa);

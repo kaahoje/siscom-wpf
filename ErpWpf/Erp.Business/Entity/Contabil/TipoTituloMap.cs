@@ -2,9 +2,9 @@
 
 namespace Erp.Business.Entity.Contabil
 {
-    public class TipoLancamentoMap : ClassMap<TipoLancamento>
+    public class TipoTituloMap : ClassMap<TipoTitulo>
     {
-        public TipoLancamentoMap()
+        public TipoTituloMap()
         {
             Id(x => x.Id).Unique().GeneratedBy.Sequence("sqTipoLancamento").Not.Nullable();
             Map(x => x.Descricao).Not.Nullable().Column("descricao");

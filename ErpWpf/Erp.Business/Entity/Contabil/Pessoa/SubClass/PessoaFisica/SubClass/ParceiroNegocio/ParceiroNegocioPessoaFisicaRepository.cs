@@ -91,10 +91,10 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
         {
             if (Validation.Validation.GetOnlyNumber(filter).Length == filter.Length)
             {
-                return GetQueryOver().Where(x => x.Cpf.IsInsensitiveLike(StartStringFilter(filter))).List();
+                return GetQueryOver().Where(x => x.Cpf.IsInsensitiveLike(StartStringFilter(filter))).Take(takePesquisa).List();
             }
             return GetQueryOver().Where(x => x.Nome.IsInsensitiveLike(ContainsStringFilter(filter)) ||
-                x.Alias.IsInsensitiveLike(ContainsStringFilter(filter))).List();
+                x.Alias.IsInsensitiveLike(ContainsStringFilter(filter))).Take(takePesquisa).List();
         }
     }
 }

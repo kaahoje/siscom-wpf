@@ -34,7 +34,7 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.PagamentoCliente
                 var lanc = new Lancamento
                 {
                     DataLancamento = pag.DataMovimento,
-                    TipoLancmento = pag.TipoRecebimento.TipoLancamento,
+                    TipoTitulo = pag.TipoRecebimento.TipoTitulo,
                     Pessoa = pag.Cliente,
                     Valor = pag.Valor,
                     Desconto = pag.Descontos,

@@ -129,13 +129,13 @@ namespace Erp.Business.Entity.Contabil
 
         public static IList<Lancamento> GetListEntradasPeriodo(DateTime inicio, DateTime fim)
         {
-            TipoLancamento t = null;
+            TipoTitulo t = null;
 
-            IQueryOver<Lancamento, TipoLancamento> c = GetQueryOver()
+            IQueryOver<Lancamento, TipoTitulo> c = GetQueryOver()
                 .Where(lancamento => lancamento.DataLancamento >= inicio &&
                                      lancamento.DataLancamento <= fim)
                 .Inner.JoinQueryOver(
-                    lancamento => lancamento.TipoLancmento, () => t)
+                    lancamento => lancamento.TipoTitulo, () => t)
                 .Where(lancamento => lancamento.Credito);
             return c.List<Lancamento>();
         }

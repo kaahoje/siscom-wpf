@@ -1,0 +1,84 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rest="clr-namespace:Erp.View.Rest"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:Forms="clr-namespace:Erp.Model.Forms"
+        x:Class="Erp.View.Forms.TipoTituloFormView"
+        Title="Tipo de título" Height="420" Width="600">
+    <Window.DataContext>
+        <Forms:TipoTituloFormModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <rest:RestForm Margin="0"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="Auto" />
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="83"/>
+                <ColumnDefinition Width="Auto" MinWidth="509"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Content="Descrição:" Margin="5" />
+            <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="250" HorizontalAlignment="Left"
+                          EditValue="{Binding Entity.Descricao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Crédito:" Margin="5" />
+            <dxe:CheckEdit Grid.Row="1" Grid.Column="1"  Margin="7"
+                           EditValue="{Binding Entity.Credito, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="85" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="85" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Partida" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Margin="5"/>
+                <Label Content="Contra-Partida" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="2"
+                       Margin="5"
+					HorizontalContentAlignment="Center"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Valor:" Margin="5" />
+                <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="1" Margin="7" DisplayMember="Codigo"
+                                  EditValue="{Binding Entity.ContaPartidaValor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Grid.Row="1" Grid.Column="2" Content="Valor:" Margin="5"/>
+                <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="3" Margin="7" DisplayMember="Codigo"
+                                  EditValue="{Binding Entity.ContaContraPartidaValor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                
+                <Label Grid.Row="2" Grid.Column="0" Content="Juros:" Margin="5"/>
+                <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" Margin="7" DisplayMember="Codigo"
+                                  EditValue="{Binding Entity.ContaPartidaJuros,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Grid.Row="2" Grid.Column="2" Content="Juros:" Margin="5"/>
+                <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="3" Margin="7" DisplayMember="Codigo"
+                                  EditValue="{Binding Entity.ContaContraPartidaJuros,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                
+                <Label Grid.Row="3" Grid.Column="0" Content="Desconto:" Margin="5"/>
+                <dxe:ComboBoxEdit Grid.Row="3" Grid.Column="1" Margin="7" DisplayMember="Codigo"
+                                  EditValue="{Binding Entity.ContaPartidaDesconto,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Grid.Row="3" Grid.Column="2" Content="Desconto:" Margin="5"/>
+                <dxe:ComboBoxEdit Grid.Row="3" Grid.Column="3" Margin="7" DisplayMember="Codigo"
+                                  EditValue="{Binding Entity.ContaContraPartidaDesconto,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Content="Acréscimos:" Margin="5"/>
+                <dxe:ComboBoxEdit Grid.Row="4" Grid.Column="1" Margin="7" DisplayMember="Codigo"
+                                  EditValue="{Binding Entity.ContaPartidaAcressimos,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Grid.Row="4" Grid.Column="2" Content="Acréscimos:" Margin="5"/>
+                <dxe:ComboBoxEdit Grid.Row="4" Grid.Column="3" Margin="7" DisplayMember="Codigo"
+                                  EditValue="{Binding Entity.ContaContraPartidaAcressimos,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

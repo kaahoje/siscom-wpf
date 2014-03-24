@@ -167,6 +167,9 @@
     <Compile Include="Entity\Contabil\Pessoa\PessoaRepository.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\PessoaFisicaMap.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\PessoaFisicaRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\SubClass\ParceiroNegocio\ClassesRelacionadas\CustoFixoParceiroNegocioPessoaFisica.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\SubClass\ParceiroNegocio\ClassesRelacionadas\LancamentoParceiroNegocioPessoaFisica.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\SubClass\ParceiroNegocio\ClassesRelacionadas\TituloParceiroNegocioPessoaFisica.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaFisica.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaFisicaMap.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaFisicaRepository.cs" />
@@ -190,6 +193,9 @@
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\ClassesRelacionadas\RamoAtividade_Cnae\PessoaJuridicaXcnaeSubClasseRepository.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\PessoaJuridicaMap.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\PessoaJuridicaRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\ParceiroNegocio\ClassesRelacionadas\CustoFixoParceiroNegocioPessoaJuridica.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\ParceiroNegocio\ClassesRelacionadas\LancamentoParceiroNegocioPessoaJuridica.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\ParceiroNegocio\ClassesRelacionadas\TituloParceiroNegocioPessoaJuridica.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaJuridicaRepository.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaJuridica.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\ParceiroNegocio\ParceiroNegocioPessoaJuridicaMap.cs" />
@@ -198,9 +204,9 @@
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\SubClass\Filial\FilialRepository.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\PessoaFisica.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaJuridica\PessoaJuridica.cs" />
-    <Compile Include="Entity\Contabil\TipoLancamento.cs" />
-    <Compile Include="Entity\Contabil\TipoLancamentoMap.cs" />
-    <Compile Include="Entity\Contabil\TipoLancamentoRepository.cs" />
+    <Compile Include="Entity\Contabil\TipoTitulo.cs" />
+    <Compile Include="Entity\Contabil\TipoTituloMap.cs" />
+    <Compile Include="Entity\Contabil\TipoTituloRepository.cs" />
     <Compile Include="Entity\Contabil\Titulo.cs" />
     <Compile Include="Entity\Contabil\TituloMap.cs" />
     <Compile Include="Entity\Contabil\TituloRepository.cs" />

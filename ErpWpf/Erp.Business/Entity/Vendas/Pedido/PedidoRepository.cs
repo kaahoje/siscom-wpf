@@ -35,15 +35,15 @@ namespace Erp.Business.Entity.Vendas.Pedido
             switch (prod.Tipo)
             {
                 case TipoProduto.Mercadoria:
-                    lanc.TipoLancmento = formaPag.TipoLancamentoMercadoria;
+                    lanc.TipoTitulo = formaPag.TipoTituloMercadoria;
                     LancamentoRepository.GeraPartida(lanc);
                     break;
                 case TipoProduto.Produto:
-                    lanc.TipoLancmento = formaPag.TipoLancamentoProduto;
+                    lanc.TipoTitulo = formaPag.TipoTituloProduto;
                     LancamentoRepository.GeraPartida(lanc);
                     break;
                 case TipoProduto.Servico:
-                    lanc.TipoLancmento = formaPag.TipoLancamentoServico;
+                    lanc.TipoTitulo = formaPag.TipoTituloServico;
                     LancamentoRepository.GeraPartida(lanc);
                     break;
             }
@@ -67,7 +67,7 @@ namespace Erp.Business.Entity.Vendas.Pedido
                 Pessoa = pag.Pedido.Cliente,
                 Valor = pag.Valor,
                 Juros = pag.Juros,
-                TipoLancamento = pag.FormaPagamento.TipoTitulo
+                TipoTitulo = pag.FormaPagamento.TipoTitulo
             };
             try
             {

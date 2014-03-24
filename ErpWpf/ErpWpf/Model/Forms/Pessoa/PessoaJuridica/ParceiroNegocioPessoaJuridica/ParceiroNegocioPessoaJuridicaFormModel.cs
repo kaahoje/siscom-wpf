@@ -9,13 +9,27 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
 {
     public class ParceiroNegocioPessoaJuridicaFormModel : PessoaJuridicaFormModel, IPessoa
     {
-        
+        private Business.Entity.Contabil.Pessoa.Pessoa _entity1;
+
 
         public ParceiroNegocioPessoaJuridicaFormModel()
         {
             Entity = new Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica();
             ModelSelect = new ParceiroNegocioPessoaJuridicaSelectModel();
             IsSalvar = true;
+        }
+
+        public override Business.Entity.Contabil.Pessoa.Pessoa Entity
+        {
+            get { return _entity1; }
+            set
+            {
+                if (Equals(value, _entity1)) return;
+                _entity1 = value;
+                OnPropertyChanged();
+                OnPropertyChanged("EntityPessoaJuridica");
+                OnPropertyChanged("EntityParceiroNegocioPessoaJuridica");
+            }
         }
 
         public

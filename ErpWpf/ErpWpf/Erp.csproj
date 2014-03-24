@@ -174,8 +174,12 @@
     </ApplicationDefinition>
     <Compile Include="Model\Extras\AtualizacaoProdutoFormModel.cs" />
     <Compile Include="Model\Forms\CondicaoPagamentoFormModel.cs" />
+    <Compile Include="Model\Forms\CustoFixo\PessoaFisica\ParceiroNegocioPessoaFisica\CustoFixoParceiroNegocioPessoaFisicaFormModel.cs" />
+    <Compile Include="Model\Forms\CustoFixo\PessoaJuridica\ParceiroNegocioPessoaJuridica\CustoFixoParceiroNegocioPessoaJuridicaFormModel.cs" />
     <Compile Include="Model\Forms\FormaPagamentoFormModel.cs" />
     <Compile Include="Model\Forms\GrupoProdutoFormModel.cs" />
+    <Compile Include="Model\Forms\Lancamento\PessoaFisica\ParceiroNegocioPessoaFisica\LancamentoParceiroNegocioPessoaFisicaFormModel.cs" />
+    <Compile Include="Model\Forms\Lancamento\PessoaJuridica\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaFormModel.cs" />
     <Compile Include="Model\Forms\NcmFormModel.cs" />
     <Compile Include="Model\Forms\Pessoa\IPessoa.cs" />
     <Compile Include="Model\Forms\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaFormModel.cs" />
@@ -186,11 +190,18 @@
     <Compile Include="Model\Forms\Pessoa\ParceiroNegocioSelectFormModel.cs" />
     <Compile Include="Model\Forms\ProdutoFormModel.cs" />
     <Compile Include="Model\Forms\SubGrupoProdutoFormModel.cs" />
+    <Compile Include="Model\Forms\TipoTituloFormModel.cs" />
+    <Compile Include="Model\Forms\Titulo\PessoaFisica\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaFormModel.cs" />
+    <Compile Include="Model\Forms\Titulo\PessoaJuridica\ParceiroNegocioPessoaJuridica\TituloParceiroNegocioPessoaJuridicaFormModel.cs" />
     <Compile Include="Model\Forms\UnidadeFormModel.cs" />
     <Compile Include="Model\Grids\CondicaoPagamentoSelectModel.cs" />
+    <Compile Include="Model\Grids\CustoFixo\PessoaFisica\ParceiroNegocioPessoaFisica\CustoFixoParceiroNegocioPessoaFisicaSelectModel.cs" />
+    <Compile Include="Model\Grids\CustoFixo\PessoaJuridica\ParceiroNegocioPessoaJuridica\CustoFixoParceiroNegocioPessoaJuridicaSelectModel.cs" />
     <Compile Include="Model\Grids\EnderecoSelectModel.cs" />
     <Compile Include="Model\Grids\FormaPagamentoSelectModel.cs" />
     <Compile Include="Model\Grids\GrupoProdutoSelectModel.cs" />
+    <Compile Include="Model\Grids\Lancamento\PessoaFisica\ParceiroNegocioPessoaFisica\LancamentoParceiroNegocioPessoaFisicaFormModel.cs" />
+    <Compile Include="Model\Grids\Lancamento\PessoaJuridica\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaSelectModel.cs" />
     <Compile Include="Model\Grids\NcmSelectModel.cs" />
     <Compile Include="Model\Grids\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaSelectModel.cs" />
     <Compile Include="Model\Grids\Pessoa\PessoaFisica\PessoaFisicaSelectModel.cs" />
@@ -198,6 +209,9 @@
     <Compile Include="Model\Grids\Pessoa\PessoaJuridica\PessoaJuridicaSelectModel.cs" />
     <Compile Include="Model\Grids\ProdutoSelectModel.cs" />
     <Compile Include="Model\Grids\SubGrupoProdutoSelectModel.cs" />
+    <Compile Include="Model\Grids\TipoTituloSelectModel.cs" />
+    <Compile Include="Model\Grids\Titulo\PessoaFisica\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaSelectModel.cs" />
+    <Compile Include="Model\Grids\Titulo\PessoaJuridica\ParceiroNegocioPessoaJuridica\TituloParceiroNegocioPessoaJuridicaSelectModel.cs" />
     <Compile Include="Model\Grids\UnidadeSelectModel.cs" />
     <Compile Include="Model\ModelBase.cs" />
     <Compile Include="Model\ModelFormGeneric.cs" />
@@ -210,12 +224,18 @@
     <Compile Include="View\Forms\CondicaoPagamentoFormView.xaml.cs">
       <DependentUpon>CondicaoPagamentoFormView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\CustoFixo\PessoaFisica\ParceiroNegocioPessoaFisica\CustoFixoParceiroNegocioPessoaFisicaFormView.xaml.cs">
+      <DependentUpon>CustoFixoParceiroNegocioPessoaFisicaFormView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\FormaPagamentoFormView.xaml.cs">
       <DependentUpon>FormaPagamentoFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\FormDefaultActions.cs" />
     <Compile Include="View\Forms\GrupoProdutoFormView.xaml.cs">
       <DependentUpon>GrupoProdutoFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Lancamento\PessoaFisica\ParceiroNegocioPessoaFisica\LancamentoParceiroNegocioPessoaFisicaFormView.xaml.cs">
+      <DependentUpon>LancamentoParceiroNegocioPessoaFisicaFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\NcmFormView.xaml.cs">
       <DependentUpon>NcmFormView.xaml</DependentUpon>
@@ -256,6 +276,12 @@
     <Compile Include="View\Forms\SubGrupoProdutoFormView.xaml.cs">
       <DependentUpon>SubGrupoProdutoFormView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\TipoTituloFormView.xaml.cs">
+      <DependentUpon>TipoTituloFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Titulo\PessoaFisica\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaFormView.xaml.cs">
+      <DependentUpon>TituloParceiroNegocioPessoaFisicaFormView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\UnidadeFormView.xaml.cs">
       <DependentUpon>UnidadeFormView.xaml</DependentUpon>
     </Compile>
@@ -267,6 +293,9 @@
     </Compile>
     <Compile Include="View\Selections\CondicaoPagamentoSelectView.xaml.cs">
       <DependentUpon>CondicaoPagamentoSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\CustoFixoSelectView.xaml.cs">
+      <DependentUpon>CustoFixoSelectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Selections\EnderecoSelectView.xaml.cs">
       <DependentUpon>EnderecoSelectView.xaml</DependentUpon>
@@ -299,6 +328,9 @@
     <Compile Include="View\Selections\SubGrupoProdutoSelectView.xaml.cs">
       <DependentUpon>SubGrupoProdutoSelectView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Selections\TipoTituloSelectView.xaml.cs">
+      <DependentUpon>TipoTituloSelectView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Selections\UnidadeSelectView.xaml.cs">
       <DependentUpon>UnidadeSelectView.xaml</DependentUpon>
     </Compile>
@@ -322,11 +354,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Forms\CustoFixo\PessoaFisica\ParceiroNegocioPessoaFisica\CustoFixoParceiroNegocioPessoaFisicaFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Forms\FormaPagamentoFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Forms\GrupoProdutoFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\Lancamento\PessoaFisica\ParceiroNegocioPessoaFisica\LancamentoParceiroNegocioPessoaFisicaFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -382,6 +422,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Forms\TipoTituloFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\Titulo\PessoaFisica\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Forms\UnidadeFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -395,6 +443,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Selections\CondicaoPagamentoSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\CustoFixoSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -435,6 +487,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Selections\SubGrupoProdutoSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\TipoTituloSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -548,7 +604,11 @@
   <ItemGroup>
     <Resource Include="Images\removeGrid.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="View\Forms\CustoFixo\PessoaJuridica\ParceiroNegocioPessoaJuridica\" />
+    <Folder Include="View\Forms\Lancamento\PessoaJuridica\ParceiroNegocioPessoaJuridica\" />
+    <Folder Include="View\Forms\Titulo\PessoaJuridica\ParceiroNegocioPessoaJuridica\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

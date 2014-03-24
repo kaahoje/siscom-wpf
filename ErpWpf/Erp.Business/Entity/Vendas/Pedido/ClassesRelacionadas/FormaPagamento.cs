@@ -46,12 +46,12 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
         [Display(Name = "Pode receber", Description = "Se esta opção estiver marcada o cliente poderá pagar com esta forma de pagamento",Order = 8)]
         public virtual bool PodeReceber { get; set; }
 
-        public virtual TipoLancamento TipoLancamentoProduto { get; set; }
+        public virtual TipoTitulo TipoTituloProduto { get; set; }
 
-        public virtual TipoLancamento TipoLancamentoMercadoria { get; set; }
+        public virtual TipoTitulo TipoTituloMercadoria { get; set; }
 
-        public virtual TipoLancamento TipoLancamentoServico { get; set; }
+        public virtual TipoTitulo TipoTituloServico { get; set; }
 
-        public virtual TipoLancamento TipoTitulo { get; set; }
+        public virtual TipoTitulo TipoTitulo { get; set; }
     }
 }

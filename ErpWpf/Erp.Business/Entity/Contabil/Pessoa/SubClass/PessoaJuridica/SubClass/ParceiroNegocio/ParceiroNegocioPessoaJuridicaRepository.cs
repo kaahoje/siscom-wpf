@@ -9,10 +9,10 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.P
         {
             if (filter.Length == Validation.Validation.GetOnlyNumber(filter).Length)
             {
-                return GetQueryOver().Where(x => x.Cnpj.IsInsensitiveLike(StartStringFilter(filter))).List();
+                return GetQueryOver().Where(x => x.Cnpj.IsInsensitiveLike(StartStringFilter(filter))).Take(takePesquisa).List();
             }
             return GetQueryOver().Where(x => x.RazaoSocial.IsInsensitiveLike(ContainsStringFilter(filter)) ||
-                x.NomeFantasia.IsInsensitiveLike(ContainsStringFilter(filter))).List();
+                x.NomeFantasia.IsInsensitiveLike(ContainsStringFilter(filter))).Take(takePesquisa).List();
         }
     }
 }

@@ -35,9 +35,9 @@ namespace Erp.Business.InformacoesIniciais
         {
         }
 
-        private static TipoLancamento GetTipoLancamentoAVista(ISession session)
+        private static TipoTitulo GetTipoLancamentoAVista(ISession session)
         {
-            var vendaMercadoriaAVista = new TipoLancamento
+            var vendaMercadoriaAVista = new TipoTitulo
             {
                 ContaContraPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("3.1.1.02"),
                 ContaPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("1.01.01.01.00"),
@@ -50,14 +50,14 @@ namespace Erp.Business.InformacoesIniciais
 
         private static void IniciaTiposLancamentoReceitaOperacionalBruta(ISession session)
         {
-            var vendasMercadoriaAPrazo = new TipoLancamento
+            var vendasMercadoriaAPrazo = new TipoTitulo
             {
                 ContaContraPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("3.1.1.02"),
                 ContaPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("1.01.05.02.00"),
                 Descricao = "VENDA DE MERCADORIAS A PRAZO"
             };
             session.Save(vendasMercadoriaAPrazo);
-            var vendasProdutoAVista = new TipoLancamento
+            var vendasProdutoAVista = new TipoTitulo
             {
                 ContaContraPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("3.1.1.01"),
                 ContaPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("1.1.1.01"),
@@ -65,7 +65,7 @@ namespace Erp.Business.InformacoesIniciais
             };
             session.Save(vendasProdutoAVista);
 
-            var vendasProdutoAPrazo = new TipoLancamento
+            var vendasProdutoAPrazo = new TipoTitulo
             {
                 ContaContraPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("3.1.1.02"),
                 ContaPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("1.01.05.02.00"),
@@ -73,7 +73,7 @@ namespace Erp.Business.InformacoesIniciais
             };
             session.Save(vendasProdutoAPrazo);
 
-            var vendasServicoAVista = new TipoLancamento
+            var vendasServicoAVista = new TipoTitulo
             {
                 ContaContraPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("3.1.1.03"),
                 ContaPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("1.1.1.01"),
@@ -81,7 +81,7 @@ namespace Erp.Business.InformacoesIniciais
             };
             session.Save(vendasServicoAVista);
 
-            var vendasServicoAPrazo = new TipoLancamento
+            var vendasServicoAPrazo = new TipoTitulo
             {
                 ContaContraPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("3.1.1.02"),
                 ContaPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("1.01.05.02.00"),
@@ -89,7 +89,7 @@ namespace Erp.Business.InformacoesIniciais
             };
             session.Save(vendasServicoAPrazo);
 
-            var vendasRecebimentoJuros = new TipoLancamento
+            var vendasRecebimentoJuros = new TipoTitulo
             {
                 ContaContraPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("3.1.2.01"),
                 ContaPartidaValor = PlanoContaReferencialRepository.GetByCodigoConta("1.1.1.02"),

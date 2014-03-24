@@ -1,10 +1,13 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Erp.Business.Annotations;
 using Erp.Business.Entity.Fiscal;
 using Erp.Business.Enum;
 
 namespace Erp.Business.Entity.Contabil
 {
-    public class Titulo
+    public class Titulo : INotifyPropertyChanged
     {
         public virtual int Id { get; set; }
         public virtual DateTime DataLancamento { get; set; }
@@ -26,10 +29,18 @@ namespace Erp.Business.Entity.Contabil
             get { return Valor - Desconto + Acressimos + Juros; }
         }
 
-        public virtual Pessoa.Pessoa Pessoa { get; set; }
         public virtual NotaFiscal NotaFiscal { get; set; }
-        public virtual TipoLancamento TipoLancamento { get; set; }
+        public virtual TipoTitulo TipoTitulo { get; set; }
         public virtual Lancamento Lancamento { get; set; }
         public virtual Status Status { get; set; }
+
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

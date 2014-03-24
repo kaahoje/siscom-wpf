@@ -19,9 +19,9 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
 
             Map(x => x.Status);
 
-            References(x => x.TipoLancamentoMercadoria);
-            References(x => x.TipoLancamentoProduto);
-            References(x => x.TipoLancamentoServico);
+            References(x => x.TipoTituloMercadoria);
+            References(x => x.TipoTituloProduto);
+            References(x => x.TipoTituloServico);
             References(x => x.TipoTitulo);
         }
     }

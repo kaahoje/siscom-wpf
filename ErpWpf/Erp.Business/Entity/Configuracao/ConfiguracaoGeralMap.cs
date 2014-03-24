@@ -20,7 +20,7 @@ namespace Erp.Business.Entity.Configuracao
             References(x => x.FormaPagamentoPadrao).LazyLoad();
             References(x => x.CondicaoPagamentoPadrao).LazyLoad();
             References(x => x.UnidadeProdutoPadrao).LazyLoad();
-            References(x => x.TipoLancamentoTransferencia).LazyLoad();
+            References(x => x.TipoTituloTransferencia).LazyLoad();
         }
     }
 }

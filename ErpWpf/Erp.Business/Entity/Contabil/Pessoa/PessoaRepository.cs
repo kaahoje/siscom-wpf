@@ -64,27 +64,27 @@ namespace Erp.Business.Entity.Contabil.Pessoa
         /// </summary>
         /// <param name="id">Identificador da pessoa.</param>
         /// <returns></returns>
-        public static decimal GetSaldoDevedorById(int id)
-        {
-            Pessoa pessoa = GetById(id);
-            IList<Titulo> titulos = RepositoryBase<Titulo>.GetQueryOver().Where(titulo =>
-                !titulo.Baixado && titulo.Pessoa == pessoa
-                && titulo.AReceber).List<Titulo>();
-            return titulos.Sum(titulo => titulo.ValorTotal);
-        }
+        //public static decimal GetSaldoDevedorById(int id)
+        //{
+        //    Pessoa pessoa = GetById(id);
+        //    IList<Titulo> titulos = RepositoryBase<Titulo>.GetQueryOver().Where(titulo =>
+        //        !titulo.Baixado && titulo.Pessoa == pessoa
+        //        && titulo.AReceber).List<Titulo>();
+        //    return titulos.Sum(titulo => titulo.ValorTotal);
+        //}
 
         /// <summary>
         ///     Método que calcula o saldo credor atual de uma pessoa cadastrada no sistema.
         /// </summary>
         /// <param name="id">Identificador da pessoa.</param>
         /// <returns></returns>
-        public static decimal GetSaldoCredorById(int id)
-        {
-            var pessoa = GetById(id);
-            var titulos =
-                RepositoryBase<Titulo>.GetQueryOver().Where(titulo => !titulo.Baixado && titulo.Pessoa == pessoa
-                                                                      && !titulo.AReceber).List<Titulo>();
-            return titulos.Sum(titulo => titulo.ValorTotal);
-        }
+        //public static decimal GetSaldoCredorById(int id)
+        //{
+        //    var pessoa = GetById(id);
+        //    var titulos =
+        //        RepositoryBase<Titulo>.GetQueryOver().Where(titulo => !titulo.Baixado && titulo.Pessoa == pessoa
+        //                                                              && !titulo.AReceber).List<Titulo>();
+        //    return titulos.Sum(titulo => titulo.ValorTotal);
+        //}
     }
 }

@@ -17,7 +17,7 @@ namespace Erp.Business.Entity.Contabil
                 DataVencimento = new DateTime(mes.Ano, mes.Mes, custo.DiaVencimento),
                 Valor = custo.Valor,
                 TipoTitulo = custo.TipoTitulo,
-                Pessoa = custo.Pessoa
+                //Pessoa = custo.Pessoa
             };
             session.Save(t);
             return t;

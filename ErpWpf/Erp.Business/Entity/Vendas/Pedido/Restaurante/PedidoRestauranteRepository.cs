@@ -66,18 +66,18 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
             foreach (PagamentoPedido pag in pedido.Pagamento)
             {
                 decimal fator = pag.ValorTotal / pedido.ValorPedido;
-                Lancamento lanc = PedidoRepository.CriaLancamento(pedido, PedidoRepository.CriaHistorico(pedido));
-                lanc.Valor = fator * pag.Valor;
-                lanc.Desconto = pag.Desconto;
-                lanc.Juros = pag.Juros;
-                foreach (ComposicaoProduto prod in pedido.Produtos)
-                {
-                    PedidoRepository.DeterminarPartida(lanc, prod.Produto, pag.FormaPagamento);
-                }
-                if (!pag.FormaPagamento.AVista)
-                {
-                    PedidoRepository.LancaTitulo(pag);
-                }
+                //Lancamento lanc = PedidoRepository.CriaLancamento(pedido, PedidoRepository.CriaHistorico(pedido));
+                //lanc.Valor = fator * pag.Valor;
+                //lanc.Desconto = pag.Desconto;
+                //lanc.Juros = pag.Juros;
+                //foreach (ComposicaoProduto prod in pedido.Produtos)
+                //{
+                //    PedidoRepository.DeterminarPartida(lanc, prod.Produto, pag.FormaPagamento);
+                //}
+                //if (!pag.FormaPagamento.AVista)
+                //{
+                //    PedidoRepository.LancaTitulo(pag);
+                //}
                 //session.Save(lanc);
             }
             return true;

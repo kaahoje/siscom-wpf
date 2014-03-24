@@ -23,7 +23,7 @@ namespace Erp.Business.Entity.Contabil
             Map(x => x.Baixado);
             Map(x => x.Status);
 
-            References(x => x.Pessoa).Not.Nullable();
+            
             References(x => x.TipoTitulo).Not.Nullable();
             References(x => x.NotaFiscal);
             References(x => x.Lancamento).Column("lancamento_id");

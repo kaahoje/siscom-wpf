@@ -1,6 +1,16 @@
-﻿namespace Erp.Model.Grids.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica
+﻿using System.Collections.ObjectModel;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
+using Erp.View.Selections.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica;
+
+namespace Erp.Model.Grids.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica
 {
-    public class LancamentoParceiroNegocioPessoaJuridicaSelectModel : ModelFormGeneric<Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica>
+    public class LancamentoParceiroNegocioPessoaFisicaSelectModel : ModelSelectGeneric<LancamentoParceiroNegocioPessoaJuridica>
     {
+        public LancamentoParceiroNegocioPessoaFisicaSelectModel()
+        {
+            Collection = new ObservableCollection<LancamentoParceiroNegocioPessoaJuridica>();
+            WindowSelect = new LancamentoParceiroNegocioPessoaFisicaSelectView();
+            WindowSelect.DataContext = this;
+        }
     }
 }

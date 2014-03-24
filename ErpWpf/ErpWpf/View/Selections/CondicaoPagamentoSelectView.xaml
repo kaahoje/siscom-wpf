@@ -21,7 +21,7 @@
 			Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"
 			Width="422" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <dxg:GridControl.View>
-                <dxg:TableView ShowTotalSummary="True" ShowGroupPanel="False"/>
+                <dxg:TableView ShowGroupPanel="False"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
 

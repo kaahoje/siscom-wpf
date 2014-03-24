@@ -12,6 +12,7 @@ namespace Erp.Model.Grids
         {
             WindowSelect = new NcmSelectView();
             Collection = new ObservableCollection<Ncm>();
+            WindowSelect.DataContext = this;
         }
 
         protected override void Filtrar()

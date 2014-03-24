@@ -103,10 +103,11 @@ namespace Erp.Business
             string connectionString = DataBaseManager.CnnStr;
             #region PostGre
 
-
+            
 
             try
             {
+                Utils.GerarLogDataBase(new Exception("CreateSessionFactory"));
                 Utils.GerarLogDataBase(new Exception("Connection string: " + connectionString));
                 var fact = Fluently
                 .Configure()

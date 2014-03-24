@@ -1,7 +1,9 @@
 ﻿using System;
+using AutoMapper;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio;
 using Erp.Business.Enum;
 using Erp.Model.Grids.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica;
+using Erp.View.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica;
 
 namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
 {
@@ -13,6 +15,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
         {
             Entity = new Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica();
             ModelSelect = new ParceiroNegocioPessoaJuridicaSelectModel();
+            IsSalvar = true;
         }
 
         public
@@ -20,7 +23,14 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
                 ParceiroNegocioPessoaJuridica EntityParceiroNegocioPessoaJuridica
         {
             get { return (Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica) Entity; }
-            set { Entity = value; }
+            set
+            {
+                Entity = value; 
+                OnPropertyChanged();
+                OnPropertyChanged("Entity");
+                OnPropertyChanged("EntityPessoaJuridica");
+                
+            }
         }
 
         public override void Excluir()
@@ -45,8 +55,15 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
         {
             try
             {
+                Mapper.CreateMap(typeof(ParceiroNegocioPessoaJuridicaFormModel),
+                        typeof(
+                            Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.
+                                ParceiroNegocioPessoaJuridica));
+                Mapper.Map(this, Entity);
                 if (IsValid(Entity))
                 {
+                    
+                    
                     ParceiroNegocioPessoaJuridicaRepository.Save(EntityParceiroNegocioPessoaJuridica);
                     EntityParceiroNegocioPessoaJuridica = new Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica();
                     base.Salvar();
@@ -57,6 +74,10 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
                 MensagemErroBancoDados(ex.Message);
             }
         }
-        
+
+        public override void IrParaPessoaJuridica()
+        {
+            new ParceiroNegocioPessoaJuridicaFormView().ShowDialog();
+        }
     }
 }

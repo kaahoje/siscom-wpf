@@ -41,8 +41,10 @@
                       EditValue="{Binding EntityPessoaFisica.Cpf,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         
         <Label Grid.Row="1" Grid.Column="2" Content="Sexo:" Margin="5"/>
-        <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="3" Margin="7" ItemsSource="{Binding Values, Source={StaticResource SexoDictionaryViewSource}}" SelectedItem="{x:Null}" DisplayMember="Description" ValueMember="Value" AutoComplete="True" IncrementalFiltering="True"
-                          EditValue="{Binding EntityPessoaFisica.Sexo, Converter={StaticResource SexoDictionaryViewSource}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="3" Margin="7" ItemsSource="{Binding Values, Source={StaticResource SexoDictionaryViewSource}}" 
+                          DisplayMember="Description" ValueMember="Value" 
+                          AutoComplete="True" IncrementalFiltering="True"
+                          SelectedItem="{Binding EntityPessoaFisica.Sexo, Converter={StaticResource SexoDictionaryViewSource}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         
         <Label Grid.Row="2" Grid.Column="0" Content="Usuario:" Margin="5"/>
         <dxe:TextEdit Grid.Row="2" Grid.Column="1" Margin="7" Width="200" HorizontalAlignment="Left"

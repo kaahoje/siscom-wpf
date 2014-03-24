@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-using Educacao.Utils.Annotations;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
 
 namespace Erp.Model.Forms.Pessoa

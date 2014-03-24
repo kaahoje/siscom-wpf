@@ -50,6 +50,12 @@
     <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.2.UI, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Xpf.Core.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -177,7 +183,7 @@
     <Compile Include="Model\Forms\Pessoa\PessoaFormModel.cs" />
     <Compile Include="Model\Forms\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaFormModel.cs" />
     <Compile Include="Model\Forms\Pessoa\PessoaJuridica\PessoaJuridicaFormModel.cs" />
-    <Compile Include="Model\Forms\Pessoa\SelectTipoPessoaFormModel.cs" />
+    <Compile Include="Model\Forms\Pessoa\ParceiroNegocioSelectFormModel.cs" />
     <Compile Include="Model\Forms\ProdutoFormModel.cs" />
     <Compile Include="Model\Forms\SubGrupoProdutoFormModel.cs" />
     <Compile Include="Model\Forms\UnidadeFormModel.cs" />
@@ -241,8 +247,8 @@
     <Compile Include="View\Forms\Pessoa\PessoaUserControl.xaml.cs">
       <DependentUpon>PessoaUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Forms\Pessoa\SelecaoTipoPessoaView.xaml.cs">
-      <DependentUpon>SelecaoTipoPessoaView.xaml</DependentUpon>
+    <Compile Include="View\Forms\Pessoa\TipoPessoaSelectView.xaml.cs">
+      <DependentUpon>TipoPessoaSelectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\ProdutoFormView.xaml.cs">
       <DependentUpon>ProdutoFormView.xaml</DependentUpon>
@@ -273,6 +279,18 @@
     </Compile>
     <Compile Include="View\Selections\NcmSelectView.xaml.cs">
       <DependentUpon>NcmSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaSelectView.xaml.cs">
+      <DependentUpon>ParceiroNegocioPessoaFisicaSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\Pessoa\PessoaFisica\PessoaFisicaSelectView.xaml.cs">
+      <DependentUpon>PessoaFisicaSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaSelectView.xaml.cs">
+      <DependentUpon>ParceiroNegocioPessoaJuridicaSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Selections\Pessoa\PessoaJuridica\PessoaJuridicaSelectView.xaml.cs">
+      <DependentUpon>PessoaJuridicaSelectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Selections\ProdutoSelectView.xaml.cs">
       <DependentUpon>ProdutoSelectView.xaml</DependentUpon>
@@ -352,7 +370,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Forms\Pessoa\SelecaoTipoPessoaView.xaml">
+    <Page Include="View\Forms\Pessoa\TipoPessoaSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -393,6 +411,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Selections\NcmSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\Pessoa\PessoaFisica\PessoaFisicaSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\Pessoa\PessoaJuridica\PessoaJuridicaSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -514,6 +548,7 @@
   <ItemGroup>
     <Resource Include="Images\removeGrid.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

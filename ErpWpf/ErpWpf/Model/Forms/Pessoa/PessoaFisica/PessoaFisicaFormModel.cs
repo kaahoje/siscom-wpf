@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Windows.Input;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Enum;
 using Erp.Model.Grids.Pessoa.PessoaFisica;
+using Erp.View.Forms.Pessoa.PessoaFisica;
+using Util.Wpf;
 
 namespace Erp.Model.Forms.Pessoa.PessoaFisica
 {
@@ -47,6 +50,22 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica
             }
         }
 
+        #region Commands
+
+        public ICommand CmdIrParaPessoaFisica { get { return new RelayCommandBase(x => IrParaPessoaFisica()); } }
+
+
+
+        #endregion
+
+        #region Operations
+
+        public virtual void  IrParaPessoaFisica()
+        {
+            new PessoaFisicaFormView().ShowDialog();
+        }
+
+        #endregion
         
     }
 }

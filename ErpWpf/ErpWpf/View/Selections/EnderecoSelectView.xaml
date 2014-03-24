@@ -1,24 +1,34 @@
-﻿<dx:DXWindow x:Class="Erp.View.Selections.EnderecoSelectView"
+﻿<dx:DXWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:rest="clr-namespace:Erp.View.Rest"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-        Title="Seleção de endereço" Height="400" Width="450">
+        xmlns:Grids="clr-namespace:Erp.Model.Grids" x:Class="Erp.View.Selections.EnderecoSelectView"
+        Title="Seleção de endereço" Height="400" Width="850">
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <rest:RestPesquisa HorizontalAlignment="Left" Margin="0" Grid.Row="0" VerticalAlignment="Top" Width="442"/>
+        <rest:RestPesquisa HorizontalAlignment="Left" Margin="0" Grid.Row="0" VerticalAlignment="Top" Width="842"/>
         <Label Content="Filtro:" Grid.Row="1" Margin="5"/>
         <dxe:TextEdit Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" 
 			Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"
-			Width="422" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+			Width="822" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+			SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Nome" Header="Endereço" Width="250"/>
+                <dxg:GridColumn FieldName="Cep" Header="CEP" Width="100"/>
+                <dxg:GridColumn FieldName="Cidade.Nome" Header="Cidade" Width="200"/>
+                <dxg:GridColumn FieldName="Cidade.Bairro.Nome" Header="Bairro" Width="200"/>
+                <dxg:GridColumn FieldName="Cidade.Estado.Uf" Header="UF" Width="50"/>
+            </dxg:GridControl.Columns>
             <dxg:GridControl.View>
                 <dxg:TableView ShowTotalSummary="True" ShowGroupPanel="False"/>
             </dxg:GridControl.View>

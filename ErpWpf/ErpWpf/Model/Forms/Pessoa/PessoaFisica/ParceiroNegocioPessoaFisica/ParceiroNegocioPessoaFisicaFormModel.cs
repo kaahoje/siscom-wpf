@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Windows.Input;
-using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
-using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
+using AutoMapper;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio;
 using Erp.Business.Enum;
-using Erp.Model.Grids;
 using Erp.Model.Grids.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica;
-using FluentNHibernate.Conventions;
-using Util.Wpf;
+using Erp.View.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica;
 
 namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
 {
@@ -17,6 +13,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
        {
            Entity = new Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica();
            ModelSelect = new ParceiroNegocioPessoaFisicaSelectModel();
+           IsSalvar = true; 
        }
 
        public Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica
@@ -50,6 +47,11 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
            {
                if (IsValid(Entity))
                {
+                   Mapper.CreateMap(typeof (ParceiroNegocioPessoaFisicaFormModel),
+                       typeof (
+                           Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.
+                               ParceiroNegocioPessoaFisica));
+                   Mapper.Map(this, Entity);
                    ParceiroNegocioPessoaFisicaRepository.Save(EntityParceiroNegocioPessoaFisica);
                    EntityParceiroNegocioPessoaFisica = new Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica();
                    base.Salvar();
@@ -60,6 +62,11 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
                MensagemErroBancoDados(ex.Message);
            }
        }
-       
+
+
+       public override void IrParaPessoaFisica()
+       {
+           new ParceiroNegocioPessoaFisicaFormView().ShowDialog();
+       }
    }
 }

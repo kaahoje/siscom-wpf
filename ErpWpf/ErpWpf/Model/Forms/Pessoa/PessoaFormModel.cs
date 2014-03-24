@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
 using Erp.Business.Enum;
@@ -21,6 +22,43 @@ namespace Erp.Model.Forms.Pessoa
         private PessoaContatoEletronico _currentEnderecoEletronico;
         private PessoaTelefone _currentContatoTelefonico;
         private ICommand _cmdBuscarEndereco;
+        private string _cep;
+        private ObservableCollection<PessoaTelefone> _contatoTelefonicos;
+        private ObservableCollection<PessoaContatoEletronico> _enderecoEletronicos;
+        private ObservableCollection<PessoaEndereco> _enderecos;
+
+        public ObservableCollection<PessoaEndereco> Enderecos
+        {
+            get { return _enderecos ?? (_enderecos = new ObservableCollection<PessoaEndereco>()); }
+            set
+            {
+                if (Equals(value, _enderecos)) return;
+                _enderecos = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<PessoaContatoEletronico> EnderecoEletronicos
+        {
+            get { return _enderecoEletronicos ?? (_enderecoEletronicos = new ObservableCollection<PessoaContatoEletronico>()); }
+            set
+            {
+                if (Equals(value, _enderecoEletronicos)) return;
+                _enderecoEletronicos = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<PessoaTelefone> ContatoTelefonicos
+        {
+            get { return _contatoTelefonicos ?? (_contatoTelefonicos = new ObservableCollection<PessoaTelefone>()); }
+            set
+            {
+                if (Equals(value, _contatoTelefonicos)) return;
+                _contatoTelefonicos = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ICommand CmdAddEndereco
         {
@@ -125,13 +163,13 @@ namespace Erp.Model.Forms.Pessoa
         public void AddEndereco()
         {
             CurrentEndereco = new PessoaEndereco() { Status = Status.Ativo, TipoEndereco = TipoEndereco.Cobranca };
-            Entity.Enderecos.Add(CurrentEndereco);
+            Enderecos.Add(CurrentEndereco);
             OnPropertyChanged("Entity");
         }
 
         public void RemoveEndereco()
         {
-            Entity.Enderecos.Remove(CurrentEndereco);
+            Enderecos.Remove(CurrentEndereco);
             CurrentEndereco = null;
             OnPropertyChanged("Entity");
         }
@@ -139,13 +177,13 @@ namespace Erp.Model.Forms.Pessoa
         public void AddEnderecoEletronico()
         {
             CurrentEnderecoEletronico = new PessoaContatoEletronico();
-            Entity.EnderecoEletronicos.Add(CurrentEnderecoEletronico);
+            EnderecoEletronicos.Add(CurrentEnderecoEletronico);
             OnPropertyChanged("Entity");
         }
 
         public void RemoveEnderecoEletronico()
         {
-            Entity.EnderecoEletronicos.Remove(CurrentEnderecoEletronico);
+            EnderecoEletronicos.Remove(CurrentEnderecoEletronico);
             CurrentEnderecoEletronico = null;
             OnPropertyChanged("Entity");
         }
@@ -153,21 +191,22 @@ namespace Erp.Model.Forms.Pessoa
         public void AddContatoTelefonico()
         {
             CurrentContatoTelefonico = new PessoaTelefone();
-            Entity.ContatoTelefonicos.Add(CurrentContatoTelefonico);
+            ContatoTelefonicos.Add(CurrentContatoTelefonico);
             OnPropertyChanged("Entity");
         }
 
         public void RemoveContatoTelefonico()
         {
-            Entity.ContatoTelefonicos.Add(CurrentContatoTelefonico);
+            ContatoTelefonicos.Remove(CurrentContatoTelefonico);
             CurrentContatoTelefonico = null;
+            OnPropertyChanged();
             OnPropertyChanged("Entity");
         }
 
         public void BuscarEndereco()
         {
             var select = new EnderecoSelectModel();
-            select.Filter = CurrentEndereco.Endereco.Cep;
+            select.Filter = Cep;
             if (select.Collection.IsNotEmpty())
             {
                 if (select.Collection.Count == 1)
@@ -183,6 +222,16 @@ namespace Erp.Model.Forms.Pessoa
             else
             {
                 MensagemInformativa("Não existe um endereço que contenha todo ou parte do CEP informado.");
+            }
+        }
+
+        public string Cep
+        {
+            get { return _cep; }
+            set
+            {
+                _cep = value;
+                OnPropertyChanged("Cep");
             }
         }
     }

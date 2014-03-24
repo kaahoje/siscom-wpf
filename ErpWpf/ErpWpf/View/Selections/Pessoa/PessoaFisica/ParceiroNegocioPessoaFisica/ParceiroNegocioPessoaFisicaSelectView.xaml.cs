@@ -1,17 +1,16 @@
 ﻿using Erp.Annotations;
 
-namespace Erp.View.Selections
+namespace Erp.View.Selections.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
 {
     /// <summary>
-    /// Interaction logic for CondicaoPagamentoSelectView.xaml
+    /// Interaction logic for ParceiroNegocioPessoaFisicaSelectView.xaml
     /// </summary>
-    public partial class CondicaoPagamentoSelectView
+    public partial class ParceiroNegocioPessoaFisicaSelectView 
     {
         private SelectionDefaultActions SelectionDefault { [UsedImplicitly] get; set; }
-        public CondicaoPagamentoSelectView()
+        public ParceiroNegocioPessoaFisicaSelectView()
         {
             InitializeComponent();
-
             SelectionDefault = new SelectionDefaultActions(this);
         }
     }

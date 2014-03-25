@@ -3,17 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:Pessoa="clr-namespace:Erp.Model.Forms.Pessoa" x:Class="Erp.View.Forms.Pessoa.TipoPessoaSelectView"
-        Title="Seleção do tipo de pessoa" Height="109" Width="153" WindowStyle="None" Visibility="{Binding IsTelaVisibility}" PreviewKeyDown="ParceiroNegocioSelectView_OnPreviewKeyDown" WindowStartupLocation="CenterScreen">
+        Title="Seleção do tipo de pessoa" Height="109" Width="160" WindowStyle="None" Visibility="{Binding IsTelaVisibility}" PreviewKeyDown="ParceiroNegocioSelectView_OnPreviewKeyDown" WindowStartupLocation="CenterScreen">
     <dx:DXWindow.DataContext>
-        <Pessoa:ParceiroNegocioSelectFormModel/>
+        <Pessoa:TipoCadastroSelectFormModel/>
     </dx:DXWindow.DataContext>
     <Grid>
 
 
         <dxb:BarManager CreateStandardLayout="False">
             <dxb:BarManager.Items>
-                <dxb:BarButtonItem x:Name="barButtonItem1" Content="Jurídica" RibbonStyle="Large" Command="{Binding CmdAbrirParceiroNegocioPessoaJuridica}" KeyGesture="{Binding KeyParceiroNegocioPessoaJuridica, Mode=OneWay}"/>
-                <dxb:BarButtonItem x:Name="barButtonItem2" Content="Física" RibbonStyle="Large" Command="{Binding CmdAbrirParceiroNegocioPessoaFisica}" KeyGesture="{Binding KeyParceiroNegocioPessoaFisica, Mode=OneWay}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem1" Content="Jurídica" RibbonStyle="Large" Command="{Binding CmdAbrirPessoaJuridica}" KeyGesture="{Binding KeyPessoaJuridica, Mode=OneWay}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem2" Content="Física" RibbonStyle="Large" Command="{Binding CmdAbrirPessoaFisica}" KeyGesture="{Binding KeyPessoaFisica, Mode=OneWay}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem3" Content="Sair" RibbonStyle="Large" Command="{Binding CmdSair}" KeyGesture="{Binding KeySair, Mode=OneWay}" Glyph="pack://application:,,,/Erp;component/Images/sair.png"/>
             </dxb:BarManager.Items>
             <DockPanel>

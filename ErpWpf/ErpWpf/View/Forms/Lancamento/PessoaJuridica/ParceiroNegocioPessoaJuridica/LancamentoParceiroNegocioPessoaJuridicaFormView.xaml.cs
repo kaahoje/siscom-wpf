@@ -11,5 +11,13 @@ namespace Erp.View.Forms.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridica
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource parceiroNegocioPessoaJuridicaLargeDataModelViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("parceiroNegocioPessoaJuridicaLargeDataModelViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // parceiroNegocioPessoaJuridicaLargeDataModelViewSource.Source = [generic data source]
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace Erp.Business.Entity.Contabil
         private decimal _valor;
         private DateTime _dataLancamento;
         private DateTime _vencimento;
+        private Titulo _titulo;
 
         public Lancamento()
         {
@@ -27,21 +28,6 @@ namespace Erp.Business.Entity.Contabil
         }
 
         public virtual int Id { get; set; }
-
-        [Required(ErrorMessage = Constants.MessageRequiredError)]
-        [Display(Description = "Vencimento", Name = "Vencimento do lançamento", Order = 0)]
-        [GridAnnotation(Order = 0, Visible = true, Width = 150)]
-        [Mask(Constants.MaskDate)]
-        public virtual DateTime Vencimento
-        {
-            get { return _vencimento; }
-            set
-            {
-                if (value.Equals(_vencimento)) return;
-                _vencimento = value;
-                OnPropertyChanged();
-            }
-        }
 
         [Required(ErrorMessage = Constants.MessageRequiredError)]
         [Display(Description = "Lançamento", Name = "Data de lançamento", Order = 1)]
@@ -98,6 +84,19 @@ namespace Erp.Business.Entity.Contabil
             }
         }
 
+        [Display(Name = "Título",Description = "Título que originou o lançamento")]
+        [Required(ErrorMessage = Constants.MessageRequiredError)]
+        public virtual Titulo Titulo
+        {
+            get { return _titulo; }
+            set
+            {
+                if (Equals(value, _titulo)) return;
+                _titulo = value;
+                OnPropertyChanged();
+            }
+        }
+
         [Display(Description = "Documento", Name = "Texto gerado para identificar o lançamento para outros setores",
             Order = 5)]
         [GridAnnotation(Order = 5, Visible = true, Width = 150)]
@@ -127,21 +126,6 @@ namespace Erp.Business.Entity.Contabil
 
         public virtual Status Status { get; set; }
 
-        [Required(ErrorMessage = Constants.MessageRequiredError)]
-        [Display(Description = "Tipo", Name = "Tipo de lançamento", Order = 7)]
-        [GridAnnotation(Order = 7, Visible = true, Width = 200, FieldName = "Descricao")]
-        public virtual TipoTitulo TipoTitulo
-        {
-            get { return _tipoTitulo; }
-            set
-            {
-                if (Equals(value, _tipoTitulo)) return;
-                _tipoTitulo = value;
-                OnPropertyChanged();
-            }
-        }
-
-        
         public virtual IList<PartidasLancamento> Partidas { get; set; }
         public virtual event PropertyChangedEventHandler PropertyChanged;
 

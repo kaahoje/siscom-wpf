@@ -35,15 +35,15 @@ namespace Erp.Business.Entity.Vendas.Pedido
             switch (prod.Tipo)
             {
                 case TipoProduto.Mercadoria:
-                    lanc.TipoTitulo = formaPag.TipoTituloMercadoria;
+                    
                     LancamentoRepository.GeraPartida(lanc);
                     break;
                 case TipoProduto.Produto:
-                    lanc.TipoTitulo = formaPag.TipoTituloProduto;
+                    
                     LancamentoRepository.GeraPartida(lanc);
                     break;
                 case TipoProduto.Servico:
-                    lanc.TipoTitulo = formaPag.TipoTituloServico;
+                    
                     LancamentoRepository.GeraPartida(lanc);
                     break;
             }

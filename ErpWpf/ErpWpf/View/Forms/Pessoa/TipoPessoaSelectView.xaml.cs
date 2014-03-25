@@ -1,4 +1,6 @@
 ﻿using System.Windows.Input;
+using Erp.Enum;
+using Erp.Model.Forms.Pessoa;
 
 namespace Erp.View.Forms.Pessoa
 {
@@ -7,9 +9,10 @@ namespace Erp.View.Forms.Pessoa
     /// </summary>
     public partial class TipoPessoaSelectView 
     {
-        public TipoPessoaSelectView()
+        public TipoPessoaSelectView(TipoCadastroPessoa tipoCadastro)
         {
             InitializeComponent();
+            ((TipoCadastroSelectFormModel) DataContext).TipoCadastroPessoa = tipoCadastro;
         }
 
         private void ParceiroNegocioSelectView_OnPreviewKeyDown(object sender, KeyEventArgs e)

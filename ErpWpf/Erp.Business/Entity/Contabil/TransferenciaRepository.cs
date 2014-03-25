@@ -34,7 +34,7 @@ namespace Erp.Business.Entity.Contabil
             // Criação do lançamento.
             //lancamento.Pessoa = Utils.Configuracao.PessoaPadrao;
             lancamento.DataLancamento = DateTime.Now;
-            lancamento.Vencimento = entity.DataTransferencia;
+            
             lancamento.Valor = entity.Valor;
 
             // Criação das partidas.

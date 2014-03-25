@@ -1,8 +1,117 @@
-﻿<Window x:Class="Erp.View.Forms.Titulo.PessoaFisica.ParceiroNegocioPessoaFisica.TituloParceiroNegocioPessoaFisicaFormView"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Título" Height="300" Width="300">
+        xmlns:rest="clr-namespace:Erp.View.Rest"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:parceiroNegocioPessoaFisica="clr-namespace:Erp.Model.Forms.Titulo.PessoaFisica.ParceiroNegocioPessoaFisica" x:Class="Erp.View.Forms.Titulo.PessoaFisica.ParceiroNegocioPessoaFisica.TituloParceiroNegocioPessoaFisicaFormView"
+        Title="Títulos pessoa física" Height="420" Width="700">
+    <Window.DataContext>
+        <parceiroNegocioPessoaFisica:TituloParceiroNegocioPessoaFisicaFormModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <rest:RestForm HorizontalAlignment="Left" Margin="0" Grid.RowSpan="2" VerticalAlignment="Top"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="250" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.ColumnSpan="4" Margin="0,0,-158,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="150" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Lançamento:" Margin="5"/>
+                <dxe:DateEdit Grid.Column="1" Margin="7" Mask="{Binding Constants.MaskDateProperty}"
+					IsEnabled="False"
+					EditValue="{Binding Entity.DataLancamento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					MaskUseAsDisplayFormat="True"/>
+                <Label Grid.Column="2" Content="Vencimento:" Margin="5"/>
+                <dxe:DateEdit Grid.Column="3" Margin="7" Mask="{Binding Constants.MaskDateProperty}"
+					EditValue="{Binding Entity.DataVencimento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					MaskUseAsDisplayFormat="True"/>
+                <Label Grid.Column="4" Content="Baixa:" Margin="5"/>
+                <dxe:DateEdit IsEnabled="False" Grid.Column="5" Margin="7" Mask="{Binding Constants.MaskDateProperty}"
+					EditValue="{Binding Entity.Baixa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					MaskUseAsDisplayFormat="True"/>
+            </Grid>
+            <Label Grid.Row="1" Grid.Column="0" Content="Entrada:" Margin="5"/>
+            <dxe:CheckEdit Grid.Row="1" Grid.Column="1" 
+				EditValue="{Binding Entity.AReceber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="1" Grid.Column="2" Content="N. ordem:" Margin="5"/>
+            <dxe:TextEdit Grid.Row="1" Grid.Column="3"  Margin="7" Width="150"
+                          HorizontalAlignment="Left"
+				EditValue="{Binding Entity.NumeroOrdem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Pessoa:" Margin="5" />
+            <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" Margin="7" 
+                              ItemsSource="{Binding ParceiroNegocioPessoaFisicaLargeData.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              Text="{Binding ParceiroNegocioPessoaFisicaLargeData.Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+				SelectedItem="{Binding Entity.ParceiroNegocioPessoaFisica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <dxe:TextEdit Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="7"
+                          EditValue="{Binding Entity.ParceiroNegocioPessoaFisica.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></dxe:TextEdit>
+            
+            <Label Grid.Row="3" Grid.Column="0" Content="Tipo:" Margin="5" />
+            <dxe:ComboBoxEdit Grid.Row="3" Grid.Column="1" Margin="7" Grid.ColumnSpan="2"
+                              ItemsSource="{Binding TipoTituloLargeData.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              Text="{Binding TipoTituloLargeData.Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+				SelectedItem="{Binding Entity.TipoTitulo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,0,-158,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="150" />
+
+                </Grid.ColumnDefinitions>
+                <Label Content="Valor:" Margin="5" />
+                <dxe:SpinEdit Grid.Column="1" Margin="7" Mask="{Binding Constants.MaskMoneyProperty}"
+					MaskUseAsDisplayFormat="True"
+					EditValue="{Binding Entity.Valor}"/>
+                <Label Grid.Column="2" Content="Acréscimos:" Margin="5" />
+                <dxe:SpinEdit Grid.Column="3" Margin="7" Mask="{Binding Constants.MaskMoneyProperty}"
+					MaskUseAsDisplayFormat="True"
+					EditValue="{Binding Entity.Acressimos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Grid.Column="4" Content="Desconto:" Margin="5" />
+                <dxe:SpinEdit Grid.Column="5" Margin="7" Mask="{Binding Constants.MaskMoneyProperty}"
+					EditValue="{Binding Entity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					MaskUseAsDisplayFormat="True"/>
+            </Grid>
+
+            <Label Grid.Row="5" Grid.Column="0" Content="Valor total:" Margin="5"/>
+            <dxe:SpinEdit Grid.Row="5" Grid.Column="1" Margin="7" 
+				IsEnabled="False"
+				IsTabStop="False"
+				Width="150"
+				HorizontalAlignment="Left"
+				Mask="{Binding Constants.MaskMoneyProperty}"
+				MaskUseAsDisplayFormat="True"
+				EditValue="{Binding Entity.ValorTotal, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                          />
+            <Label Grid.Row="6" Grid.Column="0" Content="Histórico:" Margin="5"/>
+            <dxe:TextEdit Grid.Row="6" Grid.Column="1" Margin="7" Grid.ColumnSpan="2"
+				EditValue="{Binding Entity.Historico}"/>
+        </Grid>
     </Grid>
 </Window>

@@ -4,8 +4,10 @@ using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using System.Windows.Input;
 using DevExpress.Xpf.Docking;
+using Erp.Enum;
 using Erp.View.Extras;
 using Erp.View.Forms;
+using Erp.View.Forms.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica;
 using Erp.View.Forms.Pessoa;
 using ErpWpf.Annotations;
 using Util.Wpf;
@@ -79,6 +81,13 @@ namespace Erp.Model
         #endregion
         #region Commands
 
+        public ICommand CmdAbrirTelaCustoFixo { get { return new RelayCommandBase(x=>AbrirTelaCustoFixo());} }
+        public ICommand CmdAbrirTelaTitulo { get { return new RelayCommandBase(x=>AbrirTelaTitulo());} }
+        public ICommand CmdAbrirTelaLancamento { get { return new RelayCommandBase(x=>AbrirTelaLancamento());} }
+
+        
+
+
         public ICommand CmdAbrirTelaParceiroNegocio
         {
             get { return new RelayCommandBase(x => AbrirTelaParceiroNegocio()); }
@@ -133,9 +142,23 @@ namespace Erp.Model
         #endregion
         #region Comandos de abertura de tela
 
+        public void AbrirTelaCustoFixo()
+        {
+            new TipoPessoaSelectView(TipoCadastroPessoa.CustoFixo).ShowDialog();
+        }
+        public void AbrirTelaTitulo()
+        {
+            new TipoPessoaSelectView(TipoCadastroPessoa.Titulo).ShowDialog();
+        }
+
+        public void AbrirTelaLancamento()
+        {
+            new TipoPessoaSelectView(TipoCadastroPessoa.Lancamento).ShowDialog();
+        }
+
         public void AbrirTelaParceiroNegocio()
         {
-            new TipoPessoaSelectView().ShowDialog();
+            new TipoPessoaSelectView(TipoCadastroPessoa.ParceiroNegocio).ShowDialog();
         }
 
         public void AbrirTelaUnidade()

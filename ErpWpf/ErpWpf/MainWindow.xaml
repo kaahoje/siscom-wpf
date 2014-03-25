@@ -22,6 +22,9 @@
                 <dxb:BarButtonItem x:Name="barButtonItem7" Content="Unidades" Command="{Binding CmdAbrirTelaUnidade}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem8" Content="Parceiros" RibbonStyle="Large" Command="{Binding CmdAbrirTelaParceiroNegocio}" />
                 <dxb:BarButtonItem x:Name="barButtonItem9" Content="Atualizar produtos" RibbonStyle="Large" Command="{Binding CmdAbrirTelaAtualizacaoProduto}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem10" Content="Custo fixo" Command="{Binding CmdAbrirTelaCustoFixo}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem11" Content="Lançamento" Command="{Binding CmdAbrirTelaLancamento}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem12" Content="Títulos" RibbonStyle="Large" Command="{Binding CmdAbrirTelaTitulo}"/>
             </dxb:BarManager.Items>
             <DockPanel>
 
@@ -34,12 +37,15 @@
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem3"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem8"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem9"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem12"/>
                             </dxr:RibbonPageGroup>
                             <dxr:RibbonPageGroup Caption="Demais cadastros">
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem5"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem4"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem6"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem7"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem10"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem11"/>
                             </dxr:RibbonPageGroup>
                         </dxr:RibbonPage>
                     </dxr:RibbonDefaultPageCategory>

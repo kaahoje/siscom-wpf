@@ -8,7 +8,6 @@ namespace Erp.Business.Entity.Contabil
         {
             Id(x => x.Id).Not.Nullable().Unique().GeneratedBy.Sequence("sqLancamento");
 
-            Map(x => x.Vencimento).Not.Nullable();
             Map(x => x.DataLancamento).Not.Nullable();
             Map(x => x.Documento);
             Map(x => x.Valor).Not.Nullable();
@@ -16,7 +15,7 @@ namespace Erp.Business.Entity.Contabil
             Map(x => x.Desconto).Not.Nullable();
             Map(x => x.Historico);
             Map(x => x.Status);
-            References(x => x.TipoTitulo).Not.Nullable();
+            References(x => x.Titulo).Not.Nullable();
             
 
             HasMany(x => x.Partidas);

@@ -5,7 +5,7 @@
         xmlns:rest="clr-namespace:Erp.View.Rest"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-        Title="Seleção de parceiro de negócio pessoa física" Height="400" Width="660">
+        Title="Seleção de parceiro de negócio pessoa física" Height="400" Width="760">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -20,14 +20,14 @@
 
             <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" 
 			Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"
-			Width="632" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+			Width="737" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <dxg:GridControl.Columns>
                     <dxg:GridColumn FieldName="Cpf" Header="CPF" Width="150"/>
-                    <dxg:GridColumn FieldName="RazaoSocial" Header="Razão social" Width="250"/>
-                    <dxg:GridColumn FieldName="NomeFantasia" Width="200"/>
+                    <dxg:GridColumn FieldName="Nome" Header="Nome" Width="250"/>
+                    <dxg:GridColumn FieldName="Alias" Header="Apelido" Width="200"/>
                 </dxg:GridControl.Columns>
                 <dxg:GridControl.View>
-                    <dxg:TableView ShowGroupPanel="False"/>
+                    <dxg:TableView ShowGroupPanel="False" AutoWidth="True"/>
                 </dxg:GridControl.View>
             </dxg:GridControl>
 

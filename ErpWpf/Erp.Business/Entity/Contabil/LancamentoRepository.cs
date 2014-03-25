@@ -111,8 +111,7 @@ namespace Erp.Business.Entity.Contabil
 
         public static IList<Lancamento> GetListByPeriodoVencimento(DateTime inicio, DateTime fim)
         {
-            return GetListAtivos(GetQueryOver().Where(lancamento =>
-                lancamento.Vencimento >= inicio && lancamento.Vencimento <= fim));
+            return null;
         }
 
         public static IList<Lancamento> GetListByMesLancamento(int mes, int ano)
@@ -123,21 +122,23 @@ namespace Erp.Business.Entity.Contabil
 
         public static IList<Lancamento> GetListByMesVencimento(int mes, int ano)
         {
-            return GetListAtivos(GetQueryOver().Where(lancamento =>
-                lancamento.Vencimento.Month == mes && lancamento.Vencimento.Year == ano));
+            //return GetListAtivos(GetQueryOver().Where(lancamento =>
+            //    lancamento.Vencimento.Month == mes && lancamento.Vencimento.Year == ano));
+            return null;
         }
 
         public static IList<Lancamento> GetListEntradasPeriodo(DateTime inicio, DateTime fim)
         {
             TipoTitulo t = null;
 
-            IQueryOver<Lancamento, TipoTitulo> c = GetQueryOver()
-                .Where(lancamento => lancamento.DataLancamento >= inicio &&
-                                     lancamento.DataLancamento <= fim)
-                .Inner.JoinQueryOver(
-                    lancamento => lancamento.TipoTitulo, () => t)
-                .Where(lancamento => lancamento.Credito);
-            return c.List<Lancamento>();
+            //IQueryOver<Lancamento, TipoTitulo> c = GetQueryOver()
+            //    .Where(lancamento => lancamento.DataLancamento >= inicio &&
+            //                         lancamento.DataLancamento <= fim)
+            //    .Inner.JoinQueryOver(
+            //        lancamento => lancamento.TipoTitulo, () => t)
+            //    .Where(lancamento => lancamento.Credito);
+            //return c.List<Lancamento>();
+            return null;
         }
     }
 }

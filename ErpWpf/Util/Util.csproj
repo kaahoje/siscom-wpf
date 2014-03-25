@@ -105,6 +105,7 @@
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Network.cs" />
     <Compile Include="Password.cs" />
+    <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="Seguranca\Criptografia.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Text.cs" />
     <Compile Include="Validation.cs" />
     <Compile Include="Wpf\EnumDictionary.cs" />
+    <Compile Include="Wpf\LargeDataModelGeneric.cs" />
     <Compile Include="Wpf\RelayCommandBase.cs" />
   </ItemGroup>
   <ItemGroup>

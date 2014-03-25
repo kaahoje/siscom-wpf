@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas
 {
@@ -6,7 +7,9 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.P
     {
         private ParceiroNegocioPessoaJuridica _parceiroNegocioPessoaJuridica;
 
-        public ParceiroNegocioPessoaJuridica ParceiroNegocioPessoaJuridica
+        [Required(ErrorMessage = Constants.MessageRequiredError)]
+        [Display(Name = "Pessoa", Description = "Parceiro de negócios")]
+        public virtual ParceiroNegocioPessoaJuridica ParceiroNegocioPessoaJuridica
         {
             get { return _parceiroNegocioPessoaJuridica; }
             set

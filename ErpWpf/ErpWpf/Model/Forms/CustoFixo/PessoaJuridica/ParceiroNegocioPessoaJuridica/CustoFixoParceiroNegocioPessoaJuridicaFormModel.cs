@@ -2,6 +2,7 @@
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Business.Enum;
 using Erp.Model.Grids.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica;
+using Erp.Model.LargeDataModel;
 
 namespace Erp.Model.Forms.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica
 {
@@ -45,6 +46,31 @@ namespace Erp.Model.Forms.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+            }
+        }
+
+        private ParceiroNegocioPessoaJuridicaLargeDataModel _parceiroNegocioPessoaJuridicaLargeData;
+        private TipoTituloLargeDataModel _tipoTituloLargeData;
+
+        public ParceiroNegocioPessoaJuridicaLargeDataModel ParceiroNegocioPessoaJuridicaLargeData
+        {
+            get { return _parceiroNegocioPessoaJuridicaLargeData; }
+            set
+            {
+                if (Equals(value, _parceiroNegocioPessoaJuridicaLargeData)) return;
+                _parceiroNegocioPessoaJuridicaLargeData = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public TipoTituloLargeDataModel TipoTituloLargeData
+        {
+            get { return _tipoTituloLargeData; }
+            set
+            {
+                if (Equals(value, _tipoTituloLargeData)) return;
+                _tipoTituloLargeData = value;
+                OnPropertyChanged();
             }
         }
     }

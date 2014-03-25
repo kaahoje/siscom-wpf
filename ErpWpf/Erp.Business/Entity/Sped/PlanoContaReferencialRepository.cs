@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using FluentNHibernate.Conventions;
 using NHibernate;
+using NHibernate.Criterion;
 
 namespace Erp.Business.Entity.Sped
 {
@@ -35,6 +36,13 @@ namespace Erp.Business.Entity.Sped
                 return 0;
             }
             return conta.Codigo.Split('.').Length;
+        }
+
+        public static IList<PlanoContaReferencial> GetByRange(string filter, int takePesquisa)
+        {
+            return GetQueryOver().Where(x => x.Codigo.IsInsensitiveLike(ContainsStringFilter(filter)) ||
+                                             x.Orientacoes.IsInsensitiveLike(ContainsStringFilter(filter)) ||
+                                             x.Descricao.IsInsensitiveLike(ContainsStringFilter(filter))).List();
         }
     }
 }

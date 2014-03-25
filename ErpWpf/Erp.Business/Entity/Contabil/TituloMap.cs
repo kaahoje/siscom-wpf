@@ -13,7 +13,6 @@ namespace Erp.Business.Entity.Contabil
             Map(x => x.Baixa);
             Map(x => x.NumeroOrdem);
             Map(x => x.Valor).Not.Nullable();
-            Map(x => x.Juros);
             Map(x => x.Acressimos);
             Map(x => x.Desconto);
             Map(x => x.DescontoAte);

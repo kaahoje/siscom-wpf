@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using Erp.Business.Annotations;
@@ -8,6 +9,10 @@ namespace Erp.Business.Entity.Contabil
 {
     public class CustoFixo: INotifyPropertyChanged
     {
+        public CustoFixo()
+        {
+            
+        }
         private string _observacoes;
         private decimal _valor;
         private TipoTitulo _tipoTitulo;

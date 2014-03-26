@@ -15,19 +15,32 @@ namespace Util.Wpf
             {
                 if (value == _filter) return;
                 _filter = value;
-                OnPropertyChanged();
                 Filtrar();
+                OnPropertyChanged();
+                
             }
         }
 
         private ObservableCollection<T> _collection;
         private string _filter;
 
+        public abstract void Reset();
         public abstract void Filtrar();
 
         public ObservableCollection<T> Collection
         {
-            get { return _collection ?? (_collection = new ObservableCollection<T>()); }
+            get
+            {
+                try
+                {
+                    return _collection ?? (_collection = new ObservableCollection<T>());
+                }
+                catch (Exception)
+                {
+                    return new ObservableCollection<T>();
+                }
+                
+            }
             set
             {
                 if (Equals(value, _collection)) return;

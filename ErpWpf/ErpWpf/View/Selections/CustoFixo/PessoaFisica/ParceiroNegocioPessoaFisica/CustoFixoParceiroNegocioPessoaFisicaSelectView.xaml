@@ -13,7 +13,7 @@
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <rest:RestPesquisa HorizontalAlignment="Left" Margin="0" Grid.Row="0" VerticalAlignment="Top" Width="442"/>
+            <rest:RestPesquisa HorizontalAlignment="Left" Margin="0" Grid.Row="0" VerticalAlignment="Top" Width="752"/>
 
             <Label Content="Filtro:" Grid.Row="1" Margin="5"/>
             <dxe:TextEdit Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -23,9 +23,13 @@
 			Width="737" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <dxg:GridControl.Columns>
                     <dxg:GridColumn FieldName="ParceiroNegocioPessoaFisica.Cpf" Header="CPF" Width="150"/>
-                    <dxg:GridColumn FieldName="ParceiroNegocioPessoaFisica.Nome" Header="Razão social" Width="200"/>
-                    <dxg:GridColumn FieldName="Dia" Width="150"/>
-                    <dxg:GridColumn FieldName="Valor" Width="150"/>
+                    <dxg:GridColumn FieldName="ParceiroNegocioPessoaFisica.Nome" Header="Nome" Width="200"/>
+                    <dxg:GridColumn FieldName="Valor" Width="100">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:TextEditSettings Mask="{Binding Constants.MaskMoneyProperty}" 
+                                                  MaskUseAsDisplayFormat="True"/>
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
                 </dxg:GridControl.Columns>
                 <dxg:GridControl.View>
                     <dxg:TableView ShowGroupPanel="False" AutoWidth="True"/>

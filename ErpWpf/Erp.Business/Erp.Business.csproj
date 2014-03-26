@@ -165,6 +165,8 @@
     <Compile Include="Entity\Contabil\Pessoa\Pessoa.cs" />
     <Compile Include="Entity\Contabil\Pessoa\PessoaMap.cs" />
     <Compile Include="Entity\Contabil\Pessoa\PessoaRepository.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\ClassesRelacionadas\PermissaoFormularioPessoaFisica.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\ClassesRelacionadas\PermissaoRelatorioPessoaFisica.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\PessoaFisicaMap.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\PessoaFisicaRepository.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\SubClass\ParceiroNegocio\ClassesRelacionadas\CustoFixoParceiroNegocioPessoaFisica.cs" />

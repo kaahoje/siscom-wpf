@@ -1,23 +1,32 @@
-﻿using System.Windows;
+﻿using System.Windows.Input;
+using DevExpress.Xpf.Grid.LookUp;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
+using Erp.Model.Forms.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridica;
 
 namespace Erp.View.Forms.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridica
 {
     /// <summary>
     /// Interaction logic for LancamentoParceiroNegocioPessoaJuridicaFormView.xaml
     /// </summary>
-    public partial class LancamentoParceiroNegocioPessoaJuridicaFormView : Window
+    public partial class LancamentoParceiroNegocioPessoaJuridicaFormView 
     {
+        private LancamentoParceiroNegocioPessoaJuridicaFormModel Model
+        {
+            get { return (LancamentoParceiroNegocioPessoaJuridicaFormModel) DataContext; }
+        }
+
+        private FormDefaultActions<LancamentoParceiroNegocioPessoaJuridica> Actions { get; set; } 
         public LancamentoParceiroNegocioPessoaJuridicaFormView()
         {
             InitializeComponent();
+            Actions = new FormDefaultActions<LancamentoParceiroNegocioPessoaJuridica>(this){IsEnableShortcuts = false};
+            DataContext = new LancamentoParceiroNegocioPessoaJuridicaFormModel();
+            RestCommands.DataContext = DataContext;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void ContentElement_OnPreviewKeyUp(object sender, KeyEventArgs e)
         {
-
-            System.Windows.Data.CollectionViewSource parceiroNegocioPessoaJuridicaLargeDataModelViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("parceiroNegocioPessoaJuridicaLargeDataModelViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // parceiroNegocioPessoaJuridicaLargeDataModelViewSource.Source = [generic data source]
+            
         }
     }
 }

@@ -27,10 +27,6 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica
             IsSalvar = false;
         }
 
-        public override void Salvar()
-        {
-            MensagemErroBancoDados("Não é possível editar ou alterar uma pessoa física.");
-        }
 
         public override void Excluir()
         {

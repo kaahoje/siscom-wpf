@@ -12,14 +12,16 @@ namespace Erp.Business.Entity.Contabil
 
             References(x => x.ContaContraPartidaValor).Not.Nullable();
             References(x => x.ContaPartidaValor).Not.Nullable();
-            Map(x => x.Status);
-            References(x => x.ContaContraPartidaAcressimos).Not.Nullable();
-            References(x => x.ContaContraPartidaDesconto).Not.Nullable();
-            References(x => x.ContaContraPartidaJuros).Not.Nullable();
+            
+            References(x => x.ContaContraPartidaAcressimos);
+            References(x => x.ContaContraPartidaDesconto);
+            
 
-            References(x => x.ContaPartidaAcressimos).Not.Nullable();
-            References(x => x.ContaPartidaDesconto).Not.Nullable();
-            References(x => x.ContaPartidaJuros).Not.Nullable();
+            References(x => x.ContaPartidaAcressimos);
+            References(x => x.ContaPartidaDesconto);
+
+            Map(x => x.Status);
+            
         }
     }
 }

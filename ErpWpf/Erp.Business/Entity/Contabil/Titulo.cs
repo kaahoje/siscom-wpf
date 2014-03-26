@@ -20,7 +20,7 @@ namespace Erp.Business.Entity.Contabil
         private DateTime _baixa;
         private string _numeroOrdem;
         private decimal _valor;
-        private decimal _acressimos;
+        private decimal _acrescimos;
         private DateTime _descontoAte;
         private decimal _descontoPercentual;
         private decimal _desconto;
@@ -102,13 +102,13 @@ namespace Erp.Business.Entity.Contabil
 
         [Display(Name = "Acréscimos", Description = "Acréscimos do título")]
         [Required(ErrorMessage = Constants.MessageRequiredError)]
-        public virtual Decimal Acressimos
+        public virtual Decimal Acrescimos
         {
-            get { return _acressimos; }
+            get { return _acrescimos; }
             set
             {
-                if (value == _acressimos) return;
-                _acressimos = value;
+                if (value == _acrescimos) return;
+                _acrescimos = value;
                 OnPropertyChanged();
                 OnPropertyChanged("ValorTotal");
             }
@@ -197,7 +197,8 @@ namespace Erp.Business.Entity.Contabil
         [Required(ErrorMessage = Constants.MessageRequiredError)]
         public virtual decimal ValorTotal
         {
-            get { return Valor - Desconto + Acressimos ; }
+            get { return Valor - Desconto + Acrescimos ; }
+            set { value = ValorTotal; }
         }
 
         [Display(Name = "Nota fiscal", Description = "Nota fiscal que originou o título")]

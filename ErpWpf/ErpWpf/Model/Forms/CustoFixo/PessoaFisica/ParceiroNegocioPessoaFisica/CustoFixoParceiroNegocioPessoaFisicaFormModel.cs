@@ -53,7 +53,7 @@ namespace Erp.Model.Forms.CustoFixo.PessoaFisica.ParceiroNegocioPessoaFisica
         private ParceiroNegocioPessoaFisicaLargeDataModel _parceiroNegocioPessoaFisicaLargeData;
         public ParceiroNegocioPessoaFisicaLargeDataModel ParceiroNegocioPessoaFisicaLargeData
         {
-            get { return _parceiroNegocioPessoaFisicaLargeData; }
+            get { return _parceiroNegocioPessoaFisicaLargeData ?? (_parceiroNegocioPessoaFisicaLargeData = new ParceiroNegocioPessoaFisicaLargeDataModel()); }
             set
             {
                 if (Equals(value, _parceiroNegocioPessoaFisicaLargeData)) return;
@@ -65,7 +65,7 @@ namespace Erp.Model.Forms.CustoFixo.PessoaFisica.ParceiroNegocioPessoaFisica
         private TipoTituloLargeDataModel _tipoTituloLargeData;
         public TipoTituloLargeDataModel TipoTituloLargeData
         {
-            get { return _tipoTituloLargeData; }
+            get { return _tipoTituloLargeData ?? (_tipoTituloLargeData = new TipoTituloLargeDataModel()); }
             set
             {
                 if (Equals(value, _tipoTituloLargeData)) return;

@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using DevExpress.Xpf.Core;
+using Erp.Business.Enum;
 using Util.Wpf;
 
 namespace Erp.Model
@@ -8,6 +9,7 @@ namespace Erp.Model
     
     public class ModelFormBase : ModelBase
     {
+        protected Formulario Formulario { get; set; }
         public ModelFormBase()
         {
 
@@ -171,7 +173,7 @@ namespace Erp.Model
 
         #region Propriedades
 
-        public bool IsPesquisar
+        public virtual bool IsPesquisar
         {
             get { return _isPesquisar; }
             set
@@ -181,7 +183,7 @@ namespace Erp.Model
             }
         }
 
-        public bool IsExcluir
+        public virtual bool IsExcluir
         {
             get { return _isExcluir; }
             set
@@ -191,7 +193,7 @@ namespace Erp.Model
             }
         }
 
-        public bool IsSalvar
+        public virtual bool IsSalvar
         {
             get { return _isSalvar; }
             set

@@ -19,11 +19,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica
             IsSalvar = false;
         }
 
-        public override void Salvar()
-        {
-            MensagemErroBancoDados("Não é possível salvar ou editar uma pessoa jurídica.");
-        }
-
+        
         public Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.PessoaJuridica EntityPessoaJuridica
         {
             get { return (Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.PessoaJuridica) Entity; }

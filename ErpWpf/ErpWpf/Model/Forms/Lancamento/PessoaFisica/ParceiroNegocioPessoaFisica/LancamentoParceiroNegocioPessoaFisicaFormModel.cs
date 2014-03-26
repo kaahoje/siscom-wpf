@@ -15,6 +15,25 @@ namespace Erp.Model.Forms.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica
         {
             Entity = new LancamentoParceiroNegocioPessoaFisica();
             ModelSelect = new LancamentoParceiroNegocioPessoaFisicaSelectModel();
+            
+        }
+
+        public override bool IsExcluir
+        {
+            get { return false; }
+            set
+            {
+                
+            }
+        }
+
+        public override bool IsSalvar
+        {
+            get { return false; }
+            set
+            {
+                
+            }
         }
 
         public override void Excluir()
@@ -55,7 +74,7 @@ namespace Erp.Model.Forms.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica
         private ParceiroNegocioPessoaFisicaLargeDataModel _parceiroNegocioPessoaFisicaLargeData;
         public ParceiroNegocioPessoaFisicaLargeDataModel ParceiroNegocioPessoaFisicaLargeData
         {
-            get { return _parceiroNegocioPessoaFisicaLargeData; }
+            get { return _parceiroNegocioPessoaFisicaLargeData ?? (_parceiroNegocioPessoaFisicaLargeData = new ParceiroNegocioPessoaFisicaLargeDataModel()); }
             set
             {
                 if (Equals(value, _parceiroNegocioPessoaFisicaLargeData)) return;
@@ -63,6 +82,7 @@ namespace Erp.Model.Forms.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica
                 OnPropertyChanged();
             }
         }
+
 
         public PlanoContaReferencialLargeDataModel PlanoContaReferencialLargeData
         {

@@ -1,10 +1,12 @@
-﻿<Window
+﻿<dx:DXWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:parceiroNegocioPessoaJuridica="clr-namespace:Erp.Model.Forms.Titulo.PessoaJuridica.ParceiroNegocioPessoaJuridica" xmlns:Rest="clr-namespace:Erp.View.Rest"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     x:Class="Erp.View.Forms.Titulo.PessoaJuridica.ParceiroNegocioPessoaJuridica.TituloParceiroNegocioPessoaJuridicaFormView"
-        Title="Títulos pessoa jurídica" Height="420" Width="700">
+        Title="Títulos pessoa jurídica" Height="420" Width="700" Visibility="{Binding IsTelaVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
     <Window.DataContext>
         <parceiroNegocioPessoaJuridica:TituloParceiroNegocioPessoaJuridicaFormModel/>
@@ -15,7 +17,7 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Rest:RestForm HorizontalAlignment="Left" Margin="0" Grid.RowSpan="2" VerticalAlignment="Top"/>
+        <Rest:RestForm HorizontalAlignment="Left" Margin="0" Grid.RowSpan="2" VerticalAlignment="Top" x:Name="RestCommands" />
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
@@ -63,16 +65,24 @@
                           EditValue="{Binding Entity.NumeroOrdem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Label Grid.Row="2" Grid.Column="0" Content="Pessoa:" Margin="5" />
-            <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" Margin="7" 
+            <dxg:LookUpEdit Grid.Row="2" Grid.Column="1" Margin="7"
+                            DisplayMember="Cnpj"
+                            x:Name="cboPessoa"
+                            PreviewKeyUp="UIElement_OnPreviewKeyUp"
+                              AutoComplete="False"
                               ItemsSource="{Binding ParceiroNegocioPessoaJuridicaLargeData.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                              Text="{Binding TipoTituloLargeData.Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                              SelectedItem="{Binding Entity.ParceiroNegocioPessoaJuridica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                              SelectedItem="{Binding Entity.ParceiroNegocioPessoaJuridica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                
+            </dxg:LookUpEdit>
             <dxe:TextEdit Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="7" 
+                          IsEnabled="False"
+                          IsTabStop="False"
                           EditValue="{Binding Entity.ParceiroNegocioPessoaJuridica.RazaoSocial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Tipo:" Margin="5" />
-            <dxe:ComboBoxEdit Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="7"
+            <dxg:LookUpEdit Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="7"
+                            x:Name="cboTipoTitulo"
+                            PreviewKeyUp="UIElement_OnPreviewKeyUp"
                               ItemsSource="{Binding TipoTituloLargeData.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                              Text="{Binding TipoTituloLargeData.Filter,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               SelectedItem="{Binding Entity.TipoTitulo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Grid Grid.Row="4" Grid.Column="0" ColumnSpan="4" Margin="0,0,-158,0">
@@ -92,7 +102,7 @@
                 <Label Grid.Column="2" Content="Acréscimos:" Margin="5" />
                 <dxe:SpinEdit Grid.Column="3" Margin="7" Mask="{Binding Constants.MaskMoneyProperty}"
                               MaskUseAsDisplayFormat="True"
-                              EditValue="{Binding Entity.Acressimos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                              EditValue="{Binding Entity.Acrescimos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <Label Grid.Column="4" Content="Desconto:" Margin="5" />
                 <dxe:SpinEdit Grid.Column="5" Margin="7" Mask="{Binding Constants.MaskMoneyProperty}"
                               EditValue="{Binding Entity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -114,4 +124,4 @@
                           EditValue="{Binding Entity.Historico}"/>
         </Grid>
     </Grid>
-</Window>
+</dx:DXWindow>

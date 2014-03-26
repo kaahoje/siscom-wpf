@@ -17,7 +17,7 @@ namespace Erp.Business
 {
     public class DataBaseManager
     {
-        
+
         public static string CnnStr
         {
             get
@@ -27,28 +27,26 @@ namespace Erp.Business
                 switch (machine)
                 {
                     case "BONEDEV":
-                        
+
                         cnn = ConfigurationManager.AppSettings["cnnAdailton"];
                         break;
                     case "JMW-JOAO-PC":
-                        
+
                         cnn = ConfigurationManager.AppSettings["cnnJunior"];
                         break;
                     default:
-                        
+
                         cnn = ConfigurationManager.AppSettings["cnnDeploy"];
                         break;
                 }
                 if (String.IsNullOrEmpty(cnn))
                 {
                     CustomMessageBox.MensagemErro("Não foi possível determinar as informações de conexão com o banco de dados.");
-                    
-                    Process.GetCurrentProcess().Kill();
                 }
                 return cnn;
             }
         }
-        
+
 
         public static void InitDb()
         {
@@ -74,7 +72,7 @@ namespace Erp.Business
                 DadosIniciais.Iniciar();
                 DadosIniciais.IniciarEtapa2();
                 DadosIniciais.IniciarEtapa3();
-                
+
                 //var pessoa = new PessoaFisica
                 //{
                 //    Nome = "Admin",
@@ -118,12 +116,12 @@ namespace Erp.Business
                     SistemaMenu master = null;
                     if (verifique.MenuMaster != null)
                     {
-                         master = listaAtual.FirstOrDefault(menu => menu.Nome == verifique.MenuMaster.Nome);
+                        master = listaAtual.FirstOrDefault(menu => menu.Nome == verifique.MenuMaster.Nome);
                     }
-                    
+
                     if (item == null)
                     {
-                        
+
                         SistemaMenuRepository.Save(verifique);
                     }
                     else
@@ -133,13 +131,13 @@ namespace Erp.Business
                         menu.Habilitado = verifique.Habilitado;
                         menu.Descricao = verifique.Descricao;
                         menu.PathIcone = verifique.PathIcone;
-                        menu.Url= verifique.Url;
+                        menu.Url = verifique.Url;
                         menu.MenuMaster = master;
                         SistemaMenuRepository.Update(menu);
                     }
                 }
-                
-                
+
+
             }
             catch (Exception ex)
             {
@@ -147,7 +145,7 @@ namespace Erp.Business
             }
         }
 
-        
+
         //private static void VerificaRelatorios()
         //{
 

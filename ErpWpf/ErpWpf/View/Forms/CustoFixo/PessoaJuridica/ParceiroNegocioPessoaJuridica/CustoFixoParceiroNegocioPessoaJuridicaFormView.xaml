@@ -7,7 +7,7 @@
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:parceiroNegocioPessoaJuridica="clr-namespace:Erp.Model.Forms.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica"
     x:Class="Erp.View.Forms.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica.CustoFixoParceiroNegocioPessoaJuridicaFormView"
-        Title="Custo fixo pessoa jurídica" Height="340" Width="500">
+        Title="Custo fixo pessoa jurídica" Height="340" Width="500" Visibility="{Binding IsTelaVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
     <dx:DXWindow.DataContext>
         <parceiroNegocioPessoaJuridica:CustoFixoParceiroNegocioPessoaJuridicaFormModel/>
     </dx:DXWindow.DataContext>
@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <rest:RestForm HorizontalAlignment="Left" Margin="0" Grid.RowSpan="2" VerticalAlignment="Top"/>
+        <rest:RestForm HorizontalAlignment="Left" Margin="0" Grid.RowSpan="2" VerticalAlignment="Top" x:Name="RestCommands" />
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
@@ -36,17 +36,21 @@
 				Width="100" HorizontalAlignment="Left"/>
             <Label Grid.Row="1" Grid.Column="0" Content="Pessoa:" Margin="5" />
             <dxg:LookUpEdit Grid.Row="1" Grid.Column="1" Margin="7" Width="200"
+                            x:Name="cboPessoa"
                             ItemsSource="{Binding ParceiroNegocioPessoaJuridicaLargeData.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            Text="{Binding ParceiroNegocioPessoaJuridicaLargeData.Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-				HorizontalAlignment="Left"
-				Mask="{Binding Constants.MaskCpfProperty}"
-				SelectedItem="{Binding Entity.ParceiroNegocioPessoaJuridica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-				DisplayMember="Cpf"/>
+                            HorizontalAlignment="Left"
+                            PreviewKeyUp="UIElement_OnPreviewKeyUp"
+                            Mask="{Binding Constants.MaskCnpjProperty}"
+                            MaskUseAsDisplayFormat="True"
+                            SelectedItem="{Binding Entity.ParceiroNegocioPessoaJuridica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            DisplayMember="Cnpj"/>
             <Label Grid.Row="2" Grid.Column="0" Content="Tipo de título:" Margin="5" />
-            <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" Margin="7" 
+            <dxg:LookUpEdit Grid.Row="2" Grid.Column="1" Margin="7" 
+                            x:Name="cboTipoTitulo"
+                            PreviewKeyUp="UIElement_OnPreviewKeyUp"
+                            DisplayMember="Descricao"
                               ItemsSource="{Binding TipoTituloLargeData.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                              Text="{Binding TipoTituloLargeData.Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-				SelectedItem="{Binding Entity.TipoTitulo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                              SelectedItem="{Binding Entity.TipoTitulo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Valor:" Margin="5" />
             <dxe:SpinEdit Grid.Row="3" Grid.Column="1" Margin="7"  Width="150" HorizontalAlignment="Left"
 				Mask="{Binding Constants.MaskMoneyProperty}" MaskUseAsDisplayFormat="True"/>

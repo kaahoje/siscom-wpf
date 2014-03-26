@@ -84,6 +84,7 @@ namespace Erp.Model
         public ICommand CmdAbrirTelaCustoFixo { get { return new RelayCommandBase(x=>AbrirTelaCustoFixo());} }
         public ICommand CmdAbrirTelaTitulo { get { return new RelayCommandBase(x=>AbrirTelaTitulo());} }
         public ICommand CmdAbrirTelaLancamento { get { return new RelayCommandBase(x=>AbrirTelaLancamento());} }
+        public ICommand CmdAbrirTelaTipoTitulo{ get { return new RelayCommandBase(x=>AbrirTelaTipoTitulo());} }
 
         
 
@@ -141,7 +142,10 @@ namespace Erp.Model
 
         #endregion
         #region Comandos de abertura de tela
-
+        public void AbrirTelaTipoTitulo()
+        {
+            new TipoTituloFormView().ShowDialog();
+        }
         public void AbrirTelaCustoFixo()
         {
             new TipoPessoaSelectView(TipoCadastroPessoa.CustoFixo).ShowDialog();

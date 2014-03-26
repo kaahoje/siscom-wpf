@@ -25,6 +25,23 @@ namespace Erp.Business.Enum
         [Display(Name = "Unidade")]
         Unidade,
         [Display(Name = "Ncm")]
-        Ncm
+        Ncm,
+        [Display(Name = "Lançamentos de pessoa jurídica")]
+        LancamentoParceiroNegocioPessoaJuridica,
+        [Display(Name = "Lançamentos de pessoa física")]
+        LancamentoParceiroNegocioPessoaFisica,
+        [Display(Name = "Títulos de pessoa jurídica")]
+        TituloParceiroNegocioPessoaJuridica,
+        [Display(Name = "Títulos de pessoa física")]
+        TituloParceiroNegocioPessoaFisica,
+        [Display(Name = "Custos fixos de pessoa jurídica")]
+        CustoFixoParceiroNegocioPessoaJuridica,
+        [Display(Name = "Custos fixos de pessoa física")]
+        CustoFixoParceiroNegocioPessoaFisica,
+        [Display(Name = "Nota fiscal de entrada")]
+        NotaFiscalEntrada,
+        [Display(Name = "Nota fiscal de saída")]
+        NotaFiscalSaida
+
     }
 }

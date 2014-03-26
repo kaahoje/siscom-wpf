@@ -8,15 +8,15 @@ namespace Erp.Model.Forms.Titulo.PessoaFisica.ParceiroNegocioPessoaFisica
 {
     public class TituloParceiroNegocioPessoaFisicaFormModel : ModelFormGeneric<TituloParceiroNegocioPessoaFisica>
     {
-        private ParceiroNegocioPessoaFisicaLargeDataModel _parceiroNegocioPessoaFisicaLargeData;
         public TituloParceiroNegocioPessoaFisicaFormModel()
         {
             Entity = new TituloParceiroNegocioPessoaFisica();
             ModelSelect = new TituloParceiroNegocioPessoaFisicaSelecModel();
         }
+        private ParceiroNegocioPessoaFisicaLargeDataModel _parceiroNegocioPessoaFisicaLargeData;
         public ParceiroNegocioPessoaFisicaLargeDataModel ParceiroNegocioPessoaFisicaLargeData
         {
-            get { return _parceiroNegocioPessoaFisicaLargeData; }
+            get { return _parceiroNegocioPessoaFisicaLargeData ?? (_parceiroNegocioPessoaFisicaLargeData = new ParceiroNegocioPessoaFisicaLargeDataModel()); }
             set
             {
                 if (Equals(value, _parceiroNegocioPessoaFisicaLargeData)) return;
@@ -62,7 +62,7 @@ namespace Erp.Model.Forms.Titulo.PessoaFisica.ParceiroNegocioPessoaFisica
         private TipoTituloLargeDataModel _tipoTituloLargeData;
         public TipoTituloLargeDataModel TipoTituloLargeData
         {
-            get { return _tipoTituloLargeData; }
+            get { return _tipoTituloLargeData ?? (_tipoTituloLargeData = new TipoTituloLargeDataModel()); }
             set
             {
                 if (Equals(value, _tipoTituloLargeData)) return;

@@ -1,11 +1,13 @@
-﻿<Window
+﻿<dx:DXWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:rest="clr-namespace:Erp.View.Rest"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:Forms="clr-namespace:Erp.Model.Forms"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         x:Class="Erp.View.Forms.TipoTituloFormView"
-        Title="Tipo de título" Height="420" Width="600">
+        Title="Tipo de título" Height="340" Width="600">
     <Window.DataContext>
         <Forms:TipoTituloFormModel/>
     </Window.DataContext>
@@ -14,11 +16,11 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <rest:RestForm Margin="0"/>
+        <rest:RestForm Margin="0" x:Name="RestCommands"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
+                <RowDefinition Height="0" />
                 <RowDefinition Height="Auto" />
 
             </Grid.RowDefinitions>
@@ -29,12 +31,8 @@
             <Label Grid.Row="0" Content="Descrição:" Margin="5" />
             <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="250" HorizontalAlignment="Left"
                           EditValue="{Binding Entity.Descricao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Crédito:" Margin="5" />
-            <dxe:CheckEdit Grid.Row="1" Grid.Column="1"  Margin="7"
-                           EditValue="{Binding Entity.Credito, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40" />
                     <RowDefinition Height="40" />
                     <RowDefinition Height="40" />
                     <RowDefinition Height="40" />
@@ -51,34 +49,51 @@
                        Margin="5"
 					HorizontalContentAlignment="Center"/>
                 <Label Grid.Row="1" Grid.Column="0" Content="Valor:" Margin="5" />
-                <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="1" Margin="7" DisplayMember="Codigo"
-                                  EditValue="{Binding Entity.ContaPartidaValor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <dxg:LookUpEdit Grid.Row="1" Grid.Column="1" Margin="7" DisplayMember="Codigo"
+                                  x:Name="cboValorPartida"
+                                  GotFocus="CboValorPartida_OnGotFocus"
+                                  ItemsSource="{Binding ContaValorPartida.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  PreviewKeyUp="UIElement_OnPreviewKeyUp"
+                                  SelectedItem="{Binding Entity.ContaPartidaValor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                 <Label Grid.Row="1" Grid.Column="2" Content="Valor:" Margin="5"/>
-                <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="3" Margin="7" DisplayMember="Codigo"
+                <dxg:LookUpEdit Grid.Row="1" Grid.Column="3" Margin="7" DisplayMember="Codigo"
+                                  PreviewKeyUp="UIElement_OnPreviewKeyUp"
+                                  GotFocus="CboValorContraPartida_OnGotFocus"
+                                  ItemsSource="{Binding ContaValorContraPartida.Collection,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  x:Name="cboValorContraPartida"
                                   EditValue="{Binding Entity.ContaContraPartidaValor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                 
-                <Label Grid.Row="2" Grid.Column="0" Content="Juros:" Margin="5"/>
-                <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" Margin="7" DisplayMember="Codigo"
-                                  EditValue="{Binding Entity.ContaPartidaJuros,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                <Label Grid.Row="2" Grid.Column="2" Content="Juros:" Margin="5"/>
-                <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="3" Margin="7" DisplayMember="Codigo"
-                                  EditValue="{Binding Entity.ContaContraPartidaJuros,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="Acréscimos:" Margin="5"/>
+                <dxg:LookUpEdit Grid.Row="2" Grid.Column="1" Margin="7" DisplayMember="Codigo"
+                                  PreviewKeyUp="UIElement_OnPreviewKeyUp"
+                                  x:Name="cboAcrescimosPartida"
+                                ItemsSource="{Binding ContaAcrescimoPartida.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  GotFocus="CboAcrescimosPartida_OnGotFocus"
+                                  EditValue="{Binding Entity.ContaPartidaAcressimos,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Grid.Row="2" Grid.Column="2" Content="Acréscimos:" Margin="5"/>
+                <dxg:LookUpEdit Grid.Row="2" Grid.Column="3" Margin="7" DisplayMember="Codigo"
+                                  PreviewKeyUp="UIElement_OnPreviewKeyUp"
+                                  x:Name="cboAcrescimosContraPartida"
+                                ItemsSource="{Binding ContaAcrescimoContraPartida.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  GotFocus="CboAcrescimosContraPartida_OnGotFocus"
+                                  EditValue="{Binding Entity.ContaContraPartidaAcressimos,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                 
                 <Label Grid.Row="3" Grid.Column="0" Content="Desconto:" Margin="5"/>
-                <dxe:ComboBoxEdit Grid.Row="3" Grid.Column="1" Margin="7" DisplayMember="Codigo"
+                <dxg:LookUpEdit Grid.Row="3" Grid.Column="1" Margin="7" DisplayMember="Codigo"
+                                  x:Name="cboDescontoPartida"
+                                ItemsSource="{Binding ContaDescontoPartida.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  GotFocus="CboDescontoPartida_OnGotFocus"
+                                  PreviewKeyUp="UIElement_OnPreviewKeyUp"
                                   EditValue="{Binding Entity.ContaPartidaDesconto,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                 <Label Grid.Row="3" Grid.Column="2" Content="Desconto:" Margin="5"/>
-                <dxe:ComboBoxEdit Grid.Row="3" Grid.Column="3" Margin="7" DisplayMember="Codigo"
+                <dxg:LookUpEdit Grid.Row="3" Grid.Column="3" Margin="7" DisplayMember="Codigo"
+                                  x:Name="cboDescontoContraPartida"
+                                  GotFocus="CboDescontoContraPartida_OnGotFocus"
+                                ItemsSource="{Binding ContaDescontoContraPartida.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  PreviewKeyUp="UIElement_OnPreviewKeyUp"
                                   EditValue="{Binding Entity.ContaContraPartidaDesconto,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-
-                <Label Grid.Row="4" Grid.Column="0" Content="Acréscimos:" Margin="5"/>
-                <dxe:ComboBoxEdit Grid.Row="4" Grid.Column="1" Margin="7" DisplayMember="Codigo"
-                                  EditValue="{Binding Entity.ContaPartidaAcressimos,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                <Label Grid.Row="4" Grid.Column="2" Content="Acréscimos:" Margin="5"/>
-                <dxe:ComboBoxEdit Grid.Row="4" Grid.Column="3" Margin="7" DisplayMember="Codigo"
-                                  EditValue="{Binding Entity.ContaContraPartidaAcressimos,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </Grid>
 
     </Grid>
-</Window>
+</dx:DXWindow>

@@ -6,7 +6,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
     {
         public CustoFixoParceiroNegocioPessoaFisicaMap()
         {
-            References(x => x.ParceiroNegocioPessoaFisica).Not.Nullable();
+            References(x => x.ParceiroNegocioPessoaFisica).Fetch.Join().Not.Nullable();
         }
     }
 }

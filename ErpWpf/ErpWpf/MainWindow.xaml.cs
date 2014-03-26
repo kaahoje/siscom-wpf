@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Diagnostics;
 using System.Windows;
 using Erp.Business;
@@ -17,19 +18,19 @@ namespace Erp
         public MainWindow()
         {
             InitializeComponent();
-            //var initType = ConfigurationManager.AppSettings["initDbType"];
-            //if (!string.IsNullOrEmpty(initType))
-            //{
-            //    switch (initType)
-            //    {
-            //        case "init":
-            //            DataBaseManager.InitDb();
-            //            break;
-            //        case "update":
-            //            DataBaseManager.UpdateDb();
-            //            break;
-            //    }
-            //}
+            var initType = ConfigurationManager.AppSettings["initDbType"];
+            if (!string.IsNullOrEmpty(initType))
+            {
+                switch (initType)
+                {
+                    case "init":
+                        DataBaseManager.InitDb();
+                        break;
+                    case "update":
+                        DataBaseManager.UpdateDb();
+                        break;
+                }
+            }
             try
             {
                 App.Ncms = new ObservableCollection<Ncm>(NcmRepository.GetList());

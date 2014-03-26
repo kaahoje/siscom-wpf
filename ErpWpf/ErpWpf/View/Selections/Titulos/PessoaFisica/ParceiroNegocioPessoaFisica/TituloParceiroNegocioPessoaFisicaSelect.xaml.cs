@@ -5,9 +5,11 @@
     /// </summary>
     public partial class TituloParceiroNegocioPessoaFisicaSelectView 
     {
+        private SelectionDefaultActions Actions { get; set; }
         public TituloParceiroNegocioPessoaFisicaSelectView()
         {
             InitializeComponent();
+            Actions = new SelectionDefaultActions(this);
         }
     }
 }

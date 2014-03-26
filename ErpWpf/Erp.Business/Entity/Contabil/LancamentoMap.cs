@@ -11,7 +11,7 @@ namespace Erp.Business.Entity.Contabil
             Map(x => x.DataLancamento).Not.Nullable();
             Map(x => x.Documento);
             Map(x => x.Valor).Not.Nullable();
-            Map(x => x.Juros).Not.Nullable();
+            Map(x => x.Acrescimos).Not.Nullable();
             Map(x => x.Desconto).Not.Nullable();
             Map(x => x.Historico);
             Map(x => x.Status);

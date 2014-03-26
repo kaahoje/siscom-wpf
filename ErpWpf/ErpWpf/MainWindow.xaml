@@ -25,6 +25,7 @@
                 <dxb:BarButtonItem x:Name="barButtonItem10" Content="Custo fixo" Command="{Binding CmdAbrirTelaCustoFixo}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem11" Content="Lançamento" Command="{Binding CmdAbrirTelaLancamento}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem12" Content="Títulos" RibbonStyle="Large" Command="{Binding CmdAbrirTelaTitulo}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem13" Content="Tipo de título" Command="{Binding CmdAbrirTelaTipoTitulo}"/>
             </dxb:BarManager.Items>
             <DockPanel>
 
@@ -46,6 +47,7 @@
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem7"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem10"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem11"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem13"/>
                             </dxr:RibbonPageGroup>
                         </dxr:RibbonPage>
                     </dxr:RibbonDefaultPageCategory>

@@ -2,6 +2,7 @@
 using AutoMapper;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio;
 using Erp.Business.Enum;
+using Erp.Business.Validation;
 using Erp.Model.Grids.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica;
 using Erp.View.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica;
 
@@ -53,6 +54,8 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
             {
                 if (ConfirmDelete())
                 {
+                    EntityParceiroNegocioPessoaJuridica.Cnpj =
+                        Validation.GetOnlyNumber(EntityParceiroNegocioPessoaJuridica.Cnpj);
                     Entity.Status = Status.Excluido;
                     ParceiroNegocioPessoaJuridicaRepository.Save(EntityParceiroNegocioPessoaJuridica);
                     EntityParceiroNegocioPessoaJuridica = new Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica();
@@ -76,8 +79,8 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
                 Mapper.Map(this, Entity);
                 if (IsValid(Entity))
                 {
-                    
-                    
+                    EntityParceiroNegocioPessoaJuridica.Cnpj =
+                        Validation.GetOnlyNumber(EntityParceiroNegocioPessoaJuridica.Cnpj);
                     ParceiroNegocioPessoaJuridicaRepository.Save(EntityParceiroNegocioPessoaJuridica);
                     EntityParceiroNegocioPessoaJuridica = new Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica();
                     base.Salvar();

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using Erp.Business.Annotations;
 using Erp.Business.Enum;
+using FluentNHibernate.Diagnostics;
 
 namespace Erp.Business.Entity.Contabil
 {
@@ -34,6 +35,7 @@ namespace Erp.Business.Entity.Contabil
         [Required(ErrorMessage = Constants.MessageRequiredError)]
         [Display(Description = "Vencimento", Name = "Dia de vencimento", Order = 0)]
         [GridAnnotation(Order = 0, Visible = true, Width = 150)]
+        [Range(1,31, ErrorMessage = "O dia deve estar entre 1 e 31.")]
         public virtual int DiaVencimento
         {
             get { return _diaVencimento; }

@@ -16,7 +16,7 @@ namespace Erp.Business.Entity.Contabil
         private string _historico;
         private string _documento;
         private decimal _desconto;
-        private decimal _juros;
+        private decimal _acrescimos;
         private decimal _valor;
         private DateTime _dataLancamento;
         private DateTime _vencimento;
@@ -60,13 +60,13 @@ namespace Erp.Business.Entity.Contabil
 
         [Display(Description = "Juros", Name = "Juros", Order = 3)]
         [GridAnnotation(Order = 3, Visible = true, Width = 150)]
-        public virtual Decimal Juros
+        public virtual Decimal Acrescimos
         {
-            get { return _juros; }
+            get { return _acrescimos; }
             set
             {
-                if (value == _juros) return;
-                _juros = value;
+                if (value == _acrescimos) return;
+                _acrescimos = value;
                 OnPropertyChanged();
             }
         }

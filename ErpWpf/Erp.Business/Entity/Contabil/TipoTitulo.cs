@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
 using Erp.Business.Annotations;
 using Erp.Business.Entity.Sped;
 using Erp.Business.Enum;
@@ -17,13 +16,10 @@ namespace Erp.Business.Entity.Contabil
     public class TipoTitulo : INotifyPropertyChanged
     {
         private string _descricao;
-        private bool _credito;
         private PlanoContaReferencial _contaPartidaValor;
-        private PlanoContaReferencial _contaPartidaJuros;
         private PlanoContaReferencial _contaPartidaDesconto;
         private PlanoContaReferencial _contaPartidaAcressimos;
         private PlanoContaReferencial _contaContraPartidaValor;
-        private PlanoContaReferencial _contaContraPartidaJuros;
         private PlanoContaReferencial _contaContraPartidaDesconto;
         private PlanoContaReferencial _contaContraPartidaAcressimos;
         public virtual int Id { get; set; }
@@ -38,20 +34,6 @@ namespace Erp.Business.Entity.Contabil
             {
                 if (value == _descricao) return;
                 _descricao = value;
-                OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        ///     Marca se trata-se de um crédito ou débito.
-        /// </summary>
-        public virtual bool Credito
-        {
-            get { return _credito; }
-            set
-            {
-                if (value.Equals(_credito)) return;
-                _credito = value;
                 OnPropertyChanged();
             }
         }
@@ -72,17 +54,7 @@ namespace Erp.Business.Entity.Contabil
             }
         }
 
-        public virtual PlanoContaReferencial ContaPartidaJuros
-        {
-            get { return _contaPartidaJuros; }
-            set
-            {
-                if (Equals(value, _contaPartidaJuros)) return;
-                _contaPartidaJuros = value;
-                OnPropertyChanged();
-            }
-        }
-
+       
         public virtual PlanoContaReferencial ContaPartidaDesconto
         {
             get { return _contaPartidaDesconto; }
@@ -118,16 +90,7 @@ namespace Erp.Business.Entity.Contabil
             }
         }
 
-        public virtual PlanoContaReferencial ContaContraPartidaJuros
-        {
-            get { return _contaContraPartidaJuros; }
-            set
-            {
-                if (Equals(value, _contaContraPartidaJuros)) return;
-                _contaContraPartidaJuros = value;
-                OnPropertyChanged();
-            }
-        }
+        
 
         public virtual PlanoContaReferencial ContaContraPartidaDesconto
         {

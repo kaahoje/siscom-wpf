@@ -104,6 +104,7 @@
     <Compile Include="DicionaryEnumBase.cs" />
     <Compile Include="DicionaryItem.cs" />
     <Compile Include="Dicionary\FabricanteEcfDictionary.cs" />
+    <Compile Include="Dicionary\FormularioDictionary.cs" />
     <Compile Include="Dicionary\IatDictionary.cs" />
     <Compile Include="Dicionary\IpptDictionary.cs" />
     <Compile Include="Dicionary\LocalPedidoRestauranteDictionary.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Dicionary\OperacaoNotaDaGenteDictionary.cs" />
     <Compile Include="Dicionary\OrigemProdutoDictionary.cs" />
     <Compile Include="Dicionary\RegimeTributacaoDictionary.cs" />
+    <Compile Include="Dicionary\RelatorioDictionary.cs" />
     <Compile Include="Dicionary\SexoDictionary.cs" />
     <Compile Include="Dicionary\SituacaoTributariaDictionary.cs" />
     <Compile Include="Dicionary\SPEDInstituicaoResponsavelDictionary.cs" />
@@ -166,7 +168,10 @@
     <Compile Include="Entity\Contabil\Pessoa\PessoaMap.cs" />
     <Compile Include="Entity\Contabil\Pessoa\PessoaRepository.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\ClassesRelacionadas\PermissaoFormularioPessoaFisica.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\ClassesRelacionadas\PermissaoFormularioPessoaFisicaMap.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\ClassesRelacionadas\PermissaoFormularioPessoaFisicaRepository.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\ClassesRelacionadas\PermissaoRelatorioPessoaFisica.cs" />
+    <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\ClassesRelacionadas\PermissaoRelatorioPessoaFisicaMap.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\PessoaFisicaMap.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\PessoaFisicaRepository.cs" />
     <Compile Include="Entity\Contabil\Pessoa\SubClass\PessoaFisica\SubClass\ParceiroNegocio\ClassesRelacionadas\CustoFixoParceiroNegocioPessoaFisica.cs" />

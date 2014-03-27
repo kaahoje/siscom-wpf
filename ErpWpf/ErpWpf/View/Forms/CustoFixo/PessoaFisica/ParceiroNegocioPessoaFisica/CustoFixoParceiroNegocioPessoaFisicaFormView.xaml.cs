@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Windows;
+using System.Windows.Input;
 using DevExpress.Xpf.Grid.LookUp;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Model.Forms.CustoFixo.PessoaFisica.ParceiroNegocioPessoaFisica;
@@ -33,6 +34,11 @@ namespace Erp.View.Forms.CustoFixo.PessoaFisica.ParceiroNegocioPessoaFisica
                     Model.TipoTituloLargeData.Filter = combo.DisplayText;
                 }
             }
+        }
+
+        private void CustoFixoParceiroNegocioPessoaFisicaFormView_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

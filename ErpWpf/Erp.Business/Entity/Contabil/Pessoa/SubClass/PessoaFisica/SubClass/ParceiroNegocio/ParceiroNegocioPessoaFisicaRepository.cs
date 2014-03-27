@@ -18,6 +18,10 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
             {
                 try
                 {
+                    if (PessoaFisicaRepository.ExisteCpf(entity))
+                    {
+                        throw new Exception("Já existe um CPF cadastrado");
+                    }
                     if (Validate(entity))
                     {
                         entity.Senha = Criptografia.CriptografarSenha(entity.Senha);

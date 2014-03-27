@@ -7,9 +7,31 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelac
 {
     public class PermissaoRelatorioPessoaFisica : INotifyPropertyChanged
     {
+        private Relatorios _relatorio;
+        private bool _permitido;
+        public virtual int Id { get; set; }
 
-        public virtual Relatorios Relatorio { get; set; }
-        public virtual bool Permitido { get; set; }
+        public virtual Relatorios Relatorio
+        {
+            get { return _relatorio; }
+            set
+            {
+                if (value == _relatorio) return;
+                _relatorio = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public virtual bool Permitido
+        {
+            get { return _permitido; }
+            set
+            {
+                if (value.Equals(_permitido)) return;
+                _permitido = value;
+                OnPropertyChanged();
+            }
+        }
 
         public virtual event PropertyChangedEventHandler PropertyChanged;
 

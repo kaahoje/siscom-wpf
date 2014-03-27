@@ -7,7 +7,8 @@
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         x:Class="Erp.View.Forms.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica.LancamentoParceiroNegocioPessoaFisicaFormView"
-        Title="Lançamentos pessoa física" Height="500" Width="700" Visibility="{Binding IsTelaVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        Title="Lançamentos pessoa física" Height="500" Width="700" Visibility="{Binding IsTelaVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+    Loaded="LancamentoParceiroNegocioPessoaFisicaFormView_OnLoaded">
     <Window.DataContext>
         <parceiroNegocioPessoaFisica:LancamentoParceiroNegocioPessoaFisicaFormModel/>
     </Window.DataContext>

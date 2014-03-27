@@ -102,29 +102,13 @@ namespace Erp.Business
         {
             string connectionString = DataBaseManager.CnnStr;
             #region PostGre
-
-            
-
-            try
-            {
-                Utils.GerarLogDataBase(new Exception("CreateSessionFactory"));
-                Utils.GerarLogDataBase(new Exception("Connection string: " + connectionString));
-                var fact = Fluently
-                .Configure()
-                    .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(connectionString))
-                    .Mappings(m => m.FluentMappings
-                    .AddFromAssemblyOf<Pessoa>()).BuildSessionFactory();
-                _session = fact.OpenSession();
-                return fact;
-            }
-            catch (Exception exception)
-            {
-                LogException(exception);
-                Utils.GerarLogDataBase(exception);
-                throw;
-            }
-            return null;
-
+            var fact = Fluently
+                        .Configure()
+                            .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(connectionString))
+                            .Mappings(m => m.FluentMappings
+                            .AddFromAssemblyOf<Pessoa>()).BuildSessionFactory();
+            _session = fact.OpenSession();
+            return fact;
             #endregion
         }
 

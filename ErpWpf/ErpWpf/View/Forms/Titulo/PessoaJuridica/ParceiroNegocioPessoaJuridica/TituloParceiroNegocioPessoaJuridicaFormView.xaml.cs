@@ -1,11 +1,7 @@
-﻿using System.Web.UI.WebControls;
-using System.Windows;
-using System.Windows.Input;
-using DevExpress.Xpf.Editors;
+﻿using System.Windows.Input;
 using DevExpress.Xpf.Grid.LookUp;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Model.Forms.Titulo.PessoaJuridica.ParceiroNegocioPessoaJuridica;
-using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Erp.View.Forms.Titulo.PessoaJuridica.ParceiroNegocioPessoaJuridica
 {

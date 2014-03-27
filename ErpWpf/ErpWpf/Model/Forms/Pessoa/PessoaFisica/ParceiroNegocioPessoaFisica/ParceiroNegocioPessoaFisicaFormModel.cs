@@ -1,16 +1,30 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 using AutoMapper;
+using DevExpress.Xpf.Ribbon.Customization;
+using Erp.Business.Dicionary;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio;
 using Erp.Business.Enum;
 using Erp.Business.Validation;
 using Erp.Model.Grids.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica;
+using Erp.Model.LargeDataModel;
 using Erp.View.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica;
+using Util.Wpf;
 
 namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
 {
-   public  class ParceiroNegocioPessoaFisicaFormModel : PessoaFisicaFormModel,IPessoa
+   public  class ParceiroNegocioPessoaFisicaFormModel : PessoaFisicaFormModel
    {
-       private Business.Entity.Contabil.Pessoa.Pessoa _entity1;
+       private ObservableCollection<PermissaoFormularioPessoaFisica> _permissaoFormulario;
+       private ObservableCollection<PermissaoRelatorioPessoaFisica> _permissaoRelatorio;
+       private PessoaFisicaLargeDataModel _pessoaFisicaLargeData;
+       private PermissaoFormularioPessoaFisica _currentPermissaoFormulario;
+       private PermissaoRelatorioPessoaFisica _currentPermissaoRelatorio;
+       private FormularioDictionary _formularioDictionary;
+       private RelatorioDictionary _relatorioDictionary;
+       
 
        public ParceiroNegocioPessoaFisicaFormModel()
        {
@@ -28,17 +42,23 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
 
        public override Business.Entity.Contabil.Pessoa.Pessoa Entity
        {
-           get { return _entity1; }
+           get { return base.Entity; }
            set
            {
-               if (Equals(value, _entity1)) return;
-               _entity1 = value;
+               if (Equals(value, base.Entity)) return;
+               base.Entity = value;
+               
+               PermissaoFormulario.Clear();
+               PermissaoRelatorio.Clear();
+               
+               PermissaoFormulario.AddRange(EntityPessoaFisica.PermissaoFormulario);
+               PermissaoRelatorio.AddRange(EntityPessoaFisica.PermissaoRelatorio);
                OnPropertyChanged();
                OnPropertyChanged("EntityPessoaFisica");
                OnPropertyChanged("EntityParceiroNegocioPessoaFisica");
            }
        }
-
+       
        public override void Excluir()
        {
            try
@@ -87,6 +107,116 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
        public override void IrParaPessoaFisica()
        {
            new ParceiroNegocioPessoaFisicaFormView().ShowDialog();
+       }
+
+       public PessoaFisicaLargeDataModel PessoaFisicaLargeData
+       {
+           get { return _pessoaFisicaLargeData ?? (_pessoaFisicaLargeData = new PessoaFisicaLargeDataModel()); }
+           set
+           {
+               if (Equals(value, _pessoaFisicaLargeData)) return;
+               _pessoaFisicaLargeData = value;
+               OnPropertyChanged();
+           }
+       }
+
+       public PermissaoFormularioPessoaFisica CurrentPermissaoFormulario
+       {
+           get { return _currentPermissaoFormulario; }
+           set
+           {
+               if (Equals(value, _currentPermissaoFormulario)) return;
+               _currentPermissaoFormulario = value;
+               OnPropertyChanged();
+           }
+       }
+
+       public PermissaoRelatorioPessoaFisica CurrentPermissaoRelatorio
+       {
+           get { return _currentPermissaoRelatorio; }
+           set
+           {
+               if (Equals(value, _currentPermissaoRelatorio)) return;
+               _currentPermissaoRelatorio = value;
+               OnPropertyChanged();
+           }
+       }
+
+       public ICommand CmdAddPermissaoFormulario { get { return new RelayCommandBase(x => AddPermissaoFormulario()); } }
+
+       void AddPermissaoFormulario()
+       {
+           PermissaoFormulario.Add(new PermissaoFormularioPessoaFisica());
+       }
+       public ICommand CmdRemovePermissaoFormulario { get { return new RelayCommandBase(x => RemovePermissaoFormulario()); } }
+
+       void RemovePermissaoFormulario()
+       {
+           if (CurrentPermissaoFormulario != null)
+           {
+               PermissaoFormulario.Remove(CurrentPermissaoFormulario);
+           }
+       }
+
+       public ICommand CmdAddPermissaoRelatorio { get { return new RelayCommandBase(x => AddPermissaoRelatorio()); } }
+
+       void AddPermissaoRelatorio()
+       {
+           PermissaoRelatorio.Add(new PermissaoRelatorioPessoaFisica());
+       }
+
+       public ICommand CmdRemovePermissaoRelatorio { get { return new RelayCommandBase(x => RemovePermissaoRelatorio()); } }
+
+       void RemovePermissaoRelatorio()
+       {
+           if (CurrentPermissaoRelatorio != null)
+           {
+               PermissaoRelatorio.Remove(CurrentPermissaoRelatorio);
+           }
+       }
+
+       public FormularioDictionary FormularioDictionary
+       {
+           get { return _formularioDictionary ?? (_formularioDictionary = new FormularioDictionary()); }
+           set
+           {
+               if (Equals(value, _formularioDictionary)) return;
+               _formularioDictionary = value;
+               OnPropertyChanged();
+           }
+       }
+
+       public RelatorioDictionary RelatorioDictionary
+       {
+           get { return _relatorioDictionary ?? (_relatorioDictionary = new RelatorioDictionary()); }
+           set
+           {
+               if (Equals(value, _relatorioDictionary)) return;
+               _relatorioDictionary = value;
+               OnPropertyChanged();
+           }
+       }
+
+       public ObservableCollection<PermissaoFormularioPessoaFisica> PermissaoFormulario
+       {
+           get { return _permissaoFormulario ?? (_permissaoFormulario = new ObservableCollection<PermissaoFormularioPessoaFisica>()); }
+           set
+           {
+               if (Equals(value, _permissaoFormulario)) return;
+               _permissaoFormulario = value;
+               OnPropertyChanged();
+           }
+       }
+
+       public ObservableCollection<PermissaoRelatorioPessoaFisica> PermissaoRelatorio
+       {
+           get { return _permissaoRelatorio ?? (_permissaoRelatorio = new ObservableCollection<PermissaoRelatorioPessoaFisica>()); }
+           set
+           {
+               if (Equals(value, _permissaoRelatorio)) return;
+               _permissaoRelatorio = value;
+               OnPropertyChanged();
+           }
        }
    }
 }

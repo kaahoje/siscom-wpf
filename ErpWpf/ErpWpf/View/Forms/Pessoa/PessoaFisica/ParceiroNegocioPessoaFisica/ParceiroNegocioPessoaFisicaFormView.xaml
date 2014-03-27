@@ -6,6 +6,7 @@
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
              xmlns:dicionary="clr-namespace:Erp.Business.Dicionary;assembly=Erp.Business"
              xmlns:ParceiroNegocioPessoaFisica="clr-namespace:Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
              x:Class="Erp.View.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica.ParceiroNegocioPessoaFisicaFormView"
         Title="Parceiro de negocios pessoa física" Height="540" Width="700">
     <dx:DXWindow.Resources>
@@ -87,6 +88,120 @@
             <dx:DXTabItem Header="Dados para contato">
                 <Grid Background="Transparent" Height="400">
                     <Pessoa:PessoaUserControl Margin="0" HorizontalAlignment="Left" x:Name="PessoaUserControl" VerticalAlignment="Top"/>
+                </Grid>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Permissões de usuário">
+                <Grid Background="Transparent" Height="400">
+                    <dx:DXTabControl Margin="2" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch">
+                        <dx:DXTabItem Header="Permissões de formulário">
+                            <Grid Background="Transparent" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="600"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <dxg:GridControl 
+                        SelectedItem="{Binding CurrentPermissaoFormulario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{Binding PermissaoFormulario,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="210" Width="581">
+                                    <dxg:GridControl.Columns>
+                                        <dxg:GridColumn FieldName="Formulario" Header="Formulário" Width="350">
+                                            <dxg:GridColumn.EditSettings>
+                                                <dxe:ComboBoxEditSettings ItemsSource="{Binding FormularioDictionary.Values}"
+                                                              DisplayMember="Description"
+                                                              ValueMember="Value"/>
+                                            </dxg:GridColumn.EditSettings>
+                                        </dxg:GridColumn>
+                                        <dxg:GridColumn FieldName="Pesquisa" Width="100">
+                                            <dxg:GridColumn.EditSettings>
+                                                <dxe:CheckEditSettings/>
+                                            </dxg:GridColumn.EditSettings>
+                                        </dxg:GridColumn>
+                                        <dxg:GridColumn FieldName="Insere" Width="100">
+                                            <dxg:GridColumn.EditSettings>
+                                                <dxe:CheckEditSettings/>
+                                            </dxg:GridColumn.EditSettings>
+                                        </dxg:GridColumn>
+                                        <dxg:GridColumn FieldName="Edita" Width="100">
+                                            <dxg:GridColumn.EditSettings>
+                                                <dxe:CheckEditSettings/>
+                                            </dxg:GridColumn.EditSettings>
+                                        </dxg:GridColumn>
+                                        <dxg:GridColumn FieldName="Exclui" Width="100">
+                                            <dxg:GridColumn.EditSettings>
+                                                <dxe:CheckEditSettings/>
+                                            </dxg:GridColumn.EditSettings>
+                                        </dxg:GridColumn>
+                                    </dxg:GridControl.Columns>
+                                    <dxg:GridControl.View>
+                                        <dxg:TableView ShowGroupPanel="False" Margin="0" ShowTotalSummary="False" AutoWidth="True"/>
+                                    </dxg:GridControl.View>
+                                </dxg:GridControl>
+                                <Grid Grid.Column="1" Width="50">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Button Margin="5" Command="{Binding CmdAddPermissaoFormulario}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Erp;component/Images/addGrid.png" Stretch="None"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <Button Grid.Row="1" Margin="5" Command="{Binding CmdRemovePermissaoFormulario}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Erp;component/Images/removeGrid.png" Stretch="None"/>
+                                        </Button.Background>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </dx:DXTabItem>
+                        <dx:DXTabItem Header="Permissões de relatório">
+                            <Grid Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="500"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <dxg:GridControl SelectedItem="{Binding CurrentPermissaoRelatorio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{Binding PermissaoRelatorio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="210" Width="481">
+                                    <dxg:GridControl.Columns>
+                                        <dxg:GridColumn FieldName="Relatorio" Header="Relatório" Width="300">
+                                            <dxg:GridColumn.EditSettings>
+                                                <dxe:ComboBoxEditSettings 
+                                        ItemsSource="{Binding RelatorioDictionary.Values}"
+                                        DisplayMember="Descricption"
+                                        ValueMember="Value"/>
+                                            </dxg:GridColumn.EditSettings>
+                                        </dxg:GridColumn>
+                                        <dxg:GridColumn FieldName="Permitido">
+                                            <dxg:GridColumn.EditSettings>
+                                                <dxe:CheckEditSettings/>
+                                            </dxg:GridColumn.EditSettings>
+                                        </dxg:GridColumn>
+                                    </dxg:GridControl.Columns>
+                                    <dxg:GridControl.View>
+                                        <dxg:TableView ShowGroupPanel="False" Margin="0" ShowTotalSummary="False" AutoWidth="True"/>
+                                    </dxg:GridControl.View>
+                                </dxg:GridControl>
+                                <Grid Grid.Column="1" Width="50">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Button Margin="5" Command="{Binding CmdAddPermissaoRelatorio}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Erp;component/Images/addGrid.png" Stretch="None"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <Button Grid.Row="1" Margin="5" Command="{Binding CmdRemovePermissaoRelatorio}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Erp;component/Images/removeGrid.png" Stretch="None"/>
+                                        </Button.Background>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </dx:DXTabItem>
+                    </dx:DXTabControl>
+
                 </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>

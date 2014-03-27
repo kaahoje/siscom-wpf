@@ -7,7 +7,8 @@
         xmlns:parceiroNegocioPessoaFisica="clr-namespace:Erp.Model.Forms.CustoFixo.PessoaFisica.ParceiroNegocioPessoaFisica"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         x:Class="Erp.View.Forms.CustoFixo.PessoaFisica.ParceiroNegocioPessoaFisica.CustoFixoParceiroNegocioPessoaFisicaFormView"
-        Title="Custo fixo pessoa física" Height="340" Width="500" Visibility="{Binding IsTelaVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        Title="Custo fixo pessoa física" Height="340" Width="500" Visibility="{Binding IsTelaVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+    Loaded="CustoFixoParceiroNegocioPessoaFisicaFormView_OnLoaded">
     <Window.DataContext>
         <parceiroNegocioPessoaFisica:CustoFixoParceiroNegocioPessoaFisicaFormModel/>
     </Window.DataContext>

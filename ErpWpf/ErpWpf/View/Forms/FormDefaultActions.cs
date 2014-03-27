@@ -23,22 +23,26 @@ namespace Erp.View.Forms
             ConfigureWindow(window);
             AddEvents(window);
             
-            
-            
-
-            // Adiciona o contexto do modelo do formulário à tela de pesquisa.
-            
-
-            
-
         }
 
-        protected virtual void AddEvents(DXWindow window)
+        public virtual void AddEvents(DXWindow window)
         {
 
             window.PreviewKeyDown += window_PreviewKeyDown;
+            window.Loaded += WindowOnLoaded;
             Model.Fechar += Model_Fechar;
         }
+
+        private void WindowOnLoaded(object sender, RoutedEventArgs routedEventArgs)
+        {
+            if (!Model.TelaPermitida())
+            {
+                Window.Close();
+                
+            }
+            
+        }
+
 
         protected virtual void AddContextModelSelect()
         {

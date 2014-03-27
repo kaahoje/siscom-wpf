@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using DevExpress.Xpf.Core;
 using Erp.Business.Enum;
@@ -9,10 +11,10 @@ namespace Erp.Model
     
     public class ModelFormBase : ModelBase
     {
-        protected Formulario Formulario { get; set; }
+        
         public ModelFormBase()
         {
-
+            
         }
         public ModelFormBase(string columnName)
         {
@@ -30,6 +32,8 @@ namespace Erp.Model
         private bool _isSalvar = true;
         private bool _isExcluir = false; 
         private bool _isPesquisar = true;
+
+        
 
         #region Keys
         public KeyGesture KeyPesquisa
@@ -119,7 +123,27 @@ namespace Erp.Model
         #endregion
 
         #region Operacoes
+        public bool TelaPermitida()
+        {
+            var permissao = App.Usuario.PermissaoFormulario.SingleOrDefault(x => x.Formulario == Formulario);
 
+            if (permissao == null)
+            {
+                IsTelaVisibility = Visibility.Hidden;
+                MensagemInformativa("Usuário sem permissão para acessar este cadastro.");
+                return false;
+            }
+
+            if (!permissao.Exclui && !permissao.Insere && !permissao.Pesquisa)
+            {
+                IsTelaVisibility = Visibility.Hidden;
+                MensagemInformativa("Usuário sem permissão para acessar este cadastro.");
+                return false;
+            }
+            return true;
+        }
+
+        
         public virtual void Pesquisar()
         {
 

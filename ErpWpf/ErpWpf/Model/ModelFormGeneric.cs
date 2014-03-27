@@ -1,11 +1,20 @@
 ﻿using System;
+using System.Linq;
+using System.Windows;
 
 namespace Erp.Model
 {
+    
     public class ModelFormGeneric<T> : ModelFormBase where T : new()
     {
         private T _entity;
         private ModelSelectBase _modelSelect;
+
+        public ModelFormGeneric()
+        {
+            AplicaPermissoes();
+        } 
+
         public virtual T Entity
         {
             get { return _entity; }
@@ -13,8 +22,58 @@ namespace Erp.Model
             {
                 _entity = value; 
                 OnPropertyChanged("Entity");
+                AplicaPermissoes();
             }
         }
+
+        protected virtual bool AplicaPermissoes()
+        {
+            if (App.Usuario == null)
+            {
+                return false;
+            }
+            var permissao = App.Usuario.PermissaoFormulario.SingleOrDefault(x => x.Formulario == Formulario);
+            if (permissao == null)
+            {
+                return false;
+            }
+            if (permissao.Exclui || permissao.Insere || permissao.Pesquisa)
+            {
+                if (Entity != null)
+                {
+                    var propId = Entity.GetType().GetProperty("Id");
+                    if (propId != null)
+                    {
+                        if ((int)propId.GetValue(Entity) == 0)
+                        {
+                            IsExcluir = false;
+                            IsSalvar = permissao.Insere;
+
+                            // Verifica a permissão de pesquisa
+                            IsPesquisar = permissao.Exclui || permissao.Pesquisa;
+                        }
+                        else
+                        {
+                            IsExcluir = permissao.Exclui;
+                            IsSalvar = permissao.Edita;
+                        }
+                    }
+                }
+                else
+                {
+                    Entity = new T();
+
+                    // Verifica a permissão de pesquisa
+                    IsPesquisar = permissao.Exclui || permissao.Pesquisa;
+
+                    IsSalvar = permissao.Insere;
+                    IsExcluir = false;
+                }
+            }
+
+            return true;
+        }
+
         public ModelSelectBase ModelSelect
         {
             get { return _modelSelect; }
@@ -35,25 +94,7 @@ namespace Erp.Model
                     var prop = ModelSelect.GetType().GetProperty("CurrentItem");
                     
                     Entity = (T) prop.GetValue(ModelSelect);
-                    if (Entity != null)
-                    {
-                        var propId = Entity.GetType().GetProperty("Id");
-                        if (propId != null)
-                        {
-                            if ((int) propId.GetValue(Entity) == 0)
-                            {
-                                IsExcluir = false;
-                            }
-                            else
-                            {
-                                IsExcluir = true;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        IsExcluir = false;
-                    }
+                    AplicaPermissoes();
                 }
                 catch (Exception ex)
                 {

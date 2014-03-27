@@ -85,9 +85,7 @@ namespace Erp.Model
         public ICommand CmdAbrirTelaTitulo { get { return new RelayCommandBase(x=>AbrirTelaTitulo());} }
         public ICommand CmdAbrirTelaLancamento { get { return new RelayCommandBase(x=>AbrirTelaLancamento());} }
         public ICommand CmdAbrirTelaTipoTitulo{ get { return new RelayCommandBase(x=>AbrirTelaTipoTitulo());} }
-
-        
-
+        public ICommand CmdAbrirTelaPermissoesUsuario { get { return new RelayCommandBase(x => AbrirTelaPermissoesUsuario()); } }
 
         public ICommand CmdAbrirTelaParceiroNegocio
         {
@@ -142,6 +140,12 @@ namespace Erp.Model
 
         #endregion
         #region Comandos de abertura de tela
+
+        public void AbrirTelaPermissoesUsuario()
+        {
+            new PermissaoUsuarioFormView().ShowDialog();
+        }
+
         public void AbrirTelaTipoTitulo()
         {
             new TipoTituloFormView().ShowDialog();

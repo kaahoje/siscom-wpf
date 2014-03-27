@@ -17,18 +17,6 @@ namespace Erp.View.Forms
             FormDefaultActions = new FormDefaultActions<Produto>(this){IsEnableShortcuts = true};
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-
-            // Load data by setting the CollectionViewSource.Source property:
-            // produtoViewSource.Source = [generic data source]
-            System.Windows.Data.CollectionViewSource ipptDictionaryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("ipptDictionaryViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // ipptDictionaryViewSource.Source = [generic data source]
-            System.Windows.Data.CollectionViewSource origemProdutoDictionaryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("origemProdutoDictionaryViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // origemProdutoDictionaryViewSource.Source = [generic data source]
-        }
+        
     }
 }

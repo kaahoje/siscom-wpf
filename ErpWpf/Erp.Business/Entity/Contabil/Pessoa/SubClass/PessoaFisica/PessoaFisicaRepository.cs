@@ -1,13 +1,48 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using NHibernate.Criterion;
 using Util.Seguranca;
 
 namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica
 {
-    public class PessoaFisicaRepository: RepositoryBase<PessoaFisica>
+    public class PessoaFisicaRepository : RepositoryBase<PessoaFisica>
     {
+        public static void Save(PessoaFisica entity )
+        {
+            var t = NHibernateHttpModule.Session.BeginTransaction();
+            try
+            {
+
+                if (ExisteCpf(entity) && entity.Id == 0)
+                {
+                    throw new Exception("Já existe um CPF cadastrado");
+                }
+                NHibernateHttpModule.Session.Save(entity);
+                t.Commit();
+            }
+            catch (Exception)
+            {
+                t.Rollback();
+            }
+        }
+
+        public static bool ExisteCpf( PessoaFisica entity)
+        {
+            
+            if (entity.Id == 0)
+            {
+                if (GetByCpf(entity.Cpf) != null)
+                {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+
         /// <summary>
         /// Método que obtém uma pessoa por meio do campo CPF.
         /// </summary>
@@ -34,7 +69,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica
             {
 
                 //FormsAuthentication.SetAuthCookie(usuario.Login, false);
-                FormsAuthentication.RedirectFromLoginPage(usuario.Login,false);
+                FormsAuthentication.RedirectFromLoginPage(usuario.Login, false);
 
                 return true;
             }
@@ -46,7 +81,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica
         {
             try
             {
-                
+
                 var login = HttpContext.Current.User.Identity.Name;
 
                 if (login == string.Empty)
@@ -61,9 +96,9 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica
             catch (Exception)
             {
                 return null;
-                
+
             }
-            
+
         }
 
         public static void Logoff()
@@ -74,6 +109,19 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica
         public static PessoaFisica GetByLogin(string login)
         {
             return GetList().SingleOrDefault(p => p.Login == login);
+        }
+
+        public static IList<PessoaFisica> GetByRange(string filter, int takePesquisa)
+        {
+            if (filter.Length == Validation.Validation.GetOnlyNumber(filter).Length)
+            {
+                return GetQueryOver().Where(x => x.Cpf.IsInsensitiveLike(StartStringFilter(filter))).Take(takePesquisa)
+                    .List();
+            }
+            return GetQueryOver().Where(x => x.Nome.IsInsensitiveLike(ContainsStringFilter(filter)) ||
+                x.Alias.IsInsensitiveLike(ContainsStringFilter(filter)))
+                .Take(takePesquisa)
+                .List();
         }
     }
 }

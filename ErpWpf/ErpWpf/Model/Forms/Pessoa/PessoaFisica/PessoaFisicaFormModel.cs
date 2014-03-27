@@ -10,7 +10,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica
 {
     public class PessoaFisicaFormModel : PessoaFormModel,IPessoa
     {
-        public Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.PessoaFisica EntityPessoaFisica
+        public virtual Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.PessoaFisica EntityPessoaFisica
         {
             get { return (Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.PessoaFisica) Entity; }
             set

@@ -8,7 +8,7 @@
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dicionary="clr-namespace:Erp.Business.Dicionary;assembly=Erp.Business"
     mc:Ignorable="d" x:Class="Erp.View.Forms.ProdutoFormView"
-        Title="Produto" Height="472" Width="808" Loaded="Window_Loaded" Visibility="{Binding IsVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ResizeMode="NoResize" Icon="pack://application:,,,/Erp;component/Images/produto.png">
+        Title="Produto" Height="472" Width="808" Icon="pack://application:,,,/Erp;component/Images/produto.png">
     <dx:DXWindow.Resources>
         <dicionary:IpptDictionary x:Key="IpptDictionary" />
         <dicionary:OrigemProdutoDictionary x:Key="OrigemProdutoDictionary" />

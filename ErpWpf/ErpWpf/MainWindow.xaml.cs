@@ -4,8 +4,12 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Windows;
 using Erp.Business;
+using Erp.Business.Dicionary;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
 using Erp.Business.Entity.Sped;
 using Erp.Model;
+using Erp.View.Forms;
 
 namespace Erp
 {
@@ -49,6 +53,23 @@ namespace Erp
             Model = new RetaguardaModel();
             Model.TelaAberta += model_TelaAberta;
             DataContext = Model;
+            var pessoa = PessoaFisicaRepository.GetByLogin("admin");
+            if (pessoa != null)
+            {
+                var forms = new FormularioDictionary();
+                foreach (var form in forms.Values)
+                {
+                    pessoa.PermissaoFormulario.Add(new PermissaoFormularioPessoaFisica()
+                    {
+                        Formulario = form.Value,
+                        Edita = false,
+                        Exclui = false,
+                        Insere = false,
+                        Pesquisa = true
+                    });
+                }
+                PessoaFisicaRepository.Save(pessoa);
+            }
             //try
             //{
             //    var empresa = new PessoaJuridica()
@@ -102,7 +123,10 @@ namespace Erp
 
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-
+            if (App.Usuario == null)
+            {
+                new LoginFormView().ShowDialog();
+            }
         }
 
         void model_TelaAberta(object sender, TelaAbertaEventArgs e)

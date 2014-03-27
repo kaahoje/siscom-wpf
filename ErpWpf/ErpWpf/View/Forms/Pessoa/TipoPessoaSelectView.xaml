@@ -12,8 +12,8 @@
 
         <dxb:BarManager CreateStandardLayout="False">
             <dxb:BarManager.Items>
-                <dxb:BarButtonItem x:Name="barButtonItem1" Content="Jurídica" RibbonStyle="Large" Command="{Binding CmdAbrirPessoaJuridica}" KeyGesture="{Binding KeyPessoaJuridica, Mode=OneWay}"/>
-                <dxb:BarButtonItem x:Name="barButtonItem2" Content="Física" RibbonStyle="Large" Command="{Binding CmdAbrirPessoaFisica}" KeyGesture="{Binding KeyPessoaFisica, Mode=OneWay}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem1" Content="Jurídico" RibbonStyle="Large" Command="{Binding CmdAbrirPessoaJuridica}" KeyGesture="{Binding KeyPessoaJuridica, Mode=OneWay}" Glyph="pack://application:,,,/Erp;component/Images/cliente.png"/>
+                <dxb:BarButtonItem x:Name="barButtonItem2" Content="Físico" RibbonStyle="Large" Command="{Binding CmdAbrirPessoaFisica}" KeyGesture="{Binding KeyPessoaFisica, Mode=OneWay}" Glyph="pack://application:,,,/Erp;component/Images/parceiroFisico.png"/>
                 <dxb:BarButtonItem x:Name="barButtonItem3" Content="Sair" RibbonStyle="Large" Command="{Binding CmdSair}" KeyGesture="{Binding KeySair, Mode=OneWay}" Glyph="pack://application:,,,/Erp;component/Images/sair.png"/>
             </dxb:BarManager.Items>
             <DockPanel>

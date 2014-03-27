@@ -8,6 +8,7 @@ using System.Windows.Input;
 using DevExpress.Xpf.Core;
 using Erp.Annotations;
 using Erp.Business;
+using Erp.Business.Enum;
 using FluentNHibernate.Conventions;
 using Util;
 using Util.Wpf;
@@ -17,6 +18,7 @@ namespace Erp.Model
     public delegate void FecharEventHandler(object sender, EventArgs e);
     public class ModelBase : INotifyPropertyChanged, IDataErrorInfo
     {
+        
         protected string MensagemFuncaoNaoSuportada = "Esta função não é suportada pelo formulário";
         private Visibility _isVisible;
         private bool _isCancelado;
@@ -29,6 +31,7 @@ namespace Erp.Model
         private string _complementoMensagem;
         private bool _isLimpar = true;
         private Visibility _isTelaVisibility;
+        private Formulario _formulario;
 
         #region KeyGestures
 
@@ -58,6 +61,12 @@ namespace Erp.Model
         #endregion
 
         #region Propriedades
+
+        protected Formulario Formulario
+        {
+            get { return _formulario; }
+            set { _formulario = value; }
+        }
 
         public String ComplementoMensagem
         {
@@ -90,7 +99,7 @@ namespace Erp.Model
             }
         }
 
-        public Visibility IsTelaVisibility
+        public virtual Visibility IsTelaVisibility
         {
             get { return _isTelaVisibility; }
             set
@@ -204,8 +213,6 @@ namespace Erp.Model
                     if (attr == null) continue;
 
                     var propValue = propertyInfo.GetValue(entity);
-
-
 
                     if (attr.IsValid(propValue)) continue;
                     var msg = string.Format(attr.ErrorMessage, displayName);

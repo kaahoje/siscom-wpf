@@ -179,7 +179,9 @@
     <Compile Include="Model\Forms\GrupoProdutoFormModel.cs" />
     <Compile Include="Model\Forms\Lancamento\PessoaFisica\ParceiroNegocioPessoaFisica\LancamentoParceiroNegocioPessoaFisicaFormModel.cs" />
     <Compile Include="Model\Forms\Lancamento\PessoaJuridica\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaFormModel.cs" />
+    <Compile Include="Model\Forms\LoginModelForm.cs" />
     <Compile Include="Model\Forms\NcmFormModel.cs" />
+    <Compile Include="Model\Forms\PermissaoUsuarioFormModel.cs" />
     <Compile Include="Model\Forms\Pessoa\IPessoa.cs" />
     <Compile Include="Model\Forms\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaFormModel.cs" />
     <Compile Include="Model\Forms\Pessoa\PessoaFisica\PessoaFisicaFormModel.cs" />
@@ -202,6 +204,7 @@
     <Compile Include="Model\Grids\Lancamento\PessoaFisica\ParceiroNegocioPessoaFisica\LancamentoParceiroNegocioPessoaFisicaFormModel.cs" />
     <Compile Include="Model\Grids\Lancamento\PessoaJuridica\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaSelectModel.cs" />
     <Compile Include="Model\Grids\NcmSelectModel.cs" />
+    <Compile Include="Model\Grids\PermissaoUsuarioSelectModel.cs" />
     <Compile Include="Model\Grids\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaSelectModel.cs" />
     <Compile Include="Model\Grids\Pessoa\PessoaFisica\PessoaFisicaSelectModel.cs" />
     <Compile Include="Model\Grids\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaSelectModel.cs" />
@@ -214,6 +217,7 @@
     <Compile Include="Model\Grids\UnidadeSelectModel.cs" />
     <Compile Include="Model\LargeDataModel\ParceiroNegocioPessoaJuridicaLargeDataModel.cs" />
     <Compile Include="Model\LargeDataModel\ParceiroNegocioPessoaFisicaLargeDataModel.cs" />
+    <Compile Include="Model\LargeDataModel\PessoaFisicaLargeDataModel.cs" />
     <Compile Include="Model\LargeDataModel\PlanoContaReferencialLargeDataModel.cs" />
     <Compile Include="Model\LargeDataModel\TipoTituloLargeDataModel.cs" />
     <Compile Include="Model\ModelBase.cs" />
@@ -246,8 +250,14 @@
     <Compile Include="View\Forms\Lancamento\PessoaJuridica\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaFormView.xaml.cs">
       <DependentUpon>LancamentoParceiroNegocioPessoaJuridicaFormView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\LoginFormView.xaml.cs">
+      <DependentUpon>LoginFormView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\NcmFormView.xaml.cs">
       <DependentUpon>NcmFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\PermissaoUsuarioFormView.xaml.cs">
+      <DependentUpon>PermissaoUsuarioFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaFormView.xaml.cs">
       <DependentUpon>ParceiroNegocioPessoaFisicaFormView.xaml</DependentUpon>
@@ -333,6 +343,9 @@
     <Compile Include="View\Selections\NcmSelectView.xaml.cs">
       <DependentUpon>NcmSelectView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Selections\PermissaoUsuarioSelectView.xaml.cs">
+      <DependentUpon>PermissaoUsuarioSelectView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Selections\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaSelectView.xaml.cs">
       <DependentUpon>ParceiroNegocioPessoaFisicaSelectView.xaml</DependentUpon>
     </Compile>
@@ -408,7 +421,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Forms\LoginFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Forms\NcmFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\PermissaoUsuarioFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -521,6 +542,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Selections\NcmSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\PermissaoUsuarioSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -673,7 +698,21 @@
   <ItemGroup>
     <Resource Include="Images\removeGrid.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\parceiro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\condicoesPagamento.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\parceiroFisico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\notaFiscal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\login.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

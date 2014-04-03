@@ -22,12 +22,11 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
 
         public override Business.Entity.Contabil.Pessoa.Pessoa Entity
         {
-            get { return _entity1; }
+            get { return base.Entity; }
             set
             {
-                if (Equals(value, _entity1)) return;
-                _entity1 = value;
-                OnPropertyChanged();
+                if (Equals(value, base.Entity)) return;
+                base.Entity = value;
                 OnPropertyChanged("EntityPessoaJuridica");
                 OnPropertyChanged("EntityParceiroNegocioPessoaJuridica");
             }

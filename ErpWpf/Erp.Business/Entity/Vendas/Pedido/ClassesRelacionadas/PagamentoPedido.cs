@@ -80,6 +80,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
             {
                 _valor = value;
                 OnPropertyChanged();
+                OnPropertyChanged("ValorTotal");
             }
         }
 
@@ -94,6 +95,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
             {
                 _juros = value;
                 OnPropertyChanged();
+                OnPropertyChanged("ValorTotal");
             }
         }
 
@@ -117,7 +119,11 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
         [Required(ErrorMessage = Constants.MessageRequiredError)]
         public virtual decimal ValorTotal
         {
-            get { return _valorTotal; }
+            get
+            {
+                _valorTotal = Valor + Juros + Desconto;
+                return _valorTotal;
+            }
             set
             {
                 _valorTotal = value;

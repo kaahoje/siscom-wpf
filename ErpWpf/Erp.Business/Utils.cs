@@ -248,28 +248,44 @@ namespace Erp.Business
 
         public static void GerarLog(Exception ex)
         {
-            var message = GetMessage(ex);
-            var path = Environment.CurrentDirectory + "\\log";
-            if (!Directory.Exists(path))
+            try
             {
-                Directory.CreateDirectory(path);
-            }
-            path += "\\log" + DateTime.Now.Date.ToString("yyyy-mm-dd") + ".txt";
+                var message = GetMessage(ex);
+                var path = Environment.CurrentDirectory + "\\log";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                path += "\\log" + DateTime.Now.Date.ToString("yyyy-mm-dd") + ".txt";
 
-            GravarArquivo(path, message);
+                GravarArquivo(path, message);
+            }
+            catch (Exception)
+            {
+                
+            }
+            
         }
         public static void GerarLogDataBase(Exception ex)
         {
-            var message = GetMessage(ex);
-            
-            var path = Environment.CurrentDirectory + "\\DbLog";
-            if (!Directory.Exists(path))
+            try
             {
-                Directory.CreateDirectory(path);
-            }
-            path += "\\log" + DateTime.Now.Date.ToString("yyyy-mm-dd") + ".txt";
+                var message = GetMessage(ex);
 
-            GravarArquivo(path, message);
+                var path = Environment.CurrentDirectory + "\\DbLog";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                path += "\\log" + DateTime.Now.Date.ToString("yyyy-mm-dd") + ".txt";
+
+                GravarArquivo(path, message);
+
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private static string GetMessage(Exception ex)
@@ -277,11 +293,11 @@ namespace Erp.Business
             var e = ex.InnerException;
             var trace = ex.StackTrace;
 
-            var message ="Source:" + ex.Source + "\n";
-            
+            var message = "Source:" + ex.Source + "\n";
+
             while (e != null)
             {
-                message += "Excepton:"+ e.Message + Environment.NewLine;
+                message += "Excepton:" + e.Message + Environment.NewLine;
                 e = e.InnerException;
             }
 

@@ -14,7 +14,7 @@ namespace Erp.View.Forms
             InitializeComponent();
             
             RestCommands.DataContext = DataContext;
-            FormDefaultActions = new FormDefaultActions<Produto>(this){IsEnableShortcuts = true};
+            FormDefaultActions = new FormDefaultActions<Produto>(this){IsEnableShortcuts = false};
         }
 
         

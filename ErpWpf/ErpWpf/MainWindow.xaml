@@ -27,6 +27,7 @@
                 <dxb:BarButtonItem x:Name="barButtonItem3" Content="Forma de pagamento" Command="{Binding CmdAbrirTelaFormaPagamento}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem9" Content="Entradas" RibbonStyle="Large"/>
                 <dxb:BarButtonItem x:Name="barButtonItem14" Content="Saídas" RibbonStyle="Large"/>
+                <dxb:BarButtonItem x:Name="barButtonItem15" Content="Atualizar produtos" Command="{Binding CmdAbrirTelaAtualizacaoProduto}" RibbonStyle="Large"/>
             </dxb:BarManager.Items>
             <DockPanel>
 
@@ -50,6 +51,7 @@
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem13"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem2"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem3"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem15"/>
                             </dxr:RibbonPageGroup>
                         </dxr:RibbonPage>
                     </dxr:RibbonDefaultPageCategory>

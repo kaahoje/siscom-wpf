@@ -5,11 +5,18 @@ using System.Diagnostics;
 using System.Windows;
 using Erp.Business;
 using Erp.Business.Dicionary;
+using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
+using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
+using Erp.Business.Entity.Estoque.Produto;
+using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
 using Erp.Business.Entity.Sped;
+using Erp.Business.Enum;
 using Erp.Model;
 using Erp.View.Forms;
+using NHibernate;
 
 namespace Erp
 {
@@ -22,19 +29,7 @@ namespace Erp
         public MainWindow()
         {
             InitializeComponent();
-            var initType = ConfigurationManager.AppSettings["initDbType"];
-            if (!string.IsNullOrEmpty(initType))
-            {
-                switch (initType)
-                {
-                    case "init":
-                        DataBaseManager.InitDb();
-                        break;
-                    case "update":
-                        DataBaseManager.UpdateDb();
-                        break;
-                }
-            }
+            
             try
             {
                 App.Ncms = new ObservableCollection<Ncm>(NcmRepository.GetList());
@@ -53,46 +48,61 @@ namespace Erp
             Model = new RetaguardaModel();
             Model.TelaAberta += model_TelaAberta;
             DataContext = Model;
-            var pessoa = PessoaFisicaRepository.GetByLogin("admin");
-            if (pessoa != null)
-            {
-                var forms = new FormularioDictionary();
-                foreach (var form in forms.Values)
-                {
-                    pessoa.PermissaoFormulario.Add(new PermissaoFormularioPessoaFisica()
-                    {
-                        Formulario = form.Value,
-                        Edita = false,
-                        Exclui = false,
-                        Insere = false,
-                        Pesquisa = true
-                    });
-                }
-                PessoaFisicaRepository.Save(pessoa);
-            }
+            //NHibernateHttpModule.Session.FlushMode = FlushMode.Commit;
+            //foreach (var produto in ProdutoRepository.GetList())
+            //{
+            //    if (produto.Tributacao == null)
+            //    {
+            //        produto.Tributacao = new Tributacao();
+            //    }
+            //    if (produto.Ncm.Codigo.Contains("1902200"))
+            //    {
+            //        produto.Tributacao.TipoTributacaoIcms = SituacaoTributaria.Tributado;
+            //        produto.Tributacao.IcmsDevedor = 2.75M;
+            //    }
+            //    ProdutoRepository.Save(produto);
+            //}
+
+            //var pessoa = PessoaFisicaRepository.GetByLogin("admin");
+            //if (pessoa != null)
+            //{
+            //    var forms = new FormularioDictionary();
+            //    foreach (var form in forms.Values)
+            //    {
+            //        pessoa.PermissaoFormulario.Add(new PermissaoFormularioPessoaFisica()
+            //        {
+            //            Formulario = form.Value,
+            //            Edita = false,
+            //            Exclui = false,
+            //            Insere = false,
+            //            Pesquisa = true
+            //        });
+            //    }
+            //    PessoaFisicaRepository.Save(pessoa);
+            //}
             //try
             //{
             //    var empresa = new PessoaJuridica()
             //    {
             //        Cnpj = "13049042000169",
             //        RazaoSocial = "BONE PIZZA FRIOS BEBIDAS LTDA ME",
-            //        NomeFantasia = "BONE PIZZA MATRIZ",
+            //        NomeFantasia = "BONE PIZZA FILIAL ESTANCIA",
             //        DataAbertura = DateTime.Parse("01/01/2012"),
-            //        InscricaoEstadual = "271301171",
+            //        InscricaoEstadual = "271371099",
             //        DataCadastro = DateTime.Now,
             //        ContatoTelefonicos = new PessoaTelefone[] { 
             //            new PessoaTelefone()
             //                {
             //                    DdiPais = "55",
             //                    DddTelefone = "79",
-            //                    Numero = "35441378",
+            //                    Numero = "35229059",
             //                    TelefoneTipo = TelefoneTipo.Comercial
             //                },  
             //             new PessoaTelefone()
             //                {
             //                    DdiPais = "55",
             //                    DddTelefone = "79",
-            //                    Numero = "99914541",
+            //                    Numero = "99193007",
             //                    TelefoneTipo = TelefoneTipo.Comercial
             //                }  
             //        },
@@ -100,9 +110,9 @@ namespace Erp
             //        {
             //            new PessoaEndereco()
             //            {
-            //                Logradouro = "PRACA OLIMPIO CAMPOS",
-            //                Numero = "4",
-            //                Endereco = EnderecoRepository.GetByCep("492900000"),
+            //                Logradouro = "RUA PEDRO HOMEM DA COSTA",
+            //                Numero = "292",
+            //                Endereco = EnderecoRepository.GetByCep("492000000"),
             //                InformadoManualmente = true,
             //                TipoEndereco = TipoEndereco.Comercial
             //            }

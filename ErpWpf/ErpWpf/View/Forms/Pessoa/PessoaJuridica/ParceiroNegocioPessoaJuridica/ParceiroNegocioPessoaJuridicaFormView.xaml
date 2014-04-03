@@ -1,5 +1,5 @@
-﻿<dx:DXWindow xmlns:Pessoa="clr-namespace:Erp.View.Forms.Pessoa"  xmlns:parceiroNegocioPessoaJuridica="clr-namespace:Erp.View.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica" 
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<dx:DXWindow xmlns:Pessoa="clr-namespace:Erp.View.Forms.Pessoa"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:rest="clr-namespace:Erp.View.Rest" xmlns:parceiroNegocioPessoaJuridica1="clr-namespace:Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica"

@@ -19,12 +19,20 @@ namespace Erp.Model.Forms
 
         public ProdutoFormModel() 
         {
-            Entity = new Produto()
+            try
             {
-                Ippt = Ippt.Propria,
-                Origem = OrigemProduto.Nacional
-            };
-            ModelSelect = new ProdutoSelectModel();
+                Entity = new Produto()
+                {
+                    Ippt = Ippt.Propria,
+                    Origem = OrigemProduto.Nacional
+                };
+                ModelSelect = new ProdutoSelectModel();
+            }
+            catch (Exception ex)
+            {
+                MensagemErro(ex.Message);
+            }
+            
         }
         public override void Salvar()
         {

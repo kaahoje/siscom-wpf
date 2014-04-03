@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Configuration;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Erp.Business.Entity.Contabil;
@@ -11,7 +10,6 @@ using FluentNHibernate.Cfg.Db;
 using Ionic.Zip;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
-using Util;
 
 namespace Erp.Business
 {
@@ -39,10 +37,13 @@ namespace Erp.Business
                         cnn = ConfigurationManager.AppSettings["cnnDeploy"];
                         break;
                 }
+                Utils.GerarLogDataBase(new Exception(cnn));
                 if (String.IsNullOrEmpty(cnn))
                 {
-                    CustomMessageBox.MensagemErro("Não foi possível determinar as informações de conexão com o banco de dados.");
+                    //CustomMessageBox.MensagemErro("Não foi possível determinar as informações de conexão com o banco de dados.");
+                    cnn = "Server=localhost; Port= 5432;User Id=postgres; Password=123; Database=siscom;";
                 }
+                
                 return cnn;
             }
         }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Windows.Input;
 using AutoMapper;
+using Erp.Business;
 using Erp.Business.Entity.Estoque.Produto;
 using Erp.Model.Grids;
+using NHibernate;
 using Util.Wpf;
 
 namespace Erp.Model.Extras
@@ -12,34 +14,7 @@ namespace Erp.Model.Extras
 
         public AtualizacaoProdutoFormModel()
         {
-            //var list = ProdutoRepository.GetList();
-            //foreach (var produto in list)
-            //{
-            //    try
-            //    {
-            //        if (produto.Tributacao == null)
-            //        {
-            //            produto.Tributacao = new Tributacao();
-            //        }
-
-            //        if (produto.Ncm.Codigo.Contains("190220"))
-            //        {
-            //            produto.Tributacao.IcmsDevedor = 0;
-            //            produto.Tributacao.TipoTributacaoIcms = SituacaoTributaria.Tributado;
-            //        }
-            //        else
-            //        {
-            //            produto.Tributacao.IcmsDevedor = 0;
-            //            produto.Tributacao.TipoTributacaoIcms = SituacaoTributaria.SubstituicaoTributaria;
-            //        }
-            //        ProdutoRepository.Save(produto);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MensagemErroBancoDados(ex.Message);
-            //    }
-                
-            //}
+            
         }
 
         #region Commands
@@ -69,24 +44,13 @@ namespace Erp.Model.Extras
         {
             try
             {
-
-
+                NHibernateHttpModule.Session.FlushMode = FlushMode.Commit;
                 foreach (var produto in Collection)
                 {
-                    try
-                    {
-                        if (IsValid(produto))
-                        {
-                            var prod = ProdutoRepository.GetById(produto.Id);
-                            Mapper.CreateMap(typeof(Produto), typeof(Produto));
-                            Mapper.Map(produto, prod);
-                            ProdutoRepository.SaveOrUpdate(prod);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(String.Format("O produto {0} contém o seguinte erro. \n\n {1}", produto.Descricao, ex.Message));
-                    }
+                    var prod = ProdutoRepository.GetById(produto.Id);
+                    Mapper.CreateMap(prod.GetType(), prod.GetType());
+                    Mapper.Map(produto, prod);
+                    ProdutoRepository.Save(prod);
                 }
 
             }

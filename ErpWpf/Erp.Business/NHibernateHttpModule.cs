@@ -102,13 +102,26 @@ namespace Erp.Business
         {
             string connectionString = DataBaseManager.CnnStr;
             #region PostGre
-            var fact = Fluently
+
+            try
+            {
+                var fact = Fluently
                         .Configure()
-                            .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(connectionString))
+                            .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(connectionString)
+                            .ShowSql())
                             .Mappings(m => m.FluentMappings
                             .AddFromAssemblyOf<Pessoa>()).BuildSessionFactory();
-            _session = fact.OpenSession();
-            return fact;
+                _session = fact.OpenSession();
+                return fact;
+            }
+            catch (Exception ex)
+            {
+                LogException( ex);
+                throw;
+            }
+            
+            
+            
             #endregion
         }
 

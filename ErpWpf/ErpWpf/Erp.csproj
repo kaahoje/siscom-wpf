@@ -319,9 +319,6 @@
     <Compile Include="View\Selections\CondicaoPagamentoSelectView.xaml.cs">
       <DependentUpon>CondicaoPagamentoSelectView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Selections\CustoFixoSelectView.xaml.cs">
-      <DependentUpon>CustoFixoSelectView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Selections\CustoFixo\PessoaFisica\ParceiroNegocioPessoaFisica\CustoFixoParceiroNegocioPessoaFisicaSelectView.xaml.cs">
       <DependentUpon>CustoFixoParceiroNegocioPessoaFisicaSelectView.xaml</DependentUpon>
     </Compile>
@@ -513,10 +510,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Selections\CondicaoPagamentoSelectView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Selections\CustoFixoSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

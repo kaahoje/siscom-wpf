@@ -5,23 +5,33 @@
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-        Title="ProdutoSelectView" Height="400" Width="450">
+        Title="ProdutoSelectView" Height="450" Width="650">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <rest:RestPesquisa HorizontalAlignment="Left" Margin="0" Grid.Row="0" VerticalAlignment="Top" Width="442"/>
+        <rest:RestPesquisa HorizontalAlignment="Left" Margin="0" Grid.Row="0" VerticalAlignment="Top" Width="632"/>
 
         <Label Content="Filtro:" Grid.Row="1" Margin="5"/>
         <dxe:TextEdit Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" 
-			Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"
-			Width="422" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <dxg:GridControl EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" 
+			Margin="10,10,0,-52" Grid.Row="2" VerticalAlignment="Top"
+			Width="622" Height="263" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Descricao" Header="Descrição" Width="250"/>
+                <dxg:GridColumn FieldName="Referencia" Header="Referência" Width="150"/>
+                <dxg:GridColumn FieldName="CodBarra" Header="Cód. Barras" Width="150"/>
+                <dxg:GridColumn FieldName="PrecoVenda" Header="Preço" Width="150">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings MaskUseAsDisplayFormat="True" Mask="{Binding Constants.MaskMoneyProperty}"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+            </dxg:GridControl.Columns>
             <dxg:GridControl.View>
-                <dxg:TableView ShowTotalSummary="True" ShowGroupPanel="False"/>
+                <dxg:TableView ShowGroupPanel="False" AutoWidth="True"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
 

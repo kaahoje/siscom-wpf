@@ -34,7 +34,7 @@
 
             </dxg:GridControl.Columns>
             <dxg:GridControl.View>
-                <dxg:TableView ShowGroupPanel="False"/>
+                <dxg:TableView ShowGroupPanel="False" AutoWidth="True"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
 

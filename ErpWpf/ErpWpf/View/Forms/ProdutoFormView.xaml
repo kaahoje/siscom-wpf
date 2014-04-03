@@ -92,7 +92,7 @@
 
                             <Label Content="Preco Venda:" Grid.Column="0" HorizontalAlignment="Left" Margin="5" Grid.Row="5" VerticalAlignment="Center" Width="79"/>
                             <dxe:SpinEdit x:Name="precoVendaSpinEdit" EditValue="{Binding Entity.PrecoVenda}" HorizontalAlignment="Left" Margin="5" 
-                                      Grid.Row="5" VerticalAlignment="Center" Width="150" Grid.Column="1"  Mask="c" MaskUseAsDisplayFormat="True" />
+                                      Grid.Row="5" VerticalAlignment="Center" Width="150" Grid.Column="1"  Mask="{Binding Constants.MaskMoneyProperty}" MaskUseAsDisplayFormat="True" />
 
                             <Label Content="Ncm:" Grid.Column="0" HorizontalAlignment="Left" Margin="5" Grid.Row="6" VerticalAlignment="Center"/>
                             <dxe:ComboBoxEdit x:Name="ncmComboBoxEdit" Grid.Column="1" DisplayMember="Codigo" HorizontalAlignment="Left" 

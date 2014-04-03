@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using DevExpress.Web.ASPxGridView;
+using Erp.Business.Dicionary;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
 using Erp.Business.Enum;
 
 namespace Erp.Business.InformacoesIniciais
@@ -16,30 +18,26 @@ namespace Erp.Business.InformacoesIniciais
 
             var email = new PessoaContatoEletronico
             {
-                Nick = "bosco.system@hotmail.com",
+                Nick = "jas.system@suporte.com",
                 Tipo = TipoEmail.Email
             };
 
-            var skype = new PessoaContatoEletronico
-            {
-                Nick = "juniormywill",
-                Tipo = TipoEmail.Skype
-            };
+            
 
             var msn = new PessoaContatoEletronico
             {
-                Nick = "juniormywill@hotmail.com",
+                Nick = "jas.system@hotmail.com",
                 Tipo = TipoEmail.Msn
             };
 
-            var listContatoEletronicoJunior = new List<PessoaContatoEletronico> { msn, skype, email };
+            var listContatoEletronicoJunior = new List<PessoaContatoEletronico> { msn, email };
 
-            var enderecoJunior = new PessoaEndereco
+            var endereco = new PessoaEndereco
             {
-                Endereco = EnderecoRepository.GetByCep("12220140"),
-                Complemento = "Condominio",
+                Endereco = EnderecoRepository.GetByCep("49290000"),
+                Complemento = "CASA ",
                 TipoEndereco = TipoEndereco.Residencial,
-                Numero = "0"
+                Numero = "08"
             };
 
          
@@ -47,17 +45,17 @@ namespace Erp.Business.InformacoesIniciais
             {
                 DataCadastro = DateTime.Now,
 
-                Nome = "João Bosco de Oliveira Junior",
+                Nome = "JOSE ADAILTON DOS SANTOS",
                
                 Sexo = Sexo.Masculino,
                EnderecoEletronicos = listContatoEletronicoJunior,
-                Enderecos = new List<PessoaEndereco> { enderecoJunior },
+                Enderecos = new List<PessoaEndereco> { endereco},
 
                 Login = "admin",
                 Senha ="admin",
                 ConfirmarSenha = "admin",
                 
-                Cpf = "00368748502",
+                Cpf = "03025509503",
                 //DataEmissaoRG = DateTime.Now,
 
                 //DataReservista = DateTime.Now,
@@ -69,7 +67,23 @@ namespace Erp.Business.InformacoesIniciais
             };
 
             PessoaFisicaRepository.Save(administradorJoao);
-
+            var pessoa = PessoaFisicaRepository.GetByLogin("admin");
+            if (pessoa != null)
+            {
+                var forms = new FormularioDictionary();
+                foreach (var form in forms.Values)
+                {
+                    pessoa.PermissaoFormulario.Add(new PermissaoFormularioPessoaFisica()
+                    {
+                        Formulario = form.Value,
+                        Edita = true,
+                        Exclui = true,
+                        Insere = true,
+                        Pesquisa = true
+                    });
+                }
+                PessoaFisicaRepository.Save(pessoa);
+            }
             #endregion
         }
     }

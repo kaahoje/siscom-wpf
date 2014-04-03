@@ -64,7 +64,9 @@ namespace Erp.Business.Validation.CustomValidations
                     ErrorMessage = "A nova senha não confere com a confirmação da senha.";
                     return false;
                 }
+                
             }
+            
             return true;
         }
     }

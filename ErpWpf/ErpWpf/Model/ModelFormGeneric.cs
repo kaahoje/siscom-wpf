@@ -22,7 +22,7 @@ namespace Erp.Model
             {
                 _entity = value; 
                 OnPropertyChanged("Entity");
-                AplicaPermissoes();
+                //AplicaPermissoes();
             }
         }
 

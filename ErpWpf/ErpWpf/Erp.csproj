@@ -93,15 +93,15 @@
     </Reference>
     <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Npgsql.2.1.1\lib\net45\Mono.Security.dll</HintPath>
+      <HintPath>..\packages\Npgsql.2.1.2\lib\net45\Mono.Security.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="Npgsql, Version=2.1.1.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+    <Reference Include="Npgsql, Version=2.1.2.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Npgsql.2.1.1\lib\net45\Npgsql.dll</HintPath>
+      <HintPath>..\packages\Npgsql.2.1.2\lib\net45\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>
@@ -170,6 +170,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CreateDB.xaml.cs">
+      <DependentUpon>CreateDB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Enum\TipoPessoa.cs" />
     <Compile Include="Model\Extras\AtualizacaoProdutoFormModel.cs" />
     <Compile Include="Model\Forms\CondicaoPagamentoFormModel.cs" />
@@ -377,6 +380,10 @@
     <Compile Include="View\Selections\UnidadeSelectView.xaml.cs">
       <DependentUpon>UnidadeSelectView.xaml</DependentUpon>
     </Compile>
+    <Page Include="CreateDB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -712,6 +719,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="SplashScreen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Configuration;
+using System.Windows;
+using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Entity.Sped;
 using System.Collections.ObjectModel;
@@ -22,6 +24,25 @@ namespace Erp
         {
             
 
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            var initType = ConfigurationManager.AppSettings["initDbType"];
+            if (!string.IsNullOrEmpty(initType))
+            {
+                switch (initType)
+                {
+                    case "init":
+                        DataBaseManager.InitDb();
+                        break;
+                    case "update":
+                        DataBaseManager.UpdateDb();
+                        break;
+                }
+            }
+
+            base.OnStartup(e);
         }
     }
 }

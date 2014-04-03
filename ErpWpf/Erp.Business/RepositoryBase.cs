@@ -144,7 +144,29 @@ namespace Erp.Business
             return entity;
         }
 
-
+        public static IList<T> SaveCollection(IList<T> collection)
+        {
+            using (ITransaction transaction = NHibernateHttpModule.Session.BeginTransaction())
+            {
+                try
+                {
+                    foreach (var entity in collection)
+                    {
+                        if (Validate(entity))
+                        {
+                            NHibernateHttpModule.Session.SaveOrUpdate(entity);
+                            transaction.Commit();
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+            return collection;
+        }
         public static T SaveOrUpdate(T entity)
         {
             using (ITransaction transaction = NHibernateHttpModule.Session.BeginTransaction())

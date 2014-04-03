@@ -16,6 +16,9 @@ namespace Erp.Business.Entity.Estoque.Produto
 
 
             Map(x => x.Iat);
+            Map(x => x.Tamanho);
+            Map(x => x.NumeroCardapio);
+
             Map(x => x.Ippt).Not.Nullable();
             Map(x => x.Tipo).Not.Nullable();
             Map(x => x.UltimaCompra);

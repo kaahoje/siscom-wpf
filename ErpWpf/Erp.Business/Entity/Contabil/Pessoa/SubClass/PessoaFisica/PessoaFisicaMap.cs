@@ -19,8 +19,8 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica
             Map(x => x.ModoEdicaoGridView);
             Map(x => x.PalavraChave);
 
-            HasMany(x => x.PermissaoFormulario);
-            HasMany(x => x.PermissaoRelatorio);
+            HasMany(x => x.PermissaoFormulario).Cascade.All();
+            HasMany(x => x.PermissaoRelatorio).Cascade.All();
         }
     }
 }

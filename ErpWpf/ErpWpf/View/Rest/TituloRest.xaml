@@ -1,0 +1,48 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" x:Class="Erp.View.Rest.TituloRest" 
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="350">
+    <Grid>
+        <dxb:BarManager CreateStandardLayout="False"  >
+            <dxb:BarManager.Items>
+                <dxb:BarButtonItem x:Name="barButtonItem6" Content="Baixar" RibbonStyle="Large" LargeGlyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Actions/Download_32x32.png"
+                                   Command="{ Binding CmdBaixarTitulo}"
+                                   KeyGesture="{Binding KeyBaixarTitutlo}"
+                                   IsEnabled="{Binding IsBaixaTitulo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem4" Content="Pesquisar" Glyph="pack://application:,,,/Erp;component/Images/consulta%20pedido.png" RibbonStyle="Large" KeyGesture="{Binding KeyPesquisa, Mode=OneWay}" Command="{Binding CmdPesquisar}" IsEnabled="{Binding IsPesquisar}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem5" Content="Limpar" RibbonStyle="Large" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Actions/Clear_32x32.png" Command="{Binding CmdLimpar}" KeyGesture="{Binding KeyLimpar, Mode=OneWay}" IsEnabled="{Binding IsLimpar}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem1" Content="Salvar" RibbonStyle="Large" Command="{Binding CmdSalvar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Save/Save_32x32.png" KeyGesture="{Binding KeySalvar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsSalvar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem2" Content="Excluir" RibbonStyle="Large" Command="{Binding CmdExcluir, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Actions/Close_32x32.png" KeyGesture="{Binding KeyExcluir, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsExcluir, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem3" Content="Sair" RibbonStyle="Large" Command="{Binding CmdSair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Glyph="pack://application:,,,/Erp;component/Images/sair.png" KeyGesture="{Binding KeySair, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                
+
+
+            </dxb:BarManager.Items>
+            <DockPanel>
+                <dxr:RibbonControl DockPanel.Dock="Top" RibbonHeaderVisibility="Collapsed" Height="100" >
+                    <dxr:RibbonDefaultPageCategory Caption="defaultCategory" >
+                        <dxr:RibbonPage Caption="Home">
+                            <dxr:RibbonPageGroup Caption="Operações disponíveis">
+                                
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem4"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem5"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem6"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem1"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem2"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem3"/>
+                                
+
+                            </dxr:RibbonPageGroup>
+                        </dxr:RibbonPage>
+                    </dxr:RibbonDefaultPageCategory>
+
+                </dxr:RibbonControl>
+
+            </DockPanel>
+        </dxb:BarManager>
+    </Grid>
+</UserControl>

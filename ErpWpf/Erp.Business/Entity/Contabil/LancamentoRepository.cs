@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Business.Entity.Sped;
 using Erp.Business.Entity.Vendas.Pedido;
 using NHibernate;
@@ -14,53 +16,53 @@ namespace Erp.Business.Entity.Contabil
 
         public static void GeraPartida(Lancamento lanc)
         {
-            //PartidasLancamento pValor = VerificaPartida(lanc, lanc.TipoLancmento.ContaPartidaValor);
-            //PartidasLancamento cpValor = VerificaPartida(lanc, lanc.TipoLancmento.ContaContraPartidaValor);
-            //PartidasLancamento pDesconto = VerificaPartida(lanc, lanc.TipoLancmento.ContaPartidaDesconto);
-            //PartidasLancamento cpDesconto = VerificaPartida(lanc, lanc.TipoLancmento.ContaContraPartidaDesconto);
-            //PartidasLancamento pJuros = VerificaPartida(lanc, lanc.TipoLancmento.ContaPartidaJuros);
-            //PartidasLancamento cpJuros = VerificaPartida(lanc, lanc.TipoLancmento.ContaContraPartidaJuros);
+            var pValor = VerificaPartida(lanc, lanc.Titulo.TipoTitulo.ContaPartidaValor);
+            var cpValor = VerificaPartida(lanc, lanc.Titulo.TipoTitulo.ContaContraPartidaValor);
+            var pDesconto = VerificaPartida(lanc, lanc.Titulo.TipoTitulo.ContaPartidaDesconto);
+            var cpDesconto = VerificaPartida(lanc, lanc.Titulo.TipoTitulo.ContaContraPartidaDesconto);
+            var pJuros = VerificaPartida(lanc, lanc.Titulo.TipoTitulo.ContaPartidaAcressimos);
+            var cpJuros = VerificaPartida(lanc, lanc.Titulo.TipoTitulo.ContaContraPartidaAcressimos);
 
-            //pValor.Valor += lanc.Valor;
-            //cpValor.Valor += lanc.Valor;
-            //if (lanc.Juros > 0)
-            //{
-            //    if (pJuros == null)
-            //    {
-            //        pValor.Valor += lanc.Juros;
-            //    }
-            //    else
-            //    {
-            //        pJuros.Valor += lanc.Juros;
-            //    }
-            //    if (cpJuros == null)
-            //    {
-            //        cpValor.Valor += lanc.Juros;
-            //    }
-            //    else
-            //    {
-            //        cpJuros.Valor += lanc.Juros;
-            //    }
-            //}
-            //if (lanc.Desconto > 0)
-            //{
-            //    if (pDesconto == null)
-            //    {
-            //        pValor.Valor -= lanc.Desconto;
-            //    }
-            //    else
-            //    {
-            //        pDesconto.Valor -= lanc.Desconto;
-            //    }
-            //    if (cpDesconto == null)
-            //    {
-            //        cpValor.Valor += lanc.Desconto;
-            //    }
-            //    else
-            //    {
-            //        cpDesconto.Valor += lanc.Desconto;
-            //    }
-            //}
+            pValor.Valor += lanc.Valor;
+            cpValor.Valor += lanc.Valor;
+            if (lanc.Acrescimos > 0)
+            {
+                if (pJuros == null)
+                {
+                    pValor.Valor += lanc.Acrescimos;
+                }
+                else
+                {
+                    pJuros.Valor += lanc.Acrescimos;
+                }
+                if (cpJuros == null)
+                {
+                    cpValor.Valor += lanc.Acrescimos;
+                }
+                else
+                {
+                    cpJuros.Valor += lanc.Acrescimos;
+                }
+            }
+            if (lanc.Desconto > 0)
+            {
+                if (pDesconto == null)
+                {
+                    pValor.Valor -= lanc.Desconto;
+                }
+                else
+                {
+                    pDesconto.Valor -= lanc.Desconto;
+                }
+                if (cpDesconto == null)
+                {
+                    cpValor.Valor += lanc.Desconto;
+                }
+                else
+                {
+                    cpDesconto.Valor += lanc.Desconto;
+                }
+            }
         }
 
         public static PartidasLancamento VerificaPartida(Lancamento lanc, PlanoContaReferencial planoConta)
@@ -69,12 +71,9 @@ namespace Erp.Business.Entity.Contabil
             {
                 return null;
             }
-            foreach (PartidasLancamento partida in lanc.Partidas)
+            foreach (var partida in lanc.Partidas.Where(partida => partida.PlanoConta.Codigo.Equals(planoConta.Codigo)))
             {
-                if (partida.PlanoConta.Codigo.Equals(planoConta.Codigo))
-                {
-                    return partida;
-                }
+                return partida;
             }
             // Caso não encontre uma partida correspondente ao código no lançamento cria uma nova partida.
             RepositoryBase<PlanoContaReferencial>.Session = RepositoryBase<Pedido>.Session;
@@ -88,8 +87,8 @@ namespace Erp.Business.Entity.Contabil
 
         public new static void Save(Lancamento entity)
         {
-            ISession session = NHibernateHttpModule.Session;
-            ITransaction transaction = session.BeginTransaction();
+            var session = NHibernateHttpModule.Session;
+            var transaction = session.BeginTransaction();
             try
             {
                 GeraPartida(entity);
@@ -139,6 +138,18 @@ namespace Erp.Business.Entity.Contabil
             //    .Where(lancamento => lancamento.Credito);
             //return c.List<Lancamento>();
             return null;
+        }
+
+        public static Lancamento MountLancamentoByTitulo(Lancamento lancamento, Titulo titulo)
+        {
+            lancamento.Titulo = titulo;
+            lancamento.Acrescimos = titulo.Acrescimos;
+            lancamento.Desconto = titulo.Desconto;
+            lancamento.Documento = "T" + titulo.Id;
+            lancamento.Historico = titulo.Historico;
+            lancamento.Valor = titulo.Valor;
+            GeraPartida(lancamento);
+            return lancamento;
         }
     }
 }

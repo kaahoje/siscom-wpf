@@ -11,8 +11,8 @@ namespace Erp.Business.Entity.Contabil
 
         public new static void Save(Transferencia entity)
         {
-            ISession s = NHibernateHttpModule.Session;
-            ITransaction t = s.BeginTransaction();
+            var s = NHibernateHttpModule.Session;
+            var t = s.BeginTransaction();
             try
             {
                 SaveInTransaction(s, entity);

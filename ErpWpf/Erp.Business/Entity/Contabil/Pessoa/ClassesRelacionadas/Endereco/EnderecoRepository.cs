@@ -26,7 +26,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco
         public static Endereco GetByCep(string cep)
         {
             //return NHibernateHttpModule.Session.CreateCriteria<Endereco>().Add(Restrictions.Like("Cep", value: "%" + cep + "%")).UniqueResult<Endereco>();
-            Endereco endereco = NHibernateHttpModule.Session.QueryOver<Endereco>()
+            var endereco = NHibernateHttpModule.Session.QueryOver<Endereco>()
                 .Where(endereco1 => endereco1.Cep == cep)
                 .SingleOrDefault();
             return endereco;

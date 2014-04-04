@@ -12,7 +12,7 @@
         /// <returns></returns>
         public static EnderecoPais GetPaisByName(string nome)
         {
-            EnderecoPais pais = NHibernateHttpModule.Session.QueryOver<EnderecoPais>()
+            var pais = NHibernateHttpModule.Session.QueryOver<EnderecoPais>()
                 .Where(x => x.Nome == nome)
                 .Take(1)
                 .SingleOrDefault();

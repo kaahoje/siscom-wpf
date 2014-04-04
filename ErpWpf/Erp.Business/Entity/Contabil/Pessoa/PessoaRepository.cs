@@ -27,7 +27,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa
 
         public new static bool Validate(Pessoa entity)
         {
-            EntityValidationResult result = DataValidation.ValidateEntity(entity);
+            var result = DataValidation.ValidateEntity(entity);
 
             if (result.HasError)
             {

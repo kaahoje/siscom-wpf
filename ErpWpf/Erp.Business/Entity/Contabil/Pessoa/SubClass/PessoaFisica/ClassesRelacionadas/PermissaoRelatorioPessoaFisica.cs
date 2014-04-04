@@ -38,7 +38,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelac
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
+            var handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }

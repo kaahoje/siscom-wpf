@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
 
 namespace Erp.Model
 {
@@ -32,7 +33,7 @@ namespace Erp.Model
             {
                 return false;
             }
-            var permissao = App.Usuario.PermissaoFormulario.SingleOrDefault(x => x.Formulario == Formulario);
+            var permissao = GetPermissao();
             if (permissao == null)
             {
                 return false;
@@ -72,6 +73,11 @@ namespace Erp.Model
             }
 
             return true;
+        }
+
+        protected PermissaoFormularioPessoaFisica GetPermissao()
+        {
+            return App.Usuario.PermissaoFormulario.SingleOrDefault(x => x.Formulario == Formulario);
         }
 
         public ModelSelectBase ModelSelect

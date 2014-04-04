@@ -14,7 +14,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
 
         public static ParceiroNegocioPessoaFisica Save(ParceiroNegocioPessoaFisica entity)
         {
-            using (ITransaction transaction = NHibernateHttpModule.Session.BeginTransaction())
+            using (var transaction = NHibernateHttpModule.Session.BeginTransaction())
             {
                 try
                 {
@@ -41,7 +41,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
         public static IList<ParceiroNegocioPessoaFisica> GetByCpfCnpj(String cpfCnpj)
         {
             Pessoa p = null;
-            IList<ParceiroNegocioPessoaFisica> list = GetQueryOver().JoinQueryOver(cliente => cliente,() => p).List();
+            var list = GetQueryOver().JoinQueryOver(cliente => cliente,() => p).List();
             return list;
         }
 

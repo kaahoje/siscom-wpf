@@ -11,7 +11,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelac
         private bool _pesquisa;
         private bool _insere;
         private bool _exclui;
-        private bool _atualiza;
+        
         private bool _edita;
 
         public virtual int Id { get; set; }
@@ -75,7 +75,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelac
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
+            var handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }

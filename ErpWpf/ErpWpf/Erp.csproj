@@ -183,6 +183,7 @@
     <Compile Include="Model\Forms\Lancamento\PessoaFisica\ParceiroNegocioPessoaFisica\LancamentoParceiroNegocioPessoaFisicaFormModel.cs" />
     <Compile Include="Model\Forms\Lancamento\PessoaJuridica\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaFormModel.cs" />
     <Compile Include="Model\Forms\LoginModelForm.cs" />
+    <Compile Include="Model\Forms\MesGeradoFormModel.cs" />
     <Compile Include="Model\Forms\NcmFormModel.cs" />
     <Compile Include="Model\Forms\PermissaoUsuarioFormModel.cs" />
     <Compile Include="Model\Forms\Pessoa\IPessoa.cs" />
@@ -315,6 +316,9 @@
     </Compile>
     <Compile Include="View\Rest\RestPesquisa.xaml.cs">
       <DependentUpon>RestPesquisa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rest\TituloRest.xaml.cs">
+      <DependentUpon>TituloRest.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Selections\CondicaoPagamentoSelectView.xaml.cs">
       <DependentUpon>CondicaoPagamentoSelectView.xaml</DependentUpon>
@@ -506,6 +510,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Rest\RestPesquisa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Rest\TituloRest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

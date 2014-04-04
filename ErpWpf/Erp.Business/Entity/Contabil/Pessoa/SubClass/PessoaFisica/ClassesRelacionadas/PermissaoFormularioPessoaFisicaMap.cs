@@ -12,6 +12,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelac
             Map(x => x.Pesquisa).Not.Nullable();
             Map(x => x.Insere).Not.Nullable();
             Map(x => x.Exclui).Not.Nullable();
+            Map(x => x.Edita).Not.Nullable();
         }
     }
 }

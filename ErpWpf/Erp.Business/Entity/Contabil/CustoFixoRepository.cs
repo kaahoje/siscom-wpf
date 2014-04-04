@@ -10,28 +10,5 @@ namespace Erp.Business.Entity.Contabil
         {
         }
 
-        public Titulo GerarTitulo(ISession session, CustoFixo custo, MesGerado mes)
-        {
-            var t = new Titulo
-            {
-                DataVencimento = new DateTime(mes.Ano, mes.Mes, custo.DiaVencimento),
-                Valor = custo.Valor,
-                TipoTitulo = custo.TipoTitulo,
-                //Pessoa = custo.Pessoa
-            };
-            session.Save(t);
-            return t;
-        }
-
-        public Titulo GerarTitulo(CustoFixo custo, MesGerado mes)
-        {
-            ISession s = NHibernateHttpModule.Session;
-            ITransaction t = s.BeginTransaction();
-
-            Titulo tit = GerarTitulo(s, custo, mes);
-
-            t.Commit();
-            return tit;
-        }
     }
 }

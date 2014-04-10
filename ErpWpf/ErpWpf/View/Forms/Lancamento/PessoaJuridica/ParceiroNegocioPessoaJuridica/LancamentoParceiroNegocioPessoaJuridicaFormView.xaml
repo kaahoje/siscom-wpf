@@ -4,8 +4,9 @@
         xmlns:rest="clr-namespace:Erp.View.Rest"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-        xmlns:parceiroNegocioPessoaJuridica="clr-namespace:Erp.Model.Forms.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridica" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:LargeDataModel="clr-namespace:Erp.Model.LargeDataModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:LargeDataModel="clr-namespace:Erp.Model.LargeDataModel"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:parceiroNegocioPessoaJuridica="clr-namespace:Erp.View.Model.Forms.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridica"
     mc:Ignorable="d" x:Class="Erp.View.Forms.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridica.LancamentoParceiroNegocioPessoaJuridicaFormView"
         Title="Lançamentos pessoa juridica" Height="500" Width="700" Visibility="{Binding IsTelaVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
     <Window.DataContext>

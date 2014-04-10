@@ -24,7 +24,7 @@ namespace Vendas.Component.View.UserControls.PedidoRestaurante
         public PedidoUserControl()
         {
             InitializeComponent();
-
+            DataContext = new PedidoRestauranteModel();
             LimparProduto();
 
         }

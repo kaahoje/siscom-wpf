@@ -5,7 +5,7 @@
         xmlns:rest="clr-namespace:Erp.View.Rest"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-        Title="TituloParceiroNegocioPessoaJuridicaSelectView" Height="400" Width="760">
+        Title="Seleção de título" Height="400" Width="760">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>

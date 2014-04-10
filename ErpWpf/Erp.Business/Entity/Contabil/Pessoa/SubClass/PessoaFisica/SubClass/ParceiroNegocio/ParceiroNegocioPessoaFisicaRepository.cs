@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DevExpress.Web.ASPxEditors;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
+using Erp.Business.Enum;
 using NHibernate;
 using NHibernate.Criterion;
 using Util.Seguranca;
@@ -24,7 +25,11 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
                     }
                     if (Validate(entity))
                     {
-                        entity.Senha = Criptografia.CriptografarSenha(entity.Senha);
+                        if (!string.IsNullOrEmpty(entity.Senha))
+                        {
+                            entity.Senha = Criptografia.CriptografarSenha(entity.Senha);
+                        }
+                        
                         NHibernateHttpModule.Session.Save(entity);
                         transaction.Commit();
                     }
@@ -95,10 +100,11 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
         {
             if (Validation.Validation.GetOnlyNumber(filter).Length == filter.Length)
             {
-                return GetQueryOver().Where(x => x.Cpf.IsInsensitiveLike(StartStringFilter(filter))).Take(takePesquisa).List();
+                return GetQueryOver().Where(x => x.Cpf.IsInsensitiveLike(StartStringFilter(filter)) &&
+                    x.Status == Status.Ativo).Take(takePesquisa).List();
             }
-            return GetQueryOver().Where(x => x.Nome.IsInsensitiveLike(ContainsStringFilter(filter)) ||
-                x.Alias.IsInsensitiveLike(ContainsStringFilter(filter))).Take(takePesquisa).List();
+            return GetQueryOver().Where(x => (x.Nome.IsInsensitiveLike(ContainsStringFilter(filter)) ||
+                x.Alias.IsInsensitiveLike(ContainsStringFilter(filter))) && x.Status == Status.Ativo).Take(takePesquisa).List();
         }
     }
 }

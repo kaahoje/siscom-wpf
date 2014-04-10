@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DevExpress.Web.ASPxEditors;
+using Erp.Business.Enum;
 using NHibernate.Criterion;
 
 namespace Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas
@@ -28,7 +29,8 @@ namespace Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas
         public static IList<SubGrupoProduto> GetByRange(string filter, int takePesquisa)
         {
             
-            return GetQueryOver().Where(x => x.Descricao.IsInsensitiveLike(ContainsStringFilter(filter))).List();
+            return GetQueryOver().Where(x => x.Descricao.IsInsensitiveLike(ContainsStringFilter(filter))
+                && x.Status == Status.Ativo).Take(takePesquisa).List();
         }
     }
 

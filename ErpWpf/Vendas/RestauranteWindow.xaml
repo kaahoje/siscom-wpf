@@ -6,6 +6,7 @@
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     mc:Ignorable="d" x:Class="Vendas.RestauranteWindow"
         Title="Vendas restaurante" Height="408.947" Width="715.526" Closed="RestauranteWindow_OnClosed" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None" Loaded="Window_Loaded" 
+    PreviewKeyDown="RestauranteWindow_OnPreviewKeyDown"
     >
     <Window.DataContext>
         <Grids:RestauranteModel/>
@@ -81,9 +82,14 @@
                             <dxg:TableView AllowEditing="False" ShowTotalSummary="True" AutoWidth="True" ShowGroupPanel="False"/>
                         </dxg:GridControl.View>
                     </dxg:GridControl>
-                    <pedidoRestaurante:PedidoUserControl x:Name="PedidoUserControl" Grid.Column="0" DataContext="{Binding CurrentItem}" />
-
-
+                    <Canvas Grid.Column="0"
+                            Visibility="{Binding TelaPedidoVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <pedidoRestaurante:PedidoUserControl x:Name="PedidoUserControl"
+                                                         DataContext="{Binding CurrentItem}" 
+                                                         
+                                                         />
+                    </Canvas>
+                    
                 </Grid>
             </DockPanel>
         </dxb:BarManager>

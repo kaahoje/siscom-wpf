@@ -1,4 +1,5 @@
 ﻿using System;
+using Erp.Business;
 using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
 using Erp.Business.Enum;
 using Erp.Model.Grids;
@@ -28,6 +29,7 @@ namespace Erp.Model.Forms
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
             }
             
         }
@@ -46,6 +48,7 @@ namespace Erp.Model.Forms
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
             }
             
         }

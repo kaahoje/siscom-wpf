@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using Erp.Enum;
+using Erp.Model;
 using Erp.View.Forms.CustoFixo.PessoaFisica.ParceiroNegocioPessoaFisica;
 using Erp.View.Forms.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica;
 using Erp.View.Forms.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica;
@@ -11,7 +12,7 @@ using Erp.View.Forms.Titulo.PessoaFisica.ParceiroNegocioPessoaFisica;
 using Erp.View.Forms.Titulo.PessoaJuridica.ParceiroNegocioPessoaJuridica;
 using Util.Wpf;
 
-namespace Erp.Model.Forms.Pessoa
+namespace Erp.View.Model.Forms.Pessoa
 {
     public class TipoCadastroSelectFormModel : ModelBase
     {

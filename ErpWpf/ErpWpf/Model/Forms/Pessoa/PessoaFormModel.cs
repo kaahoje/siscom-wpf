@@ -1,5 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
+using DevExpress.Xpf.Ribbon.Customization;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
 using Erp.Business.Enum;
@@ -26,6 +28,22 @@ namespace Erp.Model.Forms.Pessoa
         private ObservableCollection<PessoaTelefone> _contatoTelefonicos;
         private ObservableCollection<PessoaContatoEletronico> _enderecoEletronicos;
         private ObservableCollection<PessoaEndereco> _enderecos;
+
+        public override Business.Entity.Contabil.Pessoa.Pessoa Entity
+        {
+            get { return base.Entity; }
+            set
+            {
+                base.Entity = value;
+                Enderecos.Clear();
+                EnderecoEletronicos.Clear();
+                ContatoTelefonicos.Clear();
+
+                Enderecos.AddRange(Entity.Enderecos);
+                EnderecoEletronicos.AddRange(Entity.EnderecoEletronicos);
+                ContatoTelefonicos.AddRange(Entity.ContatoTelefonicos);
+            }
+        }
 
         public ObservableCollection<PessoaEndereco> Enderecos
         {
@@ -136,6 +154,10 @@ namespace Erp.Model.Forms.Pessoa
             set
             {
                 _currentEndereco = value;
+                if (value != null)
+                {
+                    Cep = value.Endereco.Cep;
+                }
                 OnPropertyChanged("CurrentEndereco");
             }
         }
@@ -162,7 +184,12 @@ namespace Erp.Model.Forms.Pessoa
 
         public void AddEndereco()
         {
-            CurrentEndereco = new PessoaEndereco() { Status = Status.Ativo, TipoEndereco = TipoEndereco.Cobranca };
+            CurrentEndereco = new PessoaEndereco()
+            {
+                Status = Status.Ativo, 
+                TipoEndereco = TipoEndereco.Cobranca,
+                Pessoa = Entity
+            };
             Enderecos.Add(CurrentEndereco);
             OnPropertyChanged("Entity");
         }
@@ -176,7 +203,10 @@ namespace Erp.Model.Forms.Pessoa
 
         public void AddEnderecoEletronico()
         {
-            CurrentEnderecoEletronico = new PessoaContatoEletronico();
+            CurrentEnderecoEletronico = new PessoaContatoEletronico()
+            {
+                Pessoa = Entity
+            };
             EnderecoEletronicos.Add(CurrentEnderecoEletronico);
             OnPropertyChanged("Entity");
         }
@@ -190,7 +220,10 @@ namespace Erp.Model.Forms.Pessoa
 
         public void AddContatoTelefonico()
         {
-            CurrentContatoTelefonico = new PessoaTelefone();
+            CurrentContatoTelefonico = new PessoaTelefone()
+            {
+                Pessoa = Entity
+            };
             ContatoTelefonicos.Add(CurrentContatoTelefonico);
             OnPropertyChanged("Entity");
         }
@@ -206,33 +239,61 @@ namespace Erp.Model.Forms.Pessoa
         public void BuscarEndereco()
         {
             var select = new EnderecoSelectModel();
-            select.Filter = Cep;
-            if (select.Collection.IsNotEmpty())
+            if (CurrentEndereco != null && CurrentEndereco.Endereco != null && 
+                !Cep.Equals(CurrentEndereco.Endereco.Cep))
             {
-                if (select.Collection.Count == 1)
+                if (string.IsNullOrEmpty(Cep) && !string.IsNullOrEmpty(CurrentEndereco.Endereco.Cep))
                 {
-                    CurrentEndereco.Endereco = select.CurrentItem;
+                    Cep = CurrentEndereco.Endereco.Cep;
+                    return;
+                }
+                select.Filter = Cep;
+                // Se houver algum CEP encontrado
+                if (select.Collection.IsNotEmpty())
+                {
+                    // Se o endereço atual for nulo adiciona um.
+                    if (CurrentEndereco == null)
+                    {
+                        AddEndereco();
+                    }
+                    // Apenas verifica se o endereço atual não é nulo para evitar erros.
+                    if (CurrentEndereco != null)
+                    {
+                        // Se houver apenas um CEP para o valor informado no campo cep então carrega-o.
+                        if (select.Collection.Count == 1)
+                        {
+                            CurrentEndereco.Endereco = select.Collection[0];
+                        }
+                            // Se houver mais de um endereço para o valor informado no campo CEP abre um dialogo de seleção.
+                        else
+                        {
+                            select.WindowSelect.ShowDialog();
+                            // Se o usuário selecionar algum endereço passa para CurrentEndereco se não cria um novo endereço.
+                            CurrentEndereco.Endereco = @select.CurrentItem ?? new Endereco();
+                        }
+                        Cep = CurrentEndereco.Endereco.Cep;
+                    }
                 }
                 else
                 {
-                    select.WindowSelect.ShowDialog();
-                    CurrentEndereco.Endereco = @select.CurrentItem ?? new Endereco();
+                    if (!string.IsNullOrEmpty(Cep))
+                    {
+                        MensagemInformativa("Não existe um endereço que contenha todo ou parte do CEP informado.");}
+                    
                 }
             }
-            else
-            {
-                MensagemInformativa("Não existe um endereço que contenha todo ou parte do CEP informado.");
-            }
+            
         }
 
         public string Cep
         {
-            get { return _cep; }
+            get { return _cep ?? (_cep = ""); }
             set
             {
                 _cep = value;
                 OnPropertyChanged("Cep");
             }
         }
+        
     }
 }

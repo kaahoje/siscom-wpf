@@ -1,4 +1,6 @@
-﻿namespace Erp.Business
+﻿using System;
+
+namespace Erp.Business
 {
     public class Constants
     {
@@ -63,7 +65,7 @@
         public const string MessageRangeValorError = "O valor campo '{0}' deve ser de no mínimo {1} e no máximo {2}";
         public const string MessageLengthNameError = "O campo '{0}' deve ter entre {2} e {1} caracteres";
         public const string MessageLengthFoneError = "O campo '{0}' deve ter entre {2} e {1} caracteres";
-        public const string MessageLengthPasswordError = "A senha deve ter '{0}' deve ter entre {2} e {1} caracteres";
+        public const string MessageLengthPasswordError = "A senha deve ter '{1}' e '{2}' caracteres";
         public const string MessageLengthDescriptionError = "O campo '{0}' deve ter entre {2} e {1} caracteres";
         public const string MessageModelNotIsValid = "Alguns Campos não foram preenchidos corretamente";
 

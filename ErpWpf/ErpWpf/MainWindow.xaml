@@ -5,7 +5,7 @@
     xmlns:model1="clr-namespace:Erp.Model"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     x:Class="Erp.MainWindow"
-        Title="Sistema ERP" Height="350" Width="825" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="MainWindow_OnLoaded" Closed="MainWindow_OnClosed">
+        Title="Sistema ERP" Height="350" Width="825" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="MainWindow_OnLoaded" Closed="MainWindow_OnClosed" Icon="pack://application:,,,/Erp;component/Erp.ico">
     <Window.DataContext>
         <model1:RetaguardaModel/>
     </Window.DataContext>
@@ -27,7 +27,8 @@
                 <dxb:BarButtonItem x:Name="barButtonItem3" Content="Forma de pagamento" Command="{Binding CmdAbrirTelaFormaPagamento}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem9" Content="Entradas" RibbonStyle="Large"/>
                 <dxb:BarButtonItem x:Name="barButtonItem14" Content="Saídas" RibbonStyle="Large"/>
-                <dxb:BarButtonItem x:Name="barButtonItem15" Content="Atualizar produtos" Command="{Binding CmdAbrirTelaAtualizacaoProduto}" RibbonStyle="Large"/>
+                <dxb:BarButtonItem x:Name="barButtonItem15" Content="Atualizar produtos" Command="{Binding CmdAbrirTelaAtualizacaoProduto}" RibbonStyle="Large" Glyph="pack://application:,,,/Erp;component/Images/AtualizarProduto.png"/>
+                <dxb:BarButtonItem x:Name="barButtonItem16" Content="Gerar mês" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Chart/DrillDownOnSeries_Chart_32x32.png" Command="{Binding CmdAbrirTelaGerarMes}"/>
             </dxb:BarManager.Items>
             <DockPanel>
 
@@ -42,6 +43,7 @@
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem14"/>
                             </dxr:RibbonPageGroup>
                             <dxr:RibbonPageGroup Caption="Demais cadastros">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem15"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem5"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem4"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem6"/>
@@ -51,7 +53,7 @@
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem13"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem2"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem3"/>
-                                <dxb:BarButtonItemLink BarItemName="barButtonItem15"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem16"/>
                             </dxr:RibbonPageGroup>
                         </dxr:RibbonPage>
                     </dxr:RibbonDefaultPageCategory>

@@ -9,7 +9,7 @@
 
         private T _entity;
 
-        public T Entity
+        public virtual T Entity
         {
             get { return _entity; }
             set

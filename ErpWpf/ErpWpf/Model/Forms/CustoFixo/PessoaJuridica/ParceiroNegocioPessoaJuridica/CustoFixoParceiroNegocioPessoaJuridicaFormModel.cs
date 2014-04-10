@@ -1,4 +1,5 @@
 ﻿using System;
+using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Business.Enum;
 using Erp.Model.Grids.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica;
@@ -29,6 +30,7 @@ namespace Erp.Model.Forms.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
             }
         }
 
@@ -46,6 +48,7 @@ namespace Erp.Model.Forms.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Enum;
 using Erp.Model.Grids.Pessoa.PessoaFisica;
@@ -12,7 +13,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica
     {
         public virtual Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.PessoaFisica EntityPessoaFisica
         {
-            get { return (Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.PessoaFisica) Entity; }
+            get { return Entity as Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.PessoaFisica; }
             set
             {
                 Entity = value; 
@@ -43,6 +44,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
             }
         }
 

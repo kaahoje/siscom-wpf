@@ -23,8 +23,6 @@ namespace Vendas.ViewModel.Forms
             {
                 FormasPagamento = new ObservableCollection<FormaPagamento>(FormaPagamentoRepository.GetList());
                 CondicoesPagamento = new ObservableCollection<CondicaoPagamento>(CondicaoPagamentoRepository.GetList());
-                IniciarPagamento();
-
             }
             catch (Exception ex)
             {
@@ -105,19 +103,26 @@ namespace Vendas.ViewModel.Forms
             get { return _condicaoPagamento; }
             set
             {
+                if (value == null)
+                {
+                    return;
+                }
                 _condicaoPagamento = value;
                 Pagamento.Clear();
                 var parcela = 1;
 
                 foreach (var prazo in value.Prazos)
                 {
-                    Pagamento.Add(new PagamentoPedido()
+                    var valorParcela = TotalPedido / value.Prazos.Count;
+                    var pag =new PagamentoPedido()
                     {
                         Parcela = parcela,
                         FormaPagamento = FormaPagamentoPadrao,
                         Vencimento = DateTime.Now.AddDays(prazo.Prazo),
-                        Valor = TotalPedido / value.Prazos.Count
-                    });
+                        Valor = valorParcela,
+                    };
+                    pag.Juros = valorParcela*FormaPagamentoPadrao.TaxaJurosCliente;
+                    Pagamento.Add(pag);
                     parcela += 1;
                 }
                 Pagamento = Pagamento;

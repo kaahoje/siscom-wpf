@@ -47,6 +47,7 @@ namespace Vendas.ViewModel.Forms
                 Entity.Usuario = App.Usuario;
                 Entity.Empresa = session.Get<PessoaJuridica>(Settings.Default.IdEmpresa);
                 Entity.Status = Status.Ativo;
+                
                 LancamentoInicialRepository.Save(Entity);
                 try
                 {

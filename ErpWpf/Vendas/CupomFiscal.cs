@@ -10,6 +10,7 @@ using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Entity.Vendas.Pedido.Mercearia;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante;
 using Erp.Business.Enum;
+using Util;
 using Vendas.Component.View.Telas;
 using Vendas.ViewModel.Forms;
 
@@ -49,9 +50,20 @@ namespace Vendas
                 {
                     pag.Pedido = pedido;
                 }
+                try
+                {
+                    if (!FecharPedidoRestaurante(pedido, GetProdutosDeComposicao(pedido), pedido.Pagamento)) return false;
+                    pedido.Coo = EcfHelper.Ecf.UltimoCupomEmitido();
+                }
+                catch (Exception ex)
+                {
+                    CustomMessageBox.MensagemErro(ex.Message + "\n O cupom fiscal será cancelado");
+                    
+                    EcfHelper.Ecf.CancelarCupom();
+                    throw;
+                }
                 //CustomMessageBox.MensagemInformativa("A impressão de cupom fiscal está desabilitada.");
-                if (!FecharPedidoRestaurante(pedido, GetProdutosDeComposicao(pedido), pedido.Pagamento)) return false;
-                pedido.Coo = EcfHelper.Ecf.UltimoCupomEmitido();
+                
                 
             }
             catch (Exception ex)

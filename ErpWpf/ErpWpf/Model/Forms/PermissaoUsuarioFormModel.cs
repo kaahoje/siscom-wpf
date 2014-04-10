@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using AutoMapper;
 using DevExpress.Xpf.Ribbon.Customization;
+using Erp.Business;
 using Erp.Business.Dicionary;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
@@ -65,6 +66,7 @@ namespace Erp.Model.Forms
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
             }
         }
 

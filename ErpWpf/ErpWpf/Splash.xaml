@@ -1,0 +1,22 @@
+﻿<dx:DXWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    x:Class="Erp.Splash"
+        Title="Splash" Height="200" Width="400" Icon="pack://application:,,,/Erp;component/Erp.ico" ResizeMode="NoResize" ShowInTaskbar="True" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <dx:DXWindow.Background>
+        <ImageBrush ImageSource="Images/Splash.png"/>
+    </dx:DXWindow.Background>
+    <Grid >
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="67"/>
+            <RowDefinition Height="39"/>
+
+            <RowDefinition Height="115"/>
+        </Grid.RowDefinitions>-->
+        <!--<Label Content="Bone system" VerticalAlignment="Center" FontSize="36" FontFamily="Lucida Calligraphy" Height="60" Margin="0,2,0,5" Foreground="#FFEC0D0D" />
+        <Label Content="Sistema de gerenciamento empresarial de apoio a decisões." VerticalAlignment="Bottom" Height="36" Grid.Row="1" Foreground="#FF0202FD" FontSize="14" />
+        <Label Grid.Row="2" Content="Versão 1.0.0" HorizontalAlignment="Right" VerticalAlignment="Center" Height="26" Margin="0,38,10,51" Width="74"/>-->
+
+    </Grid>
+</dx:DXWindow>

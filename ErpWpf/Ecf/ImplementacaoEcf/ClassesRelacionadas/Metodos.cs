@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
+using Erp.Business;
 
 namespace Ecf.ImplementacaoEcf.ClassesRelacionadas
 {
@@ -41,12 +42,12 @@ namespace Ecf.ImplementacaoEcf.ClassesRelacionadas
                 eInterpretarAviso_ECF_Daruma(Int_NumAviso, Str_Msg_NumAviso);
                 eInterpretarRetorno_ECF_Daruma(intRetorno, Str_Msg_Retorno_Metodo);
 
-
-                System.Windows.Forms.MessageBox.Show("Retorno do Metodo = "
+                var ex = new Exception("Retorno do Metodo = "
                     + Str_Msg_Retorno_Metodo + "\r\n"
                     + "Num.Erro = " + Str_Msg_NumErro + "\r\n"
-                    + "Num.Aviso= " + Str_Msg_NumAviso, "Daruma Framework Retorno do Metodo");
-           
+                    + "Num.Aviso= " + Str_Msg_NumAviso);
+                Utils.GerarLogFiscal(ex);
+                throw ex;
             }
             
           

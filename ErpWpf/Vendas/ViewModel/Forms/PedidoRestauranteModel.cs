@@ -37,7 +37,7 @@ namespace Vendas.ViewModel.Forms
 
 
         private ProdutoPedido _produtoComposicaoAtual;
-        
+        private Visibility _telaPedidoVisible = Visibility.Hidden;
 
 
         public PedidoRestaurante EntityRestaurante
@@ -86,6 +86,16 @@ namespace Vendas.ViewModel.Forms
             }
         }
 
+        public Visibility TelaPedidoVisible
+        {
+            get { return _telaPedidoVisible; }
+            set
+            {
+                _telaPedidoVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion Fim propriedades
         protected override void OnPropertyChanged(string propertyName = null)
         {
@@ -100,7 +110,6 @@ namespace Vendas.ViewModel.Forms
                         case "Pedido":
                             Produtos = new ObservableCollection<ComposicaoProduto>(Produtos);
                             Pagamento = new ObservableCollection<PagamentoPedido>(Entity.Pagamento);
-                            IniciarPagamento();
                             break;
                         case "Desconto":
                             CalculaPedido();
@@ -207,7 +216,16 @@ namespace Vendas.ViewModel.Forms
                 System.Windows.Forms.MessageBox.Show("Informe ao menos um produto para fechar o pedido");
                 return false;
             }
+            
             var pagamento = new PagamentoPedidoRestauranteView(this);
+            if (pagamento.DataContext == null)
+            {
+                pagamento.DataContext = this;
+            }
+            Mapper.CreateMap(GetType(), GetType());
+            Mapper.Map(this, pagamento.DataContext);
+            CalculaPedido();
+            IniciarPagamento();
             pagamento.ShowDialog();
             
             if (!IsPagamentoCancelado && IsPagamentoEfetuado)

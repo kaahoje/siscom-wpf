@@ -61,14 +61,14 @@ namespace Ecf.ImplementacaoEcf
 
         public override bool AbrirCupom(ClienteCupom cliente)
         {
-             return false;
+             return true;
         }
 
         public override bool VenderItem(SituacaoTributaria cargaTributaria, TipoProduto tipoProduto, decimal quantidade, decimal precoUnitario,
             TipoDescontoAcressimo tipoDescontoAcressimo, decimal valorDescontoAcressimo, int codigoItem, string unidadeMedida,
             string descricaoItem, decimal tributacao)
         {
-             return false;
+             return true;
 
         }
 
@@ -81,132 +81,132 @@ namespace Ecf.ImplementacaoEcf
 
         public override bool LancarDescontoItem(int numeroItem, TipoDescontoAcressimo tipoDesconto, decimal valorDesconto)
         {
-             return false;
+             return true;
         }
 
         public override bool LancarAcressimoItem(int numeroItem, TipoDescontoAcressimo tipoDescontoAcressimo, decimal valorAcressimo)
         {
-             return false;
+             return true;
         }
 
         public override bool LancarDescontoUltimoItem(TipoDescontoAcressimo tipoDesconto, decimal valorDesconto)
         {
-             return false;
+             return true;
         }
 
         public override bool LancarAcressimoUltimoItem(TipoDescontoAcressimo tipoDescontoAcressimo, decimal valorAcressimo)
         {
-             return false;
+             return true;
         }
 
         public override bool CancelarItem(int numeroItem)
         {
-             return false;
+             return true;
         }
 
         public override bool CancelarDescontoItem(int numeroItem)
         {
-             return false;
+             return true;
         }
 
         public override bool CancelaDescontoUltimoItem()
         {
-             return false;
+             return true;
         }
 
         public override bool CancelaAcressimoItem(int numeroItem)
         {
-             return false;
+             return true;
         }
 
         public override bool CancelaAcressimoUltimoItem()
         {
-             return false;
+             return true;
         }
 
         public override bool CancelarDescontoSubTotal()
         {
-             return false;
+             return true;
         }
 
         public override bool CancelarAcressimoSubTotal()
         {
-             return false;
+             return true;
         }
 
         public override bool CancelaItemParcial(int numeroItem, decimal quantidade)
         {
-             return false;
+             return true;
         }
 
         public override bool CancelarUltimoItem()
         {
-             return false;
+             return true;
         }
 
         public override bool CancelarUltimoItemParcial(decimal quantidade)
         {
-             return false;
+             return true;
         }
 
         public override bool IniciaFechamentoCupom(TipoDescontoAcressimo tipoDescAcresc, decimal desconto, decimal acrescimo)
         {
-             return false;
+             return true;
         }
 
         public override bool TotalizarCupomFiscal(TipoDescontoAcressimo tipoDescontoAcressimo, decimal valorDescontoAcressimo)
         {
-             return false;
+             return true;
         }
 
         public override bool EfetuarPagamento(string formaPagamento, decimal valor, string informacaoAdicional)
         {
-             return false;
+             return true;
         }
 
         public override bool EfetuarPagamento(string formaPagamento, decimal valor)
         {
-             return false;
+             return true;
         }
 
         public override bool EfetuarPagamentoPadrao()
         {
-             return false;
+             return true;
         }
 
         public override bool ExtornarPagamento(string formaPagamentoEstornado, string formaPagamento, decimal valor, string informacaoAdicional)
         {
-             return false;
+             return true;
         }
 
         public override bool IdentificaConsumidor(ClienteCupom cliente)
         {
-             return false;
+             return true;
         }
 
         public override bool EncerrarCupom()
         {
-             return false;
+             return true;
         }
 
         public override bool EncerrarCupom(CupomFiscalAdicional cupomFiscalAdicional, string mensagem)
         {
-             return false;
+             return true;
         }
 
         public override bool EncerrarCupom(string mensagem)
         {
-             return false;
+             return true;
         }
 
         public override bool CancelarCupom()
         {
-             return false;
+             return true;
         }
 
         public override bool EmitirCupomAdicional()
         {
-             return false;
+             return true;
         }
 
         public override decimal SaldoAtualCupomFiscal()
@@ -229,12 +229,12 @@ namespace Ecf.ImplementacaoEcf
 
         public override bool TotalIcmsIssUltimoCupom(ref decimal icms, ref decimal iss)
         {
-             return false;
+             return true;
         }
 
         public override bool ImprimeLeituraX()
         {
-             return false;
+             return true;
         }
 
         public override bool ImprimeLeituraX(decimal caixaInicial)
@@ -242,83 +242,83 @@ namespace Ecf.ImplementacaoEcf
             try
             {
                 
-                return false;
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao imprimir leitura X.\n" + ex.Message);
-                return false;
+                return true;
             }
         }
 
         public override bool GravaLeituraX()
         {
-             return false;
+             return true;
         }
 
         public override bool LeituraMemoriaFiscalSimplificadaData(DateTime inicio, DateTime fim)
         {
-             return false;
+             return true;
         }
 
         public override bool LeituraMemoriaFiscalSimplificadaCrz(int inicio, int fim)
         {
-             return false;
+             return true;
         }
 
         public override bool LeituraMemoriaFiscalCompletaData(DateTime inicio, DateTime fim)
         {
-             return false;
+             return true;
         }
 
         public override bool LeituraMemoriaFiscalCompletaCrz(int inicio, int fim)
         {
-             return false;
+             return true;
         }
 
         public override bool LeituraMemoriaFiscalSerialSimplificadaData(DateTime inicio, DateTime fim)
         {
-             return false;
+             return true;
         }
 
         public override bool LeituraMemoriaFiscalSerialSimplificadaCrz(int inicio, int fim)
         {
-             return false;
+             return true;
         }
 
         public override bool LeituraMemoriaFiscalSerialCompletaData(DateTime inicio, DateTime fim)
         {
-             return false;
+             return true;
         }
 
         public override bool LeituraMemoriaFiscalSerialCompletaCrz(int inicio, int fim)
         {
-             return false;
+             return true;
         }
 
         public override bool Sangria(decimal valor, string mensagem)
         {
-             return false;
+             return true;
         }
 
         public override bool Suprimento(decimal valor, string mensagem)
         {
-             return false;
+             return true;
         }
 
         public override bool ImprimeConfiguracao()
         {
-             return false;
+             return true;
         }
 
         public override bool ImprimeReducaoZ()
         {
-             return false;
+             return true;
         }
 
         public override bool ImprimeRelatorioGerencial(string texto)
         {
-             return false;
+             return true;
         }
 
         public override decimal VendaBruta()
@@ -352,32 +352,32 @@ namespace Ecf.ImplementacaoEcf
 
         public override bool EspelhoMfdData(DateTime inicio, DateTime fim)
         {
-             return false;
+             return true;
         }
 
         public override bool EspelhoMfdCrz(int inicio, int fim)
         {
-             return false;
+             return true;
         }
 
         public override bool ArquivoMfdData(DateTime inicio, DateTime fim)
         {
-             return false;
+             return true;
         }
 
         public override bool ArquivoMfdCrz(int inicio, int fim)
         {
-             return false;
+             return true;
         }
 
         public override bool TravaTeclado()
         {
-             return false;
+             return true;
         }
 
         public override bool DestravaTeclado()
         {
-             return false;
+             return true;
         }
 
         public override RetornoTef EnviarSolicitacao(IList<Pagamento> pagamentos)
@@ -388,7 +388,7 @@ namespace Ecf.ImplementacaoEcf
 
         public override bool ImprimirTef()
         {
-             return false;
+             return true;
         }
 
         public override bool VerificaImpressora()
@@ -411,18 +411,18 @@ namespace Ecf.ImplementacaoEcf
         public override bool ImpressoraLigada()
         {
             
-            return false;
+            return true;
         }
 
 
         public override bool CadastrarAliquota(decimal aliquota, TipoAliquota tipoAliquota)
         {
-             return false;
+             return true;
         }
 
         public override bool CadastrarFormaPagamento(string formaPagamento)
         {
-             return false;
+             return true;
         }
     }
 }

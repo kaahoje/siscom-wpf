@@ -1,4 +1,5 @@
 ﻿using System;
+using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Business.Enum;
 using Erp.Model.Grids.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica;
@@ -38,37 +39,12 @@ namespace Erp.Model.Forms.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica
 
         public override void Excluir()
         {
-            try
-            {
-                if (ConfirmDelete())
-                {
-                    Entity.Status = Status.Excluido;
-                    LancamentoParceiroNegocioPessoaFisicaRepository.Save(Entity);
-                    Entity = new LancamentoParceiroNegocioPessoaFisica();
-                    base.Excluir();
-                }
-            }
-            catch (Exception ex)
-            {
-                MensagemErroBancoDados(ex.Message);
-            }
+            MensagemInformativa(MensagemFuncaoNaoSuportada);
         }
 
         public override void Salvar()
         {
-            try
-            {
-                if (IsValid(Entity))
-                {
-                    LancamentoParceiroNegocioPessoaFisicaRepository.Save(Entity);
-                    Entity = new LancamentoParceiroNegocioPessoaFisica();
-                    base.Salvar();
-                }
-            }
-            catch (Exception ex)
-            {
-                MensagemErroBancoDados(ex.Message);
-            }
+            MensagemInformativa(MensagemFuncaoNaoSuportada);
         }
 
         private ParceiroNegocioPessoaFisicaLargeDataModel _parceiroNegocioPessoaFisicaLargeData;

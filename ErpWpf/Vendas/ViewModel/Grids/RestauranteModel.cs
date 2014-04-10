@@ -262,6 +262,11 @@ namespace Vendas.ViewModel.Grids
             set
             {
                 _telaPedidoVisible = value;
+                if (CurrentItem != null)
+                {
+                    CurrentItem.TelaPedidoVisible = value;
+                }
+
                 OnPropertyChanged();
             }
         }
@@ -303,42 +308,60 @@ namespace Vendas.ViewModel.Grids
         }
         private void TrocarMesa()
         {
-            var numOrigem = new NumeroView();
-            var numDestino = new NumeroView();
-            numOrigem.ShowDialog();
-            numDestino.ShowDialog();
-            if (numDestino.Value == 0 || numOrigem.Value == 0)
+            try
             {
-                return;
+                var numOrigem = new NumeroView();
+                var numDestino = new NumeroView();
+                numOrigem.ShowDialog();
+                numDestino.ShowDialog();
+                if (numDestino.Value == 0 || numOrigem.Value == 0)
+                {
+                    return;
+                }
+                if (numOrigem.Value == numDestino.Value)
+                {
+                    MessageBox.Show(string.Format("Mesa de destino é a mesma de origem"));
+                    return;
+                }
+                var entity = GetMesa(numOrigem.Value);
+                if (entity == null)
+                {
+                    MessageBox.Show(string.Format("A mesa {0} não está aberta", numOrigem.Value));
+                    return;
+                }
+                entity.EntityRestaurante.Mesa = numDestino.Value;
             }
-            if (numOrigem.Value == numDestino.Value)
+            catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Mesa de destino é a mesma de origem"));
-                return;
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
             }
-            var entity = GetMesa(numOrigem.Value);
-            if (entity == null)
-            {
-                MessageBox.Show(string.Format("A mesa {0} não está aberta", numOrigem.Value));
-                return;
-            }
-            entity.EntityRestaurante.Mesa = numDestino.Value;
+            
         }
 
         private void ProcurarMesa()
         {
-            var numMesa = new NumeroView();
-            numMesa.Title = "Informe o número da mesa";
-            numMesa.ShowDialog();
-            var mesa = GetMesa(numMesa.Value);
-            if (mesa != null)
+            try
             {
-                CurrentItem = mesa;
+                var numMesa = new NumeroView();
+                numMesa.Title = "Informe o número da mesa";
+                numMesa.ShowDialog();
+                var mesa = GetMesa(numMesa.Value);
+                if (mesa != null)
+                {
+                    CurrentItem = mesa;
+                }
+                else
+                {
+                    if (numMesa.Value != 0) MessageBox.Show("A mesa não está aberta no momento");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                if (numMesa.Value != 0) MessageBox.Show("A mesa não está aberta no momento");
-            }
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
+            } 
+            
         }
 
         private void NovaMesa()
@@ -346,30 +369,46 @@ namespace Vendas.ViewModel.Grids
             try
             {
                 var novaMesa = new PedidoRestauranteModel();
-
-
                 if (novaMesa.NovoPedidoMesa())
                 {
                     CurrentItem = novaMesa;
                 }
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
             }
 
 
         }
         private void NovaEntrega()
         {
-            CurrentItem = new PedidoRestauranteModel();
-            CurrentItem.NovoPedidoEntrega();
+            try
+            {
+                CurrentItem = new PedidoRestauranteModel();
+                CurrentItem.NovoPedidoEntrega();
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
+            }
+            
         }
         private void NovoBalcao()
         {
-            CurrentItem = new PedidoRestauranteModel();
-            CurrentItem.NovoPedidoBalcao();
+            try
+            {
+                CurrentItem = new PedidoRestauranteModel();
+                CurrentItem.NovoPedidoBalcao();
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
+            }
+            
         }
 
         private void Parcial()
@@ -396,7 +435,8 @@ namespace Vendas.ViewModel.Grids
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
             }
 
         }
@@ -447,6 +487,7 @@ namespace Vendas.ViewModel.Grids
             catch (Exception ex)
             {
                 CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
             }
 
         }
@@ -480,7 +521,8 @@ namespace Vendas.ViewModel.Grids
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
             }
 
         }
@@ -502,100 +544,140 @@ namespace Vendas.ViewModel.Grids
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
             }
 
         }
 
         private void CancelarPedido()
         {
-
-            if (CurrentItem == null)
+            try
             {
-                return;
-            }
-
-            if (CurrentItem.EntityRestaurante.Local == LocalPedidoRestaurante.Mesa)
-            {
-                var result = MessageBox.Show("Deseja realmente cancelar esta mesa", "Cancelar mesa", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
-                if (result == DialogResult.Yes)
+                if (CurrentItem == null)
                 {
-                    RemoveMesa(CurrentItem);
+                    return;
                 }
 
-            }
-            else
-            {
-                var result = MessageBox.Show("Deseja realmente cancelar esta entrega", "Cancelar entrega", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
-                if (result == DialogResult.Yes)
+                if (CurrentItem.EntityRestaurante.Local == LocalPedidoRestaurante.Mesa)
                 {
-                    RemoveEntrega(CurrentItem);
-                }
+                    var result = MessageBox.Show("Deseja realmente cancelar esta mesa", "Cancelar mesa", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
+                    if (result == DialogResult.Yes)
+                    {
+                        RemoveMesa(CurrentItem);
+                    }
 
+                }
+                else
+                {
+                    var result = MessageBox.Show("Deseja realmente cancelar esta entrega", "Cancelar entrega", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
+                    if (result == DialogResult.Yes)
+                    {
+                        RemoveEntrega(CurrentItem);
+                    }
+
+                }
             }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
+            }
+            
 
         }
         private void ConfirmarPedido()
         {
-            if (CurrentItem == null)
+            try
             {
-                return;
-            }
-            if (!CurrentItem.EntityRestaurante.Confirmado)
-            {
-                switch (CurrentItem.EntityRestaurante.Local)
+                if (CurrentItem == null)
                 {
-                    case LocalPedidoRestaurante.Mesa:
-                        var mesaAberta = GetMesa(CurrentItem.EntityRestaurante.Mesa);
-                        if (mesaAberta != null)
-                        {
-                            foreach (var prod in CurrentItem.Produtos)
-                            {
-                                mesaAberta.AddProduto(prod);
-                            }
-                        }
-                        else
-                        {
-                            Collection.Add(CurrentItem);
-                        }
-                        break;
-                    default:
-                        switch (CurrentItem.EntityRestaurante.Local)
-                        {
-                            case LocalPedidoRestaurante.Balcao:
-                                FilaSalao.Add(CurrentItem);
-                                break;
-                            case LocalPedidoRestaurante.Entrega:
-                                FilaEntrega.Add(CurrentItem);
-                                break;
-                        }
-                        break;
+                    return;
                 }
-                CurrentItem.ConfirmarPedido();
-                CurrentItem = null;
+                if (CurrentItem.EntityRestaurante == null)
+                {
+                    return;
+                }
+                if (!CurrentItem.EntityRestaurante.Confirmado)
+                {
+                    switch (CurrentItem.EntityRestaurante.Local)
+                    {
+                        case LocalPedidoRestaurante.Mesa:
+                            var mesaAberta = GetMesa(CurrentItem.EntityRestaurante.Mesa);
+                            if (mesaAberta != null)
+                            {
+                                foreach (var prod in CurrentItem.Produtos)
+                                {
+                                    mesaAberta.AddProduto(prod);
+                                }
+                            }
+                            else
+                            {
+                                Collection.Add(CurrentItem);
+                            }
+                            break;
+                        default:
+                            switch (CurrentItem.EntityRestaurante.Local)
+                            {
+                                case LocalPedidoRestaurante.Balcao:
+                                    FilaSalao.Add(CurrentItem);
+                                    break;
+                                case LocalPedidoRestaurante.Entrega:
+                                    FilaEntrega.Add(CurrentItem);
+                                    break;
+                            }
+                            break;
+                    }
+                    CurrentItem.ConfirmarPedido();
+                    CurrentItem = null;
+                }
             }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
+            }
+            
 
         }
         private void RemoveEntrega(PedidoRestauranteModel entrega)
         {
-            FilaEntrega.Remove(entrega);
-            if (CurrentItem != null && CurrentItem.IdGuid == entrega.IdGuid)
+            try
             {
-                CurrentItem = null;
+                FilaEntrega.Remove(entrega);
+                if (CurrentItem != null && CurrentItem.IdGuid == entrega.IdGuid)
+                {
+                    CurrentItem = null;
+                }
             }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
+            }
+            
         }
 
         private void RemoveMesa(PedidoRestauranteModel mesa)
         {
-            if (mesa.EntityRestaurante.Confirmado)
+            try
             {
-                Collection.Remove(mesa);
+                if (mesa.EntityRestaurante.Confirmado)
+                {
+                    Collection.Remove(mesa);
+                }
+                if (CurrentItem != null && CurrentItem.EntityRestaurante.Mesa == mesa.EntityRestaurante.Mesa)
+                {
+                    CurrentItem = null;
+                }
+                FilaSalao.Remove(mesa);
             }
-            if (CurrentItem != null && CurrentItem.EntityRestaurante.Mesa == mesa.EntityRestaurante.Mesa)
+            catch (Exception ex)
             {
-                CurrentItem = null;
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
             }
-            FilaSalao.Remove(mesa);
+            
 
         }
 

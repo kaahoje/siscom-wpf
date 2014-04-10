@@ -46,7 +46,7 @@ namespace Erp.Model
 
         public KeyGesture KeySalvar
         {
-            get { return _keySalvar ?? (_keyExcluir = new KeyGesture(Key.F6)); }
+            get { return _keySalvar ?? (_keySalvar = new KeyGesture(Key.F6)); }
             set
             {
                 _keySalvar = value;

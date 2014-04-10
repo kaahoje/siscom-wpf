@@ -5,7 +5,7 @@
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-        Title="ProdutoSelectView" Height="450" Width="650">
+        Title="Seleção de produto" Height="450" Width="650">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>

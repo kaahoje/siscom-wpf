@@ -17,14 +17,14 @@
         <Label Content="Filtro:" Grid.Row="1" Margin="5"/>
         <dxe:TextEdit Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" 
+        <dxg:GridControl HorizontalAlignment="Left" 
 			Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"
 			Width="422" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <dxg:GridControl.Columns>
                 <dxg:GridColumn FieldName="Descricao" Header="Descrição"/>
             </dxg:GridControl.Columns>
             <dxg:GridControl.View>
-                <dxg:TableView ShowTotalSummary="True" ShowGroupPanel="False" AutoWidth="True"/>
+                <dxg:TableView ShowTotalSummary="False" ShowGroupPanel="False" AutoWidth="True"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
 

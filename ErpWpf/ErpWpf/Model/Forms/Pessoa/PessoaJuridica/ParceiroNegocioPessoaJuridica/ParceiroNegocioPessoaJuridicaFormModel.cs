@@ -1,5 +1,6 @@
 ﻿using System;
 using AutoMapper;
+using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio;
 using Erp.Business.Enum;
 using Erp.Business.Validation;
@@ -10,9 +11,6 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
 {
     public class ParceiroNegocioPessoaJuridicaFormModel : PessoaJuridicaFormModel, IPessoa
     {
-        private Business.Entity.Contabil.Pessoa.Pessoa _entity1;
-
-
         public ParceiroNegocioPessoaJuridicaFormModel()
         {
             Entity = new Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica();
@@ -36,7 +34,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
             Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.
                 ParceiroNegocioPessoaJuridica EntityParceiroNegocioPessoaJuridica
         {
-            get { return (Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica) Entity; }
+            get { return Entity as Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica; }
             set
             {
                 Entity = value; 
@@ -58,12 +56,13 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
                     Entity.Status = Status.Excluido;
                     ParceiroNegocioPessoaJuridicaRepository.Save(EntityParceiroNegocioPessoaJuridica);
                     EntityParceiroNegocioPessoaJuridica = new Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica();
-                    base.Excluir();
+                    OperacaoConcluida();
                 }
             }
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
             }
         }
 
@@ -88,6 +87,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
             }
         }
 

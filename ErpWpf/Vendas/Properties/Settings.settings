@@ -15,7 +15,7 @@
       <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="FabricanteEcf" Type="Erp.Business.Enum.FabricanteEcf" Scope="User">
-      <Value Profile="(Default)">NaoConfigurado</Value>
+      <Value Profile="(Default)">Daruma</Value>
     </Setting>
   </Settings>
 </SettingsFile>

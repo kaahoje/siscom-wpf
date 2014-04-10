@@ -7,7 +7,7 @@
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     x:Class="Vendas.Component.View.Telas.PagamentoPedidoRestauranteView"
-        Title="Pagamento do pedido" Height="520" Width="750" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Pagamento do pedido" Height="520" Width="770" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <dx:DXWindow.DataContext>
         <Forms:PedidoModel/>
     </dx:DXWindow.DataContext>
@@ -46,23 +46,33 @@
 
             </DockPanel>
         </dxb:BarManager>
-        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,-391">
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="335"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="211"/>
-                <ColumnDefinition Width="332"/>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="160"/>
             </Grid.ColumnDefinitions>
-            
-            <Label Content="Condição:" Grid.RowSpan="2" Margin="5"/>
-            <dxe:ComboBoxEdit Grid.Row="0" Grid.Column="0" Margin="72,7,7,7" 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="400" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Condição:" Grid.RowSpan="2" Margin="5"/>
+                <dxe:ComboBoxEdit Grid.Row="0" Grid.Column="0" Margin="72,7,7,7" 
+                                  DisplayMember="Id"
                               ItemsSource="{Binding CondicoesPagamento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               EditValue="{Binding CondicaoPagamento,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></dxe:ComboBoxEdit>
-            <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="300" HorizontalAlignment="Left"></dxe:TextEdit>
-            <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,0,-15">
+                <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="300" 
+                              IsReadOnly="True"
+                              EditValue="{Binding CondicaoPagamento.Descricao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              HorizontalAlignment="Left" />
+            </Grid>
+            
+            <Grid Grid.Row="1" Grid.Column="1" Margin="0,0,0,-15">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="40"/>
@@ -98,7 +108,7 @@
                               EditValue="{Binding TotalPedido, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               Mask="c" MaskUseAsDisplayFormat="True" IsEnabled="False"></dxe:SpinEdit>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" Margin="5,5,-197,-15">
+            <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" Margin="0">
                 <dxg:GridControl ItemsSource="{Binding Pagamento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <dxg:GridControl.Columns>
                         <dxg:GridColumn FieldName="Parcela" IsSmart="True" Width="70"/>
@@ -107,7 +117,13 @@
                             <dxg:GridColumn.EditSettings>
                                 <dxe:ComboBoxEditSettings 
                                     AutoComplete="True"
+                                    DisplayMember="Descricao"
                                     ItemsSource="{Binding FormasPagamento,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="Valor" IsSmart="True" Width="100">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Mask="c" MaskUseAsDisplayFormat="True"/>
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
                         <dxg:GridColumn FieldName="ValorTotal" IsSmart="True" Width="100">

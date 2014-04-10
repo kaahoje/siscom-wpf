@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Erp.Business.Entity.Contabil.ClassesRelacoinadas;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
+using Erp.Business.Enum;
 using NHibernate.Criterion;
 using Util;
 
@@ -14,11 +15,11 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
 
             if (filter.Length == Validation.Validation.GetOnlyNumber(filter).Length)
             {
-                return GetQueryOver().JoinQueryOver(custo => custo.ParceiroNegocioPessoaFisica)
+                return GetQueryOver().Where(x=> x.Status == Status.Ativo).JoinQueryOver(custo => custo.ParceiroNegocioPessoaFisica)
                     .Where(parceiroNegocio => parceiroNegocio.Cpf.IsInsensitiveLike(StartStringFilter(filter)))
                     .Take(takePesquisa).List();
             }
-            return GetQueryOver().JoinQueryOver(custo => custo.ParceiroNegocioPessoaFisica)
+            return GetQueryOver().Where(x=>x.Status == Status.Ativo).JoinQueryOver(custo => custo.ParceiroNegocioPessoaFisica)
                     .Where(parceiroNegocio => parceiroNegocio.Nome.IsInsensitiveLike(ContainsStringFilter(filter)) ||
                         parceiroNegocio.Alias.IsInsensitiveLike(ContainsStringFilter(filter)))
                     .Take(takePesquisa).List();
@@ -54,7 +55,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
             }
             else
             {
-                CustomMessageBox.MensagemInformativa("Este mês já foi gerado.");
+                throw new Exception("Este mês já foi gerado.");
             }
         }
     }

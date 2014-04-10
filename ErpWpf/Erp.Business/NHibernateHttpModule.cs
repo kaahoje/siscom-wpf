@@ -38,7 +38,7 @@ namespace Erp.Business
                     }
 
                     _session = OpenSession();
-
+                    _session.FlushMode = FlushMode.Commit;
                     return _session;
                 }
 

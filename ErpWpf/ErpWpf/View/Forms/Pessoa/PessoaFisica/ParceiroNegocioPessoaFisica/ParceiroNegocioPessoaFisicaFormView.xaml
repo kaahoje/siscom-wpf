@@ -8,7 +8,7 @@
              xmlns:ParceiroNegocioPessoaFisica="clr-namespace:Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica"
              xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
              x:Class="Erp.View.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica.ParceiroNegocioPessoaFisicaFormView"
-        Title="Parceiro de negocios pessoa física" Height="540" Width="700">
+        Title="Parceiro de negocios pessoa física" Height="640" Width="800">
     <dx:DXWindow.Resources>
         <dicionary:SexoDictionary x:Key="SexoDictionaryViewSource"/>
     </dx:DXWindow.Resources>
@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <Rest:RestForm HorizontalAlignment="Left" Margin="0" Grid.RowSpan="2" VerticalAlignment="Top" x:Name="RestCommands"/>
-        <dx:DXTabControl Margin="0" Grid.Row="1" VerticalAlignment="Stretch" Height="400">
+        <dx:DXTabControl Margin="0" Grid.Row="1" VerticalAlignment="Stretch" Height="500">
             <dx:DXTabItem Header="Informações da pessoa">
                 <Grid Background="Transparent" VerticalAlignment="Stretch">
                     <Grid>
@@ -86,13 +86,14 @@
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Dados para contato">
-                <Grid Background="Transparent" Height="400">
+                <Grid Background="Transparent" Height="500">
                     <Pessoa:PessoaUserControl Margin="0" HorizontalAlignment="Left" x:Name="PessoaUserControl" VerticalAlignment="Top"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Permissões de usuário">
-                <Grid Background="Transparent" Height="400">
-                    <dx:DXTabControl Margin="2" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch">
+                <Grid Background="Transparent" Height="500">
+                    <dx:DXTabControl Margin="2" VerticalAlignment="Stretch" 
+                                     VerticalContentAlignment="Stretch">
                         <dx:DXTabItem Header="Permissões de formulário">
                             <Grid Background="Transparent" >
                                 <Grid.ColumnDefinitions>
@@ -102,7 +103,7 @@
                                 <dxg:GridControl 
                         SelectedItem="{Binding CurrentPermissaoFormulario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         ItemsSource="{Binding PermissaoFormulario,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="210" Width="581">
+                        HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="282" Width="581">
                                     <dxg:GridControl.Columns>
                                         <dxg:GridColumn FieldName="Formulario" Header="Formulário" Width="350">
                                             <dxg:GridColumn.EditSettings>

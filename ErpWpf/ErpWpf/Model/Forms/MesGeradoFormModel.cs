@@ -1,6 +1,12 @@
-﻿using Erp.Business.Dicionary;
+﻿using System;
+using System.Windows.Input;
+using Erp.Business;
+using Erp.Business.Dicionary;
 using Erp.Business.Entity.Contabil.ClassesRelacoinadas;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Business.Enum;
+using Util.Wpf;
 
 namespace Erp.Model.Forms
 {
@@ -35,6 +41,28 @@ namespace Erp.Model.Forms
             }
         }
 
+        
+
+        public ICommand CmdGerarMes { get { return new RelayCommandBase(x=>GerarMes());} }
+
+        private void GerarMes()
+        {
+            try
+            {
+                if (IsValid(Entity))
+                {
+                    CustoFixoParceiroNegocioPessoaFisicaRepository.GerarMes(Entity);
+                    CustoFixoParceiroNegocioPessoaJuridicaRepository.GerarMes(Entity);
+                    MesGeradoRepository.Save(Entity);
+                    MensagemInformativa("Mês gerado com sucesso.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
+            }
+        }
         
     }
 

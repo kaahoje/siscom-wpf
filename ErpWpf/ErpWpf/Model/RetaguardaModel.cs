@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using DevExpress.Xpf.Docking;
 using Erp.Enum;
+using Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica;
 using Erp.View.Extras;
 using Erp.View.Forms;
 using Erp.View.Forms.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica;
@@ -86,6 +87,7 @@ namespace Erp.Model
         public ICommand CmdAbrirTelaLancamento { get { return new RelayCommandBase(x=>AbrirTelaLancamento());} }
         public ICommand CmdAbrirTelaTipoTitulo{ get { return new RelayCommandBase(x=>AbrirTelaTipoTitulo());} }
         public ICommand CmdAbrirTelaPermissoesUsuario { get { return new RelayCommandBase(x => AbrirTelaPermissoesUsuario()); } }
+        public ICommand CmdAbrirTelaGerarMes { get { return new RelayCommandBase(x => AbrirTelaGerarMes()); } }
 
         public ICommand CmdAbrirTelaParceiroNegocio
         {
@@ -144,6 +146,11 @@ namespace Erp.Model
         public void AbrirTelaPermissoesUsuario()
         {
             new PermissaoUsuarioFormView().ShowDialog();
+        }
+
+        private void AbrirTelaGerarMes()
+        {
+            new MesGeradoFormView().ShowDialog();
         }
 
         public void AbrirTelaTipoTitulo()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Erp.Business.Entity.Contabil.ClassesRelacoinadas;
+using Erp.Business.Enum;
 using NHibernate.Criterion;
 using NHibernate.SqlCommand;
 using Util;
@@ -14,14 +15,12 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.P
         {
             if (filter.Length == Validation.Validation.GetOnlyNumber(filter).Length)
             {
-                return GetList().Where(custo => custo.ParceiroNegocioPessoaJuridica != null &&(
-                    custo.ParceiroNegocioPessoaJuridica.Cnpj.IsInsensitiveLike(ContainsStringFilter(filter))))
-                    .ToList();
-                //return GetQueryOver().JoinQueryOver(custo => custo.ParceiroNegocioPessoaJuridica)
-                //    .Where(parceiroNegocio => parceiroNegocio.Cnpj.IsInsensitiveLike(StartStringFilter(filter)))
-                //    .Take(takePesquisa).List();
+
+                return GetQueryOver().Where(x => x.Status == Status.Ativo).JoinQueryOver(custo => custo.ParceiroNegocioPessoaJuridica)
+                    .Where(parceiroNegocio => parceiroNegocio.Cnpj.IsInsensitiveLike(StartStringFilter(filter)))
+                    .Take(takePesquisa).List();
             }
-            return GetQueryOver().JoinQueryOver(custo => custo.ParceiroNegocioPessoaJuridica,JoinType.FullJoin)
+            return GetQueryOver().Where(x => x.Status == Status.Ativo).JoinQueryOver(custo => custo.ParceiroNegocioPessoaJuridica, JoinType.FullJoin)
                     .Where(parceiroNegocio => parceiroNegocio.RazaoSocial.IsInsensitiveLike(ContainsStringFilter(filter)) ||
                         parceiroNegocio.NomeFantasia.IsInsensitiveLike(ContainsStringFilter(filter)))
                     .Take(takePesquisa).List();
@@ -58,7 +57,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.P
             }
             else
             {
-                CustomMessageBox.MensagemInformativa("Este mês já foi gerado.");
+                throw new Exception("Este mês já foi gerado.");
             }
         }
     }

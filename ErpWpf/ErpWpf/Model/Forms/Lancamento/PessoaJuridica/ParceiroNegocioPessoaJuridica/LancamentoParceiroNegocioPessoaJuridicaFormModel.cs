@@ -1,8 +1,11 @@
-﻿using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
+﻿using System;
+using Erp.Business;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
+using Erp.Model;
 using Erp.Model.Grids.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridica;
 using Erp.Model.LargeDataModel;
 
-namespace Erp.Model.Forms.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridica
+namespace Erp.View.Model.Forms.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridica
 {
     public class LancamentoParceiroNegocioPessoaJuridicaFormModel : ModelFormGeneric<LancamentoParceiroNegocioPessoaJuridica>
     {
@@ -60,6 +63,16 @@ namespace Erp.Model.Forms.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridic
                 _planoContaReferencialLargeData = value;
                 OnPropertyChanged();
             }
+        }
+
+        public override void Salvar()
+        {
+            MensagemInformativa(MensagemFuncaoNaoSuportada);
+        }
+
+        public override void Excluir()
+        {
+            MensagemInformativa(MensagemFuncaoNaoSuportada);
         }
     }
 }

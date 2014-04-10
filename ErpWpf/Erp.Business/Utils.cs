@@ -303,5 +303,27 @@ namespace Erp.Business
 
             return message + trace;
         }
+
+        public static void GerarLogFiscal(Exception ex)
+        {
+            try
+            {
+                var message = GetMessage(ex);
+
+                var path = Environment.CurrentDirectory + "\\EcfLog";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                path += "\\log" + DateTime.Now.Date.ToString("yyyy-mm-dd") + ".txt";
+
+                GravarArquivo(path, message);
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }

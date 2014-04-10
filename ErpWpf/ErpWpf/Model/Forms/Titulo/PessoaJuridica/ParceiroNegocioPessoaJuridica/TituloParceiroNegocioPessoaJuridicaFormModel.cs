@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using DevExpress.XtraPrinting.Native;
+using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Business.Enum;
@@ -46,6 +47,7 @@ namespace Erp.Model.Forms.Titulo.PessoaJuridica.ParceiroNegocioPessoaJuridica
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
             }
         }
 
@@ -63,6 +65,7 @@ namespace Erp.Model.Forms.Titulo.PessoaJuridica.ParceiroNegocioPessoaJuridica
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
             }
         }
         private TipoTituloLargeDataModel _tipoTituloLargeData;

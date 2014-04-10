@@ -5,7 +5,7 @@
         xmlns:rest="clr-namespace:Erp.View.Rest"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-        Title="GrupoProdutoSelectView" Height="393.609" Width="468.045">
+        Title="Seleção de grupo de produto" Height="395" Width="470">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>

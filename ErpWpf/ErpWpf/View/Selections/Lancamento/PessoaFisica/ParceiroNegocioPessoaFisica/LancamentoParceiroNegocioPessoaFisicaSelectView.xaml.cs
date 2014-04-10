@@ -9,6 +9,7 @@
         public LancamentoParceiroNegocioPessoaFisicaSelectView()
         {
             InitializeComponent();
+            
             Actions = new SelectionDefaultActions(this);
         }
     }

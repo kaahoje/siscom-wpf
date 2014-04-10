@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Erp.Business.Enum;
 using NHibernate.Criterion;
 
 namespace Erp.Business.Entity.Contabil
@@ -9,7 +10,8 @@ namespace Erp.Business.Entity.Contabil
         {
             return
                 GetQueryOver()
-                    .Where(x => x.Descricao.IsInsensitiveLike(ContainsStringFilter(filter)))
+                    .Where(x => x.Descricao.IsInsensitiveLike(ContainsStringFilter(filter)) &&
+                        x.Status == Status.Ativo)
                     .Take(takePesquisa)
                     .List();
         }

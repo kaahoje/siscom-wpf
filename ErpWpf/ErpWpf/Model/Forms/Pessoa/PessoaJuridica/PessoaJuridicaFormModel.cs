@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Activities.Expressions;
 using System.Windows.Input;
+using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using Erp.Business.Enum;
 using Erp.Model.Grids.Pessoa.PessoaJuridica;
@@ -22,7 +24,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica
         
         public Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.PessoaJuridica EntityPessoaJuridica
         {
-            get { return (Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.PessoaJuridica) Entity; }
+            get { return Entity as Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.PessoaJuridica; }
             set
             {
                 Entity = value; 
@@ -45,6 +47,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica
             catch (Exception ex)
             {
                 MensagemErroBancoDados(ex.Message);
+                Utils.GerarLog(ex);
             }
         }
         #region Commands

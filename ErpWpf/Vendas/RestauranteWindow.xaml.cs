@@ -2,7 +2,9 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Input;
 using DevExpress.Xpf.Grid;
+using Vendas.Component.View;
 using Vendas.ViewModel.Forms;
 using Vendas.ViewModel.Grids;
 
@@ -73,6 +75,14 @@ namespace Vendas
         private void RestauranteWindow_OnClosed(object sender, EventArgs e)
         {
             Process.GetCurrentProcess().Kill();
+        }
+
+        private void RestauranteWindow_OnPreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.RightShift) && e.Key == Key.C)
+            {
+                new ConfiguracaoView().ShowDialog();
+            }
         }
     }
 }

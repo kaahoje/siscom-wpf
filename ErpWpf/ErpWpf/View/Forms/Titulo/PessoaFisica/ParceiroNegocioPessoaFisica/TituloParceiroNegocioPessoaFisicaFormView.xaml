@@ -77,6 +77,7 @@
             
             <Label Grid.Row="3" Grid.Column="0" Content="Tipo:" Margin="5" />
             <dxe:ComboBoxEdit Grid.Row="3" Grid.Column="1" Margin="7" Grid.ColumnSpan="2"
+                              DisplayMember="Descricao"
                               ItemsSource="{Binding TipoTituloLargeData.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               PreviewKeyUp="UIElement_OnPreviewKeyUp"
                               x:Name="cboTipoTitulo"

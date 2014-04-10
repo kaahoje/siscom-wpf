@@ -61,14 +61,16 @@ namespace Erp.Business.Entity.Estoque.Produto
             {
                 return
                 GetQueryOver()
-                    .Where(prod => prod.CodBarra.IsInsensitiveLike(filtro))
+                    .Where(prod => prod.CodBarra.IsInsensitiveLike(filtro) &&
+                        prod.Status == Status.Ativo)
                     .List();
             }
             return
                GetQueryOver()
-                   .Where(prod => prod.Descricao.IsInsensitiveLike("%" + filtro + "%")
-                       || prod.Referencia.IsInsensitiveLike("%" + filtro + "%")
-                       || prod.CodBarra.IsInsensitiveLike(filtro + "%"))
+                   .Where(prod => (prod.Descricao.IsInsensitiveLike(ContainsStringFilter(filtro))
+                       || prod.Referencia.IsInsensitiveLike(ContainsStringFilter(filtro))
+                       || prod.CodBarra.IsInsensitiveLike(StartStringFilter(filtro))) && 
+                       prod.Status == Status.Ativo)
                        .List();
         }
     }

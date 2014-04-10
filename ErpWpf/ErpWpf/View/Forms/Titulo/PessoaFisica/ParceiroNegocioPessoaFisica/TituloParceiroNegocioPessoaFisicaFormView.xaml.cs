@@ -19,9 +19,10 @@ namespace Erp.View.Forms.Titulo.PessoaFisica.ParceiroNegocioPessoaFisica
         public TituloParceiroNegocioPessoaFisicaFormView()
         {
             InitializeComponent();
-            Actions = new FormDefaultActions<TituloParceiroNegocioPessoaFisica>(this){IsEnableShortcuts = false};
             DataContext = new TituloParceiroNegocioPessoaFisicaFormModel();
             RestCommands.DataContext = DataContext;
+            Actions = new FormDefaultActions<TituloParceiroNegocioPessoaFisica>(this){IsEnableShortcuts = false};
+            
         }
 
         private void UIElement_OnPreviewKeyUp(object sender, KeyEventArgs e)

@@ -6,7 +6,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas
     {
         public ComposicaoProdutoMap()
         {
-            HasMany(x => x.Composicao);
+            HasMany(x => x.Composicao).Cascade.All();
         }
     }
 }

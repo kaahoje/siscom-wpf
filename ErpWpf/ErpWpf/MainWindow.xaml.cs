@@ -133,6 +133,7 @@ namespace Erp
 
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
+            //App.splashScreen.CloseSplashScreen();
             if (App.Usuario == null)
             {
                 new LoginFormView().ShowDialog();

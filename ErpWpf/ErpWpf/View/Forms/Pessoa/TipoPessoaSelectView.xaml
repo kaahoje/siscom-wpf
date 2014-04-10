@@ -2,10 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:Pessoa="clr-namespace:Erp.Model.Forms.Pessoa" x:Class="Erp.View.Forms.Pessoa.TipoPessoaSelectView"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:Pessoa="clr-namespace:Erp.Model.Forms.Pessoa"
+    xmlns:pessoa="clr-namespace:Erp.View.Model.Forms.Pessoa"
+    x:Class="Erp.View.Forms.Pessoa.TipoPessoaSelectView"
         Title="Seleção do tipo de pessoa" Height="109" Width="160" WindowStyle="None" Visibility="{Binding IsTelaVisibility}" PreviewKeyDown="ParceiroNegocioSelectView_OnPreviewKeyDown" WindowStartupLocation="CenterScreen">
     <dx:DXWindow.DataContext>
-        <Pessoa:TipoCadastroSelectFormModel/>
+        <pessoa:TipoCadastroSelectFormModel/>
     </dx:DXWindow.DataContext>
     <Grid>
 

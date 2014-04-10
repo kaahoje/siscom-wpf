@@ -73,7 +73,6 @@ namespace Erp.Business.Entity.Contabil
         }
 
         [Display(Name = "Número de ordem", Description = "Código alfa-numérico que identifica o título")]
-        [Required(ErrorMessage = Constants.MessageRequiredError)]
         public virtual String NumeroOrdem
         {
             get { return _numeroOrdem; }
@@ -202,7 +201,6 @@ namespace Erp.Business.Entity.Contabil
         }
 
         [Display(Name = "Nota fiscal", Description = "Nota fiscal que originou o título")]
-        [Required(ErrorMessage = Constants.MessageRequiredError)]
         public virtual NotaFiscal NotaFiscal
         {
             get { return _notaFiscal; }

@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using AutoMapper;
 using DevExpress.Xpf.Ribbon.Customization;
+using Erp.Business;
 using Erp.Business.Dicionary;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio;
@@ -28,7 +29,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
 
        public ParceiroNegocioPessoaFisicaFormModel()
        {
-           Entity = new Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica();
+           EntityParceiroNegocioPessoaFisica = new Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica();
            ModelSelect = new ParceiroNegocioPessoaFisicaSelectModel();
            IsSalvar = true; 
        }
@@ -36,8 +37,13 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
        public Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica
            EntityParceiroNegocioPessoaFisica
        {
-           get { return (Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica) Entity; }
-           set { Entity = value; }
+           get { return Entity as Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica; }
+           set
+           {
+               Entity = value; 
+               OnPropertyChanged();
+               OnPropertyChanged("EntityPessoaFisica");
+           }
        }
 
        public override Business.Entity.Contabil.Pessoa.Pessoa Entity
@@ -50,9 +56,13 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
                
                PermissaoFormulario.Clear();
                PermissaoRelatorio.Clear();
-               
-               PermissaoFormulario.AddRange(EntityPessoaFisica.PermissaoFormulario);
-               PermissaoRelatorio.AddRange(EntityPessoaFisica.PermissaoRelatorio);
+
+               if (EntityParceiroNegocioPessoaFisica != null)
+               {
+                   PermissaoFormulario.AddRange(EntityPessoaFisica.PermissaoFormulario);
+                   PermissaoRelatorio.AddRange(EntityPessoaFisica.PermissaoRelatorio);
+               }
+
                OnPropertyChanged();
                OnPropertyChanged("EntityPessoaFisica");
                OnPropertyChanged("EntityParceiroNegocioPessoaFisica");
@@ -76,6 +86,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
            catch (Exception ex)
            {
                MensagemErroBancoDados(ex.Message);
+               Utils.GerarLog(ex);
            }
        }
 
@@ -100,6 +111,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
            catch (Exception ex)
            {
                MensagemErroBancoDados(ex.Message);
+               Utils.GerarLog(ex);
            }
        }
 

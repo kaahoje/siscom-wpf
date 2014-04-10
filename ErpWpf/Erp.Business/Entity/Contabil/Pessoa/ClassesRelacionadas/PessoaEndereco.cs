@@ -140,7 +140,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas
         public PessoaEndereco()
         {
             IdGuid = Guid.NewGuid();
-            
+            Endereco = new Endereco.Endereco();
         }
 
         public virtual event PropertyChangedEventHandler PropertyChanged;

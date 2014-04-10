@@ -39,8 +39,9 @@ namespace Erp.Business.Validation.CustomValidations
             // Verifica os dados de usuário
             if (parceiroModel.Id == 0)
             {
+               
                 // Confere se a senha é igual a confirmação
-                if (!parceiroModel.Senha.Equals(parceiroModel.ConfirmarSenha))
+                if (!string.IsNullOrEmpty(parceiroModel.Senha) && !parceiroModel.Senha.Equals(parceiroModel.ConfirmarSenha))
                 {
                     ErrorMessage = "A senha de confirmação não é igual a senha";
                     return false;
@@ -49,8 +50,14 @@ namespace Erp.Business.Validation.CustomValidations
             else
             {
                 var parceiro = PessoaFisicaRepository.GetById(parceiroModel.Id);
+                // Se o a senha não estiver definida para a pessoa sai do método.
+                if (string.IsNullOrEmpty(senha) || string.IsNullOrEmpty(novaSenha))
+                {
+                    return true;
+                }
+
                 // Confere se a senha é igual à confirmação
-                if (novaSenha.Equals(confirmarSenha))
+                if ( novaSenha.Equals(confirmarSenha))
                 {
                     // Confere se a senha informada pelo usuário confere com a senha de usuário gravada no banco.
                     if (!parceiro.Senha.Equals(senha))

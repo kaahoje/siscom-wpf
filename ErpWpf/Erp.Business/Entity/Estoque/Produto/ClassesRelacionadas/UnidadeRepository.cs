@@ -16,8 +16,8 @@ namespace Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas
 
         public static IList<Unidade> GetByRange(String filter,int skip, int take)
         {
-            return GetQueryOver().Where(unidade => unidade.Descricao.IsInsensitiveLike(filter + "%") ||
-                unidade.Sigla.IsInsensitiveLike(filter + "%"))
+            return GetQueryOver().Where(unidade => unidade.Descricao.IsInsensitiveLike(ContainsStringFilter(filter)) ||
+                unidade.Sigla.IsInsensitiveLike(ContainsStringFilter(filter)))
                 .Skip(skip)
                 .Take(take).List<Unidade>();
         } 

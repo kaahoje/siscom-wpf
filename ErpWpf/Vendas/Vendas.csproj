@@ -40,44 +40,116 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.BonusSkins.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>False</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Images.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Win.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Xpo.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Images.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>False</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.Base.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.BaseImpl.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Utils.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.2.UI, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Xpf.Core.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Xpf.Grid.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Xpf.Grid.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Xpf.LayoutControl.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Xpf.Mvvm.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Xpf.Printing.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Xpf.Ribbon.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Xpf.Scheduler.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v13.2.Extensions.Wcf.5.1, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.2.Extensions, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v13.2.Extensions, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraScheduler.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
     </Reference>
     <Reference Include="FluentNHibernate, Version=1.4.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -98,50 +170,50 @@
       <HintPath>..\packages\Npgsql.2.0.14.3\lib\net45\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Configuration">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Printing">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Extensions">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows.Forms">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="UIAutomationProvider">
       <Private>True</Private>
@@ -155,13 +227,18 @@
     <Reference Include="PresentationFramework">
       <Private>True</Private>
     </Reference>
-    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Component\View\ConfiguracaoView.xaml.cs">
+      <DependentUpon>ConfiguracaoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\View\Rest\RestTela.xaml.cs">
       <DependentUpon>RestTela.xaml</DependentUpon>
     </Compile>
@@ -174,10 +251,12 @@
     <Compile Include="Component\View\Telas\PagamentoPedidoView.xaml.cs">
       <DependentUpon>PagamentoPedidoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dictionarys\TipoPdvDictionary.cs" />
     <Compile Include="Enums\TipoPdv.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="CupomFiscal.cs" />
+    <Compile Include="ViewModel\ConfiguracaoModel.cs" />
     <Compile Include="ViewModel\Forms\EcfDadosClienteModel.cs" />
     <Compile Include="ViewModel\Forms\FechamentoVendasModel.cs" />
     <Compile Include="ViewModel\Forms\FormModelGeneric.cs" />
@@ -218,6 +297,10 @@
     <Compile Include="Component\View\UserControls\PedidoRestaurante\PedidoUserControl.xaml.cs">
       <DependentUpon>PedidoUserControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="Component\View\ConfiguracaoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Component\View\Rest\RestTela.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -300,9 +383,33 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Erp.Business.Constants.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.FabricanteEcfDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.FormularioDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.IatDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.IpptDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.LocalPedidoRestauranteDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.ModeloNotaFiscalDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.NaturezaContaDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.OperacaoNotaDaGenteDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.OrigemProdutoDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.RegimeTributacaoDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.RelatorioDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.SexoDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.SituacaoTributariaDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.SpedInstituicaoResponsavelDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoAmbienteDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoContaDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoEmailDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoEnderecoDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoPessoaDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoProdutoDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoTelefoneDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoUsuarioDictionary.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas.CondicaoPagamentoRepository.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas.PagamentoPedidoRepository.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Vendas.Pedido.Restaurante.PedidoRestaurante.datasource" />
+    <None Include="Properties\DataSources\Vendas.Dictionarys.TipoPdvDictionary.datasource" />
+    <None Include="Properties\DataSources\Vendas.Properties.Settings.datasource" />
     <None Include="Properties\DataSources\Vendas.ViewModel.Forms.PedidoRestauranteModel.datasource" />
     <None Include="Properties\DataSources\Vendas.ViewModel.Grids.RestauranteModel.datasource" />
     <None Include="Properties\Settings.settings">
@@ -339,7 +446,6 @@
     <Resource Include="Images\abrirMesa.png" />
     <Resource Include="Images\addmesa.png" />
     <Resource Include="Images\addReceita.png" />
-    <Resource Include="Images\balcao.jpg" />
     <Resource Include="Images\cliente.png" />
     <Resource Include="Images\concluir.png" />
     <Resource Include="Images\delete.png" />

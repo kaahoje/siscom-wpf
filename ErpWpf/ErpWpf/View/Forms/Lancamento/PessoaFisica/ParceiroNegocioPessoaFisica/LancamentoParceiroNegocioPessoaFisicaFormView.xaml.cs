@@ -19,9 +19,10 @@ namespace Erp.View.Forms.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica
         public LancamentoParceiroNegocioPessoaFisicaFormView()
         {
             InitializeComponent();
-            Actions = new FormDefaultActions<LancamentoParceiroNegocioPessoaFisica>(this){IsEnableShortcuts = false};
             DataContext = new LancamentoParceiroNegocioPessoaFisicaFormModel();
             RestCommands.DataContext = DataContext;
+            Actions = new FormDefaultActions<LancamentoParceiroNegocioPessoaFisica>(this) { IsEnableShortcuts = false };
+            
         }
 
         private void LancamentoParceiroNegocioPessoaFisicaFormView_OnLoaded(object sender, RoutedEventArgs e)

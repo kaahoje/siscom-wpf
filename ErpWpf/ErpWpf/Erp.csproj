@@ -37,6 +37,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Erp.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
@@ -54,6 +57,7 @@
     <Reference Include="DevExpress.Utils.v13.2.UI, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Xpf.Carousel.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Core.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -229,6 +233,9 @@
     <Compile Include="Model\ModelSelectBase.cs" />
     <Compile Include="Model\ModelSelectGeneric.cs" />
     <Compile Include="Properties\Annotations1.cs" />
+    <Compile Include="Splash.xaml.cs">
+      <DependentUpon>Splash.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Extras\AtualizacaoProdutoFormView.xaml.cs">
       <DependentUpon>AtualizacaoProdutoFormView.xaml</DependentUpon>
     </Compile>
@@ -256,6 +263,9 @@
     </Compile>
     <Compile Include="View\Forms\LoginFormView.xaml.cs">
       <DependentUpon>LoginFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\MesGeradoFormView.xaml.cs">
+      <DependentUpon>MesGeradoFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\NcmFormView.xaml.cs">
       <DependentUpon>NcmFormView.xaml</DependentUpon>
@@ -397,6 +407,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Splash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Extras\AtualizacaoProdutoFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -430,6 +444,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Forms\LoginFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\MesGeradoFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -722,7 +740,25 @@
     <Resource Include="Images\login.png" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="SplashScreen.png" />
+    <Resource Include="Images\entrada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AtualizarProduto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\atualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Erp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Erp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\Splash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

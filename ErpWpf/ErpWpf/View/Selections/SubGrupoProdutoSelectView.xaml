@@ -5,7 +5,7 @@
         xmlns:rest="clr-namespace:Erp.View.Rest"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-             Title="SubGrupoProdutoSelectView" Height="400" Width="450">
+             Title="Seleção de subgrupo de produto" Height="400" Width="450">
 
     <Grid>
         <Grid.RowDefinitions>

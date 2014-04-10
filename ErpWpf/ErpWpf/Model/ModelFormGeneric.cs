@@ -98,8 +98,15 @@ namespace Erp.Model
                 try
                 {
                     var prop = ModelSelect.GetType().GetProperty("CurrentItem");
-                    
-                    Entity = (T) prop.GetValue(ModelSelect);
+                    if (ModelSelect == null)
+                    {
+                        return;
+                    }
+                    var o = (T) prop.GetValue(ModelSelect);
+                    if (!(o == null))
+                    {
+                        Entity = o;
+                    }
                     AplicaPermissoes();
                 }
                 catch (Exception ex)

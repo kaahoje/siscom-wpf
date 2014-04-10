@@ -15,7 +15,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
             Map(x => x.Diferenca);
             Map(x => x.Status);
 
-            References(x => x.Produto).Not.Nullable();
+            References(x => x.Produto).Cascade.All().Not.Nullable();
         }
     }
 }

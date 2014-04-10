@@ -1,11 +1,13 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using Erp.Model.Forms.Pessoa;
 
 namespace Erp.View.Forms.Pessoa
 {
     /// <summary>
     /// Interaction logic for PessoaUserControl.xaml
     /// </summary>
-    public partial class PessoaUserControl : UserControl
+    public partial class PessoaUserControl 
     {
         public PessoaUserControl()
         {
@@ -22,6 +24,16 @@ namespace Erp.View.Forms.Pessoa
             // 	System.Windows.Data.CollectionViewSource myCollectionViewSource = (System.Windows.Data.CollectionViewSource)this.Resources["Resource Key for CollectionViewSource"];
             // 	myCollectionViewSource.Source = your data
             // }
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            TxtCep.Focus();
+        }
+
+        private void TxtCep_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            ((PessoaFormModel) DataContext).BuscarEndereco();
         }
     }
 }

@@ -7,7 +7,7 @@
         Title="Login" Height="250" Width="440" WindowStartupLocation="CenterScreen" WindowStyle="None" 
     Visibility="{Binding IsTelaVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
     PreviewKeyDown="LoginFormView_OnPreviewKeyDown"
-    Closing="LoginFormView_OnClosing">
+    Closing="LoginFormView_OnClosing" Icon="pack://application:,,,/Erp;component/Images/login.png">
     <dx:DXWindow.DataContext>
         <Forms:LoginModelForm/>
     </dx:DXWindow.DataContext>

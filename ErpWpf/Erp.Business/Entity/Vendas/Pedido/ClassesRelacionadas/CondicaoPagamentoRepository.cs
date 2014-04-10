@@ -14,7 +14,8 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
 
         public static IEnumerable<CondicaoPagamento> GetByRange(string filter,int take)
         {
-            return GetQueryOver().Where(x => x.Descricao.IsInsensitiveLike("%" + filter + "%")).Take(take).List();
+            return GetQueryOver().Where(x => x.Descricao.IsInsensitiveLike(ContainsStringFilter(filter)) && 
+                x.Status == Status.Ativo).Take(take).List();
         }
     }
 }

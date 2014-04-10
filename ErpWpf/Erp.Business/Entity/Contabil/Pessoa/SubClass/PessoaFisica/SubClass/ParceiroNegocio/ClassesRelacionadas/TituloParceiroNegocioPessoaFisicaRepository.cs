@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using Erp.Business.Enum;
+using NHibernate.Criterion;
 
 namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas
 {
@@ -32,6 +35,20 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
                 }
 
             }
+        }
+
+        public static IList<TituloParceiroNegocioPessoaFisica> GetByRange(string filter, int takePesquisa)
+        {
+            if (filter.Length == Validation.Validation.GetOnlyNumber(filter).Length)
+            {
+                return GetQueryOver().Where(x => x.Status == Status.Ativo).JoinQueryOver(custo => custo.ParceiroNegocioPessoaFisica)
+                    .Where(parceiroNegocio => parceiroNegocio.Cpf.IsInsensitiveLike(StartStringFilter(filter)))
+                    .Take(takePesquisa).List();
+            }
+            return GetQueryOver().Where(x => x.Status == Status.Ativo).JoinQueryOver(custo => custo.ParceiroNegocioPessoaFisica)
+                    .Where(parceiroNegocio => parceiroNegocio.Nome.IsInsensitiveLike(ContainsStringFilter(filter)) ||
+                        parceiroNegocio.Alias.IsInsensitiveLike(ContainsStringFilter(filter)))
+                    .Take(takePesquisa).List();
         }
     }
 }

@@ -44,15 +44,20 @@
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Images.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Office.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.RichEdit.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v13.2.UI, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -85,6 +90,11 @@
     <Reference Include="DevExpress.Xpf.Scheduler.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v13.2.Extensions, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -233,6 +243,78 @@
     <Compile Include="Model\ModelSelectBase.cs" />
     <Compile Include="Model\ModelSelectGeneric.cs" />
     <Compile Include="Properties\Annotations1.cs" />
+    <Compile Include="Relatorios\CondicoesPagamento\CondicoesPagamento.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\CondicoesPagamento\CondicoesPagamento.Designer.cs">
+      <DependentUpon>CondicoesPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\BaseDatePeriodeLandscape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\BaseDatePeriodeLandscape.Designer.cs">
+      <DependentUpon>BaseDatePeriodeLandscape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\BaseIntegerPeriodeLandscape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\BaseIntegerPeriodeLandscape.Designer.cs">
+      <DependentUpon>BaseIntegerPeriodeLandscape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\BaseMonetaryPeriodeLandscape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\BaseMonetaryPeriodeLandscape.Designer.cs">
+      <DependentUpon>BaseMonetaryPeriodeLandscape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\BasePortrait.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\BasePortrait.Designer.cs">
+      <DependentUpon>BasePortrait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\BaseLandscape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\BaseLandscape.Designer.cs">
+      <DependentUpon>BaseLandscape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\CustosFixos\CustoFixoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\CustosFixos\CustoFixoReport.Designer.cs">
+      <DependentUpon>CustoFixoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\CustosFixos\ParceiroNegocioPessoaFisica\CustoFixoParceiroNegocioPessoaFisicaReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\CustosFixos\ParceiroNegocioPessoaFisica\CustoFixoParceiroNegocioPessoaFisicaReport.Designer.cs">
+      <DependentUpon>CustoFixoParceiroNegocioPessoaFisicaReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\CustosFixos\ParceiroNegocioPessoaJuridica\CustoFixoParceiroNegocioPessoaJuridicaReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\CustosFixos\ParceiroNegocioPessoaJuridica\CustoFixoParceiroNegocioPessoaJuridicaReport.Designer.cs">
+      <DependentUpon>CustoFixoParceiroNegocioPessoaJuridicaReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Lancamentos\LancamentoResumidoPeriodoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Lancamentos\LancamentoResumidoPeriodoReport.Designer.cs">
+      <DependentUpon>LancamentoResumidoPeriodoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Lancamentos\ParceiroNegocioPessoaFisica\LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Lancamentos\ParceiroNegocioPessoaFisica\LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport.Designer.cs">
+      <DependentUpon>LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Lancamentos\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Lancamentos\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport.Designer.cs">
+      <DependentUpon>LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
@@ -638,6 +720,39 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\BaseDatePeriodeLandscape.resx">
+      <DependentUpon>BaseDatePeriodeLandscape.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\BaseIntegerPeriodeLandscape.resx">
+      <DependentUpon>BaseIntegerPeriodeLandscape.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\CondicoesPagamento\CondicoesPagamento.resx">
+      <DependentUpon>CondicoesPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\BasePortrait.resx">
+      <DependentUpon>BasePortrait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\BaseLandscape.resx">
+      <DependentUpon>BaseLandscape.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\CustosFixos\CustoFixoReport.resx">
+      <DependentUpon>CustoFixoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\CustosFixos\ParceiroNegocioPessoaFisica\CustoFixoParceiroNegocioPessoaFisicaReport.resx">
+      <DependentUpon>CustoFixoParceiroNegocioPessoaFisicaReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\CustosFixos\ParceiroNegocioPessoaJuridica\CustoFixoParceiroNegocioPessoaJuridicaReport.resx">
+      <DependentUpon>CustoFixoParceiroNegocioPessoaJuridicaReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Lancamentos\LancamentoResumidoPeriodoReport.resx">
+      <DependentUpon>LancamentoResumidoPeriodoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Lancamentos\ParceiroNegocioPessoaFisica\LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport.resx">
+      <DependentUpon>LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Lancamentos\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport.resx">
+      <DependentUpon>LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Arquivos\dados.zip" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Erp.Business.Constants.datasource" />
@@ -661,11 +776,28 @@
     <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoProdutoDictionary.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoTelefoneDictionary.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Dicionary.TipoUsuarioDictionary.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.CustoFixo.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Lancamento.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.PartidasLancamento.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas.CustoFixoParceiroNegocioPessoaFisica.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas.LancamentoParceiroNegocioPessoaFisica.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas.TituloParceiroNegocioPessoaFisica.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas.CustoFixoParceiroNegocioPessoaJuridica.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas.LancamentoParceiroNegocioPessoaJuridica.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas.TituloParceiroNegocioPessoaJuridica.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.TipoTitulo.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Titulo.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Transferencia.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas.GrupoProduto.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas.SubGrupoProduto.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas.Unidade.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Estoque.Produto.Produto.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Sped.Ncm.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas.CondicaoPagamento.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas.FormaPagamento.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas.PagamentoPedido.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas.PrazoPagamentoCondicaoPagamento.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas.ProdutoPedido.datasource" />
     <None Include="Properties\DataSources\Erp.Model.LargeDataModel.ParceiroNegocioPessoaFisicaLargeDataModel.datasource" />
     <None Include="Properties\DataSources\Erp.Model.LargeDataModel.ParceiroNegocioPessoaJuridicaLargeDataModel.datasource" />
     <None Include="Properties\DataSources\Erp.Model.LargeDataModel.PlanoContaReferencialLargeDataModel.datasource" />
@@ -759,6 +891,19 @@
   </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="Images\Splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Reports\" />
+    <Folder Include="Relatorios\CustosFixos\ParceiroNegocioFisicoJuridico\" />
+    <Folder Include="Relatorios\FormasPagamento\" />
+    <Folder Include="Relatorios\Lancamentos\ParceiroNegocioFisicoJuridico\" />
+    <Folder Include="Relatorios\Pessoa\ParceiroNegocioFisicoJuridico\" />
+    <Folder Include="Relatorios\Pessoa\ParceiroNegocioPessoaFisica\" />
+    <Folder Include="Relatorios\Pessoa\ParceiroNegocioPessoaJuridica\" />
+    <Folder Include="Relatorios\Produto\" />
+    <Folder Include="Relatorios\Titulos\ParceiroNegocioFisicoJuridico\" />
+    <Folder Include="Relatorios\Titulos\ParceiroNegocioPessoaFisica\" />
+    <Folder Include="Relatorios\Titulos\ParceiroNegocioPessoaJuridica\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

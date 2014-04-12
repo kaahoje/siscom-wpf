@@ -36,7 +36,7 @@ namespace Erp.Business.Entity.Estoque.Produto
 
 
             HasMany(x => x.Receitas).KeyColumn("produto_id").Cascade.All().LazyLoad();
-
+            HasMany(x => x.Movimentacao).KeyColumn("produto_id").Cascade.All().LazyLoad();
 
             Table(NomesTabela.Produto);
         }

@@ -1,6 +1,6 @@
 ﻿namespace Erp.Relatorios.CondicoesPagamento
 {
-    partial class CondicoesPagamento
+    partial class CondicaoPagamentoReport
     {
         /// <summary>
         /// Required designer variable.

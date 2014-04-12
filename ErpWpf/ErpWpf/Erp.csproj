@@ -243,11 +243,17 @@
     <Compile Include="Model\ModelSelectBase.cs" />
     <Compile Include="Model\ModelSelectGeneric.cs" />
     <Compile Include="Properties\Annotations1.cs" />
-    <Compile Include="Relatorios\CondicoesPagamento\CondicoesPagamento.cs">
+    <Compile Include="Relatorios\BaseDatePeriodePortrait.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Relatorios\CondicoesPagamento\CondicoesPagamento.Designer.cs">
-      <DependentUpon>CondicoesPagamento.cs</DependentUpon>
+    <Compile Include="Relatorios\BaseDatePeriodePortrait.Designer.cs">
+      <DependentUpon>BaseDatePeriodePortrait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\CondicoesPagamento\CondicaoPagamentoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\CondicoesPagamento\CondicaoPagamentoReport.Designer.cs">
+      <DependentUpon>CondicaoPagamentoReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Relatorios\BaseDatePeriodeLandscape.cs">
       <SubType>Component</SubType>
@@ -297,6 +303,12 @@
     <Compile Include="Relatorios\CustosFixos\ParceiroNegocioPessoaJuridica\CustoFixoParceiroNegocioPessoaJuridicaReport.Designer.cs">
       <DependentUpon>CustoFixoParceiroNegocioPessoaJuridicaReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Relatorios\FormasPagamento\FormaPagamentoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\FormasPagamento\FormaPagamentoReport.Designer.cs">
+      <DependentUpon>FormaPagamentoReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Relatorios\Lancamentos\LancamentoResumidoPeriodoReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -314,6 +326,96 @@
     </Compile>
     <Compile Include="Relatorios\Lancamentos\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport.Designer.cs">
       <DependentUpon>LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Pessoa\PessoaDetalhadaReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Pessoa\PessoaDetalhadaReport.Designer.cs">
+      <DependentUpon>PessoaDetalhadaReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaDetalhadaReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaDetalhadaReport.Designer.cs">
+      <DependentUpon>ParceiroNegocioPessoaFisicaDetalhadaReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Pessoa\PessoaFisica\PessoaFisicaDetalhadaReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Pessoa\PessoaFisica\PessoaFisicaDetalhadaReport.Designer.cs">
+      <DependentUpon>PessoaFisicaDetalhadaReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaDetalhadaReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaDetalhadaReport.Designer.cs">
+      <DependentUpon>ParceiroNegocioPessoaJuridicaDetalhadaReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Pessoa\PessoaJuridica\PessoaJuridicaDetalhadaReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Pessoa\PessoaJuridica\PessoaJuridicaDetalhadaReport.Designer.cs">
+      <DependentUpon>PessoaJuridicaDetalhadaReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Produto\ProdutoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Produto\ProdutoReport.Designer.cs">
+      <DependentUpon>ProdutoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaPeriodoGrupoDataReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaPeriodoGrupoDataReport.Designer.cs">
+      <DependentUpon>TituloParceiroNegocioPessoaFisicaPeriodoGrupoDataReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaPeriodoGrupoTipoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaPeriodoGrupoTipoReport.Designer.cs">
+      <DependentUpon>TituloParceiroNegocioPessoaFisicaPeriodoGrupoTipoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaPeriodoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaPeriodoReport.Designer.cs">
+      <DependentUpon>TituloParceiroNegocioPessoaFisicaPeriodoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaJuridica\TituloParceiroNegocioPessoaJuridicaPeriodoGrupoData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaJuridica\TituloParceiroNegocioPessoaJuridicaPeriodoGrupoData.Designer.cs">
+      <DependentUpon>TituloParceiroNegocioPessoaJuridicaPeriodoGrupoData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaJuridica\TituloParceiroNegocioPessoaJuridicaPeriodoGrupoTipoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaJuridica\TituloParceiroNegocioPessoaJuridicaPeriodoGrupoTipoReport.Designer.cs">
+      <DependentUpon>TituloParceiroNegocioPessoaJuridicaPeriodoGrupoTipoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaJuridica\TituloParceiroNegocioPessoaJuridicaPeriodoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\ParceiroNegocioPessoaJuridica\TituloParceiroNegocioPessoaJuridicaPeriodoReport.Designer.cs">
+      <DependentUpon>TituloParceiroNegocioPessoaJuridicaPeriodoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\TituloPeriodoGrupoDataReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\TituloPeriodoGrupoDataReport.Designer.cs">
+      <DependentUpon>TituloPeriodoGrupoDataReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\TituloPeriodoGrupoTipoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\TituloPeriodoGrupoTipoReport.Designer.cs">
+      <DependentUpon>TituloPeriodoGrupoTipoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\TituloPeriodoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Titulos\TituloPeriodoReport.Designer.cs">
+      <DependentUpon>TituloPeriodoReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
@@ -723,11 +825,14 @@
     <EmbeddedResource Include="Relatorios\BaseDatePeriodeLandscape.resx">
       <DependentUpon>BaseDatePeriodeLandscape.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\BaseDatePeriodePortrait.resx">
+      <DependentUpon>BaseDatePeriodePortrait.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\BaseIntegerPeriodeLandscape.resx">
       <DependentUpon>BaseIntegerPeriodeLandscape.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatorios\CondicoesPagamento\CondicoesPagamento.resx">
-      <DependentUpon>CondicoesPagamento.cs</DependentUpon>
+    <EmbeddedResource Include="Relatorios\CondicoesPagamento\CondicaoPagamentoReport.resx">
+      <DependentUpon>CondicaoPagamentoReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\BasePortrait.resx">
       <DependentUpon>BasePortrait.cs</DependentUpon>
@@ -744,6 +849,9 @@
     <EmbeddedResource Include="Relatorios\CustosFixos\ParceiroNegocioPessoaJuridica\CustoFixoParceiroNegocioPessoaJuridicaReport.resx">
       <DependentUpon>CustoFixoParceiroNegocioPessoaJuridicaReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\FormasPagamento\FormaPagamentoReport.resx">
+      <DependentUpon>FormaPagamentoReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\Lancamentos\LancamentoResumidoPeriodoReport.resx">
       <DependentUpon>LancamentoResumidoPeriodoReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -752,6 +860,51 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\Lancamentos\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport.resx">
       <DependentUpon>LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Pessoa\PessoaDetalhadaReport.resx">
+      <DependentUpon>PessoaDetalhadaReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaDetalhadaReport.resx">
+      <DependentUpon>ParceiroNegocioPessoaFisicaDetalhadaReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Pessoa\PessoaFisica\PessoaFisicaDetalhadaReport.resx">
+      <DependentUpon>PessoaFisicaDetalhadaReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Pessoa\PessoaJuridica\ParceiroNegocioPessoaJuridica\ParceiroNegocioPessoaJuridicaDetalhadaReport.resx">
+      <DependentUpon>ParceiroNegocioPessoaJuridicaDetalhadaReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Pessoa\PessoaJuridica\PessoaJuridicaDetalhadaReport.resx">
+      <DependentUpon>PessoaJuridicaDetalhadaReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Produto\ProdutoReport.resx">
+      <DependentUpon>ProdutoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Titulos\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaPeriodoGrupoDataReport.resx">
+      <DependentUpon>TituloParceiroNegocioPessoaFisicaPeriodoGrupoDataReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Titulos\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaPeriodoGrupoTipoReport.resx">
+      <DependentUpon>TituloParceiroNegocioPessoaFisicaPeriodoGrupoTipoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Titulos\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaPeriodoReport.resx">
+      <DependentUpon>TituloParceiroNegocioPessoaFisicaPeriodoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Titulos\ParceiroNegocioPessoaJuridica\TituloParceiroNegocioPessoaJuridicaPeriodoGrupoData.resx">
+      <DependentUpon>TituloParceiroNegocioPessoaJuridicaPeriodoGrupoData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Titulos\ParceiroNegocioPessoaJuridica\TituloParceiroNegocioPessoaJuridicaPeriodoGrupoTipoReport.resx">
+      <DependentUpon>TituloParceiroNegocioPessoaJuridicaPeriodoGrupoTipoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Titulos\ParceiroNegocioPessoaJuridica\TituloParceiroNegocioPessoaJuridicaPeriodoReport.resx">
+      <DependentUpon>TituloParceiroNegocioPessoaJuridicaPeriodoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Titulos\TituloPeriodoGrupoDataReport.resx">
+      <DependentUpon>TituloPeriodoGrupoDataReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Titulos\TituloPeriodoGrupoTipoReport.resx">
+      <DependentUpon>TituloPeriodoGrupoTipoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Titulos\TituloPeriodoReport.resx">
+      <DependentUpon>TituloPeriodoReport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Arquivos\dados.zip" />
     <None Include="packages.config" />
@@ -779,12 +932,17 @@
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.CustoFixo.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Lancamento.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.PartidasLancamento.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.Pessoa.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.PessoaFisica.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas.CustoFixoParceiroNegocioPessoaFisica.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas.LancamentoParceiroNegocioPessoaFisica.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas.TituloParceiroNegocioPessoaFisica.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.PessoaJuridica.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas.CustoFixoParceiroNegocioPessoaJuridica.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas.LancamentoParceiroNegocioPessoaJuridica.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas.TituloParceiroNegocioPessoaJuridica.datasource" />
+    <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.TipoTitulo.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Titulo.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Entity.Contabil.Transferencia.datasource" />
@@ -895,15 +1053,9 @@
   <ItemGroup>
     <Folder Include="Model\Reports\" />
     <Folder Include="Relatorios\CustosFixos\ParceiroNegocioFisicoJuridico\" />
-    <Folder Include="Relatorios\FormasPagamento\" />
     <Folder Include="Relatorios\Lancamentos\ParceiroNegocioFisicoJuridico\" />
     <Folder Include="Relatorios\Pessoa\ParceiroNegocioFisicoJuridico\" />
-    <Folder Include="Relatorios\Pessoa\ParceiroNegocioPessoaFisica\" />
-    <Folder Include="Relatorios\Pessoa\ParceiroNegocioPessoaJuridica\" />
-    <Folder Include="Relatorios\Produto\" />
     <Folder Include="Relatorios\Titulos\ParceiroNegocioFisicoJuridico\" />
-    <Folder Include="Relatorios\Titulos\ParceiroNegocioPessoaFisica\" />
-    <Folder Include="Relatorios\Titulos\ParceiroNegocioPessoaJuridica\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

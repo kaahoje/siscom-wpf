@@ -29,6 +29,24 @@
                 <dxb:BarButtonItem x:Name="barButtonItem14" Content="Saídas" RibbonStyle="Large"/>
                 <dxb:BarButtonItem x:Name="barButtonItem15" Content="Atualizar produtos" Command="{Binding CmdAbrirTelaAtualizacaoProduto}" RibbonStyle="Large" Glyph="pack://application:,,,/Erp;component/Images/AtualizarProduto.png"/>
                 <dxb:BarButtonItem x:Name="barButtonItem16" Content="Gerar mês" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Chart/DrillDownOnSeries_Chart_32x32.png" Command="{Binding CmdAbrirTelaGerarMes}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem17" Content="Formas de pagamento"/>
+                <dxb:BarButtonItem x:Name="barButtonItem18" Content="Condições de pagamento"/>
+                <dxb:BarButtonItem x:Name="barButtonItem19" Content="Pessoa física"/>
+                <dxb:BarButtonItem x:Name="barButtonItem20" Content="Pessoa física(Data)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem21" Content="Pessoa física(Tipo)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem22" Content="Pessoa jurídica"/>
+                <dxb:BarButtonItem x:Name="barButtonItem23" Content="Pessoa jurídica(Data)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem24" Content="Pessoa jurídica(Tipo)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem25" Content="Física detalhada"/>
+                <dxb:BarButtonItem x:Name="barButtonItem26" Content="Jurídica detalhada"/>
+                <dxb:BarButtonItem x:Name="barButtonItem29" Content="Resumido"/>
+                <dxb:BarButtonItem x:Name="barButtonItem27" Content="Pessoa física resumido"/>
+                <dxb:BarButtonItem x:Name="barButtonItem28" Content="Pessoa jurídica resumido"/>
+                <dxb:BarButtonItem x:Name="barButtonItem30" Content="Produto"/>
+                <dxb:BarButtonItem x:Name="barButtonItem31" Content="Custo fixo"/>
+                <dxb:BarButtonItem x:Name="barButtonItem32" Content="Pessoa física"/>
+                <dxb:BarButtonItem x:Name="barButtonItem33" Content="Pessoa jurídica"/>
+
             </dxb:BarManager.Items>
             <DockPanel>
 
@@ -56,6 +74,39 @@
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem16"/>
                             </dxr:RibbonPageGroup>
                         </dxr:RibbonPage>
+                        <dxr:RibbonPage Caption="Relatórios">
+                            <dxr:RibbonPageGroup Caption="Produto">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem30"/>
+                            </dxr:RibbonPageGroup>
+                            <dxr:RibbonPageGroup Caption="Custo fixo">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem31"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem32"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem33"/>
+                            </dxr:RibbonPageGroup>
+                            <dxr:RibbonPageGroup Caption="Lançamentos">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem29"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem27"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem28"/>
+
+                            </dxr:RibbonPageGroup>
+                            <dxr:RibbonPageGroup Caption="Pessoa">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem25"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem26"/>
+                            </dxr:RibbonPageGroup>
+                            <dxr:RibbonPageGroup Caption="Títulos" ShowCaptionButton="False">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem19"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem20"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem21"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem22"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem23"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem24"/>
+                            </dxr:RibbonPageGroup>
+                            <dxr:RibbonPageGroup Caption="Outros">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem17"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem18"/>
+                            </dxr:RibbonPageGroup>
+                        </dxr:RibbonPage>
+                        <dxr:RibbonPage Caption="Gráficos"/>
                     </dxr:RibbonDefaultPageCategory>
                 </dxr:RibbonControl>
 

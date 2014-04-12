@@ -1,6 +1,6 @@
-﻿namespace Erp.Relatorios.Lancamentos.ParceiroNegocioPessoaJuridica
+﻿namespace Erp.Relatorios.Titulos.ParceiroNegocioPessoaFisica
 {
-    partial class LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport
+    partial class TituloParceiroNegocioPessoaFisicaPeriodoGrupoTipoReport
     {
         /// <summary>
         /// Required designer variable.
@@ -28,57 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas.LancamentoParceiroNegocioPessoaJuridica);
-            // 
-            // xrLabel5
-            // 
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(686F, 0F);
-            // 
-            // xrLabel4
-            // 
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(582F, 0F);
-            // 
-            // xrLabel3
-            // 
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(477.9999F, 0F);
-            // 
-            // xrLabel6
-            // 
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(790F, 0F);
-            // 
-            // xrLabel7
-            // 
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(477.9999F, 0F);
-            // 
-            // xrLabel10
-            // 
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(790F, 0F);
-            // 
-            // xrLabel9
-            // 
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(686F, 0F);
-            // 
-            // xrLabel8
-            // 
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(582F, 0F);
-            // 
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel13});
+            this.PageHeader.HeightF = 25.00001F;
+            this.PageHeader.Controls.SetChildIndex(this.xrLabel13, 0);
+            this.PageHeader.Controls.SetChildIndex(this.xrLabel2, 0);
+            this.PageHeader.Controls.SetChildIndex(this.xrLine1, 0);
             this.PageHeader.Controls.SetChildIndex(this.xrLabel7, 0);
             this.PageHeader.Controls.SetChildIndex(this.xrLabel8, 0);
             this.PageHeader.Controls.SetChildIndex(this.xrLabel9, 0);
             this.PageHeader.Controls.SetChildIndex(this.xrLabel10, 0);
-            this.PageHeader.Controls.SetChildIndex(this.xrLabel13, 0);
+            // 
+            // xrLabel5
+            // 
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(625.1249F, 0F);
+            // 
+            // xrLabel4
+            // 
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(729.1249F, 0F);
+            // 
+            // xrLabel3
+            // 
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(521.1249F, 0F);
+            // 
+            // xrLine1
+            // 
+            this.xrLine1.SizeF = new System.Drawing.SizeF(810.1249F, 2F);
+            // 
+            // xrLabel10
+            // 
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(729.1249F, 0F);
+            // 
+            // xrLabel9
+            // 
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(625.1249F, 0F);
+            // 
+            // xrLabel8
+            // 
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(521.1249F, 0F);
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas.TituloParceiroNegocioPessoaFisica);
             // 
             // lblNomeRelatorio
             // 
@@ -96,47 +94,37 @@
             // detailBand1
             // 
             this.detailBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel11});
+            this.xrLabel12});
+            this.detailBand1.Controls.SetChildIndex(this.xrLabel12, 0);
+            this.detailBand1.Controls.SetChildIndex(this.xrLabel1, 0);
             this.detailBand1.Controls.SetChildIndex(this.xrLabel3, 0);
             this.detailBand1.Controls.SetChildIndex(this.xrLabel4, 0);
             this.detailBand1.Controls.SetChildIndex(this.xrLabel5, 0);
             this.detailBand1.Controls.SetChildIndex(this.xrLabel6, 0);
-            this.detailBand1.Controls.SetChildIndex(this.xrLabel11, 0);
-            // 
-            // xrLabel11
-            // 
-            this.xrLabel11.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ParceiroNegocioPessoaJuridica.RazaoSocial")});
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(114F, 0F);
-            this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(359.9999F, 23F);
-            this.xrLabel11.Text = "xrLabel11";
             // 
             // xrLabel12
             // 
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(115F, 0F);
+            this.xrLabel12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ParceiroNegocioPessoaFisica.Nome")});
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(247.125F, 0F);
             this.xrLabel12.Name = "xrLabel12";
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(358.9999F, 23F);
-            this.xrLabel12.Text = "";
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(270F, 23F);
+            this.xrLabel12.Text = "xrLabel11";
             // 
             // xrLabel13
             // 
-            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(114F, 0F);
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(247.125F, 0F);
             this.xrLabel13.Name = "xrLabel13";
-            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel13.SizeF = new System.Drawing.SizeF(359.9999F, 23F);
-            this.xrLabel13.Text = "Razão social";
+            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel13.SizeF = new System.Drawing.SizeF(270F, 23F);
+            this.xrLabel13.Text = "Nome";
             // 
-            // LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport
+            // TituloParceiroNegocioPessoaFisicaPeriodoGrupoTipoReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.detailBand1,
             this.PageHeader});
-            this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.dataInicial,
-            this.dataFinal});
             this.Version = "13.2";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -145,7 +133,6 @@
 
         #endregion
 
-        private DevExpress.XtraReports.UI.XRLabel xrLabel11;
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.XtraReports.UI.XRLabel xrLabel13;
     }

@@ -107,5 +107,7 @@ namespace Erp.Business.Entity.Estoque.Produto
         [Required(ErrorMessage = Constants.MessageRequiredError)]
         public virtual Unidade UnidadeVenda { get; set; }
         public virtual Status Status { get; set; }
+
+        public virtual IList<MovimentacaoProduto> Movimentacao { get; set; } 
     }
 }

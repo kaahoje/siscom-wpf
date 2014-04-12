@@ -4,11 +4,26 @@ using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using System.Windows.Input;
 using DevExpress.Xpf.Docking;
+using DevExpress.XtraReports.UI;
 using Erp.Enum;
-using Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica;
+using Erp.Relatorios.CondicoesPagamento;
+using Erp.Relatorios.CustosFixos;
+using Erp.Relatorios.CustosFixos.ParceiroNegocioPessoaFisica;
+using Erp.Relatorios.CustosFixos.ParceiroNegocioPessoaJuridica;
+using Erp.Relatorios.FormasPagamento;
+using Erp.Relatorios.Lancamentos;
+using Erp.Relatorios.Lancamentos.ParceiroNegocioPessoaFisica;
+using Erp.Relatorios.Lancamentos.ParceiroNegocioPessoaJuridica;
+using Erp.Relatorios.Pessoa.PessoaFisica;
+using Erp.Relatorios.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica;
+using Erp.Relatorios.Pessoa.PessoaJuridica;
+using Erp.Relatorios.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica;
+using Erp.Relatorios.Produto;
+using Erp.Relatorios.Titulos;
+using Erp.Relatorios.Titulos.ParceiroNegocioPessoaFisica;
+using Erp.Relatorios.Titulos.ParceiroNegocioPessoaJuridica;
 using Erp.View.Extras;
 using Erp.View.Forms;
-using Erp.View.Forms.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica;
 using Erp.View.Forms.Pessoa;
 using ErpWpf.Annotations;
 using Util.Wpf;
@@ -82,10 +97,10 @@ namespace Erp.Model
         #endregion
         #region Commands
 
-        public ICommand CmdAbrirTelaCustoFixo { get { return new RelayCommandBase(x=>AbrirTelaCustoFixo());} }
-        public ICommand CmdAbrirTelaTitulo { get { return new RelayCommandBase(x=>AbrirTelaTitulo());} }
-        public ICommand CmdAbrirTelaLancamento { get { return new RelayCommandBase(x=>AbrirTelaLancamento());} }
-        public ICommand CmdAbrirTelaTipoTitulo{ get { return new RelayCommandBase(x=>AbrirTelaTipoTitulo());} }
+        public ICommand CmdAbrirTelaCustoFixo { get { return new RelayCommandBase(x => AbrirTelaCustoFixo()); } }
+        public ICommand CmdAbrirTelaTitulo { get { return new RelayCommandBase(x => AbrirTelaTitulo()); } }
+        public ICommand CmdAbrirTelaLancamento { get { return new RelayCommandBase(x => AbrirTelaLancamento()); } }
+        public ICommand CmdAbrirTelaTipoTitulo { get { return new RelayCommandBase(x => AbrirTelaTipoTitulo()); } }
         public ICommand CmdAbrirTelaPermissoesUsuario { get { return new RelayCommandBase(x => AbrirTelaPermissoesUsuario()); } }
         public ICommand CmdAbrirTelaGerarMes { get { return new RelayCommandBase(x => AbrirTelaGerarMes()); } }
 
@@ -94,7 +109,7 @@ namespace Erp.Model
             get { return new RelayCommandBase(x => AbrirTelaParceiroNegocio()); }
         }
 
-        
+
 
         public ICommand CmdAbrirTelaUnidade
         {
@@ -208,6 +223,244 @@ namespace Erp.Model
         }
 
         #endregion
+
+        #region Comandos de abertura de relatórios
+
+        public void AbrirRelatorio(XtraReport report)
+        {
+
+        }
+        #region Condiões de pagamento
+        public ICommand CmdRelatorioCondicaoPagamento { get { return new RelayCommandBase(x => RelatorioCondicaoPagamento()); } }
+
+        private void RelatorioCondicaoPagamento()
+        {
+            AbrirRelatorio(new CondicaoPagamentoReport());
+        }
+
+        #endregion
+
+        #region Custo fixo
+
+        public ICommand CmdRelatorioCustoFixo { get { return new RelayCommandBase(x => RelatorioCustoFixo()); } }
+
+        private void RelatorioCustoFixo()
+        {
+            AbrirRelatorio(new CustoFixoReport());
+        }
+        public ICommand CmdRelatorioCustoFixoParceiroNegocioPessoaFisica { get { return new RelayCommandBase(x => RelatorioCustoFixoParceiroNegocioPessoaFisica()); } }
+
+        private void RelatorioCustoFixoParceiroNegocioPessoaFisica()
+        {
+            AbrirRelatorio(new CustoFixoParceiroNegocioPessoaFisicaReport());
+        }
+
+        public ICommand CmdRelatorioCustoFixoParceiroNegocioPessoaJuridica { get { return new RelayCommandBase(x => RelatorioCustoFixoParceiroNegocioPessoaJuridica()); } }
+
+        private void RelatorioCustoFixoParceiroNegocioPessoaJuridica()
+        {
+            AbrirRelatorio(new CustoFixoParceiroNegocioPessoaJuridicaReport());
+        }
+
+        #endregion
+
+        #region Formas de pagamento
+        public ICommand CmdRelatorioFormaPagamento { get { return new RelayCommandBase(x => RelatorioFormaPagamento()); } }
+
+        private void RelatorioFormaPagamento()
+        {
+            AbrirRelatorio(new FormaPagamentoReport());
+        }
+
+        #endregion
+
+        #region Lançamentos
+        #region Resumidos
+        public ICommand CmdRelatorioLancamentoResumidoPeriodo { get { return new RelayCommandBase(x => RelatorioLancamentoResumidoPeriodo()); } }
+
+        private void RelatorioLancamentoResumidoPeriodo()
+        {
+            AbrirRelatorio(new LancamentoResumidoPeriodoReport());
+        }
+
+        public ICommand CmdRelatorioLancamentoParceiroNegocioPessoaFisicaResumidoPeriodo { get { return new RelayCommandBase(x => RelatorioLancamentoParceiroNegocioPessoaFisicaResumidoPeriodo()); } }
+
+        private void RelatorioLancamentoParceiroNegocioPessoaFisicaResumidoPeriodo()
+        {
+            AbrirRelatorio(new LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport());
+        }
+        public ICommand CmdRelatorioLancamentoParceiroNegocioPessoaJuridicaResumidoPeriodo { get { return new RelayCommandBase(x => RelatorioLancamentoParceiroNegocioPessoaJuridicaResumidoPeriodo()); } }
+
+        private void RelatorioLancamentoParceiroNegocioPessoaJuridicaResumidoPeriodo()
+        {
+            AbrirRelatorio(new LancamentoParceiroNegocioPessoaJuridicaResumidoPeriodoReport());
+        }
+
+        #endregion
+
+        #region Detalhados
+
+        #endregion
+
+        #endregion
+
+        #region Pessoa
+        #region Resumida
+
+        #endregion
+
+        #region Detalhada
+
+        public ICommand CmdRelatorioPessoaFisicaDetalhada
+        {
+            get { return new RelayCommandBase(x => RelatorioPessoaFisicaDetalhada()); }
+        }
+
+        private void RelatorioPessoaFisicaDetalhada()
+        {
+            AbrirRelatorio(new PessoaFisicaDetalhadaReport());
+        }
+
+        public ICommand CmdRelatorioPessoaJuridicaDetalhada
+        {
+            get { return new RelayCommandBase(x=>RelatorioPessoaJuridicaDetalhada());}
+        }
+
+        private void RelatorioPessoaJuridicaDetalhada()
+        {
+            AbrirRelatorio(new PessoaJuridicaDetalhadaReport());
+        }
+
+        public ICommand CmdRelatorioParceiroNegocioPessoaFisicaDetalhada
+        {
+            get { return new RelayCommandBase(x=>RelatorioParceiroNegocioPessoaFisicaDetalhada());}
+        }
+
+        private void RelatorioParceiroNegocioPessoaFisicaDetalhada()
+        {
+            AbrirRelatorio(new ParceiroNegocioPessoaFisicaDetalhadaReport());
+        }
+
+        public ICommand CmdRelatorioParceiroNegocioPessoaJuridicaDetalhada
+        {
+            get {return new RelayCommandBase(x=>RelatorioParceiroNegocioPessoaJuridicaDetalhada());}
+        }
+
+        private void RelatorioParceiroNegocioPessoaJuridicaDetalhada()
+        {
+            AbrirRelatorio(new ParceiroNegocioPessoaJuridicaDetalhadaReport());
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Produto
+
+        public ICommand CmdRelatorioProduto
+        {
+            get { return new RelayCommandBase(x=>RelatorioProduto());}
+        }
+
+        private void RelatorioProduto()
+        {
+            AbrirRelatorio(new ProdutoReport());
+        }
+
+        #endregion
+
+        #region Titulos
+
+        public ICommand CmdRelatorioTituloPeriodo
+        {
+            get { return new RelayCommandBase(x=>RelatorioTituloPeriodo());}
+        }
+
+        private void RelatorioTituloPeriodo()
+        {
+            AbrirRelatorio(new TituloPeriodoReport());
+        }
+
+        public ICommand CmdRelatorioTituloPeriodoGrupoData
+        {
+            get { return new RelayCommandBase(x=>RelatorioTituloPeriodoGrupoData());}
+        }
+
+        private void RelatorioTituloPeriodoGrupoData()
+        {
+            AbrirRelatorio(new TituloPeriodoGrupoDataReport());
+        }
+        public ICommand CmdRelatorioTituloPeriodoGrupoTipo
+        {
+            get { return new RelayCommandBase(x=>RelatorioTituloPeriodoGrupoTipo());}
+        }
+
+        private void RelatorioTituloPeriodoGrupoTipo()
+        {
+            AbrirRelatorio(new TituloPeriodoGrupoTipoReport());
+        }
+        public ICommand CmdRelatorioTituloParceiroNegocioPessoaFisicaPeriodo
+        {
+            get { return new RelayCommandBase(x => RelatorioTituloParceiroNegocioPessoaFisicaPeriodo()); }
+        }
+
+        private void RelatorioTituloParceiroNegocioPessoaFisicaPeriodo()
+        {
+            AbrirRelatorio(new TituloParceiroNegocioPessoaFisicaPeriodoReport());
+        }
+
+        public ICommand CmdRelatorioTituloParceiroNegocioPessoaFisicaPeriodoGrupoData
+        {
+            get { return new RelayCommandBase(x => RelatorioTituloParceiroNegocioPessoaFisicaPeriodoGrupoData()); }
+        }
+
+        private void RelatorioTituloParceiroNegocioPessoaFisicaPeriodoGrupoData()
+        {
+            AbrirRelatorio(new TituloParceiroNegocioPessoaFisicaPeriodoGrupoDataReport());
+        }
+        public ICommand CmdRelatorioTituloParceiroNegocioPessoaFisicaPeriodoGrupoTipo
+        {
+            get { return new RelayCommandBase(x => RelatorioTituloParceiroNegocioPessoaFisicaPeriodoGrupoTipo()); }
+        }
+
+        private void RelatorioTituloParceiroNegocioPessoaFisicaPeriodoGrupoTipo()
+        {
+            AbrirRelatorio(new TituloParceiroNegocioPessoaFisicaPeriodoGrupoTipoReport());
+        }
+
+        public ICommand CmdRelatorioTituloParceiroNegocioPessoaJuridicaPeriodo
+        {
+            get { return new RelayCommandBase(x => RelatorioTituloParceiroNegocioPessoaJuridicaPeriodo()); }
+        }
+
+        private void RelatorioTituloParceiroNegocioPessoaJuridicaPeriodo()
+        {
+            AbrirRelatorio(new TituloParceiroNegocioPessoaJuridicaPeriodoReport());
+        }
+
+        public ICommand CmdRelatorioTituloParceiroNegocioPessoaJuridicaPeriodoGrupoData
+        {
+            get { return new RelayCommandBase(x => RelatorioTituloParceiroNegocioPessoaJuridicaPeriodoGrupoData()); }
+        }
+
+        private void RelatorioTituloParceiroNegocioPessoaJuridicaPeriodoGrupoData()
+        {
+            AbrirRelatorio(new TituloParceiroNegocioPessoaJuridicaPeriodoGrupoData());
+        }
+        public ICommand CmdRelatorioTituloParceiroNegocioPessoaJuridicaPeriodoGrupoTipo
+        {
+            get { return new RelayCommandBase(x => RelatorioTituloParceiroNegocioPessoaJuridicaPeriodoGrupoTipo()); }
+        }
+
+        private void RelatorioTituloParceiroNegocioPessoaJuridicaPeriodoGrupoTipo()
+        {
+            AbrirRelatorio(new TituloParceiroNegocioPessoaJuridicaPeriodoGrupoTipoReport());
+        }
+
+        #endregion
+
+        #endregion
+
         #region Comandos de abertura de telas extras
 
         private void AbrirTelaAtualizacaoProduto()

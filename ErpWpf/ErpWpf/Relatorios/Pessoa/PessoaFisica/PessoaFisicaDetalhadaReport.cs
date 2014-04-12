@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 
-namespace Erp.Relatorios.CondicoesPagamento
+namespace Erp.Relatorios.Pessoa.PessoaFisica
 {
-    public partial class CondicoesPagamento : BaseLandscape
+    public partial class PessoaFisicaDetalhadaReport : Erp.Relatorios.Pessoa.PessoaDetalhadaReport
     {
-        public CondicoesPagamento()
+        public PessoaFisicaDetalhadaReport()
         {
             InitializeComponent();
         }

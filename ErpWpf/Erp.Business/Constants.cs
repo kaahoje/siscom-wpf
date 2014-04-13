@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Erp.Business
+﻿namespace Erp.Business
 {
     public class Constants
     {

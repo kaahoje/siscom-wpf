@@ -1,9 +1,6 @@
-﻿using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraReports.Parameters;
+using Erp.Business.Entity.Contabil;
+using NHibernate.Criterion;
 
 namespace Erp.Relatorios.Lancamentos
 {
@@ -14,5 +11,14 @@ namespace Erp.Relatorios.Lancamentos
             InitializeComponent();
         }
 
+        public override AbstractCriterion GetExpression()
+        {
+            return Restrictions.Between("DataLancamento", DataInicialAbreviada(), DataFinalAbreviada());
+        }
+
+        private void LancamentoResumidoPeriodoReport_ParametersRequestSubmit(object sender, ParametersRequestEventArgs e)
+        {
+            bindingSource.DataSource = LancamentoRepository.GetListAtivos(GetExpression());
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Erp.Model.Extras;
 
 namespace Erp.View.Extras
@@ -23,7 +24,7 @@ namespace Erp.View.Extras
             Model.Fechar += Model_Fechar;
         }
 
-        void Model_Fechar(object sender, System.EventArgs e)
+        void Model_Fechar(object sender, EventArgs e)
         {
             Close();
         }

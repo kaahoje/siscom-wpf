@@ -1,7 +1,4 @@
-﻿using System;
-using Erp.Business;
-using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas;
-using Erp.Business.Enum;
+﻿using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Model.Grids.Lancamento.PessoaFisica.ParceiroNegocioPessoaFisica;
 using Erp.Model.LargeDataModel;
 

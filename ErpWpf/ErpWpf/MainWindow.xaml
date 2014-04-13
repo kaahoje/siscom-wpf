@@ -29,23 +29,23 @@
                 <dxb:BarButtonItem x:Name="barButtonItem14" Content="Saídas" RibbonStyle="Large"/>
                 <dxb:BarButtonItem x:Name="barButtonItem15" Content="Atualizar produtos" Command="{Binding CmdAbrirTelaAtualizacaoProduto}" RibbonStyle="Large" Glyph="pack://application:,,,/Erp;component/Images/AtualizarProduto.png"/>
                 <dxb:BarButtonItem x:Name="barButtonItem16" Content="Gerar mês" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Chart/DrillDownOnSeries_Chart_32x32.png" Command="{Binding CmdAbrirTelaGerarMes}"/>
-                <dxb:BarButtonItem x:Name="barButtonItem17" Content="Formas de pagamento"/>
-                <dxb:BarButtonItem x:Name="barButtonItem18" Content="Condições de pagamento"/>
-                <dxb:BarButtonItem x:Name="barButtonItem19" Content="Pessoa física"/>
-                <dxb:BarButtonItem x:Name="barButtonItem20" Content="Pessoa física(Data)"/>
-                <dxb:BarButtonItem x:Name="barButtonItem21" Content="Pessoa física(Tipo)"/>
-                <dxb:BarButtonItem x:Name="barButtonItem22" Content="Pessoa jurídica"/>
-                <dxb:BarButtonItem x:Name="barButtonItem23" Content="Pessoa jurídica(Data)"/>
-                <dxb:BarButtonItem x:Name="barButtonItem24" Content="Pessoa jurídica(Tipo)"/>
-                <dxb:BarButtonItem x:Name="barButtonItem25" Content="Física detalhada"/>
-                <dxb:BarButtonItem x:Name="barButtonItem26" Content="Jurídica detalhada"/>
-                <dxb:BarButtonItem x:Name="barButtonItem29" Content="Resumido"/>
-                <dxb:BarButtonItem x:Name="barButtonItem27" Content="Pessoa física resumido"/>
-                <dxb:BarButtonItem x:Name="barButtonItem28" Content="Pessoa jurídica resumido"/>
-                <dxb:BarButtonItem x:Name="barButtonItem30" Content="Produto"/>
-                <dxb:BarButtonItem x:Name="barButtonItem31" Content="Custo fixo"/>
-                <dxb:BarButtonItem x:Name="barButtonItem32" Content="Pessoa física"/>
-                <dxb:BarButtonItem x:Name="barButtonItem33" Content="Pessoa jurídica"/>
+                <dxb:BarButtonItem x:Name="barButtonItem17" Content="Formas de pagamento" Command="{Binding CmdRelatorioFormaPagamento}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem18" Content="Condições de pagamento" Command="{Binding CmdRelatorioCondicaoPagamento}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem19" Content="Pessoa física" Command="{Binding CmdRelatorioTituloParceiroNegocioPessoaFisicaPeriodo}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem20" Content="Pessoa física(Data)" Command="{Binding CmdRelatorioTituloParceiroNegocioPessoaFisicaPeriodoGrupoData}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem21" Content="Pessoa física(Tipo)" Command="{Binding CmdRelatorioTituloParceiroNegocioPessoaFisicaPeriodoGrupoTipo}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem22" Content="Pessoa jurídica" Command="{Binding CmdRelatorioTituloParceiroNegocioPessoaJuridicaPeriodo}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem23" Content="Pessoa jurídica(Data)" Command="{Binding CmdRelatorioTituloParceiroNegocioPessoaJuridicaPeriodoGrupoData}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem24" Content="Pessoa jurídica(Tipo)" Command="{Binding CmdRelatorioTituloParceiroNegocioPessoaJuridicaPeriodoGrupoTipo}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem25" Content="Física detalhada" Command="{Binding CmdRelatorioParceiroNegocioPessoaFisicaDetalhada}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem26" Content="Jurídica detalhada" Command="{Binding CmdRelatorioParceiroNegocioPessoaJuridicaDetalhada}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem29" Content="Resumido" Command="{Binding CmdRelatorioLancamentoResumidoPeriodo}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem27" Content="Pessoa física resumido" Command="{Binding CmdRelatorioLancamentoParceiroNegocioPessoaFisicaResumidoPeriodo}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem28" Content="Pessoa jurídica resumido" Command="{Binding CmdRelatorioLancamentoParceiroNegocioPessoaJuridicaResumidoPeriodo}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem30" Content="Produto" Command="{Binding CmdRelatorioProduto}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem31" Content="Custo fixo" Command="{Binding CmdRelatorioCustoFixo}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem32" Content="Pessoa física" Command="{Binding CmdRelatorioCustoFixoParceiroNegocioPessoaFisica}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem33" Content="Pessoa jurídica" Command="{Binding CmdRelatorioCustoFixoParceiroNegocioPessoaJuridica}"/>
 
             </dxb:BarManager.Items>
             <DockPanel>

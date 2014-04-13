@@ -51,7 +51,8 @@
                               SelectedItem="{Binding Entity.TipoTitulo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Valor:" Margin="5" />
             <dxe:SpinEdit Grid.Row="3" Grid.Column="1" Margin="7"  Width="150" HorizontalAlignment="Left"
-				Mask="{Binding Constants.MaskMoneyProperty}" MaskUseAsDisplayFormat="True"/>
+				Mask="{Binding Constants.MaskMoneyProperty}" MaskUseAsDisplayFormat="True"
+                          EditValue="{Binding Entity.Valor}"/>
             <Label Grid.Row="4" Grid.Column="0" Content="Observações:" Margin="5" />
             <dxe:TextEdit Grid.Row="4" Grid.Column="1" Margin="7" 
                           EditValue="{Binding Entity.Observacoes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>

@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using DevExpress.Xpf.Ribbon.Customization;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas;
-using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Properties;
 using Erp.View.Selections.CustoFixo.PessoaFisica.ParceiroNegocioPessoaFisica;
 

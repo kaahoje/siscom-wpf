@@ -1,6 +1,5 @@
 ﻿using System.Windows.Input;
 using Erp.Enum;
-using Erp.Model.Forms.Pessoa;
 using Erp.View.Model.Forms.Pessoa;
 
 namespace Erp.View.Forms.Pessoa

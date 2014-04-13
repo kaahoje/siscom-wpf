@@ -1,9 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using DevExpress.XtraReports.UI;
+﻿using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 
 namespace Erp.Relatorios.CondicoesPagamento
 {
@@ -12,6 +7,8 @@ namespace Erp.Relatorios.CondicoesPagamento
         public CondicaoPagamentoReport()
         {
             InitializeComponent();
+            bindingSource.DataSource = CondicaoPagamentoRepository.GetListAtivos();
+            
         }
 
     }

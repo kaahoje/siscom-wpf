@@ -98,8 +98,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
                {
                    Mapper.CreateMap(typeof (ParceiroNegocioPessoaFisicaFormModel),
                        typeof (
-                           Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.
-                               ParceiroNegocioPessoaFisica));
+                           Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica));
                    Mapper.Map(this, Entity);
                    EntityParceiroNegocioPessoaFisica.Cpf =
                        Validation.GetOnlyNumber(EntityParceiroNegocioPessoaFisica.Cpf);

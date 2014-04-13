@@ -1,17 +1,13 @@
-﻿using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using DevExpress.XtraReports.UI;
+﻿using Erp.Business.Entity.Estoque.Produto;
 
 namespace Erp.Relatorios.Produto
 {
-    public partial class ProdutoReport : Erp.Relatorios.BaseLandscape
+    public partial class ProdutoReport : BaseLandscape
     {
         public ProdutoReport()
         {
             InitializeComponent();
+            bindingSource.DataSource = ProdutoRepository.GetListAtivos();
         }
 
     }

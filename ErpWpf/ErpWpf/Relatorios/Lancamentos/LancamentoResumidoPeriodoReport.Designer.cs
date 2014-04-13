@@ -46,10 +46,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
+            // dataInicial
+            // 
+            this.dataInicial.ValueInfo = "";
+            // 
+            // dataFinal
+            // 
+            this.dataFinal.ValueInfo = "";
+            // 
             // lblNomeRelatorio
             // 
             this.lblNomeRelatorio.StylePriority.UseFont = false;
             this.lblNomeRelatorio.StylePriority.UseTextAlignment = false;
+            this.lblNomeRelatorio.Text = "Lançamentos modelo resumido";
             // 
             // lblRazaoSocial
             // 
@@ -198,6 +207,7 @@
             this.dataInicial,
             this.dataFinal});
             this.Version = "13.2";
+            this.ParametersRequestSubmit += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.LancamentoResumidoPeriodoReport_ParametersRequestSubmit);
             this.Controls.SetChildIndex(this.PageHeader, 0);
             this.Controls.SetChildIndex(this.detailBand1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();

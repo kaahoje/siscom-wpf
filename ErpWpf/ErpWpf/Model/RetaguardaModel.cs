@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using DevExpress.Xpf.Docking;
 using DevExpress.XtraReports.UI;
+using Erp.Business;
 using Erp.Enum;
 using Erp.Relatorios.CondicoesPagamento;
 using Erp.Relatorios.CustosFixos;
@@ -26,6 +27,7 @@ using Erp.View.Extras;
 using Erp.View.Forms;
 using Erp.View.Forms.Pessoa;
 using ErpWpf.Annotations;
+using NHibernate;
 using Util.Wpf;
 
 namespace Erp.Model
@@ -228,7 +230,9 @@ namespace Erp.Model
 
         public void AbrirRelatorio(XtraReport report)
         {
-
+            NHibernateHttpModule.Session.CacheMode = CacheMode.Refresh;
+            report.ShowPreviewDialog();
+            NHibernateHttpModule.Session.CacheMode = CacheMode.Normal;
         }
         #region Condiões de pagamento
         public ICommand CmdRelatorioCondicaoPagamento { get { return new RelayCommandBase(x => RelatorioCondicaoPagamento()); } }

@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using Erp.Model.Forms.Pessoa;
 
 namespace Erp.View.Forms.Pessoa
@@ -14,7 +13,7 @@ namespace Erp.View.Forms.Pessoa
             InitializeComponent();
         }
 
-        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
 
             // Do not load your data at design time.

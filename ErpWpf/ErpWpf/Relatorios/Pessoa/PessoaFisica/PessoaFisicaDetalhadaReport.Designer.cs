@@ -45,6 +45,7 @@
             // 
             this.lblNomeRelatorio.StylePriority.UseFont = false;
             this.lblNomeRelatorio.StylePriority.UseTextAlignment = false;
+            this.lblNomeRelatorio.Text = "Pessoa física (Detalhado)";
             // 
             // lblRazaoSocial
             // 
@@ -71,7 +72,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Nome")});
             this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(49.00002F, 10F);
             this.xrLabel23.Name = "xrLabel23";
-            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel23.SizeF = new System.Drawing.SizeF(250F, 23F);
             this.xrLabel23.Text = "xrLabel23";
             // 
@@ -79,7 +80,7 @@
             // 
             this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
             this.xrLabel24.Name = "xrLabel24";
-            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel24.SizeF = new System.Drawing.SizeF(45.00001F, 23F);
             this.xrLabel24.Text = "Nome:";
             // 
@@ -87,7 +88,7 @@
             // 
             this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(304F, 10.00001F);
             this.xrLabel25.Name = "xrLabel25";
-            this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel25.SizeF = new System.Drawing.SizeF(38.12501F, 23F);
             this.xrLabel25.Text = "CPF:";
             // 
@@ -97,7 +98,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Cpf")});
             this.xrLabel26.LocationFloat = new DevExpress.Utils.PointFloat(346.125F, 10.00001F);
             this.xrLabel26.Name = "xrLabel26";
-            this.xrLabel26.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel26.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel26.SizeF = new System.Drawing.SizeF(150F, 23F);
             this.xrLabel26.Text = "xrLabel26";
             // 
@@ -107,7 +108,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sexo")});
             this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(549.1251F, 10.00001F);
             this.xrLabel27.Name = "xrLabel27";
-            this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel27.SizeF = new System.Drawing.SizeF(150F, 23F);
             this.xrLabel27.Text = "xrLabel27";
             // 
@@ -124,6 +125,7 @@
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.detailBand1});
             this.Version = "13.2";
+            this.ParametersRequestSubmit += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.PessoaFisicaDetalhadaReport_ParametersRequestSubmit);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

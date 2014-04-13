@@ -63,7 +63,7 @@
             // 
             this.xrLabel33.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 56F);
             this.xrLabel33.Name = "xrLabel33";
-            this.xrLabel33.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel33.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel33.SizeF = new System.Drawing.SizeF(81.25F, 23F);
             this.xrLabel33.Text = "Limite:";
             // 
@@ -73,7 +73,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "LimiteCredito", "{0:$0.00}")});
             this.xrLabel34.LocationFloat = new DevExpress.Utils.PointFloat(91.25001F, 55.99998F);
             this.xrLabel34.Name = "xrLabel34";
-            this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel34.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel34.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel34.Text = "xrLabel34";
             // 
@@ -82,6 +82,7 @@
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.detailBand1});
             this.Version = "13.2";
+            this.ParametersRequestSubmit += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.ParceiroNegocioPessoaJuridicaDetalhadaReport_ParametersRequestSubmit);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

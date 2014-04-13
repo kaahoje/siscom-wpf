@@ -50,6 +50,7 @@ namespace Erp.Business
                     session = OpenSession();
                     currentContext.Items[Key] = session;
                 }
+                session.FlushMode = FlushMode.Commit;
                 return session;
             }
         }

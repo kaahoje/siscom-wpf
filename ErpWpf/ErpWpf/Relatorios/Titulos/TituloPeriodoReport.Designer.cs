@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraReports.Parameters.StaticListLookUpSettings staticListLookUpSettings1 = new DevExpress.XtraReports.Parameters.StaticListLookUpSettings();
+            DevExpress.XtraReports.Parameters.StaticListLookUpSettings staticListLookUpSettings2 = new DevExpress.XtraReports.Parameters.StaticListLookUpSettings();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
@@ -42,6 +44,8 @@
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.baixado = new DevExpress.XtraReports.Parameters.Parameter();
+            this.entrada = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -181,13 +185,37 @@
             this.xrLabel6.SizeF = new System.Drawing.SizeF(200F, 23F);
             this.xrLabel6.Text = "xrLabel6";
             // 
+            // baixado
+            // 
+            this.baixado.Description = "Baixado";
+            staticListLookUpSettings1.LookUpValues.Add(new DevExpress.XtraReports.Parameters.LookUpValue("Todos", "Todos"));
+            staticListLookUpSettings1.LookUpValues.Add(new DevExpress.XtraReports.Parameters.LookUpValue("Baixado", "Baixados"));
+            staticListLookUpSettings1.LookUpValues.Add(new DevExpress.XtraReports.Parameters.LookUpValue("Aberto", "Em aberto"));
+            this.baixado.LookUpSettings = staticListLookUpSettings1;
+            this.baixado.Name = "baixado";
+            this.baixado.ValueInfo = "Todos";
+            // 
+            // entrada
+            // 
+            this.entrada.Description = "Entrada/Saída";
+            staticListLookUpSettings2.LookUpValues.Add(new DevExpress.XtraReports.Parameters.LookUpValue("Todos", "Todos"));
+            staticListLookUpSettings2.LookUpValues.Add(new DevExpress.XtraReports.Parameters.LookUpValue("Entrada", "Entradas"));
+            staticListLookUpSettings2.LookUpValues.Add(new DevExpress.XtraReports.Parameters.LookUpValue("Saida", "Saídas"));
+            this.entrada.LookUpSettings = staticListLookUpSettings2;
+            this.entrada.Name = "entrada";
+            this.entrada.ValueInfo = "Todos";
+            // 
             // TituloPeriodoReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.detailBand1,
             this.PageHeader});
             this.DataSource = this.bindingSource;
+            this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
+            this.baixado,
+            this.entrada});
             this.Version = "13.2";
+            this.ParametersRequestSubmit += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.TituloPeriodoReport_ParametersRequestSubmit);
             this.Controls.SetChildIndex(this.PageHeader, 0);
             this.Controls.SetChildIndex(this.detailBand1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
@@ -210,5 +238,7 @@
         protected DevExpress.XtraReports.UI.XRLabel xrLabel6;
         protected DevExpress.XtraReports.UI.XRLabel xrLabel7;
         protected System.Windows.Forms.BindingSource bindingSource;
+        private DevExpress.XtraReports.Parameters.Parameter baixado;
+        private DevExpress.XtraReports.Parameters.Parameter entrada;
     }
 }

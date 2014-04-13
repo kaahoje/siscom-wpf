@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using DevExpress.Xpf.Ribbon.Customization;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;

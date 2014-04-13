@@ -1,6 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
-using System.Windows;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
 
 namespace Erp.Model
@@ -91,7 +91,7 @@ namespace Erp.Model
             }
         }
 
-        void value_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        void value_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "CurrentItem")
             {

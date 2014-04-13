@@ -73,7 +73,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "LimiteCredito", "{0:$0.00}")});
             this.xrLabel30.LocationFloat = new DevExpress.Utils.PointFloat(759.1668F, 10.00001F);
             this.xrLabel30.Name = "xrLabel30";
-            this.xrLabel30.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel30.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel30.SizeF = new System.Drawing.SizeF(130.8332F, 23F);
             this.xrLabel30.StylePriority.UseTextAlignment = false;
             this.xrLabel30.Text = "xrLabel30";
@@ -84,6 +84,7 @@
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.detailBand1});
             this.Version = "13.2";
+            this.ParametersRequestSubmit += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.ParceiroNegocioPessoaFisicaDetalhadaReport_ParametersRequestSubmit);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

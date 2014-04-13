@@ -1,9 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
-using Erp.Annotations;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Util;
 using Util.Seguranca;

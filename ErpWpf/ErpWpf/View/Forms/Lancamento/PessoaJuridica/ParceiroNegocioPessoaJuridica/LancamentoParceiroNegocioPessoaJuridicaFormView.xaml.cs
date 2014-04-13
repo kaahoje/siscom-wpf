@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-using DevExpress.Xpf.Grid.LookUp;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.View.Model.Forms.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridica;
 

@@ -30,6 +30,7 @@
         {
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // xrLabel5
@@ -108,7 +109,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "TipoTitulo.Descricao")});
             this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(14F, 10.00001F);
             this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel11.SizeF = new System.Drawing.SizeF(196F, 23F);
             this.xrLabel11.Text = "xrLabel11";
             // 
@@ -122,6 +123,7 @@
             this.Controls.SetChildIndex(this.GroupHeader1, 0);
             this.Controls.SetChildIndex(this.PageHeader, 0);
             this.Controls.SetChildIndex(this.detailBand1, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

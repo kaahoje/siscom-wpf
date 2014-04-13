@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
 using AutoMapper;
-using DevExpress.Xpf.Ribbon.Customization;
 using Erp.Business;
-using Erp.Business.Dicionary;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
-using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
 using Erp.Model.Grids;
-using Erp.Model.LargeDataModel;
-using Util.Wpf;
 
 namespace Erp.Model.Forms
 {

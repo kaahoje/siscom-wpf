@@ -1,17 +1,18 @@
-﻿using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraReports.Parameters;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 
 namespace Erp.Relatorios.Lancamentos.ParceiroNegocioPessoaFisica
 {
-    public partial class LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport : Erp.Relatorios.Lancamentos.LancamentoResumidoPeriodoReport
+    public partial class LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport : LancamentoResumidoPeriodoReport
     {
         public LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport()
         {
             InitializeComponent();
+        }
+
+        private void LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport_ParametersRequestSubmit(object sender, ParametersRequestEventArgs e)
+        {
+            bindingSource.DataSource = LancamentoParceiroNegocioPessoaFisicaRepository.GetListAtivos(GetExpression());
         }
 
     }

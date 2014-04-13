@@ -106,7 +106,7 @@
             // 
             this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(308F, 0F);
             this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel11.SizeF = new System.Drawing.SizeF(270F, 23F);
             this.xrLabel11.Text = "Razão social";
             // 
@@ -126,6 +126,7 @@
             this.detailBand1,
             this.PageHeader});
             this.Version = "13.2";
+            this.ParametersRequestSubmit += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.TituloParceiroNegocioPessoaJuridicaPeriodoReport_ParametersRequestSubmit);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

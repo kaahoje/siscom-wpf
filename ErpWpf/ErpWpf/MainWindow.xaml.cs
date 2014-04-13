@@ -1,22 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Configuration;
 using System.Diagnostics;
 using System.Windows;
 using Erp.Business;
-using Erp.Business.Dicionary;
-using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
-using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
-using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
-using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
-using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
-using Erp.Business.Entity.Estoque.Produto;
-using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
 using Erp.Business.Entity.Sped;
-using Erp.Business.Enum;
 using Erp.Model;
 using Erp.View.Forms;
-using NHibernate;
 
 namespace Erp
 {

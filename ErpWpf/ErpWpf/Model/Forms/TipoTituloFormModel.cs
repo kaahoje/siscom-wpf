@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using Erp.Business;
 using Erp.Business.Entity.Contabil;
 using Erp.Business.Enum;
@@ -24,7 +25,7 @@ namespace Erp.Model.Forms
             ModelSelect.WindowSelect.IsVisibleChanged += WindowSelect_IsVisibleChanged;
         }
 
-        void WindowSelect_IsVisibleChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
+        void WindowSelect_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Entity.Id != 0)
             {

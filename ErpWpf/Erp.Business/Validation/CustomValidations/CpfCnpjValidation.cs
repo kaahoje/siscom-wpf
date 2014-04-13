@@ -1,7 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
-using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 
 namespace Erp.Business.Validation.CustomValidations
 {

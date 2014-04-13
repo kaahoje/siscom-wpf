@@ -1,17 +1,18 @@
-﻿using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraReports.UI;
+using NHibernate.Criterion;
 
 namespace Erp.Relatorios
 {
-    public partial class BaseLandscape : DevExpress.XtraReports.UI.XtraReport
+    public partial class BaseLandscape : XtraReport
     {
         public BaseLandscape()
         {
             InitializeComponent();
         }
 
+        public virtual AbstractCriterion GetExpression()
+        {
+            return null;
+        }
     }
 }

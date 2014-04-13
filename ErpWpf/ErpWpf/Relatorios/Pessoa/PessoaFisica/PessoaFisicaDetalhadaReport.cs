@@ -1,17 +1,19 @@
-﻿using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraReports.Parameters;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 
 namespace Erp.Relatorios.Pessoa.PessoaFisica
 {
-    public partial class PessoaFisicaDetalhadaReport : Erp.Relatorios.Pessoa.PessoaDetalhadaReport
+    public partial class PessoaFisicaDetalhadaReport : PessoaDetalhadaReport
     {
         public PessoaFisicaDetalhadaReport()
         {
             InitializeComponent();
+            bindingSource.DataSource = PessoaFisicaRepository.GetListAtivos();
+        }
+
+        private void PessoaFisicaDetalhadaReport_ParametersRequestSubmit(object sender, ParametersRequestEventArgs e)
+        {
+            
         }
 
     }

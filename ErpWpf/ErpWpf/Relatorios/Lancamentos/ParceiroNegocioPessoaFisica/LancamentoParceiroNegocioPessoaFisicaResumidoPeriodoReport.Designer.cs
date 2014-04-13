@@ -69,6 +69,14 @@
             // 
             this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(582F, 0F);
             // 
+            // dataInicial
+            // 
+            this.dataInicial.ValueInfo = "";
+            // 
+            // dataFinal
+            // 
+            this.dataFinal.ValueInfo = "";
+            // 
             // lblNomeRelatorio
             // 
             this.lblNomeRelatorio.StylePriority.UseFont = false;
@@ -98,7 +106,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "ParceiroNegocioPessoaFisica.Nome")});
             this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(114F, 0F);
             this.xrLabel11.Name = "xrLabel11";
-            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel11.SizeF = new System.Drawing.SizeF(359.9999F, 23F);
             this.xrLabel11.Text = "xrLabel11";
             // 
@@ -108,16 +116,18 @@
             this.xrLabel12.Name = "xrLabel12";
             this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel12.SizeF = new System.Drawing.SizeF(358.9999F, 23F);
-            this.xrLabel12.Text = "Nome";
+            this.xrLabel12.Text = "";
             // 
             // LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
-            this.detailBand1});
+            this.detailBand1,
+            this.PageHeader});
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.dataInicial,
             this.dataFinal});
             this.Version = "13.2";
+            this.ParametersRequestSubmit += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.LancamentoParceiroNegocioPessoaFisicaResumidoPeriodoReport_ParametersRequestSubmit);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

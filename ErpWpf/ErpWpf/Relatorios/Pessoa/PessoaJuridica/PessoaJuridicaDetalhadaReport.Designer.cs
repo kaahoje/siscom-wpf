@@ -49,6 +49,7 @@
             // 
             this.lblNomeRelatorio.StylePriority.UseFont = false;
             this.lblNomeRelatorio.StylePriority.UseTextAlignment = false;
+            this.lblNomeRelatorio.Text = "Pessoa jurídica(Detalhado)";
             // 
             // lblRazaoSocial
             // 
@@ -168,6 +169,7 @@
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.detailBand1});
             this.Version = "13.2";
+            this.ParametersRequestSubmit += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.PessoaJuridicaDetalhadaReport_ParametersRequestSubmit);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

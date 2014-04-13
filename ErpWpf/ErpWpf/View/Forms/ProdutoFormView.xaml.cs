@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using Erp.Business.Entity.Estoque.Produto;
+﻿using Erp.Business.Entity.Estoque.Produto;
 
 namespace Erp.View.Forms
 {

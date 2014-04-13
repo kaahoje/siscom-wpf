@@ -207,6 +207,10 @@ namespace Erp.Business
         {
             return NHibernateHttpModule.Session.CreateCriteria<T>().Add(CriteriaAtivos).List<T>();
         }
+        public static IList<T> GetListAtivos(AbstractCriterion expression)
+        {
+            return NHibernateHttpModule.Session.CreateCriteria<T>().Add(CriteriaAtivos).Add(expression).List<T>();
+        }
 
         public static IList<T> GetListAtivos(IQueryOver<T, T> query)
         {

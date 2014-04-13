@@ -31,8 +31,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
         }
 
         public
-            Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.
-                ParceiroNegocioPessoaJuridica EntityParceiroNegocioPessoaJuridica
+            Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica EntityParceiroNegocioPessoaJuridica
         {
             get { return Entity as Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica; }
             set
@@ -72,8 +71,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaJuridica.ParceiroNegocioPessoaJuridica
             {
                 Mapper.CreateMap(typeof(ParceiroNegocioPessoaJuridicaFormModel),
                         typeof(
-                            Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.
-                                ParceiroNegocioPessoaJuridica));
+                            Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaJuridica));
                 Mapper.Map(this, Entity);
                 if (IsValid(Entity))
                 {

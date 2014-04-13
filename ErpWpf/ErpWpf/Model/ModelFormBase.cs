@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using DevExpress.Xpf.Core;
-using Erp.Business.Enum;
 using Util.Wpf;
 
 namespace Erp.Model

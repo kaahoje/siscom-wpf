@@ -108,7 +108,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "ParceiroNegocioPessoaJuridica.RazaoSocial")});
             this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(247.125F, 0F);
             this.xrLabel12.Name = "xrLabel12";
-            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel12.SizeF = new System.Drawing.SizeF(330.875F, 23F);
             this.xrLabel12.Text = "xrLabel12";
             // 
@@ -116,7 +116,7 @@
             // 
             this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(247.125F, 0F);
             this.xrLabel13.Name = "xrLabel13";
-            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel13.SizeF = new System.Drawing.SizeF(330.875F, 23F);
             this.xrLabel13.Text = "Razão social";
             // 
@@ -126,6 +126,7 @@
             this.detailBand1,
             this.PageHeader});
             this.Version = "13.2";
+            this.ParametersRequestSubmit += new System.EventHandler<DevExpress.XtraReports.Parameters.ParametersRequestEventArgs>(this.TituloParceiroNegocioPessoaJuridicaPeriodoGrupoTipoReport_ParametersRequestSubmit);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Erp.Business.Entity.Contabil;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using NHibernate;
 using NHibernate.Criterion;

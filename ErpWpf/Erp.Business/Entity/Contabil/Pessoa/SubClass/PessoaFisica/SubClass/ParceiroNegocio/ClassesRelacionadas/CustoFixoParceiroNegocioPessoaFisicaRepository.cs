@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Erp.Business.Entity.Contabil.ClassesRelacoinadas;
-using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Business.Enum;
 using NHibernate.Criterion;
-using Util;
 
 namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas
 {

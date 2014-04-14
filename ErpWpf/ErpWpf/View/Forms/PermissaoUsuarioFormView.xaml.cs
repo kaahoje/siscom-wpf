@@ -14,7 +14,7 @@ namespace Erp.View.Forms
             InitializeComponent();
             DataContext = new PermissaoUsuarioFormModel();
             RestCommands.DataContext = DataContext;
-            Actions = new FormDefaultActions<PessoaFisica>(this){IsEnableShortcuts = false};
+            Actions = new FormDefaultActions<PessoaFisica>(this,txtCpf){IsEnableShortcuts = false};
         }
     }
 }

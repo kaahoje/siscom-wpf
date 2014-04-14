@@ -19,9 +19,9 @@
                            Margin="0" Grid.Row="0" VerticalAlignment="Top" Width="716"/>
 
         <Label Content="Filtro:" Grid.Row="1" Margin="5"/>
-        <dxe:TextEdit Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <dxe:TextEdit x:Name="txtFiltro" Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <dxg:GridControl HorizontalAlignment="Left"  x:Name="GridControl"
+        <dxg:GridControl HorizontalAlignment="Left"  x:Name="GridControl" IsTabStop="False"
 			Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"
 			Width="684" Height="210" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                          SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">

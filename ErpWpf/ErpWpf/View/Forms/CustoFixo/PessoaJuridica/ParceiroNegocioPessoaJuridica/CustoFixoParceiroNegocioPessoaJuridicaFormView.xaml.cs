@@ -18,7 +18,7 @@ namespace Erp.View.Forms.CustoFixo.PessoaJuridica.ParceiroNegocioPessoaJuridica
             InitializeComponent();
             DataContext = new CustoFixoParceiroNegocioPessoaJuridicaFormModel();
             RestCommands.DataContext = DataContext;
-            Actions = new FormDefaultActions<CustoFixoParceiroNegocioPessoaJuridica>(this) { IsEnableShortcuts = false };
+            Actions = new FormDefaultActions<CustoFixoParceiroNegocioPessoaJuridica>(this,spnDia) { IsEnableShortcuts = false };
         }
 
         private void UIElement_OnPreviewKeyUp(object sender, KeyEventArgs e)

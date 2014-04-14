@@ -35,7 +35,7 @@ namespace Erp.Model.LargeDataModel
         public override void Reset()
         {
             Collection.Clear();
-            Collection.AddRange(ParceiroNegocioPessoaFisicaRepository.GetList().Take(Settings.Default.TakePesquisa));
+            Collection.AddRange(ParceiroNegocioPessoaFisicaRepository.GetListAtivos().Take(Settings.Default.TakePesquisa));
         }
 
         public override void Filtrar()

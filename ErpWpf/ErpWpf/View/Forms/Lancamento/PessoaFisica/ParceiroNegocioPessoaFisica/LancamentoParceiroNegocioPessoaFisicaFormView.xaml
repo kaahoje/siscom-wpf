@@ -44,7 +44,7 @@
                           EditValue="{Binding Entity.Titulo.Id}"/>
 
             <Label Grid.Row="2" Grid.Column="0" Content="Pessoa:" Margin="5"/>
-            <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" Width="200" HorizontalAlignment="Left" Margin="7"
+            <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" x:Name="cboCnpj" Width="200" HorizontalAlignment="Left" Margin="7"
                               ItemsSource="{Binding ParceiroNegocioPessoaFisicaLargeData.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               Text="{Binding ParceiroNegocioPessoaFisicaLargeData.Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               SelectedItem="{Binding Entity.ParceiroNegocioPessoaFisica}"

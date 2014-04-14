@@ -32,8 +32,9 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.P
                 return GetQueryOver().Where(x => (x.Cnpj.IsInsensitiveLike(StartStringFilter(filter)))
                     && x.Status == Status.Ativo).Take(takePesquisa).List();
             }
-            return GetQueryOver().Where(x => x.RazaoSocial.IsInsensitiveLike(ContainsStringFilter(filter)) ||
-                x.NomeFantasia.IsInsensitiveLike(ContainsStringFilter(filter))).Take(takePesquisa).List();
+            return GetQueryOver().Where(x => (x.RazaoSocial.IsInsensitiveLike(ContainsStringFilter(filter)) ||
+                x.NomeFantasia.IsInsensitiveLike(ContainsStringFilter(filter))) && x.Status == Status.Ativo)
+                .Take(takePesquisa).List();
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:Forms="clr-namespace:Erp.Model.Forms" xmlns:Rest="clr-namespace:Erp.View.Rest"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     x:Class="Erp.View.Forms.SubGrupoProdutoFormView"
-        Title="Subgrupo de produto" Height="220" Width="420">
+        Title="Subgrupo de produto" Height="300" Width="490">
     <dx:DXWindow.DataContext>
         <Forms:SubGrupoProdutoFormModel/>
     </dx:DXWindow.DataContext>
@@ -20,15 +20,32 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
                 <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="135"/>
                 <ColumnDefinition Width="340"/>
             </Grid.ColumnDefinitions>
             <Label Content="Descrição:" Margin="5"/>
-            <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="300" Text="{Binding Entity.Descricao}"/>
+            <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="300" 
+                          x:Name="txtDescricao"
+                          EditValue="{Binding Entity.Descricao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          HorizontalAlignment="Left"/>
             <Label Grid.Row="1" Grid.Column="0" Content="Grupo:" Margin="5"/>
-            <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="1" Margin="7" DisplayMember="Descricao" Width="300" ItemsSource="{Binding Grupos}" SelectedItem="{Binding Entity.Grupo}" AutoComplete="True" IncrementalFiltering="True"/>
+            <dxe:ComboBoxEdit Grid.Row="1" Grid.Column="1" Margin="7" 
+                              HorizontalAlignment="Left"
+                              DisplayMember="Descricao" Width="300" 
+                              ItemsSource="{Binding Grupos}" 
+                              SelectedItem="{Binding Entity.Grupo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoComplete="True" IncrementalFiltering="True"/>
+            
+            <Label Grid.Row="2" Grid.Column="0" Content="Imprime em comanda:" />
+            <dxe:CheckEdit Grid.Row="2" Grid.Column="1" Margin="7" HorizontalAlignment="Left"
+                           EditValue="{Binding Entity.ImprimeEmComandaRestaurante, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></dxe:CheckEdit>
+            <Label Grid.Row="3" Grid.Column="0" Content="Impressora:" />
+            <dxe:TextEdit Grid.Row="3" Grid.Column="1" Margin="7" 
+                          EditValue="{Binding Entity.Impressora, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          IsEnabled="{Binding Entity.ImprimeEmComandaRestaurante, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>
 </dx:DXWindow>

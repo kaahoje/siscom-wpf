@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using DevExpress.Xpf.Core;
+using DevExpress.Xpf.Editors;
 using Erp.Model;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
@@ -16,13 +18,14 @@ namespace Erp.View.Forms
             get { return (ModelFormGeneric<T>)Window.DataContext; }
         }
 
-        public FormDefaultActions(DXWindow window)
+        public FormDefaultActions(DXWindow window, Control initialControl)
         {
             IsEnableShortcuts = true;
+            
             Window = window;
             ConfigureWindow(window);
             AddEvents(window);
-            
+            initialControl.Focus();
         }
 
         public virtual void AddEvents(DXWindow window)

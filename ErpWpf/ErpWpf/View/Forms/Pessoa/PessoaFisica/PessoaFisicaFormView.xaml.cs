@@ -14,7 +14,7 @@ namespace Erp.View.Forms.Pessoa.PessoaFisica
             DataContext = new PessoaFisicaFormModel();
             
             RestCommands.DataContext = DataContext;
-            FormActions = new FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa>(this);
+            FormActions = new FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa>(this,this);
         }
     }
 }

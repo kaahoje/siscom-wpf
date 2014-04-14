@@ -11,7 +11,7 @@ namespace Erp.View.Selections
         public GrupoProdutoSelectView()
         {
             InitializeComponent();
-            SelectionDefault = new SelectionDefaultActions(this);
+            SelectionDefault = new SelectionDefaultActions(this, txtFiltro);
             
         }
     }

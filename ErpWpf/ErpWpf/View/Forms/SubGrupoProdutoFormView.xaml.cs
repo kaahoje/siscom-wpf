@@ -12,7 +12,7 @@ namespace Erp.View.Forms
         {
             InitializeComponent();
             RestCommands.DataContext = DataContext;
-            FormDefaultActions = new FormDefaultActions<SubGrupoProduto>(this) {IsEnableShortcuts = false};
+            FormDefaultActions = new FormDefaultActions<SubGrupoProduto>(this,txtDescricao) {IsEnableShortcuts = false};
         }
     }
 }

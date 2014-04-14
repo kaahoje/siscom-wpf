@@ -12,7 +12,7 @@ namespace Erp.View.Selections
         {
             InitializeComponent();
             RestCommands.DataContext = DataContext;
-            SelectionDefault = new SelectionDefaultActions(this);
+            SelectionDefault = new SelectionDefaultActions(this, txtFiltro);
         }
     }
 }

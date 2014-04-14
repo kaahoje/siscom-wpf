@@ -1,6 +1,4 @@
 ﻿using System;
-using Erp.Business.Entity.Contabil.ClassesRelacoinadas;
-using NHibernate;
 
 namespace Erp.Business.Entity.Contabil
 {

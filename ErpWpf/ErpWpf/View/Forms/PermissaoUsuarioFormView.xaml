@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Content="CPF:" Margin="5" />
-            <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="200" 
+            <dxe:TextEdit Grid.Row="0" x:Name="txtCpf" Grid.Column="1" Margin="7" Width="200" 
                           EditValue="{Binding Entity.Cpf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           IsReadOnly="True"
                           HorizontalAlignment="Left"/>

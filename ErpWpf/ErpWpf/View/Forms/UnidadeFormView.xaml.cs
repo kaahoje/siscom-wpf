@@ -14,7 +14,7 @@ namespace Erp.View.Forms
             
             RestCommands.DataContext = DataContext;
 
-            FormDefaultActions = new FormDefaultActions<Unidade>(this) { IsEnableShortcuts = false };
+            FormDefaultActions = new FormDefaultActions<Unidade>(this,txtSigla) { IsEnableShortcuts = false };
         }
     }
 }

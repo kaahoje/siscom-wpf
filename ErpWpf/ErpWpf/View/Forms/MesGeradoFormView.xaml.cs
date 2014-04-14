@@ -11,7 +11,7 @@ namespace Erp.View.Forms
         public MesGeradoFormView()
         {
             InitializeComponent();
-            Actions = new FormDefaultActions<MesGerado>(this){IsEnableShortcuts = false};
+            Actions = new FormDefaultActions<MesGerado>(this,spnMes){IsEnableShortcuts = false};
         }
     }
 }

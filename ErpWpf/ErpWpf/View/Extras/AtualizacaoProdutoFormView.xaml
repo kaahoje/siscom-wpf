@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <Label Content="Filtro:" Grid.Row="1" Margin="5"/>
-        <dxe:TextEdit Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <dxe:TextEdit x:Name="txtFiltro" Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <dxg:GridControl HorizontalAlignment="Left" 
 			Margin="10" Grid.Row="2" VerticalAlignment="Top"
@@ -41,7 +41,7 @@
                 </dxg:GridColumn>
             </dxg:GridControl.Columns>
             <dxg:GridControl.View>
-                <dxg:TableView ShowTotalSummary="True" ShowGroupPanel="False"/>
+                <dxg:TableView ShowGroupPanel="False"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
         <dxb:BarManager Grid.Row="0" CreateStandardLayout="False">

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Erp.Business.Entity.Contabil;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio;
 using Erp.Business.Entity.Estoque.Produto;
 using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;

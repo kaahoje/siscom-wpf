@@ -22,6 +22,7 @@ namespace Erp.View.Extras
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ResizeMode = ResizeMode.NoResize;
             Model.Fechar += Model_Fechar;
+            txtFiltro.Focus();
         }
 
         void Model_Fechar(object sender, EventArgs e)

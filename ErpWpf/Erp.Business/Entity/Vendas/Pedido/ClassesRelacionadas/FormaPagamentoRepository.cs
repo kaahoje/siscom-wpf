@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Erp.Business.Enum;
 using NHibernate.Criterion;
 
 namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
@@ -23,7 +24,9 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
 
         public static IList<FormaPagamento> GetByRange(string filter, int takePesquisa)
         {
-            return GetQueryOver().Where(x => x.Descricao.IsInsensitiveLike("%" + filter + "%")).Take(takePesquisa).List();
+            return GetQueryOver().Where(x => (x.Descricao.IsInsensitiveLike("%" + filter + "%")) && 
+                x.Status == Status.Ativo)
+                .Take(takePesquisa).List();
         }
     }
 }

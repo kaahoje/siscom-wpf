@@ -13,7 +13,7 @@ namespace Erp.View.Forms
             InitializeComponent();
             RestCommands.DataContext = DataContext;
             
-            FormDefaultActions = new FormDefaultActions<CondicaoPagamento>(this) { IsEnableShortcuts = false };
+            FormDefaultActions = new FormDefaultActions<CondicaoPagamento>(this,txtDescricao) { IsEnableShortcuts = false };
         }
     }
 }

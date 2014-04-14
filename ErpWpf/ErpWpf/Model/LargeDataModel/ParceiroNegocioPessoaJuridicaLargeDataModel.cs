@@ -28,7 +28,7 @@ namespace Erp.Model.LargeDataModel
         {
             Collection.Clear();
             Collection.AddRange(
-                ParceiroNegocioPessoaJuridicaRepository.GetList().Take(Settings.Default.TakePesquisa));
+                ParceiroNegocioPessoaJuridicaRepository.GetListAtivos().Take(Settings.Default.TakePesquisa));
         }
 
         public override void Filtrar()

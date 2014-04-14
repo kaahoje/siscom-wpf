@@ -9,7 +9,7 @@
         public TipoTituloSelectView()
         {
             InitializeComponent();
-            DefaultActions = new SelectionDefaultActions(this);
+            DefaultActions = new SelectionDefaultActions(this, txtFiltro);
         }
     }
 }

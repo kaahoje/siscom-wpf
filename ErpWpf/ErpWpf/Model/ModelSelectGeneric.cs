@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
 using FluentNHibernate.Conventions;
 
 namespace Erp.Model
@@ -41,6 +43,13 @@ namespace Erp.Model
             CurrentItem = Activator.CreateInstance<T>();
 
             base.Sair();
+
+        }
+
+        public override void Limpar()
+        {
+            Filter = "";
+            Collection.Clear();
             
         }
 
@@ -67,7 +76,7 @@ namespace Erp.Model
             {
                 SelectedIndex = -1;
             }
-            
+
         }
 
         public override void MovePrevious()

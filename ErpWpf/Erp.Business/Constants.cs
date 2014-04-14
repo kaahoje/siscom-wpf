@@ -24,7 +24,7 @@
         public const int MinLengthPassword = 4;
         public const int MaxLengthPassword = 20;
         public const int MinLengthDescriptions = 8;
-        public const int MaxLengthDescriptions = 20;
+        public const int MaxLengthDescriptions = 50;
         public const int MaxParcelas = 10;
         public const int MinParcelas = 1;
         public const int MaxDia = 310;
@@ -64,7 +64,7 @@
         public const string MessageLengthNameError = "O campo '{0}' deve ter entre {2} e {1} caracteres";
         public const string MessageLengthFoneError = "O campo '{0}' deve ter entre {2} e {1} caracteres";
         public const string MessageLengthPasswordError = "A senha deve ter '{1}' e '{2}' caracteres";
-        public const string MessageLengthDescriptionError = "O campo '{0}' deve ter entre {2} e {1} caracteres";
+        public const string MessageLengthDescriptionError = "O campo '{0}' deve ter entre '{2}' e '{1}' caracteres";
         public const string MessageModelNotIsValid = "Alguns Campos não foram preenchidos corretamente";
 
         public string NullTextGeneroFemininoProperty { get { return NullTextGeneroFeminino; } }

@@ -1,9 +1,7 @@
-﻿using System;
-using Erp.Business.Entity.Contabil;
+﻿using Erp.Business.Entity.Contabil;
 using Erp.Business.Entity.Estoque.Produto;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Enum;
-using NHibernate;
 
 namespace Erp.Business.Entity.Vendas.Pedido
 {

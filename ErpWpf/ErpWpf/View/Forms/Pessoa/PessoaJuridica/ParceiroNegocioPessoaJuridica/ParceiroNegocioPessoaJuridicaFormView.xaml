@@ -35,6 +35,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Razão social:" Margin="5" />
                         <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" 
+                                      x:Name="txtRazaoSocial"
                       EditValue="{Binding EntityPessoaJuridica.RazaoSocial,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                         <Label Grid.Row="0" Grid.Column="2" Content="Nome fantasia:" Margin="5"/>

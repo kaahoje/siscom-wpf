@@ -13,6 +13,7 @@ namespace Erp.Business.Entity.Contabil
         public Titulo()
         {
             DataLancamento = DateTime.Now.Date;
+            DataVencimento = DateTime.Now.Date;
             Baixado = false;
         }
         private DateTime _dataLancamento;
@@ -22,7 +23,7 @@ namespace Erp.Business.Entity.Contabil
         private decimal _valor;
         private decimal _acrescimos;
         private DateTime _descontoAte;
-        private decimal _descontoPercentual;
+        private decimal _valorTotal;
         private decimal _desconto;
         private bool _aReceber;
         private string _historico;
@@ -86,7 +87,7 @@ namespace Erp.Business.Entity.Contabil
 
         [Display(Name = "Valor", Description = "Valor do título")]
         [Required(ErrorMessage = Constants.MessageRequiredError)]
-        public virtual Decimal Valor
+        public virtual decimal Valor
         {
             get { return _valor; }
             set
@@ -101,7 +102,7 @@ namespace Erp.Business.Entity.Contabil
 
         [Display(Name = "Acréscimos", Description = "Acréscimos do título")]
         [Required(ErrorMessage = Constants.MessageRequiredError)]
-        public virtual Decimal Acrescimos
+        public virtual decimal Acrescimos
         {
             get { return _acrescimos; }
             set
@@ -126,22 +127,10 @@ namespace Erp.Business.Entity.Contabil
             }
         }
 
-        [Display(Name = "Desconto percentual", Description = "Desconto percentual")]
-        [Required(ErrorMessage = Constants.MessageRequiredError)]
-        public virtual Decimal DescontoPercentual
-        {
-            get { return _descontoPercentual; }
-            set
-            {
-                if (value == _descontoPercentual) return;
-                _descontoPercentual = value;
-                OnPropertyChanged();
-            }
-        }
-
+        
         [Display(Name = "Desconto", Description = "Desconto monetário")]
         [Required(ErrorMessage = Constants.MessageRequiredError)]
-        public virtual Decimal Desconto
+        public virtual decimal Desconto
         {
             get { return _desconto; }
             set
@@ -167,7 +156,7 @@ namespace Erp.Business.Entity.Contabil
         }
 
         [Display(Name = "Histórico", Description = "Histórico para facilitar a identificação do título.")]
-        [Required(ErrorMessage = Constants.MessageRequiredError)]
+        
         public virtual string Historico
         {
             get { return _historico; }
@@ -197,7 +186,13 @@ namespace Erp.Business.Entity.Contabil
         public virtual decimal ValorTotal
         {
             get { return Valor - Desconto + Acrescimos ; }
-            set { value = ValorTotal; }
+            set
+            {
+                _valorTotal = value;
+                Valor = value - Desconto - Acrescimos;
+                OnPropertyChanged();
+            }
+            
         }
 
         [Display(Name = "Nota fiscal", Description = "Nota fiscal que originou o título")]
@@ -226,7 +221,6 @@ namespace Erp.Business.Entity.Contabil
         }
 
         [Display(Name = "Lançamento", Description = "Lançamento gerado pelo título")]
-        [Required(ErrorMessage = Constants.MessageRequiredError)]
         public virtual Lancamento Lancamento
         {
             get { return _lancamento; }

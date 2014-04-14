@@ -14,7 +14,8 @@ namespace Erp.View.Forms
         public LoginFormView()
         {
             InitializeComponent();
-            
+            txtUsuario.Focus();
+
         }
 
         

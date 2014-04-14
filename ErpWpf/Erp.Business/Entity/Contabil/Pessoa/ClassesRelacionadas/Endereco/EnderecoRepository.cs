@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using DevExpress.Web.ASPxEditors;
 using NHibernate.Criterion;
-using NHibernate.Linq;
 
 namespace Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco
 {

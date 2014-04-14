@@ -22,7 +22,7 @@ namespace Erp.View.Forms
             InitializeComponent();
             DataContext = new TipoTituloFormModel();
             RestCommands.DataContext = DataContext;
-            Actions = new FormDefaultActions<TipoTitulo>(this) { IsEnableShortcuts = false };
+            Actions = new FormDefaultActions<TipoTitulo>(this,txtDescricao) { IsEnableShortcuts = false };
 
         }
 

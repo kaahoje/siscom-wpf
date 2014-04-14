@@ -11,7 +11,7 @@ namespace Erp.View.Selections.Pessoa.PessoaFisica
         public PessoaFisicaSelectView()
         {
             InitializeComponent();
-            SelectionDefault = new SelectionDefaultActions(this);
+            SelectionDefault = new SelectionDefaultActions(this, txtFiltro);
         }
     }
 }

@@ -9,7 +9,7 @@
         public CustoFixoParceiroNegocioPessoaJuridicaSelectView()
         {
             InitializeComponent();
-            Actions = new SelectionDefaultActions(this);
+            Actions = new SelectionDefaultActions(this, txtFiltro);
         }
     }
 }

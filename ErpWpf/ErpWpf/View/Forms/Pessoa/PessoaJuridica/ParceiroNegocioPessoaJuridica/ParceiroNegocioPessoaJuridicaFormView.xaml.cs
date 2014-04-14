@@ -12,7 +12,7 @@
             //DataContext = new ParceiroNegocioPessoaJuridicaFormModel();
             PessoaUserControl.DataContext = DataContext;
             RestCommand.DataContext = DataContext;
-            FormActions = new FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa>(this){IsEnableShortcuts = false};
+            FormActions = new FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa>(this,txtRazaoSocial){IsEnableShortcuts = false};
         }
     }
 }

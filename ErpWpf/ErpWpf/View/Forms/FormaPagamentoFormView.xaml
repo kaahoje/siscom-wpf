@@ -32,7 +32,7 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <Label Content="Descrição:" Margin="5"/>
-            <dxe:TextEdit Grid.Row="0" Text="{Binding Entity.Descricao, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" Margin="7" Width="300" />
+            <dxe:TextEdit Grid.Row="0" x:Name="txtDescricao" Text="{Binding Entity.Descricao, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" Margin="7" Width="300" />
             <Label Grid.Row="1" Grid.Column="0" Content="À vista:" Margin="5"/>
             <dxe:CheckEdit Grid.Row="1" IsChecked="{Binding Entity.AVista, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" Margin="7" Width="300" />
             <Label Grid.Row="2" Grid.Column="0" Content="Compensa em:" Margin="5"/>

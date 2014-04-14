@@ -3,13 +3,13 @@
     /// <summary>
     /// Interaction logic for TituloParceiroNegocioPessoaJuridicaSelectView.xaml
     /// </summary>
-    public partial class TituloParceiroNegocioPessoaJuridicaSelectView 
+    public partial class TituloParceiroNegocioPessoaJuridicaSelectView
     {
         private SelectionDefaultActions Actions { get; set; }
         public TituloParceiroNegocioPessoaJuridicaSelectView()
         {
             InitializeComponent();
-            Actions = new SelectionDefaultActions(this);
+            Actions = new SelectionDefaultActions(this, txtFiltro);
         }
     }
 }

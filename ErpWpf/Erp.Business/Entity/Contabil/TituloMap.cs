@@ -16,7 +16,6 @@ namespace Erp.Business.Entity.Contabil
             Map(x => x.Acrescimos);
             Map(x => x.Desconto);
             Map(x => x.DescontoAte);
-            Map(x => x.DescontoPercentual);
             Map(x => x.AReceber);
             Map(x => x.Historico);
             Map(x => x.Baixado);

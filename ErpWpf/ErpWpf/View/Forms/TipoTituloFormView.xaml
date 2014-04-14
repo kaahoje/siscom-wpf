@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="Auto" MinWidth="509"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Content="Descrição:" Margin="5" />
-            <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="250" HorizontalAlignment="Left"
+            <dxe:TextEdit Grid.Row="0" Grid.Column="1" x:Name="txtDescricao" Margin="7" Width="250" HorizontalAlignment="Left"
                           EditValue="{Binding Entity.Descricao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>

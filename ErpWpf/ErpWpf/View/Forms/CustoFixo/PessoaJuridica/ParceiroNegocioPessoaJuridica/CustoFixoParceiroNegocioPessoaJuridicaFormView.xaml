@@ -32,7 +32,7 @@
                 <ColumnDefinition Width="300" />
             </Grid.ColumnDefinitions>
             <Label Content="Dia:" Margin="5" />
-            <dxe:SpinEdit Grid.Row="0" Grid.Column="1" Margin="7"  MaxValue="31" MinValue="1" Value="1"
+            <dxe:SpinEdit Grid.Row="0" Grid.Column="1" x:Name="spnDia" Margin="7"  MaxValue="31" MinValue="1" Value="1"
 				EditValue="{Binding Entity.DiaVencimento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 				Width="100" HorizontalAlignment="Left"/>
             <Label Grid.Row="1" Grid.Column="0" Content="Pessoa:" Margin="5" />

@@ -14,7 +14,7 @@ namespace Erp.View.Forms
             InitializeComponent();
             DataContext = new FormaPagamentoFormModel();
             RestCommands.DataContext = DataContext;
-            FormDefaultActions = new FormDefaultActions<FormaPagamento>(this) {IsEnableShortcuts = false};
+            FormDefaultActions = new FormDefaultActions<FormaPagamento>(this,txtDescricao) {IsEnableShortcuts = false};
         }
     }
 }

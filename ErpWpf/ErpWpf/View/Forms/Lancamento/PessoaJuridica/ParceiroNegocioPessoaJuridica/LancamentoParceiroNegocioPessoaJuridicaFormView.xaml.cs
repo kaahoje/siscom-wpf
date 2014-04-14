@@ -20,7 +20,7 @@ namespace Erp.View.Forms.Lancamento.PessoaJuridica.ParceiroNegocioPessoaJuridica
             InitializeComponent();
             DataContext = new LancamentoParceiroNegocioPessoaJuridicaFormModel();
             RestCommands.DataContext = DataContext;
-            Actions = new FormDefaultActions<LancamentoParceiroNegocioPessoaJuridica>(this) { IsEnableShortcuts = false };
+            Actions = new FormDefaultActions<LancamentoParceiroNegocioPessoaJuridica>(this,txtCnpj) { IsEnableShortcuts = false };
         }
 
         private void ContentElement_OnPreviewKeyUp(object sender, KeyEventArgs e)

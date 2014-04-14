@@ -1,5 +1,4 @@
 ﻿using System;
-using Erp.Business.Entity.Contabil;
 using Erp.Business.Entity.Estoque.Produto;
 using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
 using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.RecebimentoVenda;

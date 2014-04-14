@@ -21,7 +21,7 @@
                         <RowDefinition Height="130"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <local:PessoaJuridicaUserControl HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" />
+                    <local:PessoaJuridicaUserControl x:Name="ctrDadoPessoaJuridica" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" />
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Informações para contato">

@@ -27,7 +27,7 @@
                 <ColumnDefinition Width="315"/>
             </Grid.ColumnDefinitions>
             <Label Content="Sigla:" Margin="5" />
-            <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Width="150" HorizontalAlignment="Left" Text="{Binding Entity.Sigla}" />
+            <dxe:TextEdit Grid.Row="0" Grid.Column="1" x:Name="txtSigla" Margin="7" Width="150" HorizontalAlignment="Left" Text="{Binding Entity.Sigla}" />
             <Label Grid.Row="1" Grid.Column="0" Content="Descrição:" Margin="5"/>
             <dxe:TextEdit Grid.Row="1" Grid.Column="1" Width="300" Margin="7" HorizontalAlignment="Left" Text="{Binding Entity.Descricao}"/>
             <Label Grid.Row="2" Grid.Column="0" Content="Qtd. mov.:" Margin="5"/>

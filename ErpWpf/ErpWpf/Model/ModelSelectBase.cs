@@ -73,7 +73,19 @@ namespace Erp.Model
             set
             {
                 _windowSelect = value;
+                if (value != null)
+                {
+                    _windowSelect.IsVisibleChanged += _windowSelect_IsVisibleChanged;
+                }
                 OnPropertyChanged("WindowSelect");
+            }
+        }
+
+        void _windowSelect_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if ((bool) e.NewValue)
+            {
+                Limpar();
             }
         }
 

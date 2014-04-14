@@ -25,7 +25,7 @@
                 <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
             <Label Content="Descrição:" Margin="5"/>
-            <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" Text="{Binding Entity.Descricao,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <dxe:TextEdit Grid.Row="0" x:Name="txtDescricao" Grid.Column="1" Margin="7" Text="{Binding Entity.Descricao,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         </Grid>
     </Grid>
 </dx:DXWindow>

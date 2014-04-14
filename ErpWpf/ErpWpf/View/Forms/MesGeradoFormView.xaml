@@ -47,6 +47,7 @@
             </Grid.ColumnDefinitions>
             <Label Content="Mês:" Margin="5" />
             <dxe:SpinEdit Grid.Row="0" Grid.Column="1" Margin="7" MaxValue="12" MinValue="1"
+                          x:Name="spnMes"
                           EditValue="{Binding Entity.Mes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Grid.Row="1" Grid.Column="0" Content="Ano:" Margin="5" />
             <dxe:SpinEdit Grid.Row="1" Grid.Column="1"  Margin="7" IsReadOnly="False"

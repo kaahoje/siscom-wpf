@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using DevExpress.Xpf.Core;
@@ -16,17 +17,29 @@ namespace Erp.View.Selections
         {
             get { return (ModelSelectBase)Window.DataContext; }
         }
+        public Control FilterControl { get; set; }
 
-        public SelectionDefaultActions(DXWindow window)
+        public SelectionDefaultActions(DXWindow window, Control filterControl)
         {
             Window = window;
             window.PreviewKeyDown += window_PreviewKeyDown;
+            window.IsVisibleChanged += window_IsVisibleChanged;
             window.ShowInTaskbar = true;
             window.WindowStyle = WindowStyle.ToolWindow;
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.ResizeMode = ResizeMode.NoResize;
            
             CreateBindings();
+            FilterControl = filterControl;
+            filterControl.Focus();
+        }
+
+        void window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if ((bool) e.NewValue)
+            {
+                FilterControl.Focus();
+            }
         }
 
         private void CreateBindings()

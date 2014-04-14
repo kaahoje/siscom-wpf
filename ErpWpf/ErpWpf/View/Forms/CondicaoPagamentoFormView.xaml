@@ -6,7 +6,7 @@
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         xmlns:Forms="clr-namespace:Erp.Model.Forms"
-        x:Class="Erp.View.Forms.CondicaoPagamentoFormView"
+        x:Class="Erp.View.Forms.CondicaoPagamentoFormView" 
         Title="Condição de pagamento" Height="350" Width="400">
     <dx:DXWindow.DataContext>
         <Forms:CondicaoPagamentoFormModel/>
@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label Content="Descrição:" Margin="5"/>
-            <dxe:TextEdit Grid.Row="0" Grid.Column="1" Width="300" Margin="5" Text="{Binding Entity.Descricao,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+            <dxe:TextEdit Grid.Row="0" x:Name="txtDescricao" Grid.Column="1" Width="300" Margin="5" Text="{Binding Entity.Descricao,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
             <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="180">
                 <dxg:GridControl Width="150" HorizontalAlignment="Left" Margin="10" ItemsSource="{Binding Prazos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding PrazoAtual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
                     <dxg:GridControl.Columns>

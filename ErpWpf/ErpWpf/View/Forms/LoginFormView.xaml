@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        FocusManager.IsFocusScope="False"
         xmlns:Forms="clr-namespace:Erp.Model.Forms" x:Class="Erp.View.Forms.LoginFormView"
         Title="Login" Height="250" Width="440" WindowStartupLocation="CenterScreen" WindowStyle="None" 
     Visibility="{Binding IsTelaVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -28,6 +29,7 @@
 
             <Label Content="Usuário" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Times New Roman" />
             <dxe:TextEdit Grid.Row="1" Margin="7,7,10,7" FontFamily="Times New Roman" FontSize="20" 
+                          x:Name="txtUsuario"
                           EditValue="{Binding Usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Grid.Row="2" Content="Senha" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Times New Roman" />
             <dxe:PasswordBoxEdit EditValue="{Binding Senha, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Margin="7,7,10,7" FontSize="20" FontFamily="Times New Roman" />

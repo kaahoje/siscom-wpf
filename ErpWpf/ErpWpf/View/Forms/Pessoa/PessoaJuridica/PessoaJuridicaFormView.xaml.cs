@@ -14,7 +14,7 @@ namespace Erp.View.Forms.Pessoa.PessoaJuridica
             InitializeComponent();
             DataContext = new PessoaJuridicaFormModel();
             RestCommands.DataContext = DataContext;
-            FormActions = new FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa>(this){IsEnableShortcuts = false};
+            FormActions = new FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa>(this,ctrDadoPessoaJuridica){IsEnableShortcuts = false};
         }
     }
 }

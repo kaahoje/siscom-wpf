@@ -15,7 +15,7 @@ namespace Erp.View.Forms
             InitializeComponent();
             DataContext = new GrupoProdutoFormModel();
             RestCommands.DataContext = DataContext;
-            FormDefaultActions = new FormDefaultActions<GrupoProduto>(this) {IsEnableShortcuts = false};
+            FormDefaultActions = new FormDefaultActions<GrupoProduto>(this,txtDescricao) {IsEnableShortcuts = false};
         }
     }
 }

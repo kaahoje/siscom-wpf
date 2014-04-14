@@ -4,7 +4,6 @@ using DevExpress.Web.ASPxEditors;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
 using Erp.Business.Enum;
-using NHibernate;
 using NHibernate.Criterion;
 using Util.Seguranca;
 
@@ -15,6 +14,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
 
         public static ParceiroNegocioPessoaFisica Save(ParceiroNegocioPessoaFisica entity)
         {
+            
             using (var transaction = NHibernateHttpModule.Session.BeginTransaction())
             {
                 try

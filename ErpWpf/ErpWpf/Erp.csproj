@@ -1057,6 +1057,9 @@
     <Folder Include="Relatorios\Pessoa\ParceiroNegocioFisicoJuridico\" />
     <Folder Include="Relatorios\Titulos\ParceiroNegocioFisicoJuridico\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\applicationButton.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

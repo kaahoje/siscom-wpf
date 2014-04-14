@@ -1,10 +1,8 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using Erp.Business.Annotations;
 using Erp.Business.Enum;
-using FluentNHibernate.Diagnostics;
 
 namespace Erp.Business.Entity.Contabil
 {
@@ -75,7 +73,6 @@ namespace Erp.Business.Entity.Contabil
             }
         }
 
-        [Required(ErrorMessage = Constants.MessageRequiredError)]
         [Display(Description = "Observações", Name = "Observações do custo", Order = 4)]
         [GridAnnotation(Order = 4, Visible = true, Width = 200)]
         public virtual string Observacoes

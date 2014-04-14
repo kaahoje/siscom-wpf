@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using NHibernate;
 using NHibernate.Criterion;
 
 namespace Erp.Business.Entity.Contabil

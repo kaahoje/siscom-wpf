@@ -46,11 +46,30 @@
                 <dxb:BarButtonItem x:Name="barButtonItem31" Content="Custo fixo" Command="{Binding CmdRelatorioCustoFixo}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem32" Content="Pessoa física" Command="{Binding CmdRelatorioCustoFixoParceiroNegocioPessoaFisica}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem33" Content="Pessoa jurídica" Command="{Binding CmdRelatorioCustoFixoParceiroNegocioPessoaJuridica}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem34" Content="Pessoa física"/>
+                <dxb:BarButtonItem x:Name="barButtonItem35" Content="Pessoa física(Data)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem36" Content="Pessoa física(Pessoa)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem37" Content="Pessoa física"/>
+                <dxb:BarButtonItem x:Name="barButtonItem38" Content="Pessoa física(Data)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem39" Content="Pessoa física(Pessoa)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem40" Content="Pessoa jurídica"/>
+                <dxb:BarButtonItem x:Name="barButtonItem41" Content="Pessoa jurídica(Data)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem42" Content="Pessoa jurídica(Pessoa)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem43" Content="Pessoa jurídica"/>
+                <dxb:BarButtonItem x:Name="barButtonItem44" Content="Pessoa jurídica(Data)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem45" Content="Pessoa jurídica(Pessoa)"/>
+                <dxb:BarButtonItem x:Name="barButtonItem46" Content="Ajuda" Glyph="{x:Null}" LargeGlyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Support/Index_32x32.png" RibbonStyle="Large"/>
+                <dxb:BarButtonItem x:Name="barButtonItem47" Content="Sobre" RibbonStyle="Large" LargeGlyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Support/Info_32x32.png"/>
 
             </dxb:BarManager.Items>
             <DockPanel>
 
-                <dxr:RibbonControl DockPanel.Dock="Top">
+                <dxr:RibbonControl DockPanel.Dock="Top" ApplicationButtonSmallIcon="Erp.ico" ApplicationButtonLargeIcon="Images/applicationButton.png"  ToolbarShowCustomizationButton="False">
+                    <dxr:RibbonControl.ApplicationMenu>
+                        <dxr:ApplicationMenu>
+
+                        </dxr:ApplicationMenu>
+                    </dxr:RibbonControl.ApplicationMenu>
                     <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
                         <dxr:RibbonPage Caption="Cadastros">
                             <dxr:RibbonPageGroup Caption="Principais" ShowCaptionButton="True">
@@ -73,27 +92,31 @@
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem3"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem16"/>
                             </dxr:RibbonPageGroup>
+                            <dxr:RibbonPageGroup Caption="Sistema">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem46"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem47"/>
+                            </dxr:RibbonPageGroup>
                         </dxr:RibbonPage>
                         <dxr:RibbonPage Caption="Relatórios">
-                            <dxr:RibbonPageGroup Caption="Produto">
+                            <dxr:RibbonPageGroup Caption="Produto" AllowCollapse="False">
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem30"/>
                             </dxr:RibbonPageGroup>
-                            <dxr:RibbonPageGroup Caption="Custo fixo">
+                            <dxr:RibbonPageGroup Caption="Custo fixo" AllowCollapse="False">
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem31"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem32"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem33"/>
                             </dxr:RibbonPageGroup>
-                            <dxr:RibbonPageGroup Caption="Lançamentos">
+                            <dxr:RibbonPageGroup Caption="Lançamentos" AllowCollapse="False">
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem29"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem27"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem28"/>
 
                             </dxr:RibbonPageGroup>
-                            <dxr:RibbonPageGroup Caption="Pessoa">
+                            <dxr:RibbonPageGroup Caption="Pessoa" AllowCollapse="False">
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem25"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem26"/>
                             </dxr:RibbonPageGroup>
-                            <dxr:RibbonPageGroup Caption="Títulos" ShowCaptionButton="False">
+                            <dxr:RibbonPageGroup Caption="Títulos" AllowCollapse="False">
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem19"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem20"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem21"/>
@@ -101,10 +124,27 @@
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem23"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem24"/>
                             </dxr:RibbonPageGroup>
-                            <dxr:RibbonPageGroup Caption="Outros">
+                            <dxr:RibbonPageGroup Caption="Notas de entrada" AllowCollapse="False">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem34"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem35"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem36"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem40"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem41"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem42"/>
+                            </dxr:RibbonPageGroup>
+                            <dxr:RibbonPageGroup Caption="Notas de saída" AllowCollapse="False">
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem37"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem38"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem39"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem43"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem44"/>
+                                <dxb:BarButtonItemLink BarItemName="barButtonItem45"/>
+                            </dxr:RibbonPageGroup>
+                            <dxr:RibbonPageGroup Caption="Outros" AllowCollapse="True">
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem17"/>
                                 <dxb:BarButtonItemLink BarItemName="barButtonItem18"/>
                             </dxr:RibbonPageGroup>
+
                         </dxr:RibbonPage>
                         <dxr:RibbonPage Caption="Gráficos"/>
                     </dxr:RibbonDefaultPageCategory>

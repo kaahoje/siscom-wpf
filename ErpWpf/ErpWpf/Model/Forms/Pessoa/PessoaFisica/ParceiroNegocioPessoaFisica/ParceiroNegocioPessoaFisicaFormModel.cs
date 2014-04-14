@@ -80,7 +80,7 @@ namespace Erp.Model.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
                        Validation.GetOnlyNumber(EntityParceiroNegocioPessoaFisica.Cpf);
                    ParceiroNegocioPessoaFisicaRepository.Save(EntityParceiroNegocioPessoaFisica);
                    EntityParceiroNegocioPessoaFisica = new Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ParceiroNegocioPessoaFisica();
-                   base.Excluir();
+                   OperacaoConcluida();
                }
            }
            catch (Exception ex)

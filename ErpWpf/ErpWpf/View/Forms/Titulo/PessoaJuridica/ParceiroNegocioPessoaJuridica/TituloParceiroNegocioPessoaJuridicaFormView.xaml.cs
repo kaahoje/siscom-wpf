@@ -21,7 +21,7 @@ namespace Erp.View.Forms.Titulo.PessoaJuridica.ParceiroNegocioPessoaJuridica
             InitializeComponent();
             DataContext = new TituloParceiroNegocioPessoaJuridicaFormModel();
             RestCommands.DataContext = DataContext;
-            Actions = new FormDefaultActions<TituloParceiroNegocioPessoaJuridica>(this){IsEnableShortcuts = false};
+            Actions = new FormDefaultActions<TituloParceiroNegocioPessoaJuridica>(this,dtVencimento){IsEnableShortcuts = false};
             
         }
 

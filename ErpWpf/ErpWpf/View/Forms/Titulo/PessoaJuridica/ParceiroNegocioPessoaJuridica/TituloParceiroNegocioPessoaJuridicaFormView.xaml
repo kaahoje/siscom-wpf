@@ -6,7 +6,7 @@
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     x:Class="Erp.View.Forms.Titulo.PessoaJuridica.ParceiroNegocioPessoaJuridica.TituloParceiroNegocioPessoaJuridicaFormView"
-        Title="Títulos pessoa jurídica" Height="420" Width="700" Visibility="{Binding IsTelaVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        Title="Títulos pessoa jurídica" Height="420" Width="800" Visibility="{Binding IsTelaVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
     <Window.DataContext>
         <parceiroNegocioPessoaJuridica:TituloParceiroNegocioPessoaJuridicaFormModel/>
@@ -32,9 +32,9 @@
                 <ColumnDefinition Width="90" />
                 <ColumnDefinition Width="200" />
                 <ColumnDefinition Width="80" />
-                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="350" />
             </Grid.ColumnDefinitions>
-            <Grid ColumnSpan="4" Margin="0,0,-158,0">
+            <Grid ColumnSpan="4" Margin="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90" />
                     <ColumnDefinition Width="150" />
@@ -45,14 +45,19 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Lançamento:" Margin="5"/>
                 <dxe:DateEdit Grid.Column="1" Margin="7" Mask="{Binding Constants.MaskDateProperty}"
+                              IsEnabled="False"
+                              IsTabStop="False"
                               EditValue="{Binding Entity.DataLancamento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               MaskUseAsDisplayFormat="True"></dxe:DateEdit>
                 <Label Grid.Column="2" Content="Vencimento:" Margin="5"/>
-                <dxe:DateEdit Grid.Column="3" Margin="7" Mask="{Binding Constants.MaskDateProperty}"
+                <dxe:DateEdit Grid.Column="3" Margin="7" x:Name="dtVencimento" Mask="{Binding Constants.MaskDateProperty}"
                               EditValue="{Binding Entity.DataVencimento,Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"
                               MaskUseAsDisplayFormat="True"></dxe:DateEdit>
                 <Label Grid.Column="4" Content="Baixa:" Margin="5"/>
                 <dxe:DateEdit Grid.Column="5" Margin="7" Mask="{Binding Constants.MaskDateProperty}"
+                              IsTabStop="False"
+                              IsEnabled="False"
+                              IsReadOnly="True"
                               EditValue="{Binding Entity.Baixa,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               MaskUseAsDisplayFormat="True"></dxe:DateEdit>
             </Grid>
@@ -86,9 +91,9 @@
                               ItemsSource="{Binding TipoTituloLargeData.Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               SelectedItem="{Binding Entity.TipoTitulo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Grid Grid.Row="4" Grid.Column="0" ColumnSpan="4" Margin="0,0,-158,0">
+            <Grid Grid.Row="4" Grid.Column="0" ColumnSpan="4" Margin="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="90" />
                     <ColumnDefinition Width="150" />
                     <ColumnDefinition Width="90" />
                     <ColumnDefinition Width="150" />
@@ -99,14 +104,14 @@
                 <Label Content="Valor:" Margin="5" />
                 <dxe:SpinEdit Grid.Column="1" Margin="7" Mask="{Binding Constants.MaskMoneyProperty}"
                               MaskUseAsDisplayFormat="True"
-                              EditValue="{Binding Entity.Valor}"/>
+                              EditValue="{Binding Entity.Valor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <Label Grid.Column="2" Content="Acréscimos:" Margin="5" />
                 <dxe:SpinEdit Grid.Column="3" Margin="7" Mask="{Binding Constants.MaskMoneyProperty}"
                               MaskUseAsDisplayFormat="True"
                               EditValue="{Binding Entity.Acrescimos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <Label Grid.Column="4" Content="Desconto:" Margin="5" />
                 <dxe:SpinEdit Grid.Column="5" Margin="7" Mask="{Binding Constants.MaskMoneyProperty}"
-                              EditValue="{Binding Entity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              EditValue="{Binding Entity.Desconto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               MaskUseAsDisplayFormat="True"/>
             </Grid>
             
@@ -118,11 +123,11 @@
                           HorizontalAlignment="Left"
                           Mask="{Binding Constants.MaskMoneyProperty}"
                           MaskUseAsDisplayFormat="True"
-                          EditValue="{Binding Entity.ValorTotal, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                          EditValue="{Binding Entity.ValorTotal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"
                           />
             <Label Grid.Row="6" Grid.Column="0" Content="Histórico:" Margin="5"/>
             <dxe:TextEdit Grid.Row="6" Grid.Column="1" Margin="7" Grid.ColumnSpan="2"
-                          EditValue="{Binding Entity.Historico}"/>
+                          EditValue="{Binding Entity.Historico, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>
 </dx:DXWindow>

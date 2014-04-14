@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
 using Erp.Business.Entity.Sped;
 using Erp.Business.Entity.Vendas.Pedido;
-using NHibernate;
 
 namespace Erp.Business.Entity.Contabil
 {

@@ -215,7 +215,17 @@ namespace Erp.Model
                     var propValue = propertyInfo.GetValue(entity);
 
                     if (attr.IsValid(propValue)) continue;
-                    var msg = string.Format(attr.ErrorMessage, displayName);
+                    var msg = "";
+                    if (attr.GetType() == typeof(StringLengthAttribute))
+                    {
+                        var stringLength = (StringLengthAttribute) attr;
+                        msg = string.Format(attr.ErrorMessage, displayName,stringLength.MaximumLength, stringLength.MinimumLength);
+                    }
+                    else
+                    {
+                        msg = string.Format(attr.ErrorMessage, displayName);
+                    }
+                    
                     errorMessages.Add(propertyInfo.Name, msg);
                     Error += msg;
                     MensagemErroBancoDados(msg);

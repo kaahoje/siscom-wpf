@@ -14,7 +14,7 @@ namespace Erp.View.Forms.Pessoa.PessoaFisica.ParceiroNegocioPessoaFisica
             DataContext = new ParceiroNegocioPessoaFisicaFormModel();
             PessoaUserControl.DataContext = DataContext;
             RestCommands.DataContext = DataContext;
-            FormActions = new FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa>(this) { IsEnableShortcuts = false };
+            FormActions = new FormDefaultActions<Business.Entity.Contabil.Pessoa.Pessoa>(this,txtNome) { IsEnableShortcuts = false };
         }
     }
 }

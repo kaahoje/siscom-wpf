@@ -17,7 +17,8 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
         
         [Display(Name = "Descrição", Description = "Descrição da condição de pagamento",Order = 1)]
         [Required(ErrorMessage = Constants.MessageRequiredError)]
-        [StringLength(Constants.MaxLengthDescriptions,MinimumLength = Constants.MinLengthDescriptions, ErrorMessage = Constants.MessageLengthDescriptionError)]
+        [StringLength(Constants.MaxLengthDescriptions, MinimumLength = Constants.MinLengthDescriptions,
+            ErrorMessage = Constants.MessageLengthDescriptionError)]
         public virtual string Descricao { get; set; }
 
         public virtual IList<PrazoPagamentoCondicaoPagamento> Prazos { get; set; }

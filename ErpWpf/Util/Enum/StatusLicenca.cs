@@ -1,9 +1,10 @@
-﻿namespace Erp.Business.Enum
+﻿namespace Util.Enum
 {
     public enum StatusLicenca
     {
         Ativa,
         Bloqueada,
-        Revogada
+        Revogada,
+        Vencida
     }
 }

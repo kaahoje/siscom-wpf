@@ -138,6 +138,8 @@
     <Reference Include="System.Printing">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web">
       <Private>True</Private>
     </Reference>
@@ -417,6 +419,12 @@
     <Compile Include="Relatorios\Titulos\TituloPeriodoReport.Designer.cs">
       <DependentUpon>TituloPeriodoReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service References\Suporte\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services.cs" />
     <Compile Include="Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
@@ -964,6 +972,22 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\Suporte\Erp.Suporte.Licenca.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Suporte\Service.wsdl" />
+    <None Include="Service References\Suporte\Suporte.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Suporte\Suporte1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Suporte\Suporte2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Suporte\Suporte3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -1059,6 +1083,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\applicationButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Suporte\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Suporte\Suporte.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Suporte\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Suporte\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Suporte\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

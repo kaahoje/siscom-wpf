@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Input;
 using DevExpress.Xpf.Core;
 using Erp.Annotations;
 using Erp.Business;
 using Erp.Business.Enum;
+using Erp.Suporte;
 using FluentNHibernate.Conventions;
 using Util;
 using Util.Wpf;
@@ -65,7 +67,11 @@ namespace Erp.Model
         protected Formulario Formulario
         {
             get { return _formulario; }
-            set { _formulario = value; }
+            set
+            {
+                _formulario = value;
+                
+            }
         }
 
         public String ComplementoMensagem
@@ -106,6 +112,7 @@ namespace Erp.Model
             {
                 _isTelaVisibility = value;
                 OnPropertyChanged("IsTelaVisibility");
+                
             }
         }
 

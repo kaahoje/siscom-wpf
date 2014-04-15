@@ -4,10 +4,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erp", "ErpWpf\Erp.csproj", "{8998C18A-F179-4A28-8515-C02982BFF7D5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FC581FF2-50A9-4F16-898F-10E63F2A11D8} = {FC581FF2-50A9-4F16-898F-10E63F2A11D8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erp.Business", "Erp.Business\Erp.Business.csproj", "{55625D1A-6E40-4259-93E8-4933525B96A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Util", "Util\Util.csproj", "{88F82EF3-DE24-491F-89ED-93B4DC95AF6C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FC581FF2-50A9-4F16-898F-10E63F2A11D8} = {FC581FF2-50A9-4F16-898F-10E63F2A11D8}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erp.Suporte", "Suporte\Erp.Suporte.csproj", "{FC581FF2-50A9-4F16-898F-10E63F2A11D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erp.Suporte.Business", "Erp.Suporte.Business\Erp.Suporte.Business.csproj", "{A74704CF-D364-4818-9ED0-5BC06F1C96F8}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -31,6 +41,14 @@ Global
 		{88F82EF3-DE24-491F-89ED-93B4DC95AF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88F82EF3-DE24-491F-89ED-93B4DC95AF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88F82EF3-DE24-491F-89ED-93B4DC95AF6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC581FF2-50A9-4F16-898F-10E63F2A11D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC581FF2-50A9-4F16-898F-10E63F2A11D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC581FF2-50A9-4F16-898F-10E63F2A11D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC581FF2-50A9-4F16-898F-10E63F2A11D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A74704CF-D364-4818-9ED0-5BC06F1C96F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A74704CF-D364-4818-9ED0-5BC06F1C96F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A74704CF-D364-4818-9ED0-5BC06F1C96F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A74704CF-D364-4818-9ED0-5BC06F1C96F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

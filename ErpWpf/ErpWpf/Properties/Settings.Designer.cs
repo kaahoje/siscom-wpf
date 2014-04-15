@@ -58,5 +58,16 @@ namespace Erp.Properties {
                 this["TakePesquisa"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Erp.Suporte.Licenca Lix {
+            get {
+                return ((global::Erp.Suporte.Licenca)(this["Lix"]));
+            }
+            set {
+                this["Lix"] = value;
+            }
+        }
     }
 }

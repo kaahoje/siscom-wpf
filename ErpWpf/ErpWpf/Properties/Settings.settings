@@ -11,5 +11,8 @@
     <Setting Name="TakePesquisa" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">50</Value>
     </Setting>
+    <Setting Name="Lix" Type="Erp.Suporte.Licenca" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Input;
 using FluentNHibernate.Conventions;
 
 namespace Erp.Model
@@ -11,13 +9,13 @@ namespace Erp.Model
         private T _currentItem;
         private ObservableCollection<T> _collection;
 
-        public T CurrentItem
-        {
+        public T CurrentItem{
             get { return _currentItem; }
             set
             {
                 _currentItem = value;
-                OnPropertyChanged("CurrentItem");
+                OnPropertyChanged();
+
             }
         }
 

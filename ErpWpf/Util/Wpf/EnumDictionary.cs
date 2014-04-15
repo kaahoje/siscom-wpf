@@ -41,7 +41,7 @@ namespace Util.Wpf
         public void Load()
         {
 
-            var enumValues = Enum.GetValues(Type.GetType());
+            var enumValues = System.Enum.GetValues(Type.GetType());
             foreach (Object t in enumValues)
             {
                 Values.Add(new EnumDictionaryValue<T>()

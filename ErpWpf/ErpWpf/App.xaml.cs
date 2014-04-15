@@ -1,10 +1,16 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
+using System.Diagnostics;
+using System.IO;
 using System.Threading;
 using System.Windows;
 using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Entity.Sped;
 using System.Collections.ObjectModel;
+using Erp.Properties;
+using Erp.Suporte;
+using Util;
 
 
 namespace Erp
@@ -20,11 +26,11 @@ namespace Erp
         public static ObservableCollection<CstPis> CstPis { get; set; }
         public static ObservableCollection<CstCofins> CstCofins { get; set; }
         public static ObservableCollection<CstIpi> CstIpi { get; set; }
-
+        
         public App()
         {
 
-
+            
         }
 
         public static Splash splashScreen;
@@ -47,9 +53,19 @@ namespace Erp
 
             //// Wait for the blocker to be signaled before continuing. This is essentially the same as: while(ResetSplashCreated.NotSet) {}
             //ResetSplashCreated.WaitOne();
-
-
-
+            try
+            {
+                if (!Services.SuporteClient.LicenceValid(Settings.Default.Lix))
+                {
+                    Services.SuporteClient.Log("Cliente:" + Settings.Default.Lix.Documento
+                        + "\nErro ao carregar aplicação.\n Código do erro: x0:001\n");
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+            
             var initType = ConfigurationManager.AppSettings["initDbType"];
             if (!string.IsNullOrEmpty(initType))
             {

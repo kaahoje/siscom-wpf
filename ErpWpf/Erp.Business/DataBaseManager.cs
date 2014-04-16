@@ -15,37 +15,41 @@ namespace Erp.Business
 {
     public class DataBaseManager
     {
-
+        private static string _cnnStr = "";
         public static string CnnStr
         {
             get
             {
-                string machine = Environment.MachineName;
-                var cnn = "";
-                switch (machine)
+                if (string.IsNullOrEmpty(_cnnStr))
                 {
-                    case "BONEDEV":
+                    string machine = Environment.MachineName;
 
-                        cnn = ConfigurationManager.AppSettings["cnnAdailton"];
-                        break;
-                    case "JMW-JOAO-PC":
+                    switch (machine)
+                    {
+                        case "BONEDEV":
 
-                        cnn = ConfigurationManager.AppSettings["cnnJunior"];
-                        break;
-                    default:
+                            _cnnStr = ConfigurationManager.AppSettings["cnnAdailton"];
+                            break;
+                        case "JMW-JOAO-PC":
 
-                        cnn = ConfigurationManager.AppSettings["cnnDeploy"];
-                        break;
-                }
-                Utils.GerarLogDataBase(new Exception(cnn));
-                if (String.IsNullOrEmpty(cnn))
-                {
-                    //CustomMessageBox.MensagemErro("Não foi possível determinar as informações de conexão com o banco de dados.");
-                    cnn = "Server=localhost; Port= 5432;User Id=postgres; Password=123; Database=siscom;";
-                }
+                            _cnnStr = ConfigurationManager.AppSettings["cnnJunior"];
+                            break;
+                        default:
+
+                            _cnnStr = ConfigurationManager.AppSettings["cnnDeploy"];
+                            break;
+                    }
+                    Utils.GerarLogDataBase(new Exception(_cnnStr));
+                    if (String.IsNullOrEmpty(_cnnStr))
+                    {
+                        //CustomMessageBox.MensagemErro("Não foi possível determinar as informações de conexão com o banco de dados.");
+                        _cnnStr = "Server=localhost; Port= 5432;User Id=postgres; Password=123; Database=siscom;";
+                    }
                 
-                return cnn;
+                }
+                return _cnnStr;
             }
+            set { _cnnStr = value; }
         }
 
 

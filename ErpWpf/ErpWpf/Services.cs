@@ -1,24 +1,24 @@
 ﻿using System.ServiceModel;
-using System.ServiceModel.Description;
-using System.ServiceModel.Security;
 using Erp.Suporte;
 
 namespace Erp
 {
     public class Services
     {
-        private static SuporteClient _suporteClient;
+        private static ServiceClient _suporteClient;
 
-        public static SuporteClient SuporteClient
+        public static ServiceClient SuporteClient
         {
             get
             {
                 if (_suporteClient == null)
                 {
-                    var end = new EndpointAddress("http://localhost:1430/Suporte.svc");
-                    var bind = new WSHttpBinding(SecurityMode.Transport);
-                    _suporteClient = new SuporteClient(bind, end);
-                    
+                    var end = new EndpointAddress("http://localhost:5269/Suporte.svc");
+                    var bind = new WSHttpBinding(SecurityMode.None);
+                    bind.Security.Mode = SecurityMode.None;
+                    //bind.Security.Message.ClientCredentialType = MessageCredentialType.UserName;
+                    _suporteClient = new ServiceClient();
+
                 }
                 return _suporteClient;
             }

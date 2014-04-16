@@ -249,7 +249,7 @@ namespace Erp.Business
         {
             try
             {
-                var message = GetMessage(ex);
+                var message = GetStackTrace(ex);
                 var path = Environment.CurrentDirectory + "\\log";
                 if (!Directory.Exists(path))
                 {
@@ -269,7 +269,7 @@ namespace Erp.Business
         {
             try
             {
-                var message = GetMessage(ex);
+                var message = GetStackTrace(ex);
 
                 var path = Environment.CurrentDirectory + "\\DbLog";
                 if (!Directory.Exists(path))
@@ -287,7 +287,7 @@ namespace Erp.Business
             }
         }
 
-        private static string GetMessage(Exception ex)
+        public static string GetStackTrace(Exception ex)
         {
             var e = ex.InnerException;
             var trace = ex.StackTrace;
@@ -307,7 +307,7 @@ namespace Erp.Business
         {
             try
             {
-                var message = GetMessage(ex);
+                var message = GetStackTrace(ex);
 
                 var path = Environment.CurrentDirectory + "\\EcfLog";
                 if (!Directory.Exists(path))

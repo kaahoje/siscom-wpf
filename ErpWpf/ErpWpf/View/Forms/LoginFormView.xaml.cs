@@ -43,6 +43,7 @@ namespace Erp.View.Forms
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
+            
             Process.GetCurrentProcess().Kill();
         }
     }

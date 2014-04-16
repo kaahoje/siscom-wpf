@@ -1,9 +1,14 @@
 ﻿using System;
+using Erp.Suporte.Business.Enum;
 
 namespace Erp.Suporte.Business.Entity.Log
 {
     public class LogSistema
     {
+        public LogSistema()
+        {
+            DataEntrada = DateTime.Now;
+        }
         public virtual int Id { get; set; }
         /// <summary>
         /// Data e hora do envio do erro para a equipe de desenvolvimento.
@@ -25,5 +30,9 @@ namespace Erp.Suporte.Business.Entity.Log
         /// Conteudo gerado após análise do erro no cliente e enviado ao servidor.
         /// </summary>
         public virtual string StackTrace { get; set; }
+        /// <summary>
+        /// Tipo de log que é reportado no registro.
+        /// </summary>
+        public virtual TipoLog Tipo { get; set; }
     }
 }

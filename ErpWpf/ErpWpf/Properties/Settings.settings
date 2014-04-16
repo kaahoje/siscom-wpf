@@ -11,8 +11,17 @@
     <Setting Name="TakePesquisa" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">50</Value>
     </Setting>
-    <Setting Name="Lix" Type="Erp.Suporte.Licenca" Scope="User">
+    <Setting Name="Lix" Type="Erp.Suporte.LicencaConcedida" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IdMaquina" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Server=localhost; Port= 5432;User Id=bonesoft; Password=123; Database=siscom;</Value>
+    </Setting>
+    <Setting Name="InitDbType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">work</Value>
     </Setting>
   </Settings>
 </SettingsFile>

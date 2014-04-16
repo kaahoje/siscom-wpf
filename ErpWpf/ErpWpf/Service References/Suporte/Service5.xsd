@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Suporte" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Suporte" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="SolicitacaoSuporte">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataAcesso" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataEntrada" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataOcorrencia" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataTerminoAtendimento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProtocoloAtendimento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RelatoProblema" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Responsavel" nillable="true" type="tns:ResponsavelSolicitacaoSuporte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SolicitacaoSuporte" nillable="true" type="tns:SolicitacaoSuporte" />
+  <xs:complexType name="ResponsavelSolicitacaoSuporte">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Documento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponsavelSolicitacaoSuporte" nillable="true" type="tns:ResponsavelSolicitacaoSuporte" />
+</xs:schema>

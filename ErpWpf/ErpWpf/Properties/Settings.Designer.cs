@@ -61,12 +61,48 @@ namespace Erp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::Erp.Suporte.Licenca Lix {
+        public global::Erp.Suporte.LicencaConcedida Lix {
             get {
-                return ((global::Erp.Suporte.Licenca)(this["Lix"]));
+                return ((global::Erp.Suporte.LicencaConcedida)(this["Lix"]));
             }
             set {
                 this["Lix"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string IdMaquina {
+            get {
+                return ((string)(this["IdMaquina"]));
+            }
+            set {
+                this["IdMaquina"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=localhost; Port= 5432;User Id=bonesoft; Password=123; Database=siscom;")]
+        public string ConnectionString {
+            get {
+                return ((string)(this["ConnectionString"]));
+            }
+            set {
+                this["ConnectionString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("work")]
+        public string InitDbType {
+            get {
+                return ((string)(this["InitDbType"]));
+            }
+            set {
+                this["InitDbType"] = value;
             }
         }
     }

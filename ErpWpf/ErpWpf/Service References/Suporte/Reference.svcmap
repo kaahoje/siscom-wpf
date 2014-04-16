@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6ac4d586-815c-4bfe-9c46-24054026f12d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f12e7019-4fda-4efe-9485-b9c2c81cde0a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
-    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
-    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
@@ -19,15 +18,19 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1430/Suporte.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:5269/Service.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Suporte.disco" MetadataType="Disco" ID="46642a4d-f1d3-45a6-8370-cce2a3fa4925" SourceId="1" SourceUrl="http://localhost:1430/Suporte.svc?disco" />
-    <MetadataFile FileName="Suporte.xsd" MetadataType="Schema" ID="78d9702d-aa32-4ccc-97f4-010ed1ae1458" SourceId="1" SourceUrl="http://localhost:1430/Suporte.svc?xsd=xsd2" />
-    <MetadataFile FileName="Suporte1.xsd" MetadataType="Schema" ID="23216a15-2415-4e76-937e-ade936cf358a" SourceId="1" SourceUrl="http://localhost:1430/Suporte.svc?xsd=xsd3" />
-    <MetadataFile FileName="Suporte2.xsd" MetadataType="Schema" ID="7bf237ba-7407-4ce9-8cfd-4fdec114da99" SourceId="1" SourceUrl="http://localhost:1430/Suporte.svc?xsd=xsd0" />
-    <MetadataFile FileName="Suporte3.xsd" MetadataType="Schema" ID="8adc2ada-c617-4d01-b5cf-cd67ad403a90" SourceId="1" SourceUrl="http://localhost:1430/Suporte.svc?xsd=xsd1" />
-    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="27db592c-a5bd-466b-8608-b3410392b520" SourceId="1" SourceUrl="http://localhost:1430/Suporte.svc?wsdl" />
+    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="fafb7b25-e9f7-4233-9658-97e75a7199db" SourceId="1" SourceUrl="http://localhost:5269/Service.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="62d2a94a-1170-45a5-a818-4894e5d94049" SourceId="1" SourceUrl="http://localhost:5269/Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service.disco" MetadataType="Disco" ID="e48fcb87-4000-4df4-a180-0de531c90051" SourceId="1" SourceUrl="http://localhost:5269/Service.svc?disco" />
+    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="19add2b1-995b-4a3e-b7cf-10ea5036413d" SourceId="1" SourceUrl="http://localhost:5269/Service.svc?xsd=xsd4" />
+    <MetadataFile FileName="Service3.xsd" MetadataType="Schema" ID="0d109165-2567-4506-b5f7-e22aa42e2c1c" SourceId="1" SourceUrl="http://localhost:5269/Service.svc?xsd=xsd5" />
+    <MetadataFile FileName="Service4.xsd" MetadataType="Schema" ID="71de0b9e-143c-4c82-9762-d4ea11a5ea23" SourceId="1" SourceUrl="http://localhost:5269/Service.svc?xsd=xsd6" />
+    <MetadataFile FileName="Service5.xsd" MetadataType="Schema" ID="38345b3a-bffe-4d98-98eb-fd60d42af7f7" SourceId="1" SourceUrl="http://localhost:5269/Service.svc?xsd=xsd7" />
+    <MetadataFile FileName="Service6.xsd" MetadataType="Schema" ID="b73e8626-5416-45b8-97d2-c7a2af6c2b92" SourceId="1" SourceUrl="http://localhost:5269/Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="24399973-d53a-4f10-b3d8-ed783d33869c" SourceId="1" SourceUrl="http://localhost:5269/Service.svc?wsdl" />
+    <MetadataFile FileName="Service7.xsd" MetadataType="Schema" ID="3bdfe168-97bb-4f42-bfe7-237e1277cca5" SourceId="1" SourceUrl="http://localhost:5269/Service.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

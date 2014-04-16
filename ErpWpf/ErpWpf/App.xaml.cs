@@ -10,11 +10,13 @@ using Erp.Business.Entity.Sped;
 using System.Collections.ObjectModel;
 using Erp.Properties;
 using Erp.Suporte;
+using Erp.View.Forms;
 using Util;
 
 
 namespace Erp
 {
+    public delegate void ValidateLicense();
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
@@ -26,19 +28,21 @@ namespace Erp
         public static ObservableCollection<CstPis> CstPis { get; set; }
         public static ObservableCollection<CstCofins> CstCofins { get; set; }
         public static ObservableCollection<CstIpi> CstIpi { get; set; }
-        
+
         public App()
         {
-
+            
             
         }
+
+       
 
         public static Splash splashScreen;
 
         private ManualResetEvent ResetSplashCreated;
         private Thread SplashThread;
 
-
+        
         protected override void OnStartup(StartupEventArgs e)
         {
 
@@ -53,20 +57,27 @@ namespace Erp
 
             //// Wait for the blocker to be signaled before continuing. This is essentially the same as: while(ResetSplashCreated.NotSet) {}
             //ResetSplashCreated.WaitOne();
-            try
+            //if (Settings.Default.Lix == null)
+            //{
+            //    new RequisicaoLicencaView().ShowDialog();
+            //    if (Settings.Default.Lix == null)
+            //    {
+            //        Process.GetCurrentProcess().Kill();
+            //    }
+            Settings.Default.Lix = new LicencaConcedida(); // Apagar após o fim dos testes do serviço
+
+            if (!Services.SuporteClient.LicenceActivated(Settings.Default.Lix.Codigo))
             {
-                if (!Services.SuporteClient.LicenceValid(Settings.Default.Lix))
-                {
-                    Services.SuporteClient.Log("Cliente:" + Settings.Default.Lix.Documento
-                        + "\nErro ao carregar aplicação.\n Código do erro: x0:001\n");
-                }
+                Services.SuporteClient.Log("Cliente:" + Settings.Default.Lix.Documento
+                    + "\nErro ao carregar aplicação.\n Código do erro: x0:001\n");
             }
-            catch (Exception)
-            {
-                
-            }
+            //}
+            //else
+            //{
             
-            var initType = ConfigurationManager.AppSettings["initDbType"];
+            //}
+            var initType = Settings.Default.InitDbType;
+            DataBaseManager.CnnStr = Settings.Default.ConnectionString;
             if (!string.IsNullOrEmpty(initType))
             {
                 switch (initType)
@@ -79,10 +90,12 @@ namespace Erp
                         break;
                 }
             }
-
+            
             base.OnStartup(e);
             //SplashThread.Interrupt();
         }
+
+       
 
         //private void ShowSplash()
         //{

@@ -15,9 +15,8 @@ namespace Erp.Suporte.Business.Entity.Suporte
             Map(x => x.ProtocoloAtendimento).Not.Nullable();
             Map(x => x.RelatoProblema).Not.Nullable();
 
-            References(x => x.EmpresaSolicitante).Not.Nullable();
-            References(x => x.Solicitante).Not.Nullable();
-
+            References(x => x.Responsavel).Not.Nullable();
+            
             HasMany(x => x.Atendentes).LazyLoad().Cascade.All();
 
         }

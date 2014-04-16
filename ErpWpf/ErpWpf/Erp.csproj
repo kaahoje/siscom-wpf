@@ -17,6 +17,24 @@
     <SccLocalPath>Svn</SccLocalPath>
     <SccAuxPath>Svn</SccAuxPath>
     <SccProvider>SubversionScc</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Publish\Bone Pizza WPF\Bonesistems\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TrustUrlParameters>true</TrustUrlParameters>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,6 +57,18 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Erp.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>27084F9FDB17D7DF649269C28847607F2EB38C33</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Erp_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper">
@@ -143,6 +173,7 @@
     <Reference Include="System.Web">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms">
       <Private>True</Private>
     </Reference>
@@ -210,6 +241,7 @@
     <Compile Include="Model\Forms\Pessoa\PessoaJuridica\PessoaJuridicaFormModel.cs" />
     <Compile Include="Model\Forms\Pessoa\TipoCadastroSelectFormModel.cs" />
     <Compile Include="Model\Forms\ProdutoFormModel.cs" />
+    <Compile Include="Model\Forms\RequisicaoLicencaFormModel.cs" />
     <Compile Include="Model\Forms\SubGrupoProdutoFormModel.cs" />
     <Compile Include="Model\Forms\TipoTituloFormModel.cs" />
     <Compile Include="Model\Forms\Titulo\PessoaFisica\ParceiroNegocioPessoaFisica\TituloParceiroNegocioPessoaFisicaFormModel.cs" />
@@ -498,6 +530,9 @@
     <Compile Include="View\Forms\ProdutoFormView.xaml.cs">
       <DependentUpon>ProdutoFormView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\RequisicaoLicencaView.xaml.cs">
+      <DependentUpon>RequisicaoLicencaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\SubGrupoProdutoFormView.xaml.cs">
       <DependentUpon>SubGrupoProdutoFormView.xaml</DependentUpon>
     </Compile>
@@ -692,6 +727,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Forms\ProdutoFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\RequisicaoLicencaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -915,6 +954,7 @@
       <DependentUpon>TituloPeriodoReport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Arquivos\dados.zip" />
+    <None Include="Erp_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Erp.Business.Constants.datasource" />
     <None Include="Properties\DataSources\Erp.Business.Dicionary.FabricanteEcfDictionary.datasource" />
@@ -972,20 +1012,32 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\Suporte\Erp.Suporte.Licenca.datasource">
+    <None Include="Service References\Suporte\Erp.Suporte.SolicitacaoSuporte.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\Suporte\Service.wsdl" />
-    <None Include="Service References\Suporte\Suporte.xsd">
+    <None Include="Service References\Suporte\Service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Suporte\Suporte1.xsd">
+    <None Include="Service References\Suporte\Service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Suporte\Suporte2.xsd">
+    <None Include="Service References\Suporte\Service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Suporte\Suporte3.xsd">
+    <None Include="Service References\Suporte\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Suporte\Service4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Suporte\Service5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Suporte\Service6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Suporte\Service7.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -1088,10 +1140,27 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadataStorage Include="Service References\Suporte\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Suporte\Suporte.disco" />
+    <None Include="Service References\Suporte\Service.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\Suporte\configuration91.svcinfo" />

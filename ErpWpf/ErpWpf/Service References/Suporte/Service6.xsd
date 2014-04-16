@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:5269/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Licenca" />
+  <xs:import schemaLocation="http://localhost:5269/Service.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:5269/Service.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Suporte" />
+  <xs:element name="Log">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stackTrace" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogDataBase">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stackTrace" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogDataBaseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestLicense">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Licenca" minOccurs="0" name="requisicao" nillable="true" type="q1:LicencaConcedida" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestLicenseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RequestLicenseResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LicenceActivated">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LicenceActivatedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LicenceActivatedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Licenca" minOccurs="0" name="licenca" nillable="true" type="q2:LicencaConcedida" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="currentFileList" nillable="true" type="q3:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RequestUpdateResult" nillable="true" type="q4:ArrayOfKeyValueOfstringFileStreampETKBXRm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestSuport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Licenca" minOccurs="0" name="licenca" nillable="true" type="q5:LicencaConcedida" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Suporte" minOccurs="0" name="solicitacao" nillable="true" type="q6:SolicitacaoSuporte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestSuportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Suporte" minOccurs="0" name="RequestSuportResult" nillable="true" type="q7:SolicitacaoSuporte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -10,8 +10,9 @@ namespace Erp.Suporte.Business.Entity.Licenca
 
             Map(x => x.DataConcessao).Not.Nullable();
             Map(x => x.DataRevogacao);
-            Map(x => x.CodigoLicenca).Not.Nullable();
+            Map(x => x.Codigo);
             Map(x => x.Status);
+            
         }
     }
 }

@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,21 +49,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Cliente\ICliente.cs" />
+    <Compile Include="Entity\Cliente\PessoaFisica\ClientePessoaFisica.cs" />
+    <Compile Include="Entity\Cliente\PessoaFisica\ClientePessoaFisicaMap.cs" />
+    <Compile Include="Entity\Cliente\PessoaFisica\ClientePessoaFisicaRepository.cs" />
+    <Compile Include="Entity\Cliente\PessoaJuridica\ClientePessoaJuridica.cs" />
+    <Compile Include="Entity\Cliente\PessoaJuridica\ClientePessoaJuridicaMap.cs" />
+    <Compile Include="Entity\Cliente\PessoaJuridica\ClientePessoaJuridicaRepository.cs" />
+    <Compile Include="Entity\Licenca\LicencaConcedida.cs" />
+    <Compile Include="Entity\Licenca\LicencaConcedidaMap.cs" />
+    <Compile Include="Entity\Licenca\LicencaConcedidaRepository.cs" />
     <Compile Include="Entity\Licenca\LicencaUso.cs" />
     <Compile Include="Entity\Licenca\LicencaUsoMap.cs" />
+    <Compile Include="Entity\Licenca\LicencaUsoRepository.cs" />
     <Compile Include="Entity\Licenca\PessoaFisica\LicencaUsoPessoaFisica.cs" />
     <Compile Include="Entity\Licenca\PessoaFisica\LicencaUsoPessoaFisicaMap.cs" />
+    <Compile Include="Entity\Licenca\PessoaFisica\LicencaUsoPessoaFisicaRepository.cs" />
     <Compile Include="Entity\Licenca\PessoaJuridica\LicencaUsoPessoaJuridica.cs" />
     <Compile Include="Entity\Licenca\PessoaJuridica\LicencaUsoPessoaJuridicaMap.cs" />
+    <Compile Include="Entity\Licenca\PessoaJuridica\LicencaUsoPessoaJuridicaRepository.cs" />
     <Compile Include="Entity\Log\LogSistema.cs" />
     <Compile Include="Entity\Log\LogSistemaMap.cs" />
+    <Compile Include="Entity\Log\LogSistemaRepository.cs" />
+    <Compile Include="Entity\Suporte\PessoaFisica\SolicitacaoSuportePessoaFisica.cs" />
+    <Compile Include="Entity\Suporte\PessoaFisica\SolicitacaoSuportePessoaFisicaMap.cs" />
+    <Compile Include="Entity\Suporte\PessoaFisica\SolicitacaoSuportePessoaFisicaRepository.cs" />
+    <Compile Include="Entity\Suporte\PessoaJuridica\SolicitacaoSuportePessoaJuridica.cs" />
+    <Compile Include="Entity\Suporte\PessoaJuridica\SolicitacaoSuportePessoaJuridicaMap.cs" />
+    <Compile Include="Entity\Suporte\PessoaJuridica\SolicitacaoSuportePessoaJuridicaRepository.cs" />
+    <Compile Include="Entity\Suporte\ResponsavelSolicitacaoSuporte.cs" />
+    <Compile Include="Entity\Suporte\ResponsavelSolicitacaoSuporteMap.cs" />
+    <Compile Include="Entity\Suporte\ResponsavelSolicitacaoSuporteRepository.cs" />
     <Compile Include="Entity\Suporte\SolicitacaoSuporte.cs" />
     <Compile Include="Entity\Suporte\SolicitacaoSuporteMap.cs" />
+    <Compile Include="Entity\Suporte\SolicitacaoSuporteRepository.cs" />
+    <Compile Include="Enum\StatusLicenca.cs" />
+    <Compile Include="Enum\TipoLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entity\AvisoSeguranca\" />
-    <Folder Include="Enum\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Erp.Business\Erp.Business.csproj">
@@ -73,9 +99,6 @@
       <Project>{88f82ef3-de24-491f-89ed-93b4dc95af6c}</Project>
       <Name>Util</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

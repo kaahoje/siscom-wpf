@@ -15,36 +15,19 @@ namespace Erp.Suporte {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Licenca", Namespace="http://schemas.datacontract.org/2004/07/Erp.Suporte.DataContracts")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LicencaUso", Namespace="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Licenca")]
     [System.SerializableAttribute()]
-    public partial class Licenca : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Erp.Suporte.LicencaConcedida))]
+    public partial class LicencaUso : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BairroField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CepField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CodigoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DocumentoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LogradouroField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NomeClienteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NumeroField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Util.Enum.StatusLicenca StatusField;
+        private Erp.Suporte.StatusLicenca StatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -55,6 +38,81 @@ namespace Erp.Suporte {
                 this.extensionDataField = value;
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Codigo {
+            get {
+                return this.CodigoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
+                    this.CodigoField = value;
+                    this.RaisePropertyChanged("Codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Erp.Suporte.StatusLicenca Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LicencaConcedida", Namespace="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Licenca")]
+    [System.SerializableAttribute()]
+    public partial class LicencaConcedida : Erp.Suporte.LicencaUso {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BairroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CepField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocumentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdMaquinaClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LogradouroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MacField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomeClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumeroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProcessadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SistemaOperacionalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VersaoSistemaOperacionalField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Bairro {
@@ -83,19 +141,6 @@ namespace Erp.Suporte {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo {
-            get {
-                return this.CodigoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
-                    this.CodigoField = value;
-                    this.RaisePropertyChanged("Codigo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Documento {
             get {
                 return this.DocumentoField;
@@ -109,6 +154,19 @@ namespace Erp.Suporte {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IdMaquinaCliente {
+            get {
+                return this.IdMaquinaClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdMaquinaClienteField, value) != true)) {
+                    this.IdMaquinaClienteField = value;
+                    this.RaisePropertyChanged("IdMaquinaCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Logradouro {
             get {
                 return this.LogradouroField;
@@ -117,6 +175,19 @@ namespace Erp.Suporte {
                 if ((object.ReferenceEquals(this.LogradouroField, value) != true)) {
                     this.LogradouroField = value;
                     this.RaisePropertyChanged("Logradouro");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mac {
+            get {
+                return this.MacField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MacField, value) != true)) {
+                    this.MacField = value;
+                    this.RaisePropertyChanged("Mac");
                 }
             }
         }
@@ -148,14 +219,237 @@ namespace Erp.Suporte {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Util.Enum.StatusLicenca Status {
+        public string Processador {
             get {
-                return this.StatusField;
+                return this.ProcessadorField;
             }
             set {
-                if ((this.StatusField.Equals(value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
+                if ((object.ReferenceEquals(this.ProcessadorField, value) != true)) {
+                    this.ProcessadorField = value;
+                    this.RaisePropertyChanged("Processador");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SistemaOperacional {
+            get {
+                return this.SistemaOperacionalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SistemaOperacionalField, value) != true)) {
+                    this.SistemaOperacionalField = value;
+                    this.RaisePropertyChanged("SistemaOperacional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VersaoSistemaOperacional {
+            get {
+                return this.VersaoSistemaOperacionalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VersaoSistemaOperacionalField, value) != true)) {
+                    this.VersaoSistemaOperacionalField = value;
+                    this.RaisePropertyChanged("VersaoSistemaOperacional");
+                }
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StatusLicenca", Namespace="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Enum")]
+    public enum StatusLicenca : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ativa = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Bloqueada = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revogada = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Vencida = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReenviarCodigo = 4,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SolicitacaoSuporte", Namespace="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Suporte")]
+    [System.SerializableAttribute()]
+    public partial class SolicitacaoSuporte : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DataAcessoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DataEntradaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DataOcorrenciaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DataTerminoAtendimentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProtocoloAtendimentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RelatoProblemaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Erp.Suporte.ResponsavelSolicitacaoSuporte ResponsavelField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DataAcesso {
+            get {
+                return this.DataAcessoField;
+            }
+            set {
+                if ((this.DataAcessoField.Equals(value) != true)) {
+                    this.DataAcessoField = value;
+                    this.RaisePropertyChanged("DataAcesso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DataEntrada {
+            get {
+                return this.DataEntradaField;
+            }
+            set {
+                if ((this.DataEntradaField.Equals(value) != true)) {
+                    this.DataEntradaField = value;
+                    this.RaisePropertyChanged("DataEntrada");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DataOcorrencia {
+            get {
+                return this.DataOcorrenciaField;
+            }
+            set {
+                if ((this.DataOcorrenciaField.Equals(value) != true)) {
+                    this.DataOcorrenciaField = value;
+                    this.RaisePropertyChanged("DataOcorrencia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DataTerminoAtendimento {
+            get {
+                return this.DataTerminoAtendimentoField;
+            }
+            set {
+                if ((this.DataTerminoAtendimentoField.Equals(value) != true)) {
+                    this.DataTerminoAtendimentoField = value;
+                    this.RaisePropertyChanged("DataTerminoAtendimento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProtocoloAtendimento {
+            get {
+                return this.ProtocoloAtendimentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProtocoloAtendimentoField, value) != true)) {
+                    this.ProtocoloAtendimentoField = value;
+                    this.RaisePropertyChanged("ProtocoloAtendimento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RelatoProblema {
+            get {
+                return this.RelatoProblemaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RelatoProblemaField, value) != true)) {
+                    this.RelatoProblemaField = value;
+                    this.RaisePropertyChanged("RelatoProblema");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Erp.Suporte.ResponsavelSolicitacaoSuporte Responsavel {
+            get {
+                return this.ResponsavelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResponsavelField, value) != true)) {
+                    this.ResponsavelField = value;
+                    this.RaisePropertyChanged("Responsavel");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponsavelSolicitacaoSuporte", Namespace="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Suporte")]
+    [System.SerializableAttribute()]
+    public partial class ResponsavelSolicitacaoSuporte : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocumentoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Documento {
+            get {
+                return this.DocumentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocumentoField, value) != true)) {
+                    this.DocumentoField = value;
+                    this.RaisePropertyChanged("Documento");
                 }
             }
         }
@@ -171,91 +465,509 @@ namespace Erp.Suporte {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Suporte.ISuporte")]
-    public interface ISuporte {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Suporte.IService")]
+    public interface IService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISuporte/LogDataBase", ReplyAction="http://tempuri.org/ISuporte/LogDataBaseResponse")]
-        void LogDataBase(string exception);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Log", ReplyAction="http://tempuri.org/IService/LogResponse")]
+        void Log(string stackTrace);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISuporte/LogDataBase", ReplyAction="http://tempuri.org/ISuporte/LogDataBaseResponse")]
-        System.Threading.Tasks.Task LogDataBaseAsync(string exception);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/Log", ReplyAction="http://tempuri.org/IService/LogResponse")]
+        System.IAsyncResult BeginLog(string stackTrace, System.AsyncCallback callback, object asyncState);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISuporte/Log", ReplyAction="http://tempuri.org/ISuporte/LogResponse")]
-        void Log(string exception);
+        void EndLog(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISuporte/Log", ReplyAction="http://tempuri.org/ISuporte/LogResponse")]
-        System.Threading.Tasks.Task LogAsync(string exception);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/LogDataBase", ReplyAction="http://tempuri.org/IService/LogDataBaseResponse")]
+        void LogDataBase(string stackTrace);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISuporte/LicenceValid", ReplyAction="http://tempuri.org/ISuporte/LicenceValidResponse")]
-        bool LicenceValid(Erp.Suporte.Licenca licenca);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/LogDataBase", ReplyAction="http://tempuri.org/IService/LogDataBaseResponse")]
+        System.IAsyncResult BeginLogDataBase(string stackTrace, System.AsyncCallback callback, object asyncState);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISuporte/LicenceValid", ReplyAction="http://tempuri.org/ISuporte/LicenceValidResponse")]
-        System.Threading.Tasks.Task<bool> LicenceValidAsync(Erp.Suporte.Licenca licenca);
+        void EndLogDataBase(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISuporte/RequestLicence", ReplyAction="http://tempuri.org/ISuporte/RequestLicenceResponse")]
-        Erp.Suporte.Licenca RequestLicence(Erp.Suporte.Licenca licenca);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RequestLicense", ReplyAction="http://tempuri.org/IService/RequestLicenseResponse")]
+        string RequestLicense(Erp.Suporte.LicencaConcedida requisicao);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISuporte/RequestLicence", ReplyAction="http://tempuri.org/ISuporte/RequestLicenceResponse")]
-        System.Threading.Tasks.Task<Erp.Suporte.Licenca> RequestLicenceAsync(Erp.Suporte.Licenca licenca);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/RequestLicense", ReplyAction="http://tempuri.org/IService/RequestLicenseResponse")]
+        System.IAsyncResult BeginRequestLicense(Erp.Suporte.LicencaConcedida requisicao, System.AsyncCallback callback, object asyncState);
+        
+        string EndRequestLicense(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/LicenceActivated", ReplyAction="http://tempuri.org/IService/LicenceActivatedResponse")]
+        bool LicenceActivated(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/LicenceActivated", ReplyAction="http://tempuri.org/IService/LicenceActivatedResponse")]
+        System.IAsyncResult BeginLicenceActivated(string codigo, System.AsyncCallback callback, object asyncState);
+        
+        bool EndLicenceActivated(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RequestUpdate", ReplyAction="http://tempuri.org/IService/RequestUpdateResponse")]
+        System.Collections.Generic.Dictionary<string, System.IO.FileStream> RequestUpdate(Erp.Suporte.LicencaConcedida licenca, System.Collections.Generic.Dictionary<string, string> currentFileList);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/RequestUpdate", ReplyAction="http://tempuri.org/IService/RequestUpdateResponse")]
+        System.IAsyncResult BeginRequestUpdate(Erp.Suporte.LicencaConcedida licenca, System.Collections.Generic.Dictionary<string, string> currentFileList, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.Generic.Dictionary<string, System.IO.FileStream> EndRequestUpdate(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RequestSuport", ReplyAction="http://tempuri.org/IService/RequestSuportResponse")]
+        Erp.Suporte.SolicitacaoSuporte RequestSuport(Erp.Suporte.LicencaConcedida licenca, Erp.Suporte.SolicitacaoSuporte solicitacao);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/RequestSuport", ReplyAction="http://tempuri.org/IService/RequestSuportResponse")]
+        System.IAsyncResult BeginRequestSuport(Erp.Suporte.LicencaConcedida licenca, Erp.Suporte.SolicitacaoSuporte solicitacao, System.AsyncCallback callback, object asyncState);
+        
+        Erp.Suporte.SolicitacaoSuporte EndRequestSuport(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISuporteChannel : Erp.Suporte.ISuporte, System.ServiceModel.IClientChannel {
+    public interface IServiceChannel : Erp.Suporte.IService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SuporteClient : System.ServiceModel.ClientBase<Erp.Suporte.ISuporte>, Erp.Suporte.ISuporte {
+    public partial class RequestLicenseCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
-        public SuporteClient() {
+        private object[] results;
+        
+        public RequestLicenseCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
         }
         
-        public SuporteClient(string endpointConfigurationName) : 
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class LicenceActivatedCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public LicenceActivatedCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RequestUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public RequestUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.Generic.Dictionary<string, System.IO.FileStream> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.Generic.Dictionary<string, System.IO.FileStream>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RequestSuportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public RequestSuportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Erp.Suporte.SolicitacaoSuporte Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Erp.Suporte.SolicitacaoSuporte)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServiceClient : System.ServiceModel.ClientBase<Erp.Suporte.IService>, Erp.Suporte.IService {
+        
+        private BeginOperationDelegate onBeginLogDelegate;
+        
+        private EndOperationDelegate onEndLogDelegate;
+        
+        private System.Threading.SendOrPostCallback onLogCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginLogDataBaseDelegate;
+        
+        private EndOperationDelegate onEndLogDataBaseDelegate;
+        
+        private System.Threading.SendOrPostCallback onLogDataBaseCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginRequestLicenseDelegate;
+        
+        private EndOperationDelegate onEndRequestLicenseDelegate;
+        
+        private System.Threading.SendOrPostCallback onRequestLicenseCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginLicenceActivatedDelegate;
+        
+        private EndOperationDelegate onEndLicenceActivatedDelegate;
+        
+        private System.Threading.SendOrPostCallback onLicenceActivatedCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginRequestUpdateDelegate;
+        
+        private EndOperationDelegate onEndRequestUpdateDelegate;
+        
+        private System.Threading.SendOrPostCallback onRequestUpdateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginRequestSuportDelegate;
+        
+        private EndOperationDelegate onEndRequestSuportDelegate;
+        
+        private System.Threading.SendOrPostCallback onRequestSuportCompletedDelegate;
+        
+        public ServiceClient() {
+        }
+        
+        public ServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public SuporteClient(string endpointConfigurationName, string remoteAddress) : 
+        public ServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SuporteClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SuporteClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public void LogDataBase(string exception) {
-            base.Channel.LogDataBase(exception);
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> LogCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> LogDataBaseCompleted;
+        
+        public event System.EventHandler<RequestLicenseCompletedEventArgs> RequestLicenseCompleted;
+        
+        public event System.EventHandler<LicenceActivatedCompletedEventArgs> LicenceActivatedCompleted;
+        
+        public event System.EventHandler<RequestUpdateCompletedEventArgs> RequestUpdateCompleted;
+        
+        public event System.EventHandler<RequestSuportCompletedEventArgs> RequestSuportCompleted;
+        
+        public void Log(string stackTrace) {
+            base.Channel.Log(stackTrace);
         }
         
-        public System.Threading.Tasks.Task LogDataBaseAsync(string exception) {
-            return base.Channel.LogDataBaseAsync(exception);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginLog(string stackTrace, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginLog(stackTrace, callback, asyncState);
         }
         
-        public void Log(string exception) {
-            base.Channel.Log(exception);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndLog(System.IAsyncResult result) {
+            base.Channel.EndLog(result);
         }
         
-        public System.Threading.Tasks.Task LogAsync(string exception) {
-            return base.Channel.LogAsync(exception);
+        private System.IAsyncResult OnBeginLog(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string stackTrace = ((string)(inValues[0]));
+            return this.BeginLog(stackTrace, callback, asyncState);
         }
         
-        public bool LicenceValid(Erp.Suporte.Licenca licenca) {
-            return base.Channel.LicenceValid(licenca);
+        private object[] OnEndLog(System.IAsyncResult result) {
+            this.EndLog(result);
+            return null;
         }
         
-        public System.Threading.Tasks.Task<bool> LicenceValidAsync(Erp.Suporte.Licenca licenca) {
-            return base.Channel.LicenceValidAsync(licenca);
+        private void OnLogCompleted(object state) {
+            if ((this.LogCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.LogCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
         }
         
-        public Erp.Suporte.Licenca RequestLicence(Erp.Suporte.Licenca licenca) {
-            return base.Channel.RequestLicence(licenca);
+        public void LogAsync(string stackTrace) {
+            this.LogAsync(stackTrace, null);
         }
         
-        public System.Threading.Tasks.Task<Erp.Suporte.Licenca> RequestLicenceAsync(Erp.Suporte.Licenca licenca) {
-            return base.Channel.RequestLicenceAsync(licenca);
+        public void LogAsync(string stackTrace, object userState) {
+            if ((this.onBeginLogDelegate == null)) {
+                this.onBeginLogDelegate = new BeginOperationDelegate(this.OnBeginLog);
+            }
+            if ((this.onEndLogDelegate == null)) {
+                this.onEndLogDelegate = new EndOperationDelegate(this.OnEndLog);
+            }
+            if ((this.onLogCompletedDelegate == null)) {
+                this.onLogCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnLogCompleted);
+            }
+            base.InvokeAsync(this.onBeginLogDelegate, new object[] {
+                        stackTrace}, this.onEndLogDelegate, this.onLogCompletedDelegate, userState);
+        }
+        
+        public void LogDataBase(string stackTrace) {
+            base.Channel.LogDataBase(stackTrace);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginLogDataBase(string stackTrace, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginLogDataBase(stackTrace, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndLogDataBase(System.IAsyncResult result) {
+            base.Channel.EndLogDataBase(result);
+        }
+        
+        private System.IAsyncResult OnBeginLogDataBase(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string stackTrace = ((string)(inValues[0]));
+            return this.BeginLogDataBase(stackTrace, callback, asyncState);
+        }
+        
+        private object[] OnEndLogDataBase(System.IAsyncResult result) {
+            this.EndLogDataBase(result);
+            return null;
+        }
+        
+        private void OnLogDataBaseCompleted(object state) {
+            if ((this.LogDataBaseCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.LogDataBaseCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void LogDataBaseAsync(string stackTrace) {
+            this.LogDataBaseAsync(stackTrace, null);
+        }
+        
+        public void LogDataBaseAsync(string stackTrace, object userState) {
+            if ((this.onBeginLogDataBaseDelegate == null)) {
+                this.onBeginLogDataBaseDelegate = new BeginOperationDelegate(this.OnBeginLogDataBase);
+            }
+            if ((this.onEndLogDataBaseDelegate == null)) {
+                this.onEndLogDataBaseDelegate = new EndOperationDelegate(this.OnEndLogDataBase);
+            }
+            if ((this.onLogDataBaseCompletedDelegate == null)) {
+                this.onLogDataBaseCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnLogDataBaseCompleted);
+            }
+            base.InvokeAsync(this.onBeginLogDataBaseDelegate, new object[] {
+                        stackTrace}, this.onEndLogDataBaseDelegate, this.onLogDataBaseCompletedDelegate, userState);
+        }
+        
+        public string RequestLicense(Erp.Suporte.LicencaConcedida requisicao) {
+            return base.Channel.RequestLicense(requisicao);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginRequestLicense(Erp.Suporte.LicencaConcedida requisicao, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRequestLicense(requisicao, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public string EndRequestLicense(System.IAsyncResult result) {
+            return base.Channel.EndRequestLicense(result);
+        }
+        
+        private System.IAsyncResult OnBeginRequestLicense(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Erp.Suporte.LicencaConcedida requisicao = ((Erp.Suporte.LicencaConcedida)(inValues[0]));
+            return this.BeginRequestLicense(requisicao, callback, asyncState);
+        }
+        
+        private object[] OnEndRequestLicense(System.IAsyncResult result) {
+            string retVal = this.EndRequestLicense(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnRequestLicenseCompleted(object state) {
+            if ((this.RequestLicenseCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RequestLicenseCompleted(this, new RequestLicenseCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RequestLicenseAsync(Erp.Suporte.LicencaConcedida requisicao) {
+            this.RequestLicenseAsync(requisicao, null);
+        }
+        
+        public void RequestLicenseAsync(Erp.Suporte.LicencaConcedida requisicao, object userState) {
+            if ((this.onBeginRequestLicenseDelegate == null)) {
+                this.onBeginRequestLicenseDelegate = new BeginOperationDelegate(this.OnBeginRequestLicense);
+            }
+            if ((this.onEndRequestLicenseDelegate == null)) {
+                this.onEndRequestLicenseDelegate = new EndOperationDelegate(this.OnEndRequestLicense);
+            }
+            if ((this.onRequestLicenseCompletedDelegate == null)) {
+                this.onRequestLicenseCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRequestLicenseCompleted);
+            }
+            base.InvokeAsync(this.onBeginRequestLicenseDelegate, new object[] {
+                        requisicao}, this.onEndRequestLicenseDelegate, this.onRequestLicenseCompletedDelegate, userState);
+        }
+        
+        public bool LicenceActivated(string codigo) {
+            return base.Channel.LicenceActivated(codigo);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginLicenceActivated(string codigo, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginLicenceActivated(codigo, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public bool EndLicenceActivated(System.IAsyncResult result) {
+            return base.Channel.EndLicenceActivated(result);
+        }
+        
+        private System.IAsyncResult OnBeginLicenceActivated(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string codigo = ((string)(inValues[0]));
+            return this.BeginLicenceActivated(codigo, callback, asyncState);
+        }
+        
+        private object[] OnEndLicenceActivated(System.IAsyncResult result) {
+            bool retVal = this.EndLicenceActivated(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnLicenceActivatedCompleted(object state) {
+            if ((this.LicenceActivatedCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.LicenceActivatedCompleted(this, new LicenceActivatedCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void LicenceActivatedAsync(string codigo) {
+            this.LicenceActivatedAsync(codigo, null);
+        }
+        
+        public void LicenceActivatedAsync(string codigo, object userState) {
+            if ((this.onBeginLicenceActivatedDelegate == null)) {
+                this.onBeginLicenceActivatedDelegate = new BeginOperationDelegate(this.OnBeginLicenceActivated);
+            }
+            if ((this.onEndLicenceActivatedDelegate == null)) {
+                this.onEndLicenceActivatedDelegate = new EndOperationDelegate(this.OnEndLicenceActivated);
+            }
+            if ((this.onLicenceActivatedCompletedDelegate == null)) {
+                this.onLicenceActivatedCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnLicenceActivatedCompleted);
+            }
+            base.InvokeAsync(this.onBeginLicenceActivatedDelegate, new object[] {
+                        codigo}, this.onEndLicenceActivatedDelegate, this.onLicenceActivatedCompletedDelegate, userState);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, System.IO.FileStream> RequestUpdate(Erp.Suporte.LicencaConcedida licenca, System.Collections.Generic.Dictionary<string, string> currentFileList) {
+            return base.Channel.RequestUpdate(licenca, currentFileList);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginRequestUpdate(Erp.Suporte.LicencaConcedida licenca, System.Collections.Generic.Dictionary<string, string> currentFileList, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRequestUpdate(licenca, currentFileList, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.Collections.Generic.Dictionary<string, System.IO.FileStream> EndRequestUpdate(System.IAsyncResult result) {
+            return base.Channel.EndRequestUpdate(result);
+        }
+        
+        private System.IAsyncResult OnBeginRequestUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Erp.Suporte.LicencaConcedida licenca = ((Erp.Suporte.LicencaConcedida)(inValues[0]));
+            System.Collections.Generic.Dictionary<string, string> currentFileList = ((System.Collections.Generic.Dictionary<string, string>)(inValues[1]));
+            return this.BeginRequestUpdate(licenca, currentFileList, callback, asyncState);
+        }
+        
+        private object[] OnEndRequestUpdate(System.IAsyncResult result) {
+            System.Collections.Generic.Dictionary<string, System.IO.FileStream> retVal = this.EndRequestUpdate(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnRequestUpdateCompleted(object state) {
+            if ((this.RequestUpdateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RequestUpdateCompleted(this, new RequestUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RequestUpdateAsync(Erp.Suporte.LicencaConcedida licenca, System.Collections.Generic.Dictionary<string, string> currentFileList) {
+            this.RequestUpdateAsync(licenca, currentFileList, null);
+        }
+        
+        public void RequestUpdateAsync(Erp.Suporte.LicencaConcedida licenca, System.Collections.Generic.Dictionary<string, string> currentFileList, object userState) {
+            if ((this.onBeginRequestUpdateDelegate == null)) {
+                this.onBeginRequestUpdateDelegate = new BeginOperationDelegate(this.OnBeginRequestUpdate);
+            }
+            if ((this.onEndRequestUpdateDelegate == null)) {
+                this.onEndRequestUpdateDelegate = new EndOperationDelegate(this.OnEndRequestUpdate);
+            }
+            if ((this.onRequestUpdateCompletedDelegate == null)) {
+                this.onRequestUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRequestUpdateCompleted);
+            }
+            base.InvokeAsync(this.onBeginRequestUpdateDelegate, new object[] {
+                        licenca,
+                        currentFileList}, this.onEndRequestUpdateDelegate, this.onRequestUpdateCompletedDelegate, userState);
+        }
+        
+        public Erp.Suporte.SolicitacaoSuporte RequestSuport(Erp.Suporte.LicencaConcedida licenca, Erp.Suporte.SolicitacaoSuporte solicitacao) {
+            return base.Channel.RequestSuport(licenca, solicitacao);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginRequestSuport(Erp.Suporte.LicencaConcedida licenca, Erp.Suporte.SolicitacaoSuporte solicitacao, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRequestSuport(licenca, solicitacao, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Erp.Suporte.SolicitacaoSuporte EndRequestSuport(System.IAsyncResult result) {
+            return base.Channel.EndRequestSuport(result);
+        }
+        
+        private System.IAsyncResult OnBeginRequestSuport(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Erp.Suporte.LicencaConcedida licenca = ((Erp.Suporte.LicencaConcedida)(inValues[0]));
+            Erp.Suporte.SolicitacaoSuporte solicitacao = ((Erp.Suporte.SolicitacaoSuporte)(inValues[1]));
+            return this.BeginRequestSuport(licenca, solicitacao, callback, asyncState);
+        }
+        
+        private object[] OnEndRequestSuport(System.IAsyncResult result) {
+            Erp.Suporte.SolicitacaoSuporte retVal = this.EndRequestSuport(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnRequestSuportCompleted(object state) {
+            if ((this.RequestSuportCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RequestSuportCompleted(this, new RequestSuportCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RequestSuportAsync(Erp.Suporte.LicencaConcedida licenca, Erp.Suporte.SolicitacaoSuporte solicitacao) {
+            this.RequestSuportAsync(licenca, solicitacao, null);
+        }
+        
+        public void RequestSuportAsync(Erp.Suporte.LicencaConcedida licenca, Erp.Suporte.SolicitacaoSuporte solicitacao, object userState) {
+            if ((this.onBeginRequestSuportDelegate == null)) {
+                this.onBeginRequestSuportDelegate = new BeginOperationDelegate(this.OnBeginRequestSuport);
+            }
+            if ((this.onEndRequestSuportDelegate == null)) {
+                this.onEndRequestSuportDelegate = new EndOperationDelegate(this.OnEndRequestSuport);
+            }
+            if ((this.onRequestSuportCompletedDelegate == null)) {
+                this.onRequestSuportCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRequestSuportCompleted);
+            }
+            base.InvokeAsync(this.onBeginRequestSuportDelegate, new object[] {
+                        licenca,
+                        solicitacao}, this.onEndRequestSuportDelegate, this.onRequestSuportCompletedDelegate, userState);
         }
     }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Licenca" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Entity.Licenca" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:5269/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Enum" />
+  <xs:complexType name="LicencaConcedida">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LicencaUso">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Bairro" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Cep" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Documento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdMaquinaCliente" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Logradouro" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Mac" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NomeCliente" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Numero" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Processador" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SistemaOperacional" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VersaoSistemaOperacional" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LicencaConcedida" nillable="true" type="tns:LicencaConcedida" />
+  <xs:complexType name="LicencaUso">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Suporte.Business.Enum" minOccurs="0" name="Status" type="q1:StatusLicenca" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LicencaUso" nillable="true" type="tns:LicencaUso" />
+</xs:schema>

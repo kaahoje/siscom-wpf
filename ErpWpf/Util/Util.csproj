@@ -109,7 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomMessageBox.cs" />
-    <Compile Include="Enum\StatusLicenca.cs" />
+    <Compile Include="FileSystem\FileInfo.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Network.cs" />
     <Compile Include="Password.cs" />
@@ -137,6 +137,9 @@
     </Content>
     <Content Include="Cnae\CnaeSubClass2_1.xml" />
     <Content Include="Referencias\Mvc\Dialogos.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enum\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

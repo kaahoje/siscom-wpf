@@ -56,9 +56,15 @@ namespace RestauranteService
         /// <param name="caixa">Caixa que emitiu a parcial.</param>
         /// <returns></returns>
         [OperationContract]
-        StatusComando ConfirmarImpressaoParcial(Guid idGuid,int caixa);
+        StatusComando ConfirmarImpressaoParcial(Guid idGuid, int caixa);
         [OperationContract]
         StatusComando ConfirmarPedido(PedidoRestaurante pedido);
+        /// <summary>
+        /// Método que retorna as mesas em aberto.
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        IList<PedidoRestaurante> GetMesasAbertas();
         [OperationContract]
         StatusComando FecharMesa(int mesa);
         [OperationContract]
@@ -80,6 +86,8 @@ namespace RestauranteService
         [OperationContract]
         StatusComando CancelarItemComposicaoMesa(int mesa, Guid composicao, Guid produto);
         [OperationContract]
+        StatusComando AdicionarItemComposicaoMesa(int mesa, Guid composicao, ProdutoPedido produto);
+        [OperationContract]
         StatusComando AdicionarItemMesa(int mesa, ComposicaoProduto composicao);
         /// <summary>
         /// Método que calcula o valor do produto e retorna o indice do produto base da cobrança e o preço a ser
@@ -96,5 +104,5 @@ namespace RestauranteService
     }
 
 
-    
+
 }

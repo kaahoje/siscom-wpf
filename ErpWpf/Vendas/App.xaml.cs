@@ -31,7 +31,7 @@ namespace Vendas
                     CustomMessageBox.MensagemCritica("Já existe uma instancia do aplicativo rodando.\n\nA aplicação será encerrada.");
                     Process.GetCurrentProcess().Kill();
                 }
-                EcfHelper.FabricanteEcf = FabricanteEcf.Daruma;
+                EcfHelper.FabricanteEcf = FabricanteEcf.NaoConfigurado;
                 Usuario = PessoaFisicaRepository.GetByLogin("admin");
                 Proprietaria = PessoaJuridicaRepository.GetById(Settings.Default.IdEmpresa);
                 switch (Settings.Default.TipoPdv)

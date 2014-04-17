@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using AutoMapper;
-using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa;
 using Erp.Business.Entity.Estoque.Produto;
 using Erp.Business.Entity.Vendas.Pedido;
@@ -40,7 +40,8 @@ namespace Vendas.ViewModel.Forms
 
         private ProdutoPedido _produtoComposicaoAtual;
         private Visibility _telaPedidoVisible = Visibility.Hidden;
-        
+        private bool _isProdutoEditable;
+
         public PedidoRestaurante EntityRestaurante
         {
             get { return (PedidoRestaurante)Entity; }
@@ -64,6 +65,14 @@ namespace Vendas.ViewModel.Forms
             set
             {
                 _produtoAtual = value;
+                if (value == null)
+                {
+                    IsProdutoEditable = true;
+                }
+                else
+                {
+                    IsProdutoEditable = false;
+                }
                 OnPropertyChanged("ProdutoAtual");
             }
         }
@@ -93,6 +102,16 @@ namespace Vendas.ViewModel.Forms
             set
             {
                 _telaPedidoVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsProdutoEditable
+        {
+            get { return _isProdutoEditable; }
+            set
+            {
+                _isProdutoEditable = value; 
                 OnPropertyChanged();
             }
         }
@@ -347,18 +366,16 @@ namespace Vendas.ViewModel.Forms
 
         private void VerificaProdutoComposicao()
         {
-            var prod = new Produto();
-            foreach (var composicao in ProdutoAtual.Composicao)
+            var ret = RestauranteModel.Service.VerificaProdutoCobranca(ProdutoAtual.Composicao);
+            if (ret.Count == 0)
             {
-                if (composicao.Produto.PrecoVenda > prod.PrecoVenda)
-                {
-                    prod = composicao.Produto;
-                    composicao.Quantidade = ProdutoAtual.Quantidade / ProdutoAtual.Composicao.Count;
-                }
+                return;
             }
-            ProdutoAtual.Produto = prod;
-            ProdutoAtual.Valor = ProdutoAtual.Quantidade * prod.PrecoVenda;
-            ProdutoAtual.ValorUnitario = prod.PrecoVenda;
+            var prod = ProdutoAtual.Composicao[ret.Keys.ToArray()[0]];
+            var valor = ret[0];
+            ProdutoAtual.Produto = prod.Produto;
+            ProdutoAtual.Valor = ProdutoAtual.Quantidade * valor;
+            ProdutoAtual.ValorUnitario = valor;
         }
     }
 }

@@ -228,6 +228,11 @@ namespace RestauranteService
             return StatusComando.ConcluidoSucesso;
         }
 
+        public IList<PedidoRestaurante> GetMesasAbertas()
+        {
+            return MesasAbertas;
+        }
+
         public StatusComando FecharMesa(int mesa)
         {
             try
@@ -381,6 +386,7 @@ namespace RestauranteService
                 if (comp != null)
                 {
                     m.Produtos.Remove(comp);
+                    AjustarPrecoComposicao(comp);
                 }
                 // Se não houver mais produtos na mesa cancela-o.
                 if (m.Produtos.Count == 0)
@@ -429,7 +435,9 @@ namespace RestauranteService
                     {
                         compMesa.Composicao.Remove(prodMesa);
                     }
+                    AjustarPrecoComposicao(compMesa);
                 }
+                
                 return StatusComando.ConcluidoSucesso;
             }
             catch (Exception ex)
@@ -439,6 +447,44 @@ namespace RestauranteService
             return StatusComando.ErroExecucao;
         }
 
+        public StatusComando AdicionarItemComposicaoMesa(int mesa, Guid composicao, ProdutoPedido produto)
+        {
+            try
+            {
+                var m = GetMesa(mesa);
+                if (m == null)
+                {
+                    throw new Exception("Mesa não encontrada.");
+                }
+                var comp = m.Produtos.SingleOrDefault(x => x.IdGuid == composicao);
+                if (comp == null)
+                {
+                    throw new Exception("Composição não encontrada.");
+                }
+                comp.Composicao.Add(produto);
+                AjustarPrecoComposicao(comp);
+                return StatusComando.ConcluidoSucesso;
+            }
+            catch (Exception ex)
+            {
+                LastException = ex.Message;
+            }
+            return StatusComando.ErroExecucao;
+        }
+
+        private void AjustarPrecoComposicao(ComposicaoProduto composicao)
+        {
+            var ret = VerificaProdutoCobranca(composicao.Composicao);
+            if (ret.Count == 0)
+            {
+                return;
+            }
+            var prod = composicao.Composicao[ret.Keys.ToArray()[0]];
+            var valor = ret[0];
+            composicao.Produto = prod.Produto;
+            composicao.Valor = composicao.Quantidade * valor;
+            composicao.ValorUnitario = valor;
+        }
         private void RemoveMesaFila(PedidoRestaurante mesaFilaRem)
         {
             FilaSalao.Remove(mesaFilaRem);
@@ -455,6 +501,7 @@ namespace RestauranteService
                     {
                         throw new Exception(string.Format("A mesa {0} não foi encontrada.", mesa));
                     }
+                    AjustarPrecoComposicao(composicao);
                     m.Produtos.Add(composicao);
                     return StatusComando.ConcluidoSucesso;
                 }

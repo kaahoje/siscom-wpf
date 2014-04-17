@@ -3,9 +3,12 @@ using System.Windows;
 using System.Windows.Input;
 using AutoMapper;
 using Erp.Business.Entity.Estoque.Produto;
+using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas;
+using RestauranteService;
 using Vendas.Component.View.Telas;
 using Vendas.ViewModel.Forms;
+using Vendas.ViewModel.Grids;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.Forms.MessageBox;
 
@@ -35,12 +38,12 @@ namespace Vendas.Component.View.UserControls.PedidoRestaurante
             {
                 TxtProduto.Focus();
             }
-            
+
         }
 
         public void FocoEmValores()
         {
-           if(TxtAcressimo != null) TxtAcressimo.Focus();
+            if (TxtAcressimo != null) TxtAcressimo.Focus();
         }
         private void TxtProdutoOnKeyDown(object sender, KeyEventArgs keyEventArgs)
         {
@@ -53,34 +56,48 @@ namespace Vendas.Component.View.UserControls.PedidoRestaurante
                     return;
 
                 }
+                var telaProds = new ProdutosEncontradosView(ProdutoRepository.GetByRange(TxtProduto.Text));
+                var prod = telaProds.ProdutoSelecionado;
                 if (!String.IsNullOrEmpty(TxtProduto.Text))
                 {
-
-                    var telaProds = new ProdutosEncontradosView(ProdutoRepository.GetByRange(TxtProduto.Text));
-                    var prod = telaProds.ProdutoSelecionado;
                     if (prod != null)
                     {
-                        var comp = Model.GerarComposicao(prod, Model.QuantidadeAtual);
-                        if (Model.ProdutoAtual == null)
+                        if (Model.ConfirmarPedido())
                         {
-
-                            Model.AddProduto(Model.GerarComposicao(prod, Model.QuantidadeAtual));
-
+                            var comp = Model.GerarComposicao(prod, Model.QuantidadeAtual);
+                            var retService = RestauranteModel.Service.AdicionarItemMesa(Model.EntityRestaurante.Mesa,
+                                comp);
+                            RestauranteModel.TrataRetornoRestauranteService(retService);
+                            if (retService == StatusComando.ConcluidoSucesso)
+                            {
+                                Model.AddProduto(comp);
+                            }
                         }
                         else
                         {
-                            var prodAntigo = Model.GetProduto(Model.ProdutoAtual.Sequencia);
-                            if (prodAntigo != null)
+
+
+                            var comp = Model.GerarComposicao(prod, Model.QuantidadeAtual);
+                            if (Model.ProdutoAtual == null)
                             {
 
-                                Mapper.CreateMap(typeof(ComposicaoProduto), typeof(ComposicaoProduto));
-                                Mapper.Map(comp, prodAntigo);
+                                Model.AddProduto(Model.GerarComposicao(prod, Model.QuantidadeAtual));
+
                             }
                             else
                             {
-                                MessageBox.Show("Produto não encontrado para alteração");
-                            }
+                                var prodAntigo = Model.GetProduto(Model.ProdutoAtual.Sequencia);
+                                if (prodAntigo != null)
+                                {
 
+                                    Mapper.CreateMap(typeof(ComposicaoProduto), typeof(ComposicaoProduto));
+                                    Mapper.Map(comp, prodAntigo);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Produto não encontrado para alteração");
+                                }
+                            }
                         }
                         LimparProduto();
                     }
@@ -96,7 +113,9 @@ namespace Vendas.Component.View.UserControls.PedidoRestaurante
                 else
                 {
                     TxtQuantidade.Focus();
+
                 }
+
             }
         }
 
@@ -161,7 +180,29 @@ namespace Vendas.Component.View.UserControls.PedidoRestaurante
             var prod = new ProdutosEncontradosView(ProdutoRepository.GetByRange(TxtProudtoComposicao.Text)).ProdutoSelecionado;
             if (prod != null)
             {
-                Model.AddProdutoComposicao(prod);
+                if (Model.EntityRestaurante.Confirmado)
+                {
+                    var prodPedido = new ProdutoPedido()
+                    {
+                        Produto = prod,
+                        ValorUnitario = prod.PrecoVenda,
+                        Valor = prod.PrecoVenda
+                    };
+                    var retService = RestauranteModel.Service.AdicionarItemComposicaoMesa(
+                        Model.EntityRestaurante.Mesa,
+                        Model.ProdutoAtual.IdGuid,
+                        prodPedido
+                        );
+                    RestauranteModel.TrataRetornoRestauranteService(retService);
+                    if (retService == StatusComando.ConcluidoSucesso)
+                    {
+                        Model.AddProdutoComposicao(prod);
+                    }
+                }
+                else
+                {
+                    Model.AddProdutoComposicao(prod);
+                }
             }
         }
 
@@ -180,7 +221,7 @@ namespace Vendas.Component.View.UserControls.PedidoRestaurante
 
         private void PedidoUserControl_OnKeyDown(object sender, KeyEventArgs e)
         {
-            
+
         }
 
         private void TxtAcressimo_OnKeyDown(object sender, KeyEventArgs e)

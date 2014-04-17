@@ -1,0 +1,35 @@
+﻿@model RestauranteMobile.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Entrar</title>
+</head>
+    <body>
+        @using (Html.BeginForm("Entrar", "Login"))
+        {
+            <div style="font-family: cursive ;font-size: 12pt">
+            <table>
+                <tr>
+                    <td>@Html.TextBoxFor(x => x.Usuario)</td>
+                </tr>
+                <tr>
+                    <td>@Html.PasswordFor(x => x.Senha)</td>
+                </tr>
+                <tr>
+                    <input type="submit" value="Entrar"/>
+                </tr>
+                <tr>@Html.ValidationSummary()</tr>
+            </table>
+
+
+        </div>
+        }
+        
+    </body>
+</html>

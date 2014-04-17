@@ -5,6 +5,7 @@ using AutoMapper;
 using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa;
 using Erp.Business.Entity.Estoque.Produto;
+using Erp.Business.Entity.Vendas.Pedido;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas;
@@ -13,17 +14,18 @@ using FluentNHibernate.Conventions;
 using Util.Seguranca;
 using Vendas.Component.View.Telas;
 using Vendas.Properties;
+using Vendas.ViewModel.Grids;
 using MessageBox = System.Windows.MessageBox;
 
 namespace Vendas.ViewModel.Forms
 {
-    
+
     public class PedidoRestauranteModel : PedidoModel
     {
         public PedidoRestauranteModel()
         {
             Entity = new PedidoRestaurante();
-            
+
         }
 
         #region Propriedades
@@ -38,8 +40,7 @@ namespace Vendas.ViewModel.Forms
 
         private ProdutoPedido _produtoComposicaoAtual;
         private Visibility _telaPedidoVisible = Visibility.Hidden;
-
-
+        
         public PedidoRestaurante EntityRestaurante
         {
             get { return (PedidoRestaurante)Entity; }
@@ -67,7 +68,7 @@ namespace Vendas.ViewModel.Forms
             }
         }
 
-        
+
 
 
         public ObservableCollection<ComposicaoProduto> Produtos
@@ -106,7 +107,7 @@ namespace Vendas.ViewModel.Forms
                 {
                     switch (propertyName)
                     {
-                       
+
                         case "Pedido":
                             Produtos = new ObservableCollection<ComposicaoProduto>(Produtos);
                             Pagamento = new ObservableCollection<PagamentoPedido>(Entity.Pagamento);
@@ -216,7 +217,7 @@ namespace Vendas.ViewModel.Forms
                 System.Windows.Forms.MessageBox.Show("Informe ao menos um produto para fechar o pedido");
                 return false;
             }
-            
+
             var pagamento = new PagamentoPedidoRestauranteView(this);
             if (pagamento.DataContext == null)
             {
@@ -227,7 +228,7 @@ namespace Vendas.ViewModel.Forms
             CalculaPedido();
             IniciarPagamento();
             pagamento.ShowDialog();
-            
+
             if (!IsPagamentoCancelado && IsPagamentoEfetuado)
             {
                 Mapper.CreateMap<PedidoRestauranteModel, PedidoRestaurante>();
@@ -243,18 +244,25 @@ namespace Vendas.ViewModel.Forms
                 Entity.Caixa = Settings.Default.Caixa;
                 Entity.Usuario = App.Usuario;
                 Entity.Empresa = App.Proprietaria;
-
                 CupomFiscal.FecharPedidoRestaurante((PedidoRestaurante)Entity);
-                NHibernateHttpModule.Session.Flush();
-                PedidoRestauranteRepository.Save((PedidoRestaurante)Entity);
                 Entity = null;
-                OnPedidoFinalizado(this,EventArgs.Empty);
+                OnPedidoFinalizado(this, EventArgs.Empty);
             }
             else
             {
                 return false;
             }
             return true;
+        }
+
+        public override Pedido Entity
+        {
+            get { return base.Entity; }
+            set
+            {
+                base.Entity = value; 
+                OnPropertyChanged("EntityRestaurante");
+            }
         }
 
         public ComposicaoProduto GerarComposicao(Produto prod, decimal quantidade)

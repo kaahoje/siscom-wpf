@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Sped" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Sped" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" />
+  <xs:complexType name="PlanoContaReferencial">
+    <xs:sequence>
+      <xs:element name="_x003C_Codigo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Descricao_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_NaturezaConta_x003E_k__BackingField" type="q1:NaturezaConta" />
+      <xs:element name="_x003C_Orientacoes_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Tipo_x003E_k__BackingField" type="q2:TipoConta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlanoContaReferencial" nillable="true" type="tns:PlanoContaReferencial" />
+  <xs:complexType name="Cst">
+    <xs:sequence>
+      <xs:element name="_x003C_AliquotaIcms_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Codigo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Descricao_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Origem_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_TributacaoIcms_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_ValorBaseIcmsST_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_ValorBaseIcms_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_ValorIcmsST_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_ValorIcms_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_ValorReduzidoBase_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cst" nillable="true" type="tns:Cst" />
+  <xs:complexType name="Ncm">
+    <xs:sequence>
+      <xs:element name="_x003C_Codigo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Descricao_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_ExcessaoFiscal_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Tabela_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_TributosImportadoIbpt_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_TributosNacionalIbpt_x003E_k__BackingField" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ncm" nillable="true" type="tns:Ncm" />
+  <xs:complexType name="Tipi">
+    <xs:sequence>
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tipi" nillable="true" type="tns:Tipi" />
+  <xs:complexType name="CstCofins">
+    <xs:sequence>
+      <xs:element name="_x003C_Codigo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Descricao_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CstCofins" nillable="true" type="tns:CstCofins" />
+  <xs:complexType name="CstIpi">
+    <xs:sequence>
+      <xs:element name="_x003C_Cst_x003E_k__BackingField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CstIpi" nillable="true" type="tns:CstIpi" />
+  <xs:complexType name="CstPis">
+    <xs:sequence>
+      <xs:element name="_x003C_Cst_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Descricao_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CstPis" nillable="true" type="tns:CstPis" />
+</xs:schema>

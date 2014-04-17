@@ -14,7 +14,19 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
         {
             Produtos = new ObservableCollection<ComposicaoProduto>();
         }
-
+        /// <summary>
+        /// Hora de entrada do pedido.
+        /// </summary>
+        public virtual TimeSpan HoraEntrada { get; set; }
+        /// <summary>
+        /// Hora em que a cozinha entregou o pedido.
+        /// </summary>
+        public virtual TimeSpan HoraProducao { get; set; }
+        /// <summary>
+        /// Hora em que o motoboy chegou na pizzaria após a entrega da pizza.
+        /// </summary>
+        public virtual TimeSpan HoraEntrega { get; set; }
+        public virtual StatusProducaoPedido StatusProducao { get; set; }
         public virtual LocalPedidoRestaurante Local { get; set; }
         public virtual int Mesa { get; set; }
 

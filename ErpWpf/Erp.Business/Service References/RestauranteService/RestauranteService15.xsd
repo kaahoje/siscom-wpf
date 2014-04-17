@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas" />
+  <xs:complexType name="Endereco">
+    <xs:sequence>
+      <xs:element name="_x003C_Bairro_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Bairro_x003E_k__BackingField" nillable="true" type="tns:EnderecoBairro" />
+      <xs:element name="_x003C_Cep_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Cidade_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Cidade_x003E_k__BackingField" nillable="true" type="tns:EnderecoCidade" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Nome_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Endereco" nillable="true" type="tns:Endereco" />
+  <xs:complexType name="EnderecoBairro">
+    <xs:sequence>
+      <xs:element name="_x003C_Cidade_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Cidade_x003E_k__BackingField" nillable="true" type="tns:EnderecoCidade" />
+      <xs:element name="_x003C_Enderecos_x003E_k__BackingField" nillable="true" type="tns:ArrayOfEndereco" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Nome_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnderecoBairro" nillable="true" type="tns:EnderecoBairro" />
+  <xs:complexType name="EnderecoCidade">
+    <xs:sequence>
+      <xs:element name="_x003C_Area_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Bairros_x003E_k__BackingField" nillable="true" type="tns:ArrayOfEnderecoBairro" />
+      <xs:element name="_x003C_CodigoIBGE_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas" name="_x003C_Enderecos_x003E_k__BackingField" nillable="true" type="q1:ArrayOfPessoaEndereco" />
+      <xs:element name="_x003C_Estado_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Estado_x003E_k__BackingField" nillable="true" type="tns:EnderecoEstado" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Nome_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnderecoCidade" nillable="true" type="tns:EnderecoCidade" />
+  <xs:complexType name="ArrayOfEnderecoBairro">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EnderecoBairro" nillable="true" type="tns:EnderecoBairro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEnderecoBairro" nillable="true" type="tns:ArrayOfEnderecoBairro" />
+  <xs:complexType name="EnderecoEstado">
+    <xs:sequence>
+      <xs:element name="_x003C_Cidades_x003E_k__BackingField" nillable="true" type="tns:ArrayOfEnderecoCidade" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Nome_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Pais_x003E_k__BackingField" nillable="true" type="tns:EnderecoPais" />
+      <xs:element name="_x003C_UF_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnderecoEstado" nillable="true" type="tns:EnderecoEstado" />
+  <xs:complexType name="ArrayOfEnderecoCidade">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EnderecoCidade" nillable="true" type="tns:EnderecoCidade" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEnderecoCidade" nillable="true" type="tns:ArrayOfEnderecoCidade" />
+  <xs:complexType name="EnderecoPais">
+    <xs:sequence>
+      <xs:element name="_x003C_Estados_x003E_k__BackingField" nillable="true" type="tns:ArrayOfEnderecoEstado" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Nome_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnderecoPais" nillable="true" type="tns:EnderecoPais" />
+  <xs:complexType name="ArrayOfEnderecoEstado">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EnderecoEstado" nillable="true" type="tns:EnderecoEstado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEnderecoEstado" nillable="true" type="tns:ArrayOfEnderecoEstado" />
+  <xs:complexType name="ArrayOfEndereco">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Endereco" nillable="true" type="tns:Endereco" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEndereco" nillable="true" type="tns:ArrayOfEndereco" />
+</xs:schema>

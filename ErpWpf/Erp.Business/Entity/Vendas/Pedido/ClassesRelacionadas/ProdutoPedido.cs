@@ -10,7 +10,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
     {
         public ProdutoPedido()
         {
-            IdGuid = new Guid();
+            IdGuid = Guid.NewGuid();
         }
         public virtual int Id { get; set; }
 

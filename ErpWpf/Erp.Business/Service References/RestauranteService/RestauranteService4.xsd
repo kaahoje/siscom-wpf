@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.ComponentModel" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Sped" />
+  <xs:complexType name="ArrayOfMovimentacaoProduto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MovimentacaoProduto" nillable="true" type="tns:MovimentacaoProduto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMovimentacaoProduto" nillable="true" type="tns:ArrayOfMovimentacaoProduto" />
+  <xs:complexType name="MovimentacaoProduto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataMovimentacao" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Documento" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" minOccurs="0" name="EntradaSaida" type="q1:EntradaSaida" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Observacao" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto" minOccurs="0" name="Produto" nillable="true" type="q2:Produto" />
+      <xs:element minOccurs="0" name="Quantidade" type="xs:decimal" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" minOccurs="0" name="Status" type="q3:Status" />
+      <xs:element minOccurs="0" name="Valor" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MovimentacaoProduto" nillable="true" type="tns:MovimentacaoProduto" />
+  <xs:complexType name="ArrayOfReceita">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Receita" nillable="true" type="tns:Receita" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReceita" nillable="true" type="tns:ArrayOfReceita" />
+  <xs:complexType name="Receita">
+    <xs:sequence>
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto" name="_x003C_MateriaPrima_x003E_k__BackingField" nillable="true" type="q4:Produto" />
+      <xs:element name="_x003C_Quantidade_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q5:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Receita" nillable="true" type="tns:Receita" />
+  <xs:complexType name="SubGrupoProduto">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q6:PropertyChangedEventHandler" />
+      <xs:element name="_descricao" nillable="true" type="xs:string" />
+      <xs:element name="_grupo" nillable="true" type="tns:GrupoProduto" />
+      <xs:element name="_impressora" nillable="true" type="xs:string" />
+      <xs:element name="_imprimeEmComandaRestaurante" type="xs:boolean" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q7:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubGrupoProduto" nillable="true" type="tns:SubGrupoProduto" />
+  <xs:complexType name="GrupoProduto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" minOccurs="0" name="Status" type="q8:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GrupoProduto" nillable="true" type="tns:GrupoProduto" />
+  <xs:complexType name="Tributacao">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Sped" name="_x003C_CodigoCst_x003E_k__BackingField" nillable="true" type="q9:Cst" />
+      <xs:element name="_x003C_CofinsPercentCompra_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Sped" name="_x003C_ExtTipi_x003E_k__BackingField" nillable="true" type="q10:Tipi" />
+      <xs:element name="_x003C_IcmsDevedor_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_IpiPrecentCompra_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_IssDevedor_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_OperacaoNotaDaGente_x003E_k__BackingField" type="q11:OperacaoNotaDaGente" />
+      <xs:element name="_x003C_PisPercentCompra_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_QtdUnidadeTributavel_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Regime_x003E_k__BackingField" type="q12:RegimeTributacao" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Sped" name="_x003C_SitTribCofinsCompra_x003E_k__BackingField" nillable="true" type="q13:CstCofins" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Sped" name="_x003C_SitTribIpiCompra_x003E_k__BackingField" nillable="true" type="q14:CstIpi" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Sped" name="_x003C_SitTribPisCompra_x003E_k__BackingField" nillable="true" type="q15:CstPis" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_TipoTributacaoIcms_x003E_k__BackingField" type="q16:SituacaoTributaria" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_TipoTributacaoIss_x003E_k__BackingField" type="q17:SituacaoTributaria" />
+      <xs:element name="_x003C_UnidadeTributavel_x003E_k__BackingField" nillable="true" type="tns:Unidade" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tributacao" nillable="true" type="tns:Tributacao" />
+  <xs:complexType name="Unidade">
+    <xs:sequence>
+      <xs:element name="_x003C_Descricao_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Quantidade_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_Sigla_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q18:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Unidade" nillable="true" type="tns:Unidade" />
+</xs:schema>

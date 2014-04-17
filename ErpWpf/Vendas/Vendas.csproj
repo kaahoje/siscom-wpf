@@ -432,6 +432,10 @@
       <Project>{55625D1A-6E40-4259-93E8-4933525B96A9}</Project>
       <Name>Erp.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestauranteService\RestauranteService.csproj">
+      <Project>{BF823A6B-3EBE-41E1-873B-E89C659FBA2F}</Project>
+      <Name>RestauranteService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Util\Util.csproj">
       <Project>{88F82EF3-DE24-491F-89ED-93B4DC95AF6C}</Project>
       <Name>Util</Name>
@@ -464,6 +468,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

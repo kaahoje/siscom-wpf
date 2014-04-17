@@ -183,6 +183,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Extensions\MyExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +191,7 @@
     <Compile Include="Controllers\ListaPedidoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -204,9 +206,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -226,13 +229,12 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\ListaPedido\" />
-    <Folder Include="Views\Login\" />
     <Folder Include="Views\Pedido\" />
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +248,10 @@
     <ProjectReference Include="..\Erp.Business\Erp.Business.csproj">
       <Project>{55625d1a-6e40-4259-93e8-4933525b96a9}</Project>
       <Name>Erp.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{88F82EF3-DE24-491F-89ED-93B4DC95AF6C}</Project>
+      <Name>Util</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

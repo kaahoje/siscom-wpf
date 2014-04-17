@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using AutoMapper;
+using DevExpress.Xpf.Ribbon.Customization;
 using Ecf.Forms;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante;
 using Erp.Business.Enum;
@@ -479,6 +480,7 @@ namespace Vendas.ViewModel.Grids
                         CurrentItem = null;
                     }
                 }
+                AtualizarMesasAbertas();
                 OnAcaoConcluida();
             }
             catch (Exception ex)
@@ -575,6 +577,7 @@ namespace Vendas.ViewModel.Grids
                     }
 
                 }
+                AtualizarMesasAbertas();
             }
             catch (Exception ex)
             {
@@ -599,6 +602,7 @@ namespace Vendas.ViewModel.Grids
                 if (!CurrentItem.EntityRestaurante.Confirmado)
                 {
                     TrataRetornoRestauranteService(Service.ConfirmarPedido(CurrentItem.EntityRestaurante));
+                    AtualizarMesasAbertas();
                     CurrentItem = null;
                 }
             }
@@ -611,7 +615,20 @@ namespace Vendas.ViewModel.Grids
 
         }
 
-        private void TrataRetornoRestauranteService(StatusComando statusComando)
+        private void AtualizarMesasAbertas()
+        {
+            Collection.Clear();
+            foreach (var pedido in Service.GetMesasAbertas())
+            {
+                Collection.Add(new PedidoRestauranteModel()
+                {
+                    Entity = pedido
+                });
+            }
+            
+        }
+
+        public static void TrataRetornoRestauranteService(StatusComando statusComando)
         {
             switch (statusComando)
             {

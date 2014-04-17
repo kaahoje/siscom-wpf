@@ -1,8 +1,17 @@
-﻿
+﻿@model Erp.Business.Entity.Vendas.Pedido.Restaurante.PedidoRestaurante
 
 @{
-    ViewBag.Title = "title";
     Layout = "../Shared/_Layout.cshtml";
 }
 
-<h2>title</h2>
+
+
+<div >
+    <ul class="nav navbar-btn" style="width: 150px; border: aliceblue double 1px; horiz-align: center">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Pedidos", "Index", "Pedido")</li>
+        <li>@Html.ActionLink("Resultados", "Index", "ListaPedido")</li>
+        <li>@Html.ActionLink("Sair", "Sair", "Login")</li>
+    </ul>
+
+</div>

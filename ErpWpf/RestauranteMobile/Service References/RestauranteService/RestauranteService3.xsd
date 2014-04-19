@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido" />
+  <xs:complexType name="PedidoRestaurante">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido" base="q1:Pedido">
+        <xs:sequence>
+          <xs:element name="_x003C_Confirmado_x003E_k__BackingField" type="xs:boolean" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" name="_x003C_Controle_x003E_k__BackingField" nillable="true" type="q2:ControlePedido" />
+          <xs:element name="_x003C_HoraEntrada_x003E_k__BackingField" type="ser:duration" />
+          <xs:element name="_x003C_HoraEntrega_x003E_k__BackingField" type="ser:duration" />
+          <xs:element name="_x003C_HoraProducao_x003E_k__BackingField" type="ser:duration" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Local_x003E_k__BackingField" type="q3:LocalPedidoRestaurante" />
+          <xs:element name="_x003C_Mesa_x003E_k__BackingField" type="xs:int" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas" name="_x003C_Produtos_x003E_k__BackingField" nillable="true" type="q4:ArrayOfComposicaoProduto" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_StatusProducao_x003E_k__BackingField" type="q5:StatusProducaoPedido" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PedidoRestaurante" nillable="true" type="tns:PedidoRestaurante" />
+  <xs:complexType name="ArrayOfPedidoRestaurante">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PedidoRestaurante" nillable="true" type="tns:PedidoRestaurante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPedidoRestaurante" nillable="true" type="tns:ArrayOfPedidoRestaurante" />
+</xs:schema>

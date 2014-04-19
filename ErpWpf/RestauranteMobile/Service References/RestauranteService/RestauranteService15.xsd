@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ativo" />
+      <xs:enumeration value="Inativo" />
+      <xs:enumeration value="Bloqueado" />
+      <xs:enumeration value="Excluido" />
+      <xs:enumeration value="Cancelado" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:simpleType name="TelefoneTipo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Residencial">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Comercial">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Fax">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Movel">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TelefoneTipo" nillable="true" type="tns:TelefoneTipo" />
+  <xs:simpleType name="TipoEmail">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Skype">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Email">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Msn">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TipoEmail" nillable="true" type="tns:TipoEmail" />
+  <xs:simpleType name="TipoEndereco">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Residencial">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Correspondencia">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cobranca">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Comercial">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TipoEndereco" nillable="true" type="tns:TipoEndereco" />
+  <xs:simpleType name="ModeloNotaFiscal">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="D" />
+      <xs:enumeration value="NFe" />
+      <xs:enumeration value="ModeloA1" />
+      <xs:enumeration value="Modelo1A" />
+      <xs:enumeration value="NfvcOnline" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ModeloNotaFiscal" nillable="true" type="tns:ModeloNotaFiscal" />
+  <xs:simpleType name="NaturezaConta">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ativo" />
+      <xs:enumeration value="Passivo" />
+      <xs:enumeration value="ResultadoLiquido" />
+      <xs:enumeration value="SuperavitDeficit" />
+      <xs:enumeration value="CustosProducao" />
+      <xs:enumeration value="Outras" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NaturezaConta" nillable="true" type="tns:NaturezaConta" />
+  <xs:simpleType name="TipoConta">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Analitica" />
+      <xs:enumeration value="Sintetica" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TipoConta" nillable="true" type="tns:TipoConta" />
+  <xs:simpleType name="IndicadorTotalizacao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SomaNotaFiscal" />
+      <xs:enumeration value="NaoSomaNotaFiscal" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="IndicadorTotalizacao" nillable="true" type="tns:IndicadorTotalizacao" />
+  <xs:simpleType name="Iat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Arredondamento" />
+      <xs:enumeration value="Truncamento" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Iat" nillable="true" type="tns:Iat" />
+  <xs:simpleType name="Ippt">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Propria" />
+      <xs:enumeration value="Terceiros" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Ippt" nillable="true" type="tns:Ippt" />
+  <xs:simpleType name="EntradaSaida">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Entrada" />
+      <xs:enumeration value="Saida" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EntradaSaida" nillable="true" type="tns:EntradaSaida" />
+  <xs:simpleType name="OrigemProduto">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Nacional" />
+      <xs:enumeration value="Estrangeiro" />
+      <xs:enumeration value="EstrangeiroIndireto" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OrigemProduto" nillable="true" type="tns:OrigemProduto" />
+  <xs:simpleType name="TipoProduto">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mercadoria" />
+      <xs:enumeration value="Produto" />
+      <xs:enumeration value="Servico" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TipoProduto" nillable="true" type="tns:TipoProduto" />
+  <xs:simpleType name="OperacaoNotaDaGente">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Venda">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MercadoriaSubstituta">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MercadoriaImune">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OperacaoNotaDaGente" nillable="true" type="tns:OperacaoNotaDaGente" />
+  <xs:simpleType name="RegimeTributacao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SimplesNacional" />
+      <xs:enumeration value="RegimeNormal" />
+      <xs:enumeration value="SimplesNacionalExessoSublimite" />
+      <xs:enumeration value="TributacaoNormal" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RegimeTributacao" nillable="true" type="tns:RegimeTributacao" />
+  <xs:simpleType name="SituacaoTributaria">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Tributado" />
+      <xs:enumeration value="Isento" />
+      <xs:enumeration value="SubstituicaoTributaria" />
+      <xs:enumeration value="NaoTributado" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SituacaoTributaria" nillable="true" type="tns:SituacaoTributaria" />
+  <xs:simpleType name="Idioma">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PortugesBrasil" />
+      <xs:enumeration value="Ingles" />
+      <xs:enumeration value="Espanhol" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Idioma" nillable="true" type="tns:Idioma" />
+  <xs:simpleType name="Formulario">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ParceiroNegocioPessoaJuridica" />
+      <xs:enumeration value="ParceiroNegocioPessoaFisica" />
+      <xs:enumeration value="Produto" />
+      <xs:enumeration value="GrupoProduto" />
+      <xs:enumeration value="SubGrupoProduto" />
+      <xs:enumeration value="FormaPagamento" />
+      <xs:enumeration value="CondicaoPagamento" />
+      <xs:enumeration value="Pedido" />
+      <xs:enumeration value="BaixaTitulo" />
+      <xs:enumeration value="Unidade" />
+      <xs:enumeration value="Ncm" />
+      <xs:enumeration value="LancamentoParceiroNegocioPessoaJuridica" />
+      <xs:enumeration value="LancamentoParceiroNegocioPessoaFisica" />
+      <xs:enumeration value="TituloParceiroNegocioPessoaJuridica" />
+      <xs:enumeration value="TituloParceiroNegocioPessoaFisica" />
+      <xs:enumeration value="CustoFixoParceiroNegocioPessoaJuridica" />
+      <xs:enumeration value="CustoFixoParceiroNegocioPessoaFisica" />
+      <xs:enumeration value="NotaFiscalEntrada" />
+      <xs:enumeration value="NotaFiscalSaida" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Formulario" nillable="true" type="tns:Formulario" />
+  <xs:simpleType name="Relatorios">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:element name="Relatorios" nillable="true" type="tns:Relatorios" />
+  <xs:simpleType name="Sexo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Masculino">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Feminino">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Sexo" nillable="true" type="tns:Sexo" />
+  <xs:simpleType name="Theme">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Aqua" />
+      <xs:enumeration value="BlackGlass" />
+      <xs:enumeration value="DevEx" />
+      <xs:enumeration value="Glass" />
+      <xs:enumeration value="IoS" />
+      <xs:enumeration value="Metropolis" />
+      <xs:enumeration value="MetropolisBlue" />
+      <xs:enumeration value="Moderno" />
+      <xs:enumeration value="Office2003Blue" />
+      <xs:enumeration value="Office2003Olive" />
+      <xs:enumeration value="Office2003Silver" />
+      <xs:enumeration value="Office2010Black" />
+      <xs:enumeration value="Office2010Blue" />
+      <xs:enumeration value="Office2010Silver" />
+      <xs:enumeration value="PlasticBlue" />
+      <xs:enumeration value="RedWine" />
+      <xs:enumeration value="SoftOrange" />
+      <xs:enumeration value="Youthful" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Theme" nillable="true" type="tns:Theme" />
+  <xs:simpleType name="LocalPedidoRestaurante">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mesa" />
+      <xs:enumeration value="Balcao" />
+      <xs:enumeration value="Entrega" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LocalPedidoRestaurante" nillable="true" type="tns:LocalPedidoRestaurante" />
+  <xs:simpleType name="StatusProducaoPedido">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Aguardando" />
+      <xs:enumeration value="EmProducao" />
+      <xs:enumeration value="Produzido" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StatusProducaoPedido" nillable="true" type="tns:StatusProducaoPedido" />
+</xs:schema>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.ClassesRelacionadas.RamoAtividade_Cnae" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" />
+  <xs:complexType name="PessoaJuridica">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" base="q1:Pessoa">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cnpj" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DataAbertura" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IdGuid" type="ser:guid" />
+          <xs:element minOccurs="0" name="InscricaoEstadual" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InscricaoMunicipal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NomeFantasia" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.ClassesRelacionadas.RamoAtividade_Cnae" minOccurs="0" name="RamosDeAtividade" nillable="true" type="q2:ArrayOfPessoaJuridicaXcnaeSubClasse" />
+          <xs:element minOccurs="0" name="RazaoSocial" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PessoaJuridica" nillable="true" type="tns:PessoaJuridica" />
+</xs:schema>

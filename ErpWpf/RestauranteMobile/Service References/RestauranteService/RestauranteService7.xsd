@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System.ComponentModel" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco" />
+  <xs:complexType name="ArrayOfPessoaTelefone">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PessoaTelefone" nillable="true" type="tns:PessoaTelefone" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPessoaTelefone" nillable="true" type="tns:ArrayOfPessoaTelefone" />
+  <xs:complexType name="PessoaTelefone">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q1:PropertyChangedEventHandler" />
+      <xs:element name="_dddTelefone" nillable="true" type="xs:string" />
+      <xs:element name="_ddiPais" nillable="true" type="xs:string" />
+      <xs:element name="_idGuid" type="ser:guid" />
+      <xs:element name="_numero" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" name="_pessoa" nillable="true" type="q2:Pessoa" />
+      <xs:element name="_ramal" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_status" type="q3:Status" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_telefoneTipo" type="q4:TelefoneTipo" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PessoaTelefone" nillable="true" type="tns:PessoaTelefone" />
+  <xs:complexType name="ArrayOfPessoaContatoEletronico">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PessoaContatoEletronico" nillable="true" type="tns:PessoaContatoEletronico" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPessoaContatoEletronico" nillable="true" type="tns:ArrayOfPessoaContatoEletronico" />
+  <xs:complexType name="PessoaContatoEletronico">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q5:PropertyChangedEventHandler" />
+      <xs:element name="_idGuid" type="ser:guid" />
+      <xs:element name="_nick" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" name="_pessoa" nillable="true" type="q6:Pessoa" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_status" type="q7:Status" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_tipo" type="q8:TipoEmail" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PessoaContatoEletronico" nillable="true" type="tns:PessoaContatoEletronico" />
+  <xs:complexType name="ArrayOfPessoaEndereco">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PessoaEndereco" nillable="true" type="tns:PessoaEndereco" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPessoaEndereco" nillable="true" type="tns:ArrayOfPessoaEndereco" />
+  <xs:complexType name="PessoaEndereco">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q9:PropertyChangedEventHandler" />
+      <xs:element name="_complemento" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco" name="_endereco" nillable="true" type="q10:Endereco" />
+      <xs:element name="_informadoManualmente" type="xs:boolean" />
+      <xs:element name="_logradouro" nillable="true" type="xs:string" />
+      <xs:element name="_numero" nillable="true" type="xs:string" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" name="_pessoa" nillable="true" type="q11:Pessoa" />
+      <xs:element name="_pontoReferencia" nillable="true" type="xs:string" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_tipoEndereco" type="q12:TipoEndereco" />
+      <xs:element name="_x003C_IdGuid_x003E_k__BackingField" type="ser:guid" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q13:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PessoaEndereco" nillable="true" type="tns:PessoaEndereco" />
+</xs:schema>

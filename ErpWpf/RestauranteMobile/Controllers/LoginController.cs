@@ -2,6 +2,7 @@
 using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio;
+using Erp.Business.Entity.Trabalhista;
 using NHibernate.Hql.Ast.ANTLR;
 using RestauranteMobile.Models;
 using Util.Seguranca;
@@ -35,6 +36,11 @@ namespace RestauranteMobile.Controllers
         {
 
             return View("Index");
+        }
+
+        public static ParceiroNegocioPessoaFisica GetPessoaLogada()
+        {
+            return null;
         }
 	}
 }

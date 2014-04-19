@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/RestauranteService.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RestauranteService.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ParcialMesaDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaixaEmissor" type="xs:int" />
+      <xs:element minOccurs="0" name="HoraImpressao" type="ser:duration" />
+      <xs:element minOccurs="0" name="HoraSolicitacao" type="ser:duration" />
+      <xs:element minOccurs="0" name="IdGarcon" type="xs:int" />
+      <xs:element minOccurs="0" name="IdGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="Mesa" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParcialMesaDataContract" nillable="true" type="tns:ParcialMesaDataContract" />
+  <xs:complexType name="ArrayOfParcialMesaDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParcialMesaDataContract" nillable="true" type="tns:ParcialMesaDataContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParcialMesaDataContract" nillable="true" type="tns:ArrayOfParcialMesaDataContract" />
+</xs:schema>

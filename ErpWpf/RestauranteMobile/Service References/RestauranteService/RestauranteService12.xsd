@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Fiscal" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica" />
+  <xs:complexType name="Pedido">
+    <xs:sequence>
+      <xs:element name="_x003C_Acressimos_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_Caixa_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" name="_x003C_Cliente_x003E_k__BackingField" nillable="true" type="q1:Pessoa" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" name="_x003C_CondicaoPagamento_x003E_k__BackingField" nillable="true" type="q2:CondicaoPagamento" />
+      <xs:element name="_x003C_Coo_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_DataPedido_x003E_k__BackingField" type="xs:dateTime" />
+      <xs:element name="_x003C_Descontos_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica" name="_x003C_Empresa_x003E_k__BackingField" nillable="true" type="q3:PessoaJuridica" />
+      <xs:element name="_x003C_Frete_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Fiscal" name="_x003C_NotaFiscal_x003E_k__BackingField" nillable="true" type="q4:NotaFiscal" />
+      <xs:element name="_x003C_Observacoes_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" name="_x003C_Pagamento_x003E_k__BackingField" nillable="true" type="q5:ArrayOfPagamentoPedido" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q6:Status" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica" name="_x003C_Usuario_x003E_k__BackingField" nillable="true" type="q7:PessoaFisica" />
+      <xs:element name="_x003C_ValorPedido_x003E_k__BackingField" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pedido" nillable="true" type="tns:Pedido" />
+</xs:schema>

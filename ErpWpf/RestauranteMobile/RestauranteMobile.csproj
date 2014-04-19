@@ -47,6 +47,7 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.2.0\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
     </Reference>
@@ -183,6 +184,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\PedidosGarconModel.cs" />
     <Compile Include="Extensions\MyExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -193,8 +195,14 @@
     <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="Models\NovoPedidoModel.cs" />
     <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\RestauranteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +212,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\loginBackground.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
@@ -219,6 +228,13 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Service References\RestauranteService\RestauranteService.disco" />
+    <None Include="Service References\RestauranteService\configuration91.svcinfo" />
+    <None Include="Service References\RestauranteService\configuration.svcinfo" />
+    <None Include="Service References\RestauranteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -231,11 +247,93 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Pedido\Index.cshtml" />
+    <None Include="Service References\RestauranteService\RestauranteService.wsdl" />
+    <None Include="Service References\RestauranteService\RestauranteService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService24.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService25.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RestauranteService\RestauranteService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\Pedido\MesasDisponiveis.cshtml" />
+    <Content Include="Views\Pedido\SolicitaNumeroMesa.cshtml" />
+    <Content Include="Views\Pedido\TelaPedido.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\ListaPedido\" />
-    <Folder Include="Views\Pedido\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -249,10 +347,20 @@
       <Project>{55625d1a-6e40-4259-93e8-4933525b96a9}</Project>
       <Name>Erp.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestauranteService\RestauranteService.csproj">
+      <Project>{BF823A6B-3EBE-41E1-873B-E89C659FBA2F}</Project>
+      <Name>RestauranteService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Util\Util.csproj">
       <Project>{88F82EF3-DE24-491F-89ED-93B4DC95AF6C}</Project>
       <Name>Util</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\RestauranteService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

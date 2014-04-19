@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Fiscal" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Fiscal" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Fiscal.ClassesRelacionadas" />
+  <xs:complexType name="NotaFiscal">
+    <xs:sequence>
+      <xs:element name="_x003C_Arquivo_x003E_k__BackingField" nillable="true" type="xs:base64Binary" />
+      <xs:element name="_x003C_BaseIssqn_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_ChaveAcesso_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_CodigoAntt_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_DadosAdicionais_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_DataEmissao_x003E_k__BackingField" type="xs:dateTime" />
+      <xs:element name="_x003C_DataEntrada_x003E_k__BackingField" type="xs:dateTime" />
+      <xs:element name="_x003C_Desconto_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" name="_x003C_Destinatario_x003E_k__BackingField" nillable="true" type="q1:Pessoa" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" name="_x003C_Emitente_x003E_k__BackingField" nillable="true" type="q2:Pessoa" />
+      <xs:element name="_x003C_Entrada_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Especie_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_FretePorConta_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Frete_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_HoraSaida_x003E_k__BackingField" type="xs:dateTime" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_InscricaoMunicipal_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_InscricaoSubTributario_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Lancada_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Marca_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Modelo_x003E_k__BackingField" type="q3:ModeloNotaFiscal" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Fiscal.ClassesRelacionadas" name="_x003C_NaturezaInterna_x003E_k__BackingField" nillable="true" type="q4:NaturezaInterna" />
+      <xs:element name="_x003C_NaturezaOperacao_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Numero_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_OutrasDespesasAcessorias_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Fiscal.ClassesRelacionadas" name="_x003C_Pagamento_x003E_k__BackingField" nillable="true" type="q5:ArrayOfNotaFiscalPagamento" />
+      <xs:element name="_x003C_PesoBruto_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_PesoLiquido_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_PlacaVeiculo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Fiscal.ClassesRelacionadas" name="_x003C_Produtos_x003E_k__BackingField" nillable="true" type="q6:ArrayOfProdutoNotaFiscal" />
+      <xs:element name="_x003C_Protocolo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Quantidade_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_ReservadoAoFiscao_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Seguro_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_Serie_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q7:Status" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" name="_x003C_Transportadora_x003E_k__BackingField" nillable="true" type="q8:Pessoa" />
+      <xs:element name="_x003C_ValorIssqn_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_ValorServico_x003E_k__BackingField" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotaFiscal" nillable="true" type="tns:NotaFiscal" />
+</xs:schema>

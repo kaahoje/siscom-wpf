@@ -27,12 +27,12 @@ namespace RestauranteService
 
         private void RestaurarPedidos()
         {
-            
+
         }
 
         private void BackupPedidos()
         {
-            
+
         }
         private int NumeroControle { get; set; }
         private IList<ParcialMesaDataContract> Parciais { get; set; }
@@ -174,6 +174,11 @@ namespace RestauranteService
             return StatusComando.ErroExecucao;
         }
 
+        public IList<PedidoRestaurante> GetPedidosGarcon(int idGarcon)
+        {
+            return FilaSalao.Where(x => x.Garcon.Id == idGarcon).ToList();
+        }
+
         public PedidoRestaurante ParcialMesa(int mesa)
         {
             return GetMesa(mesa);
@@ -224,13 +229,18 @@ namespace RestauranteService
             {
                 LastException = ex.Message;
             }
-            
+
             return StatusComando.ConcluidoSucesso;
         }
 
         public IList<PedidoRestaurante> GetMesasAbertas()
         {
             return MesasAbertas;
+        }
+
+        public IList<int> GetMesasDisponiveis()
+        {
+            return new List<int>();
         }
 
         public StatusComando FecharMesa(int mesa)
@@ -411,17 +421,17 @@ namespace RestauranteService
                 {
                     throw new Exception("A mesa não está aberta");
                 }
-                foreach (var m in FilaSalao.Where(x=>x.Mesa == mesa))
+                foreach (var m in FilaSalao.Where(x => x.Mesa == mesa))
                 {
                     var comp = m.Produtos.SingleOrDefault(x => x.IdGuid == composicao);
-                    
-                    if (comp == null )continue;
+
+                    if (comp == null) continue;
 
                     if (m.StatusProducao == StatusProducaoPedido.Produzido)
                     {
                         throw new Exception("Pedido já produzido.");
                     }
-                    var prod = comp.Composicao.SingleOrDefault(x=>x.IdGuid == produto);
+                    var prod = comp.Composicao.SingleOrDefault(x => x.IdGuid == produto);
                     if (prod != null)
                     {
                         comp.Composicao.Remove(prod);
@@ -431,13 +441,13 @@ namespace RestauranteService
                 if (compMesa != null)
                 {
                     var prodMesa = compMesa.Composicao.SingleOrDefault(x => x.IdGuid == produto);
-                    if (prodMesa !=null)
+                    if (prodMesa != null)
                     {
                         compMesa.Composicao.Remove(prodMesa);
                     }
                     AjustarPrecoComposicao(compMesa);
                 }
-                
+
                 return StatusComando.ConcluidoSucesso;
             }
             catch (Exception ex)
@@ -512,7 +522,7 @@ namespace RestauranteService
             }
             return StatusComando.ErroExecucao;
         }
-        
+
         public Dictionary<int, decimal> VerificaProdutoCobranca(IList<ProdutoPedido> produtos)
         {
             var cobrarMaiorValor = ConfigurationManager.AppSettings["CobrarMaiorValor"];
@@ -528,14 +538,25 @@ namespace RestauranteService
                     preco = prod.Produto.PrecoVenda;
                     index = i;
                 }
-                ret.Add(index,preco);
+                ret.Add(index, preco);
             }
             else
             {
                 // Calcula a média do preço do produto.
-                ret.Add(0,produtos.Average(x=>x.Produto.PrecoVenda));
+                ret.Add(0, produtos.Average(x => x.Produto.PrecoVenda));
             }
             return ret;
+        }
+
+        public ComposicaoProduto VerificaComposicao(ComposicaoProduto composicao)
+        {
+            var ret = VerificaProdutoCobranca(composicao.Composicao);
+            var prod = composicao.Composicao[ret.Keys.ToArray()[0]];
+            var valor = ret[0];
+            composicao.Produto = prod.Produto;
+            composicao.Valor = composicao.Quantidade * valor;
+            composicao.ValorUnitario = valor;
+            return composicao;
         }
 
         public string GetLastException()
@@ -543,6 +564,36 @@ namespace RestauranteService
             return LastException;
         }
 
+        public PedidoRestaurante CalcularPedido(PedidoRestaurante pedido)
+        {
+            foreach (var prod in pedido.Produtos)
+            {
+                VerificaComposicao(prod);
+            }
+            decimal total = 0;
+            if (pedido.Produtos == null)
+            {
+                return pedido;
+            }
+            int cont = 1;
+            foreach (var composicaoProduto in pedido.Produtos)
+            {
+                composicaoProduto.Sequencia = cont;
+                composicaoProduto.Valor = composicaoProduto.Quantidade * composicaoProduto.ValorUnitario;
+                total += composicaoProduto.Valor;
+                cont += 1;
+            }
+            pedido.ValorPedido = total;
+            return AjustarSequencia(pedido);
+        }
+        private PedidoRestaurante AjustarSequencia(PedidoRestaurante pedido)
+        {
+            for (int i = 0; i < pedido.Produtos.Count; i++)
+            {
+                pedido.Produtos[i].Sequencia = i + 1;
+            }
+            return pedido;
+        }
         public ControlePedido NovoControle()
         {
             var ctr = new ControlePedido()

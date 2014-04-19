@@ -249,6 +249,14 @@
     <Compile Include="Entity\Sped\CstCofinsRepository.cs" />
     <Compile Include="Entity\Sped\CstIpiRepository.cs" />
     <Compile Include="Entity\Sped\CstPisRepository.cs" />
+    <Compile Include="Entity\Trabalhista\ClassesRelacionadas\CargoFuncionario.cs" />
+    <Compile Include="Entity\Trabalhista\ClassesRelacionadas\CargoFuncionarioMap.cs" />
+    <Compile Include="Entity\Trabalhista\ClassesRelacionadas\CargoFuncionarioRepository.cs" />
+    <Compile Include="Entity\Trabalhista\Funcionario.cs" />
+    <Compile Include="Entity\Trabalhista\FuncionarioMap.cs" />
+    <Compile Include="Entity\Trabalhista\FuncionarioRepository.cs" />
+    <Compile Include="Entity\Vendas\Vendedor\Vendedor.cs" />
+    <Compile Include="Entity\Vendas\Vendedor\VendedorMap.cs" />
     <Compile Include="Enum\EnderecoTipo.cs" />
     <Compile Include="Enum\Formulario.cs" />
     <Compile Include="Enum\OrigemProduto.cs" />

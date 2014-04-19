@@ -1,35 +1,77 @@
 ﻿@model RestauranteMobile.Models.LoginModel
 
-@{
-    Layout = null;
-}
-
+@using System.Reflection
+@using System.Web.Configuration
 <!DOCTYPE html>
-
 <html>
 <head>
-    <title>Entrar</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Vendas mobile</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @{ var version = Assembly.GetExecutingAssembly().GetName().Version;
+        Layout = null;
+     ViewBag.Version = version.Major + "." + version.Minor + "." + version.Build + "." + version.Revision;
+    }
+
 </head>
-    <body>
+<body>
+
+    <div class="container body-content" align="center" style="font-size: 18px; background-image: url(~/Images/loginBackground.jpg)" >
         @using (Html.BeginForm("Entrar", "Login"))
         {
-            <div style="font-family: cursive ;font-size: 12pt">
-            <table>
-                <tr>
-                    <td>@Html.TextBoxFor(x => x.Usuario)</td>
-                </tr>
-                <tr>
-                    <td>@Html.PasswordFor(x => x.Senha)</td>
-                </tr>
-                <tr>
-                    <input type="submit" value="Entrar"/>
-                </tr>
-                <tr>@Html.ValidationSummary()</tr>
-            </table>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Usuario)
+            </div>
+            <div class="form-group">
+
+                @Html.TextBoxFor(x => x.Usuario)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Senha)
+            </div>
+            <div class="form-group">
+                @Html.PasswordFor(x => x.Senha)
+            </div>
+            <div class="form-group" align="center">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Entrar" class="btn btn-primary btn-lg" />
+                        </td>
+                        <td>
+                            <input value="Limpar" type="reset" class="btn btn-primary btn-lg" />
+                        </td>
+                    </tr>
+                </table>
 
 
-        </div>
+            </div>
+            <div class="form-group">
+                @Html.ValidationSummary()
+
+            </div>
         }
-        
-    </body>
+        <hr />
+        <footer>
+            <div style="font-size: 8px">
+                <p>&copy; @DateTime.Now.Year - Sistema de pedidos para restaurante</p>
+                <p>Versão: @ViewBag.Version</p>
+            </div>
+            
+        </footer>
+    </div>
+
+
+   
+</body>
 </html>
+
+
+
+

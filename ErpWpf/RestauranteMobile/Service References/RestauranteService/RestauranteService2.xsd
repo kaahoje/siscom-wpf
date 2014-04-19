@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" />
+  <xs:complexType name="ArrayOfComposicaoProduto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ComposicaoProduto" nillable="true" type="tns:ComposicaoProduto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComposicaoProduto" nillable="true" type="tns:ArrayOfComposicaoProduto" />
+  <xs:complexType name="ComposicaoProduto">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" base="q1:ProdutoPedido">
+        <xs:sequence>
+          <xs:element name="_x003C_Composicao_x003E_k__BackingField" nillable="true" type="q1:ArrayOfProdutoPedido" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ComposicaoProduto" nillable="true" type="tns:ComposicaoProduto" />
+</xs:schema>

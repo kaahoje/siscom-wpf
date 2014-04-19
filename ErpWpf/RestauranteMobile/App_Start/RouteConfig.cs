@@ -12,12 +12,21 @@ namespace RestauranteMobile
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            AddRoutesPedido(routes);
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+        }
+
+        private static void AddRoutesPedido(RouteCollection routes)
+        {
+            routes.MapRoute(
+                name: "NovoPedido",
+                url:"novo_pedido",
+                defaults: new { controller = "Pedido", action = "NovoPedido" }
+                );
         }
     }
 }

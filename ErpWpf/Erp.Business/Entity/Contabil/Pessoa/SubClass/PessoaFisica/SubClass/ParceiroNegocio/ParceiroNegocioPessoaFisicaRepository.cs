@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DevExpress.Web.ASPxEditors;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
@@ -109,7 +110,8 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
 
         public static ParceiroNegocioPessoaFisica GetByLogin(string usuario)
         {
-            return GetQueryOver().Where(p => p.Login.Equals(usuario)).SingleOrDefault();
+            var list = GetQueryOver().Where(p => p.Login == usuario).List();
+            return list.FirstOrDefault();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas;
 using Erp.Business.Enum;
@@ -28,6 +29,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
         public virtual TimeSpan HoraEntrega { get; set; }
         public virtual StatusProducaoPedido StatusProducao { get; set; }
         public virtual LocalPedidoRestaurante Local { get; set; }
+        public virtual ParceiroNegocioPessoaFisica Garcon { get; set; }
         public virtual int Mesa { get; set; }
 
         /// <summary>

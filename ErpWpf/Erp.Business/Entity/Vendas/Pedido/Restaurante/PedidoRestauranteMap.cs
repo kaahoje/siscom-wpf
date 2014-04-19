@@ -12,6 +12,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
             Map(x => x.HoraEntrega);
             Map(x => x.HoraProducao);
             References(x => x.Controle);
+            References(x => x.Garcon);
 
             HasMany(x => x.Produtos).Cascade.All();
         }

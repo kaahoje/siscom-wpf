@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2e71aa60-ce7b-4c62-81e2-69f17c6fec20" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:14721/RestauranteService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RestauranteService.xsd" MetadataType="Schema" ID="ee2ccfab-5609-4970-9750-af44a0ef073c" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd22" />
+    <MetadataFile FileName="RestauranteService1.xsd" MetadataType="Schema" ID="d04e4fa1-3897-4345-8e4f-b5b800badadf" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd0" />
+    <MetadataFile FileName="RestauranteService2.xsd" MetadataType="Schema" ID="a2fe2ef8-7d99-4a89-90ff-0e7329639795" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd23" />
+    <MetadataFile FileName="RestauranteService3.xsd" MetadataType="Schema" ID="47f512a7-54f4-4ee8-81f4-7091bcc17929" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd3" />
+    <MetadataFile FileName="RestauranteService4.xsd" MetadataType="Schema" ID="75cc756d-8b31-4f36-9be2-19cbeb3f9a5d" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd18" />
+    <MetadataFile FileName="RestauranteService5.xsd" MetadataType="Schema" ID="b2eb37c3-18e1-4d16-bc9d-6156d7fb0883" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd8" />
+    <MetadataFile FileName="RestauranteService6.xsd" MetadataType="Schema" ID="78808d36-204c-4c61-ae1f-e4535b5f2e29" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd19" />
+    <MetadataFile FileName="RestauranteService7.xsd" MetadataType="Schema" ID="d3b6e512-a823-4b97-b16e-ebbed8859664" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd6" />
+    <MetadataFile FileName="RestauranteService8.xsd" MetadataType="Schema" ID="0b8fd540-b326-4e07-aa5d-a90ad32a9332" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd14" />
+    <MetadataFile FileName="RestauranteService9.xsd" MetadataType="Schema" ID="a8bee698-a762-4626-aa13-cce7fd6b78f2" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd15" />
+    <MetadataFile FileName="RestauranteService.wsdl" MetadataType="Wsdl" ID="b0b05bf4-d046-4c74-822c-5c0d590e6767" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?wsdl" />
+    <MetadataFile FileName="RestauranteService10.xsd" MetadataType="Schema" ID="b2407af3-6bf9-41ad-a8ed-eed1ad377777" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RestauranteService11.xsd" MetadataType="Schema" ID="20334404-0638-453d-8684-8f4a4f3279ae" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd10" />
+    <MetadataFile FileName="RestauranteService12.xsd" MetadataType="Schema" ID="ebb19fd9-42e8-4732-80ab-1daab5143f48" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd4" />
+    <MetadataFile FileName="RestauranteService13.xsd" MetadataType="Schema" ID="646bbcf0-5660-4773-92a5-632a77624515" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd11" />
+    <MetadataFile FileName="RestauranteService14.xsd" MetadataType="Schema" ID="0357d515-c999-44e2-933c-af6449a35aed" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd16" />
+    <MetadataFile FileName="RestauranteService15.xsd" MetadataType="Schema" ID="a7e63985-8a40-4422-a10f-c088de979522" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd9" />
+    <MetadataFile FileName="RestauranteService16.xsd" MetadataType="Schema" ID="c026b69c-395f-4e59-840a-df7af09e7aa2" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd17" />
+    <MetadataFile FileName="RestauranteService17.xsd" MetadataType="Schema" ID="962b6ca8-6d43-4c3d-bf3f-aeac1245c2df" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd7" />
+    <MetadataFile FileName="RestauranteService.disco" MetadataType="Disco" ID="045be6dc-e5fa-497e-9fd1-a4361831a916" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?disco" />
+    <MetadataFile FileName="RestauranteService18.xsd" MetadataType="Schema" ID="9dab7768-f72e-4589-9a63-f822f891575e" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd24" />
+    <MetadataFile FileName="RestauranteService19.xsd" MetadataType="Schema" ID="ae244d57-3a20-4b3c-80e0-56e60df24fa0" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd25" />
+    <MetadataFile FileName="RestauranteService20.xsd" MetadataType="Schema" ID="f6c7df81-a12a-48da-883b-9a4f699d6ad1" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd12" />
+    <MetadataFile FileName="RestauranteService21.xsd" MetadataType="Schema" ID="6442e570-9454-44b3-9a73-379d6057f25b" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd13" />
+    <MetadataFile FileName="RestauranteService22.xsd" MetadataType="Schema" ID="c46737eb-5e3f-456b-b050-eb493938cde5" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd2" />
+    <MetadataFile FileName="RestauranteService23.xsd" MetadataType="Schema" ID="90ea6bbd-f82c-4871-9926-64fd46c2481e" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd20" />
+    <MetadataFile FileName="RestauranteService24.xsd" MetadataType="Schema" ID="a086cdec-c8e9-42af-9455-d732ff7150dc" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd5" />
+    <MetadataFile FileName="RestauranteService25.xsd" MetadataType="Schema" ID="7c503f03-e9fe-4a72-b135-6f5793ea3838" SourceId="1" SourceUrl="http://localhost:14721/RestauranteService.svc?xsd=xsd21" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

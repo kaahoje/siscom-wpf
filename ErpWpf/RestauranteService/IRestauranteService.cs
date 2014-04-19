@@ -57,6 +57,13 @@ namespace RestauranteService
         /// <returns></returns>
         [OperationContract]
         StatusComando ConfirmarImpressaoParcial(Guid idGuid, int caixa);
+        /// <summary>
+        /// Método que retorna a lista de pedidos que estão na fila do salão para o garçon.
+        /// </summary>
+        /// <param name="idGarcon"></param>
+        /// <returns></returns>
+        [OperationContract]
+        IList<PedidoRestaurante> GetPedidosGarcon(int idGarcon);
         [OperationContract]
         StatusComando ConfirmarPedido(PedidoRestaurante pedido);
         /// <summary>
@@ -65,6 +72,11 @@ namespace RestauranteService
         /// <returns></returns>
         [OperationContract]
         IList<PedidoRestaurante> GetMesasAbertas();
+        /// <summary>
+        /// Método que obtém as mesas disponíveis no momento.
+        /// </summary>
+        /// <returns></returns>
+        IList<int> GetMesasDisponiveis();
         [OperationContract]
         StatusComando FecharMesa(int mesa);
         [OperationContract]
@@ -98,8 +110,12 @@ namespace RestauranteService
         [OperationContract]
         Dictionary<int, decimal> VerificaProdutoCobranca(IList<ProdutoPedido> produtos);
         [OperationContract]
+        ComposicaoProduto VerificaComposicao(ComposicaoProduto composicao);
+        [OperationContract]
         string GetLastException();
 
+        [OperationContract]
+        PedidoRestaurante CalcularPedido(PedidoRestaurante pedido);
         ControlePedido NovoControle();
     }
 

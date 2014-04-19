@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.ClassesRelacionadas.RamoAtividade_Cnae" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.ClassesRelacionadas.RamoAtividade_Cnae" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfPessoaJuridicaXcnaeSubClasse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PessoaJuridicaXcnaeSubClasse" nillable="true" type="tns:PessoaJuridicaXcnaeSubClasse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPessoaJuridicaXcnaeSubClasse" nillable="true" type="tns:ArrayOfPessoaJuridicaXcnaeSubClasse" />
+  <xs:complexType name="PessoaJuridicaXcnaeSubClasse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CnaeSubClasse" nillable="true" type="tns:CnaeSubClasse" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica" minOccurs="0" name="Empresa" nillable="true" type="q1:PessoaJuridica" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdGuid" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PessoaJuridicaXcnaeSubClasse" nillable="true" type="tns:PessoaJuridicaXcnaeSubClasse" />
+  <xs:complexType name="CnaeSubClasse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Classe" nillable="true" type="tns:CnaeClasse" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Denominacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Empresas" nillable="true" type="tns:ArrayOfPessoaJuridicaXcnaeSubClasse" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CnaeSubClasse" nillable="true" type="tns:CnaeSubClasse" />
+  <xs:complexType name="CnaeClasse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Denominacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grupo" nillable="true" type="tns:CnaeGrupo" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="SubClasses" nillable="true" type="tns:ArrayOfCnaeSubClasse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CnaeClasse" nillable="true" type="tns:CnaeClasse" />
+  <xs:complexType name="CnaeGrupo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Classes" nillable="true" type="tns:ArrayOfCnaeClasse" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Denominacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Divisao" nillable="true" type="tns:CnaeDivisao" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CnaeGrupo" nillable="true" type="tns:CnaeGrupo" />
+  <xs:complexType name="ArrayOfCnaeClasse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CnaeClasse" nillable="true" type="tns:CnaeClasse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCnaeClasse" nillable="true" type="tns:ArrayOfCnaeClasse" />
+  <xs:complexType name="CnaeDivisao">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Denominacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grupos" nillable="true" type="tns:ArrayOfCnaeGrupo" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Secao" nillable="true" type="tns:CnaeSecao" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CnaeDivisao" nillable="true" type="tns:CnaeDivisao" />
+  <xs:complexType name="ArrayOfCnaeGrupo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CnaeGrupo" nillable="true" type="tns:CnaeGrupo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCnaeGrupo" nillable="true" type="tns:ArrayOfCnaeGrupo" />
+  <xs:complexType name="CnaeSecao">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Denominacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Divisoes" nillable="true" type="tns:ArrayOfCnaeDivisao" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CnaeSecao" nillable="true" type="tns:CnaeSecao" />
+  <xs:complexType name="ArrayOfCnaeDivisao">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CnaeDivisao" nillable="true" type="tns:CnaeDivisao" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCnaeDivisao" nillable="true" type="tns:ArrayOfCnaeDivisao" />
+  <xs:complexType name="ArrayOfCnaeSubClasse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CnaeSubClasse" nillable="true" type="tns:CnaeSubClasse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCnaeSubClasse" nillable="true" type="tns:ArrayOfCnaeSubClasse" />
+</xs:schema>

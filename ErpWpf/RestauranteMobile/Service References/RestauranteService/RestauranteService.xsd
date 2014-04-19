@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" />
+  <xs:complexType name="ArrayOfPermissaoFormularioPessoaFisica">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PermissaoFormularioPessoaFisica" nillable="true" type="tns:PermissaoFormularioPessoaFisica" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPermissaoFormularioPessoaFisica" nillable="true" type="tns:ArrayOfPermissaoFormularioPessoaFisica" />
+  <xs:complexType name="PermissaoFormularioPessoaFisica">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Edita" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Exclui" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" minOccurs="0" name="Formulario" type="q1:Formulario" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Insere" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Pesquisa" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PermissaoFormularioPessoaFisica" nillable="true" type="tns:PermissaoFormularioPessoaFisica" />
+  <xs:complexType name="ArrayOfPermissaoRelatorioPessoaFisica">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PermissaoRelatorioPessoaFisica" nillable="true" type="tns:PermissaoRelatorioPessoaFisica" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPermissaoRelatorioPessoaFisica" nillable="true" type="tns:ArrayOfPermissaoRelatorioPessoaFisica" />
+  <xs:complexType name="PermissaoRelatorioPessoaFisica">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Permitido" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" minOccurs="0" name="Relatorio" type="q2:Relatorios" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PermissaoRelatorioPessoaFisica" nillable="true" type="tns:PermissaoRelatorioPessoaFisica" />
+</xs:schema>

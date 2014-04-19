@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Sped" />
+  <xs:complexType name="Produto">
+    <xs:sequence>
+      <xs:element name="_x003C_CodBarra_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Descricao_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Iat_x003E_k__BackingField" type="q1:Iat" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Ippt_x003E_k__BackingField" type="q2:Ippt" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas" name="_x003C_Movimentacao_x003E_k__BackingField" nillable="true" type="q3:ArrayOfMovimentacaoProduto" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Sped" name="_x003C_Ncm_x003E_k__BackingField" nillable="true" type="q4:Ncm" />
+      <xs:element name="_x003C_NumeroCardapio_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Origem_x003E_k__BackingField" type="q5:OrigemProduto" />
+      <xs:element name="_x003C_PrecoVenda_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas" name="_x003C_Receitas_x003E_k__BackingField" nillable="true" type="q6:ArrayOfReceita" />
+      <xs:element name="_x003C_Referencia_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_SaldoMinimo_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q7:Status" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas" name="_x003C_SubGrupo_x003E_k__BackingField" nillable="true" type="q8:SubGrupoProduto" />
+      <xs:element name="_x003C_Tamanho_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_TemReceita_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Tipo_x003E_k__BackingField" type="q9:TipoProduto" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas" name="_x003C_Tributacao_x003E_k__BackingField" nillable="true" type="q10:Tributacao" />
+      <xs:element name="_x003C_UltimaCompra_x003E_k__BackingField" type="xs:dateTime" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas" name="_x003C_UnidadeCompra_x003E_k__BackingField" nillable="true" type="q11:Unidade" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas" name="_x003C_UnidadeVenda_x003E_k__BackingField" nillable="true" type="q12:Unidade" />
+      <xs:element name="_x003C_ValorPromocional_x003E_k__BackingField" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Produto" nillable="true" type="tns:Produto" />
+</xs:schema>

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RestauranteService" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd24" namespace="http://schemas.datacontract.org/2004/07/RestauranteService.DataContracts" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd25" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="TrocarMesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="origem" type="xs:int" />
+        <xs:element minOccurs="0" name="destino" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TrocarMesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="TrocarMesaResult" type="q1:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JuntarMesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="origem" type="xs:int" />
+        <xs:element minOccurs="0" name="destino" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JuntarMesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="JuntarMesaResult" type="q2:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mesa" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante" minOccurs="0" name="GetMesaResult" nillable="true" type="q3:PedidoRestaurante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntrega">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="controle" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntregaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante" minOccurs="0" name="GetEntregaResult" nillable="true" type="q4:PedidoRestaurante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NovaMesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mesa" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NovaMesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante" minOccurs="0" name="NovaMesaResult" nillable="true" type="q5:PedidoRestaurante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NovoBalcao">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NovoBalcaoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante" minOccurs="0" name="NovoBalcaoResult" nillable="true" type="q6:PedidoRestaurante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NovaEntrega">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NovaEntregaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante" minOccurs="0" name="NovaEntregaResult" nillable="true" type="q7:PedidoRestaurante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParcialMesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mesa" type="xs:int" />
+        <xs:element minOccurs="0" name="idGarcon" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParcialMesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/RestauranteService.DataContracts" minOccurs="0" name="ParcialMesaResult" nillable="true" type="q8:ParcialMesaDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParciaisSolicitadas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idGarcon" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParciaisSolicitadasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/RestauranteService.DataContracts" minOccurs="0" name="ParciaisSolicitadasResult" nillable="true" type="q9:ArrayOfParcialMesaDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParcialPendente">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParcialPendenteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/RestauranteService.DataContracts" minOccurs="0" name="ParcialPendenteResult" nillable="true" type="q10:ParcialMesaDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmarImpressaoParcial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="idGuid" type="q11:guid" />
+        <xs:element minOccurs="0" name="caixa" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmarImpressaoParcialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="ConfirmarImpressaoParcialResult" type="q12:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmarPedido">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante" minOccurs="0" name="pedido" nillable="true" type="q13:PedidoRestaurante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmarPedidoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="ConfirmarPedidoResult" type="q14:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMesasAbertas">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMesasAbertasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante" minOccurs="0" name="GetMesasAbertasResult" nillable="true" type="q15:ArrayOfPedidoRestaurante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FecharMesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mesa" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FecharMesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="FecharMesaResult" type="q16:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FecharEntrega">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="controle" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FecharEntregaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="FecharEntregaResult" type="q17:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelarMesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mesa" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelarMesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="CancelarMesaResult" type="q18:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelarEntrega">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="controle" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelarEntregaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="CancelarEntregaResult" type="q19:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelarItemMesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mesa" type="xs:int" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas" minOccurs="0" name="composicao" nillable="true" type="q20:ComposicaoProduto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelarItemMesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="CancelarItemMesaResult" type="q21:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelarItemComposicaoMesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mesa" type="xs:int" />
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="composicao" type="q22:guid" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="produto" type="q23:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelarItemComposicaoMesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="CancelarItemComposicaoMesaResult" type="q24:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdicionarItemComposicaoMesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mesa" type="xs:int" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="composicao" type="q25:guid" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" minOccurs="0" name="produto" nillable="true" type="q26:ProdutoPedido" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdicionarItemComposicaoMesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="AdicionarItemComposicaoMesaResult" type="q27:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdicionarItemMesa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mesa" type="xs:int" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas" minOccurs="0" name="composicao" nillable="true" type="q28:ComposicaoProduto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdicionarItemMesaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/RestauranteService" minOccurs="0" name="AdicionarItemMesaResult" type="q29:StatusComando" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificaProdutoCobranca">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" minOccurs="0" name="produtos" nillable="true" type="q30:ArrayOfProdutoPedido" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificaProdutoCobrancaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="VerificaProdutoCobrancaResult" nillable="true" type="q31:ArrayOfKeyValueOfintdecimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastException">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastExceptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLastExceptionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

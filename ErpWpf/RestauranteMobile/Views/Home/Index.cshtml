@@ -6,12 +6,10 @@
 
 
 
-<div >
-    <ul class="nav navbar-btn" style="width: 150px; border: aliceblue double 1px; horiz-align: center">
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("Pedidos", "Index", "Pedido")</li>
-        <li>@Html.ActionLink("Resultados", "Index", "ListaPedido")</li>
-        <li>@Html.ActionLink("Sair", "Sair", "Login")</li>
-    </ul>
-
+<div align="center">
+    <br />
+    @Html.ActionLink("Pedidos", "Index", "Pedido", null, new { @class = "btn-primary btn-block btn-lg" })
+    @Html.ActionLink("Resultados", "Index", "ListaPedido", null, new { @class = "btn-primary btn-block btn-lg" })
+    @Html.ActionLink("Sair", "Index", "Login", null, new { @class = "btn-primary btn-block btn-lg" })
+    
 </div>

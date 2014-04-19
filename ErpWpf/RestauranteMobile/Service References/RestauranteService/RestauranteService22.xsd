@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RestauranteService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RestauranteService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="StatusComando">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ConcluidoSucesso" />
+      <xs:enumeration value="ErroExecucao" />
+      <xs:enumeration value="ErroDados" />
+      <xs:enumeration value="OperacaoNaoPermitida" />
+      <xs:enumeration value="SolicitacaoAdministrador" />
+      <xs:enumeration value="MesaAberta" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StatusComando" nillable="true" type="tns:StatusComando" />
+</xs:schema>

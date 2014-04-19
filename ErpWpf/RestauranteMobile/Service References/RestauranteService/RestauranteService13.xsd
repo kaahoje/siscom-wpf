@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System.ComponentModel" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto" />
+  <xs:complexType name="CondicaoPagamento">
+    <xs:sequence>
+      <xs:element name="_x003C_Descricao_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Prazos_x003E_k__BackingField" nillable="true" type="tns:ArrayOfPrazoPagamentoCondicaoPagamento" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q1:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CondicaoPagamento" nillable="true" type="tns:CondicaoPagamento" />
+  <xs:complexType name="ArrayOfPrazoPagamentoCondicaoPagamento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrazoPagamentoCondicaoPagamento" nillable="true" type="tns:PrazoPagamentoCondicaoPagamento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrazoPagamentoCondicaoPagamento" nillable="true" type="tns:ArrayOfPrazoPagamentoCondicaoPagamento" />
+  <xs:complexType name="PrazoPagamentoCondicaoPagamento">
+    <xs:sequence>
+      <xs:element name="_x003C_IdGuid_x003E_k__BackingField" type="ser:guid" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Prazo_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q2:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrazoPagamentoCondicaoPagamento" nillable="true" type="tns:PrazoPagamentoCondicaoPagamento" />
+  <xs:complexType name="FormaPagamento">
+    <xs:sequence>
+      <xs:element name="_x003C_AVista_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Descricao_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_ExigeIdentificacaoCliente_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_MovimentaLimiteCliente_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PodeReceber_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PrazoCompensacao_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q3:Status" />
+      <xs:element name="_x003C_TaxaAdministracao_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_TaxaJurosCliente_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil" name="_x003C_TipoTituloMercadoria_x003E_k__BackingField" nillable="true" type="q4:TipoTitulo" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil" name="_x003C_TipoTituloProduto_x003E_k__BackingField" nillable="true" type="q5:TipoTitulo" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil" name="_x003C_TipoTituloServico_x003E_k__BackingField" nillable="true" type="q6:TipoTitulo" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil" name="_x003C_TipoTitulo_x003E_k__BackingField" nillable="true" type="q7:TipoTitulo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FormaPagamento" nillable="true" type="tns:FormaPagamento" />
+  <xs:complexType name="ArrayOfPagamentoPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PagamentoPedido" nillable="true" type="tns:PagamentoPedido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPagamentoPedido" nillable="true" type="tns:ArrayOfPagamentoPedido" />
+  <xs:complexType name="PagamentoPedido">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q8:PropertyChangedEventHandler" />
+      <xs:element name="_desconto" type="xs:decimal" />
+      <xs:element name="_formaPagamento" nillable="true" type="tns:FormaPagamento" />
+      <xs:element name="_juros" type="xs:decimal" />
+      <xs:element name="_parcela" type="xs:int" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido" name="_pedido" nillable="true" type="q9:Pedido" />
+      <xs:element name="_valor" type="xs:decimal" />
+      <xs:element name="_valorTotal" type="xs:decimal" />
+      <xs:element name="_vencimento" type="xs:dateTime" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q10:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagamentoPedido" nillable="true" type="tns:PagamentoPedido" />
+  <xs:complexType name="ControlePedido">
+    <xs:sequence>
+      <xs:element name="_x003C_Chave_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Controle_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ControlePedido" nillable="true" type="tns:ControlePedido" />
+  <xs:complexType name="ProdutoPedido">
+    <xs:sequence>
+      <xs:element name="_x003C_Diferenca_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_IdGuid_x003E_k__BackingField" type="ser:guid" />
+      <xs:element name="_x003C_Id_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto" name="_x003C_Produto_x003E_k__BackingField" nillable="true" type="q11:Produto" />
+      <xs:element name="_x003C_Quantidade_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_Sequencia_x003E_k__BackingField" type="xs:int" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_x003C_Status_x003E_k__BackingField" type="q12:Status" />
+      <xs:element name="_x003C_ValorUnitario_x003E_k__BackingField" type="xs:decimal" />
+      <xs:element name="_x003C_Valor_x003E_k__BackingField" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProdutoPedido" nillable="true" type="tns:ProdutoPedido" />
+  <xs:complexType name="ArrayOfProdutoPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProdutoPedido" nillable="true" type="tns:ProdutoPedido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProdutoPedido" nillable="true" type="tns:ArrayOfProdutoPedido" />
+</xs:schema>

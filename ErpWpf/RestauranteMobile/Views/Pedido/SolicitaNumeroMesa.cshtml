@@ -1,0 +1,21 @@
+﻿@model RestauranteMobile.Models.NovoPedidoModel
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("NovoPedido", "Pedido",FormMethod.Post))
+{
+    <div class="form-group" align="left">
+        <br/>
+        @Html.LabelFor(x=>x.Mesa)
+        @Html.TextBoxFor(x=>x.Mesa, null, new { @type = "number" })
+        @Html.ValidationSummary()
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" value="Ok" class=" btn btn-lg"/>
+        <input type="reset" value="Limpar" class="btn btn-lg"/>
+    </div>
+    
+}

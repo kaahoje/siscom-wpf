@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div align="center">
+    <br />
+    @Html.ActionLink("Novo", "SolicitaNumeroMesa", "Pedido", null, new { @class = "btn-primary btn-block btn-lg" })
+    @Html.ActionLink("Pedidos", "ListarPedidosFeitos", "Pedido", null, new { @class = "btn-primary btn-block btn-lg" })
+    @Html.ActionLink("Mesas abertas", "Index", "Pedido", null, new { @class = "btn-primary btn-block btn-lg" })
+    @Html.ActionLink("Mesas disponíveis", "MesasDisponiveis", "Pedido", null, new { @class = "btn-primary btn-block btn-lg" })
+ </div>
+

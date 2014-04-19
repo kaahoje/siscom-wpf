@@ -255,7 +255,7 @@ namespace Erp.Business
                 {
                     Directory.CreateDirectory(path);
                 }
-                path += "\\log" + DateTime.Now.Date.ToString("yyyy-mm-dd") + ".txt";
+                path += "\\log" + DateTime.Now.Date.ToString("yyyy-MM-dd") + ".txt";
 
                 GravarArquivo(path, message);
             }
@@ -276,7 +276,7 @@ namespace Erp.Business
                 {
                     Directory.CreateDirectory(path);
                 }
-                path += "\\log" + DateTime.Now.Date.ToString("yyyy-mm-dd") + ".txt";
+                path += "\\log" + DateTime.Now.Date.ToString("yyyy-MM-dd") + ".txt";
 
                 GravarArquivo(path, message);
 

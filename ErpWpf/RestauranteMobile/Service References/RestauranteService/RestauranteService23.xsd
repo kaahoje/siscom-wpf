@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System.ComponentModel" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Web.ASPxGridView" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd22" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas" />
+  <xs:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" />
+  <xs:complexType name="PessoaFisica">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" base="q1:Pessoa">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q2:PropertyChangedEventHandler" />
+          <xs:element name="_alias" nillable="true" type="xs:string" />
+          <xs:element name="_confirmarSenha" nillable="true" type="xs:string" />
+          <xs:element name="_cpf" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_idiomaPadrao" type="q3:Idioma" />
+          <xs:element name="_login" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DevExpress.Web.ASPxGridView" name="_modoEdicaoGridView" type="q4:GridViewEditingMode" />
+          <xs:element name="_nome" nillable="true" type="xs:string" />
+          <xs:element name="_novaSenha" nillable="true" type="xs:string" />
+          <xs:element name="_palavraChave" nillable="true" type="xs:string" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas" name="_permissaoFormulario" nillable="true" type="q5:ArrayOfPermissaoFormularioPessoaFisica" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas" name="_permissaoRelatorio" nillable="true" type="q6:ArrayOfPermissaoRelatorioPessoaFisica" />
+          <xs:element name="_senha" nillable="true" type="xs:string" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_sexo" type="q7:Sexo" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" name="_temaPadrao" type="q8:Theme" />
+          <xs:element name="_ultimaVisita" type="xs:dateTime" />
+          <xs:element name="_visitaAtual" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PessoaFisica" nillable="true" type="tns:PessoaFisica" />
+</xs:schema>

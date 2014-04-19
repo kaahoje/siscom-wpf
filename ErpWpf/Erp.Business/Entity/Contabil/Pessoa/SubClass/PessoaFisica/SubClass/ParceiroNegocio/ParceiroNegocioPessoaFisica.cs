@@ -26,6 +26,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
         [Display(Description = "Limite de crédito", Name = "Limite de crédito", Order = 8)]
         [GridAnnotation(Order = 5, Visible = true, Width = 150)]
         public virtual decimal LimiteCredito { get; set; }
+
         
     }
 }

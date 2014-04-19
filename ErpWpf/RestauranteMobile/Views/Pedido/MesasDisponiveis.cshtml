@@ -1,0 +1,13 @@
+﻿@using System.Globalization
+@model IList<int>
+@{
+    ViewBag.Title = "MesasDisponiveis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var mesa in Model)
+{
+    <div class="form-group">
+        @Html.ActionLink(mesa.ToString(CultureInfo.InvariantCulture), "NovoPedido", "Pedido", mesa, null)
+    </div>
+}

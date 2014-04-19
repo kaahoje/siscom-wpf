@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RestauranteService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RestauranteService" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System.ComponentModel" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Enum" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.ClassesRelacionadas.RamoAtividade_Cnae" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Fiscal" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Fiscal.ClassesRelacionadas" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Sped" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Web.ASPxGridView" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd22" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd24" namespace="http://schemas.datacontract.org/2004/07/RestauranteService.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:14721/RestauranteService.svc?xsd=xsd25" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRestauranteService_TrocarMesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:TrocarMesa" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_TrocarMesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TrocarMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_JuntarMesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:JuntarMesa" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_JuntarMesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JuntarMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_GetMesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMesa" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_GetMesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_GetEntrega_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntrega" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_GetEntrega_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_NovaMesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:NovaMesa" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_NovaMesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NovaMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_NovoBalcao_InputMessage">
+    <wsdl:part name="parameters" element="tns:NovoBalcao" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_NovoBalcao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NovoBalcaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_NovaEntrega_InputMessage">
+    <wsdl:part name="parameters" element="tns:NovaEntrega" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_NovaEntrega_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NovaEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_ParcialMesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParcialMesa" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_ParcialMesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParcialMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_ParciaisSolicitadas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParciaisSolicitadas" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_ParciaisSolicitadas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParciaisSolicitadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_ParcialPendente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParcialPendente" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_ParcialPendente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParcialPendenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_ConfirmarImpressaoParcial_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarImpressaoParcial" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_ConfirmarImpressaoParcial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarImpressaoParcialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_ConfirmarPedido_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarPedido" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_ConfirmarPedido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarPedidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_GetMesasAbertas_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMesasAbertas" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_GetMesasAbertas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMesasAbertasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_FecharMesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:FecharMesa" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_FecharMesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FecharMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_FecharEntrega_InputMessage">
+    <wsdl:part name="parameters" element="tns:FecharEntrega" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_FecharEntrega_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FecharEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_CancelarMesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarMesa" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_CancelarMesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_CancelarEntrega_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarEntrega" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_CancelarEntrega_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarEntregaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_CancelarItemMesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarItemMesa" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_CancelarItemMesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarItemMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_CancelarItemComposicaoMesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarItemComposicaoMesa" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_CancelarItemComposicaoMesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarItemComposicaoMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_AdicionarItemComposicaoMesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdicionarItemComposicaoMesa" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_AdicionarItemComposicaoMesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdicionarItemComposicaoMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_AdicionarItemMesa_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdicionarItemMesa" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_AdicionarItemMesa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdicionarItemMesaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_VerificaProdutoCobranca_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerificaProdutoCobranca" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_VerificaProdutoCobranca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerificaProdutoCobrancaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_GetLastException_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastException" />
+  </wsdl:message>
+  <wsdl:message name="IRestauranteService_GetLastException_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastExceptionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRestauranteService">
+    <wsdl:operation name="TrocarMesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/TrocarMesa" message="tns:IRestauranteService_TrocarMesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/TrocarMesaResponse" message="tns:IRestauranteService_TrocarMesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JuntarMesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/JuntarMesa" message="tns:IRestauranteService_JuntarMesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/JuntarMesaResponse" message="tns:IRestauranteService_JuntarMesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/GetMesa" message="tns:IRestauranteService_GetMesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/GetMesaResponse" message="tns:IRestauranteService_GetMesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntrega">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/GetEntrega" message="tns:IRestauranteService_GetEntrega_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/GetEntregaResponse" message="tns:IRestauranteService_GetEntrega_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NovaMesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/NovaMesa" message="tns:IRestauranteService_NovaMesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/NovaMesaResponse" message="tns:IRestauranteService_NovaMesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NovoBalcao">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/NovoBalcao" message="tns:IRestauranteService_NovoBalcao_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/NovoBalcaoResponse" message="tns:IRestauranteService_NovoBalcao_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NovaEntrega">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/NovaEntrega" message="tns:IRestauranteService_NovaEntrega_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/NovaEntregaResponse" message="tns:IRestauranteService_NovaEntrega_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParcialMesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/ParcialMesa" message="tns:IRestauranteService_ParcialMesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/ParcialMesaResponse" message="tns:IRestauranteService_ParcialMesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParciaisSolicitadas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/ParciaisSolicitadas" message="tns:IRestauranteService_ParciaisSolicitadas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/ParciaisSolicitadasResponse" message="tns:IRestauranteService_ParciaisSolicitadas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParcialPendente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/ParcialPendente" message="tns:IRestauranteService_ParcialPendente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/ParcialPendenteResponse" message="tns:IRestauranteService_ParcialPendente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarImpressaoParcial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/ConfirmarImpressaoParcial" message="tns:IRestauranteService_ConfirmarImpressaoParcial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/ConfirmarImpressaoParcialResponse" message="tns:IRestauranteService_ConfirmarImpressaoParcial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarPedido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/ConfirmarPedido" message="tns:IRestauranteService_ConfirmarPedido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/ConfirmarPedidoResponse" message="tns:IRestauranteService_ConfirmarPedido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMesasAbertas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/GetMesasAbertas" message="tns:IRestauranteService_GetMesasAbertas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/GetMesasAbertasResponse" message="tns:IRestauranteService_GetMesasAbertas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FecharMesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/FecharMesa" message="tns:IRestauranteService_FecharMesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/FecharMesaResponse" message="tns:IRestauranteService_FecharMesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FecharEntrega">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/FecharEntrega" message="tns:IRestauranteService_FecharEntrega_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/FecharEntregaResponse" message="tns:IRestauranteService_FecharEntrega_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarMesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/CancelarMesa" message="tns:IRestauranteService_CancelarMesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/CancelarMesaResponse" message="tns:IRestauranteService_CancelarMesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarEntrega">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/CancelarEntrega" message="tns:IRestauranteService_CancelarEntrega_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/CancelarEntregaResponse" message="tns:IRestauranteService_CancelarEntrega_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarItemMesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/CancelarItemMesa" message="tns:IRestauranteService_CancelarItemMesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/CancelarItemMesaResponse" message="tns:IRestauranteService_CancelarItemMesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarItemComposicaoMesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/CancelarItemComposicaoMesa" message="tns:IRestauranteService_CancelarItemComposicaoMesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/CancelarItemComposicaoMesaResponse" message="tns:IRestauranteService_CancelarItemComposicaoMesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdicionarItemComposicaoMesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/AdicionarItemComposicaoMesa" message="tns:IRestauranteService_AdicionarItemComposicaoMesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/AdicionarItemComposicaoMesaResponse" message="tns:IRestauranteService_AdicionarItemComposicaoMesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdicionarItemMesa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/AdicionarItemMesa" message="tns:IRestauranteService_AdicionarItemMesa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/AdicionarItemMesaResponse" message="tns:IRestauranteService_AdicionarItemMesa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaProdutoCobranca">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/VerificaProdutoCobranca" message="tns:IRestauranteService_VerificaProdutoCobranca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/VerificaProdutoCobrancaResponse" message="tns:IRestauranteService_VerificaProdutoCobranca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastException">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestauranteService/GetLastException" message="tns:IRestauranteService_GetLastException_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestauranteService/GetLastExceptionResponse" message="tns:IRestauranteService_GetLastException_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRestauranteService" type="tns:IRestauranteService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TrocarMesa">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/TrocarMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JuntarMesa">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/JuntarMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMesa">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/GetMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntrega">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/GetEntrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovaMesa">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/NovaMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovoBalcao">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/NovoBalcao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovaEntrega">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/NovaEntrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParcialMesa">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/ParcialMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParciaisSolicitadas">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/ParciaisSolicitadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParcialPendente">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/ParcialPendente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarImpressaoParcial">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/ConfirmarImpressaoParcial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarPedido">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/ConfirmarPedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMesasAbertas">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/GetMesasAbertas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FecharMesa">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/FecharMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FecharEntrega">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/FecharEntrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarMesa">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/CancelarMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarEntrega">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/CancelarEntrega" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarItemMesa">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/CancelarItemMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarItemComposicaoMesa">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/CancelarItemComposicaoMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdicionarItemComposicaoMesa">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/AdicionarItemComposicaoMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdicionarItemMesa">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/AdicionarItemMesa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaProdutoCobranca">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/VerificaProdutoCobranca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastException">
+      <soap:operation soapAction="http://tempuri.org/IRestauranteService/GetLastException" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RestauranteService">
+    <wsdl:port name="BasicHttpBinding_IRestauranteService" binding="tns:BasicHttpBinding_IRestauranteService">
+      <soap:address location="http://localhost:14721/RestauranteService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

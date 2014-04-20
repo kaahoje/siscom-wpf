@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using Erp.Business.Entity.Estoque.Produto;
+using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas;
 using Erp.Business.Enum;
-using FluentNHibernate.Testing.Values;
-using NHibernate.Mapping;
+using RestauranteMobile.Extensions;
 using RestauranteMobile.Models;
 
 namespace RestauranteMobile.Controllers
 {
     public class PedidoController : Controller
     {
+
+        static global::RestauranteService.RestauranteService service = new global::RestauranteService.RestauranteService();
+
         //
         // GET: /Pedido/
         public ActionResult Index()
@@ -24,21 +28,39 @@ namespace RestauranteMobile.Controllers
 
         public ActionResult TelaPedido(PedidoModel model)
         {
+            var mod = GetPedidoModel();
+            MapperModel(mod,model);
             return View(model);
         }
 
+        public ActionResult CancelarPedido()
+        {
+            SetPedidoModel(null);
+            return View("Index");
+        }
+
+        private void SetPedidoModel(PedidoModel pedido)
+        {
+            Session["PedidoModel"] = pedido;
+        }
+        private PedidoModel GetPedidoModel()
+        {
+            return (PedidoModel)Session["PedidoModel"];
+        }
         public ActionResult SolicitaNumeroMesa()
         {
             return View(new NovoPedidoModel());
         }
-        
+
         public ActionResult NovoPedido(NovoPedidoModel model)
         {
+            var entity = new global::RestauranteService.RestauranteService().NovaMesa(model.Mesa);
+
             var mod = new PedidoModel()
             {
-                Entity = new global::RestauranteService.RestauranteService().NovaMesa(model.Mesa)
+                Entity = entity
             };
-
+            SetPedidoModel(mod);
             return View("TelaPedido", mod);
         }
         [HttpPost]
@@ -51,38 +73,102 @@ namespace RestauranteMobile.Controllers
             return TelaPedido(model);
         }
         [HttpPost]
-        public ActionResult AddItemPedido(PedidoModel model, int idProduto, decimal quantidade)
+        public ActionResult AddItemPedido(PedidoModel model)
         {
-            if (ModelState.IsValid)
+
+            var mod = GetPedidoModel();
+            mod.Entity.Produtos.Add(ComposicaoProdutoRepository.CreateComposicaoProduto(
+                            ProdutoRepository.GetById(model.ProdutoPedido.IdProduto),
+                            model.ProdutoPedido.Quantidade));
+            MapperModel(mod, model);
+            return View("TelaPedido", model);
+        }
+
+        private void MapperModel(PedidoModel origem, PedidoModel destino)
+        {
+            var prod = destino.ProdutoPedido;
+            Mapper.CreateMap(typeof(PedidoModel), typeof(PedidoModel));
+            Mapper.Map(origem, destino);
+            destino.ProdutoPedido = prod;
+        }
+
+        public ActionResult RemoveItemPedido(Guid composicao)
+        {
+            PedidoModel model = GetPedidoModel();
+            var mod = model.Entity.Produtos.SingleOrDefault(x => x.IdGuid == composicao);
+            if (mod != null)
             {
-                model.Entity.Produtos.Add(ComposicaoProdutoRepository.CreateComposicaoProduto(
-                    ProdutoRepository.GetById(idProduto),
-                    quantidade));
+                model.Entity.Produtos.Remove(mod);
             }
-            return TelaPedido(model);
+
+            return View("TelaPedido", model);
         }
-        [HttpPost]
-        public ActionResult RemoveItemPedido(PedidoModel model, Guid composicao)
+
+        public ActionResult ComporItem(Guid composicao)
         {
-            if (ModelState.IsValid)
+            var model = GetPedidoModel();
+            var comp = model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == composicao);
+            if (comp == null)
             {
-                var mod = model.Entity.Produtos.SingleOrDefault(x => x.IdGuid == composicao);
-                if (mod != null)
-                {
-                    model.Entity.Produtos.Remove(mod);
-                }
+                return View("TelaPedido", model);
             }
-            return TelaPedido(model);
+            if (model.ProdutoPedido == null)
+            {
+                model.ProdutoPedido = new ProdutoPedidoModel();
+            }
+            model.ProdutoPedido.Composicao = composicao;
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddItemComposicaoPedido(PedidoModel model)
+        {
+            var mod = GetPedidoModel();
+            
+            var prod = ProdutoRepository.GetById(model.ProdutoPedido.IdProduto);
+            // Pega a composição do modelo que está na Session.
+            var comp = mod.Entity.Produtos.FirstOrDefault(x => x.IdGuid == model.ProdutoPedido.Composicao);
+            if (comp == null)
+            {
+                return View("TelaPedido", mod);
+            }
+            // Adiciona o produto à composição
+            comp.Composicao.Add(new ProdutoPedido()
+            {
+                Produto = prod,
+                Quantidade = 1,
+                Valor = prod.PrecoVenda,
+                ValorUnitario = prod.PrecoVenda
+            });
+            Mapper.CreateMap(typeof (ComposicaoProduto), typeof (ComposicaoProduto));
+            // Passa a composição ajustada para a composição do produto que está na session.
+            Mapper.Map(service.VerificaComposicao(comp), comp);
+            // Mapea os dados para o modelo que vai para a view.
+            MapperModel(mod,model);
+            return View("ComporItem", model);
         }
         [HttpPost]
-        public ActionResult AddItemComposicaoPedido(PedidoModel model, Guid composicao, int idProduto)
+        public ActionResult RemoveItemComposicaoPedido(PedidoModel model,Guid produto)
         {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult RemoveItemComposicaoPedido(PedidoModel model, Guid composicao, Guid produto)
-        {
-            return View();
+            var mod = GetPedidoModel();
+            var comp = mod.Entity.Produtos.FirstOrDefault(x => x.IdGuid == model.ProdutoPedido.Composicao);
+            if (comp == null)
+            {
+                return View("TelaPedido", mod);
+            }
+            var prod = comp.Composicao.FirstOrDefault(x=>x.IdGuid == produto);
+            if (prod == null)
+            {
+                return View("TelaPedido", mod);
+            }
+            comp.Composicao.Remove(prod);
+            if (comp.Composicao.Count == 0)
+            {
+                RemoveItemPedido(comp.IdGuid);
+                return View("TelaPedido", model);
+            }
+            MapperModel(mod,model);
+            return View("ComporItem",model);
         }
         [HttpPost]
         public ActionResult Cliente(PedidoModel model)
@@ -95,17 +181,34 @@ namespace RestauranteMobile.Controllers
             return View();
         }
 
+        public ActionResult ConsumoMesa(int mesa)
+        {
+            var m = service.GetMesa(mesa);
+            if (m == null)
+            {
+                if (ControllerContext.RequestContext.HttpContext.Request.Url != null)
+                    return RedirectToAction(ControllerContext.RequestContext.HttpContext.Request.Url.AbsolutePath);
+            }
+            return View(new PedidoModel()
+            {
+                Entity = m
+            });
+        }
         public ActionResult MesasConsumindo()
         {
-            return View("MesasDisponiveis", new List<int>(){1,5,4});
+            var mesas = service.GetMesasAbertas();
+            
+            var mod = mesas.Select(mesa => mesa.Mesa).ToList();
+            return View("MesasDisponiveis", mod);
         }
         public ActionResult MesasDisponiveis()
         {
-            //return View(new global::RestauranteService.RestauranteService().GetMesasDisponiveis());
-            return View(new List<int>(){1,2,3,4,5,6});
+            var list = service.GetMesasDisponiveis();
+            return View(list);
+            
         }
 
-        public ActionResult ListarPedidosFieitos()
+        public ActionResult ListarPedidosFeitos()
         {
             try
             {
@@ -117,7 +220,7 @@ namespace RestauranteMobile.Controllers
 
                 return View(new List<PedidoRestaurante>());
             }
-            
+
         }
         [HttpPost]
         public ActionResult ListarPedidosFeitos(StatusProducaoPedido statusProducao)
@@ -125,7 +228,7 @@ namespace RestauranteMobile.Controllers
             try
             {
                 var usuario = LoginController.GetPessoaLogada();
-                return View(new PedidosGarconModel().GetPedidosAbertos(usuario.Id).Where(x=>x.StatusProducao == statusProducao).ToList());
+                return View(new PedidosGarconModel().GetPedidosAbertos(usuario.Id).Where(x => x.StatusProducao == statusProducao).ToList());
             }
             catch (Exception)
             {
@@ -144,5 +247,13 @@ namespace RestauranteMobile.Controllers
             return model;
         }
 
+        public ActionResult GetProdutos(string term)
+        {
+            var list = ProdutoRepository.GetByRange(term, 20);
+            var ret = list.Select(produto => AutoCompleteHelper.GetAutoCompleteItem(
+                produto.Id.ToString(CultureInfo.InvariantCulture),
+                produto.Descricao, produto.Descricao, "", new { preco = produto.PrecoVenda })).ToList();
+            return Json(ret, JsonRequestBehavior.AllowGet);
+        }
     }
 }

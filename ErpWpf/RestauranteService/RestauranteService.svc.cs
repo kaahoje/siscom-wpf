@@ -238,9 +238,22 @@ namespace RestauranteService
             return MesasAbertas;
         }
 
+        public int GetMaximoMesas()
+        {
+            var setting = ConfigurationManager.AppSettings["MaximoMesa"];
+            return Convert.ToInt32(setting);
+        }
         public IList<int> GetMesasDisponiveis()
         {
-            return new List<int>();
+            var ret = new List<int>();
+            for (var i = 1; i <= GetMaximoMesas(); i++)
+            {
+                if (null == MesasAbertas.FirstOrDefault(x=>x.Mesa == i))
+                {
+                    ret.Add(i);
+                }
+            }
+            return ret;
         }
 
         public StatusComando FecharMesa(int mesa)
@@ -551,8 +564,11 @@ namespace RestauranteService
         public ComposicaoProduto VerificaComposicao(ComposicaoProduto composicao)
         {
             var ret = VerificaProdutoCobranca(composicao.Composicao);
-            var prod = composicao.Composicao[ret.Keys.ToArray()[0]];
-            var valor = ret[0];
+            var key = ret.Keys.ToList()[0];
+            // Pega a o produto da lista de composição pelo índice.
+            var prod = composicao.Composicao[key];
+            decimal valor;
+            ret.TryGetValue(key, out valor);
             composicao.Produto = prod.Produto;
             composicao.Valor = composicao.Quantidade * valor;
             composicao.ValorUnitario = valor;

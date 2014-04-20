@@ -1,45 +1,32 @@
 ﻿@using System.Activities.Expressions
+@using Erp.Business
+@using RestauranteMobile.Extensions
 @model RestauranteMobile.Models.PedidoModel
 @{
-    ViewBag.Title = "TelaPedido";
+   
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Mesa = Model.Entity.Mesa;
-
-
-}
-@using (Html.BeginForm("AddItemPedido", "Pedido", FormMethod.Post))
-{
-    <div class="form-group" style="font-size: 16px">
-        Mesa: @Html.DisplayFor(x => x.Entity.Mesa)
-    </div>
-    <div align="left" >
-        <div class="form-group" >
-            @Html.HiddenFor(x => x.IdProduto)
-            @Html.LabelFor(x => x.Quantidade)
-            @Html.TextBoxFor(x => x.Quantidade, new { width = "50" })
-        </div>
-        <div class="form-group">
-            
-            @Html.LabelFor(x => x.Produto)
-            <select>
-                <option value="1">Teste</option>
-                <option value="1">Teste</option>
-                <option value="1">Teste</option>
-                <option value="1">Teste</option>
-            </select>
-        </div>
-    </div>
     
-    <div class="form-group">
-        <input type="submit" value="Adicionar" class="btn btn-lg" />
-        <input type="reset" value="Limpar" class="btn btn-lg" width="150" />
-    </div>
-    foreach (var prod in Model.Entity.Produtos)
-    {
-        <div class="form-group">
-            @Html.Display(prod.Produto.Descricao)
-            @Html.ActionLink("Remover", "RemoveItemPedido", "Pedido")
-        </div>
-    }
+
 }
+
+@using (Html.BeginForm("AddItemPedido", "Pedido", Model, FormMethod.Post))
+{
+    Html.RenderPartial("_PedidoPartialPage", Model);
+    Html.RenderPartial("_AddProdutoPartialPage", Model);
+}
+<hr />
+@using (Html.BeginForm())
+{
+    foreach (var produto in Model.Entity.Produtos)
+     {
+         <div class="form-group" align="left" style="width: 100%">
+             <a href="@Url.Action("ComporItem", "Pedido", new {composicao = produto.IdGuid})">
+                 @Html.Partial("_ProdutoPedidoPartialPage",produto)
+             </a>
+             <hr style="background-color: black" />
+         </div>
+     }
+}
+    
 

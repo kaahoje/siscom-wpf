@@ -1,0 +1,83 @@
+﻿@using System.Diagnostics
+@using Erp.Business
+@using RestauranteMobile.Extensions
+@model RestauranteMobile.Models.PedidoModel
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var composicao = Model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == Model.ProdutoPedido.Composicao);
+}
+<div class="container">
+    
+</div>
+
+<script type="text/javascript" language="javascript">
+    $(function () {
+        $('#ProdutoPedido_IdProdutoAutoComplete').width(250);
+    });
+</script>
+@using (Html.BeginForm("AddItemComposicaoPedido", "Pedido", FormMethod.Post))
+{
+    <table width="100%">
+        <tr>
+            <td style="vertical-align: bottom">
+                @{
+                    Html.RenderPartial("_PedidoPartialPage",Model);
+                }
+                </td>
+            <td align="center" style="width: 60px; vertical-align: top">@Ajax.Link("Voltar", "TelaPedido", "Pedido", new { style = "height: 100%" })</td>
+        </tr>
+    </table>
+    
+    @Html.HiddenFor(x => x.ProdutoPedido.Composicao)
+    <table>
+        <tr>
+            <td align="center">@Html.LabelFor(x => x.ProdutoPedido.IdProduto)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.AutocompleteFor(x => x.ProdutoPedido.IdProduto, @Url.Action("GetProdutos", "Pedido"))
+            </td>
+        </tr>
+        <tr>
+            <td align="center" >
+                @Html.SubmitButton()
+                @Html.ResetButton()
+                
+                
+            </td>
+        </tr>
+    </table>
+}
+<hr />
+@{
+    Debug.Assert(composicao != null, "composicao != null");
+}
+<div align="left">
+    @for (int i = 0; i < composicao.Composicao.Count; i++)
+    {
+        using (Html.BeginForm("RemoveItemComposicaoPedido", "Pedido", FormMethod.Post))
+        {
+            @Html.SubmitButton("X")
+            @Html.Hidden("produto",composicao.Composicao[i].IdGuid)
+            @Html.HiddenFor(x => x.ProdutoPedido.Composicao)
+            @composicao.Composicao[i].Produto.Descricao
+        
+            <hr />
+        }
+    }
+</div>
+@*@foreach (var prod in composicao.Composicao)
+    {
+
+        <table>
+            <tr>
+                <td>
+                    @Html.ActionLink("X", "RemoveItemComposicaoPedido", "Pedido", new { produto = prod.IdGuid }, new { @class = "btn btn-lg btn-primary" })
+                </td>
+                <td>@Html.Display(@prod.Produto.Descricao) </td>
+
+            </tr>
+
+        </table>
+    }*@

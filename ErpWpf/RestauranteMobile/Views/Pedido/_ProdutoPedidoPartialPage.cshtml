@@ -1,0 +1,31 @@
+﻿@model Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas.ProdutoPedido
+@using Erp.Business
+@using RestauranteMobile.Extensions
+@{
+    <table>
+    <tr>
+        <td rowspan="2">
+            @Html.ActionLink("X", "RemoveItemPedido", "Pedido", new { composicao = Model.IdGuid },
+            new { @class = "btn btn-lg btn-primary" })
+        </td>
+
+        <td>@Model.Produto.Descricao </td>
+
+    </tr>
+    <tr>
+
+        <td>
+            <table width="100%">
+                <tr>
+                    <td>@Model.Quantidade</td>
+                    <td>@Html.FormatedDisplay(Model.ValorUnitario, Constants.MaskMoney)</td>
+                    <td>@Html.FormatedDisplay(Model.Valor, Constants.MaskMoney)</td>
+                </tr>
+            </table>
+        </td>
+
+    </tr>
+</table>
+}
+
+

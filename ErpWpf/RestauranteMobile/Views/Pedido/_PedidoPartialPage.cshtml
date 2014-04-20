@@ -1,0 +1,8 @@
+﻿@model RestauranteMobile.Models.PedidoModel
+           
+<div class="form-group" style="font-size: 26px" align="left">
+    @Html.HiddenFor(x=>x.Entity.Mesa)
+    @Html.HiddenFor(x=>x.Entity.DataPedido)
+    @Html.HiddenFor(x=>x.Entity.Garcon)
+    Mesa: @Html.DisplayFor(x => x.Entity.Mesa)
+</div>

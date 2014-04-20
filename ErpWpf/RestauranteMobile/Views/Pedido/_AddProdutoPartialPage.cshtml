@@ -1,0 +1,37 @@
+﻿@using RestauranteMobile.Extensions
+@model RestauranteMobile.Models.PedidoModel
+<script type="text/javascript" language="javascript">
+    $(function () {
+        $("#ProdutoPedido_Quantidade").width(50);
+        $("#ProdutoPedido_IdProdutoAutoComplete").width(200);
+    })
+</script>
+<table>
+    <tr>
+        <td style="width: 50px ">
+            @Html.LabelFor(x => x.ProdutoPedido.Quantidade)
+        </td>
+        <td style="width: 100px">
+            @Html.LabelFor(x => x.ProdutoPedido.IdProduto)
+        </td>
+    </tr>
+
+    <tr>
+        <td style="width: 50px">
+            @*@Html.TextBoxFor(x => x.ProdutoPedido.Quantidade)*@
+            @Html.NumericBoxFor(x => x.ProdutoPedido.Quantidade)
+        </td>
+        <td style="width: 100px">
+            @Html.AutocompleteFor(x => x.ProdutoPedido.IdProduto, Url.Action("GetProdutos", "Pedido"))
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div class="form-group" align="center">
+                
+                @Html.SubmitButton()
+                @Html.ResetButton()
+            </div>
+        </td>
+    </tr>
+</table>

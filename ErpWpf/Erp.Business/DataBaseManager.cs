@@ -43,7 +43,7 @@ namespace Erp.Business
                     if (String.IsNullOrEmpty(_cnnStr))
                     {
                         //CustomMessageBox.MensagemErro("Não foi possível determinar as informações de conexão com o banco de dados.");
-                        _cnnStr = "Server=localhost; Port= 5432;User Id=postgres; Password=123; Database=siscom;";
+                        _cnnStr = "Server=localhost; Port= 5432;User Id=postgres; Password=123; Database=restaure;";
                     }
                 
                 }

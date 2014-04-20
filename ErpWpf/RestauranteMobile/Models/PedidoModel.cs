@@ -11,11 +11,6 @@ namespace RestauranteMobile.Models
         {
             
         }
-        [Display(Name = "Qtd.",Description = "Quantidade")]
-        public decimal Quantidade { get; set; }
-
-        public int IdProduto { get; set; }
-        [Display(Name = "Produto", Description = "Descrição do produto")]
-        public string Produto { get; set; }
+        public ProdutoPedidoModel ProdutoPedido { get; set; }
     }
 }

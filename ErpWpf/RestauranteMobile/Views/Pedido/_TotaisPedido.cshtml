@@ -1,0 +1,44 @@
+﻿@using Erp.Business
+@using RestauranteMobile.Extensions
+@model RestauranteMobile.Models.PedidoModel
+           
+<div class="form-group">
+    <table>
+        <tr>
+            <td>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ValorProduto)
+                    @Html.FormatedDisplay(Model.ValorProduto, Constants.MaskMoney)
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Entity.ValorPedido)
+                    @Html.HiddenFor(x => x.Entity.ValorPedido)
+                    @Html.FormatedDisplay(Model.Entity.ValorPedido, Constants.MaskMoney)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Entity.Acressimos)
+                    @Html.HiddenFor(x => x.Entity.Acressimos)
+                    @Html.FormatedDisplay(Model.Entity.Acressimos)
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Entity.Descontos)
+                    @Html.HiddenFor(x => x.Entity.Descontos)
+                    @Html.FormatedDisplay(Model.Entity.Descontos)
+                </div>
+                
+            </td>
+        </tr>
+    </table>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Entity.ValorPedido)
+        @Html.Label("Valor total")
+    </div>
+</div>

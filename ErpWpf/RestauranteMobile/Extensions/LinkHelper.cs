@@ -37,6 +37,15 @@ namespace RestauranteMobile.Extensions
                 OnSuccess = "function(data){$('#" + tagToUpdate + "').html(data);}"
             },new { @class = "btn-primary btn-block btn-lg" });
         }
+        public static MvcHtmlString LinkBlock(this AjaxHelper ajax, string texto, string actionName, string controllerName,
+            object routValues, string tagToUpdate = "content")
+        {
+            return ajax.ActionLink(texto, actionName, controllerName,routValues, new AjaxOptions
+            {
+                HttpMethod = "POST",
+                OnSuccess = "function(data){$('#" + tagToUpdate + "').html(data);}"
+            },new { @class = "btn-primary btn-block btn-lg" });
+        }
         public static MvcHtmlString Link(this AjaxHelper ajax, string texto, string actionName, string controllerName,
             string tagToUpdate = "content")
         {

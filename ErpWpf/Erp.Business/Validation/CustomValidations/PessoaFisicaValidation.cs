@@ -15,7 +15,8 @@ namespace Erp.Business.Validation.CustomValidations
             
             if (parceiroModel == null)
             {
-                throw new Exception("O objeto value não é do tipo PessoaFisica.");
+                return true;
+                //throw new Exception("O objeto value não é do tipo PessoaFisica.");
             }
 
             var novaSenha = "";

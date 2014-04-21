@@ -1,32 +1,23 @@
-﻿@using System.Activities.Expressions
-@using Erp.Business
-@using RestauranteMobile.Extensions
-@model RestauranteMobile.Models.PedidoModel
+﻿@model RestauranteMobile.Models.PedidoModel
 @{
-   
-    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Layout = "~/Views/Shared/_PedidoLayoutPage.cshtml";
     ViewBag.Mesa = Model.Entity.Mesa;
-    
+
 
 }
 
-@using (Html.BeginForm("AddItemPedido", "Pedido", Model, FormMethod.Post))
+@using (Html.BeginForm("AddItemPedido", "Pedido", null, FormMethod.Post, new { @autocomplete = "false" }))
 {
-    Html.RenderPartial("_PedidoPartialPage", Model);
+   Html.RenderPartial("_PedidoPartialPage", Model);
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <a href="@Url.Action("Index","Pedido")"><img src="~/Images/pedido.png"></a>
+        <a href="@Url.Action("ConfirmarPedido","Pedido")"><img src="~/Images/save.png" /></a>
+        <a href="@Url.Action("CancelarPedido","Pedido")"><img src="~/Images/delete.png" /></a>
+    </div>
     Html.RenderPartial("_AddProdutoPartialPage", Model);
-}
-<hr />
-@using (Html.BeginForm())
-{
-    foreach (var produto in Model.Entity.Produtos)
-     {
-         <div class="form-group" align="left" style="width: 100%">
-             <a href="@Url.Action("ComporItem", "Pedido", new {composicao = produto.IdGuid})">
-                 @Html.Partial("_ProdutoPedidoPartialPage",produto)
-             </a>
-             <hr style="background-color: black" />
-         </div>
-     }
-}
-    
+    <hr />
+    Html.RenderPartial("_ProdutoPedidoPartialPage", Model);
 
+
+}

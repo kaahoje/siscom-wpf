@@ -27,6 +27,11 @@ namespace RestauranteMobile
                 url:"novo_pedido",
                 defaults: new { controller = "Pedido", action = "NovoPedido" }
                 );
+            routes.MapRoute(
+                name: "Consumo",
+                url:"consumo",
+                defaults: new { controller = "Pedido", action = "Consumo" }
+                );
         }
     }
 }

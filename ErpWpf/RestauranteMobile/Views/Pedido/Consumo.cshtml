@@ -1,0 +1,17 @@
+﻿@using RestauranteMobile.Extensions
+@model RestauranteMobile.Models.PedidoModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    @Ajax.Link("Editar","TelaPedido","Pedido")
+    @{
+        Html.RenderPartial("_PedidoPartialPage",Model);
+        
+        Html.RenderPartial("_TotaisPedido",Model);
+        
+        Html.RenderPartial("_ProdutoPedidoPartialPage",Model);
+    }
+
+</div>

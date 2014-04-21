@@ -32,9 +32,12 @@ namespace Erp.Business.Entity.Vendas.Pedido
         [Required(ErrorMessage = Constants.MessageRequiredError)]
         [GridAnnotation(Order = 1, Visible = true, Width = 100)]
         public virtual DateTime DataPedido { get; set; }
+        [Display(Name = "Acréssimos", Description = "Acréssimos dados ao pedido.")]
         public virtual decimal Acressimos { get; set; }
+        [Display(Name = "Desconto",Description = "Desconto dado no pedido")]
         public virtual decimal Frete { get; set; }
         public virtual decimal Descontos { get; set; }
+        [Display(Name = "Total",Description = "Valor total do pedido.")]
         public virtual decimal ValorPedido { get; set; }
         public virtual int Caixa { get; set; }
 

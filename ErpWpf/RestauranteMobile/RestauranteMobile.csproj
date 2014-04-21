@@ -209,6 +209,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\PedidosGarconModel.cs" />
     <Compile Include="Extensions\AutoCompleteHelper.cs" />
     <Compile Include="Extensions\ButtonHelper.cs" />
@@ -299,7 +300,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\delete.png" />
     <Content Include="Images\loginBackground.jpg" />
+    <Content Include="Images\pedido.png" />
+    <Content Include="Images\save.png" />
+    <Content Include="Images\voltar.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
@@ -309,6 +314,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -425,8 +432,13 @@
     <Content Include="Views\Pedido\_ProdutoPedidoPartialPage.cshtml" />
     <Content Include="Views\Pedido\ListarPedidosFeitos.cshtml" />
     <Content Include="Views\Pedido\_MesasPartialPage.cshtml" />
-    <Content Include="Views\Pedido\ConsumoMesa.cshtml" />
+    <Content Include="Views\Pedido\Consumo.cshtml" />
     <Content Include="Views\Pedido\_PedidoPartialPage.cshtml" />
+    <Content Include="Views\Shared\_PedidoLayoutPage.cshtml" />
+    <Content Include="Views\Pedido\MesasConsumindo.cshtml" />
+    <Content Include="Views\Shared\_MessagePartial.cshtml" />
+    <Content Include="Views\Pedido\_TotaisPedido.cshtml" />
+    <Content Include="Views\Pedido\_AddProdutoComposicaoPartialPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,7 +14,7 @@ using RestauranteMobile.Models;
 
 namespace RestauranteMobile.Controllers
 {
-    public class PedidoController : Controller
+    public class PedidoController : BaseController
     {
 
         static global::RestauranteService.RestauranteService service = new global::RestauranteService.RestauranteService();
@@ -28,30 +28,30 @@ namespace RestauranteMobile.Controllers
 
         public ActionResult TelaPedido(PedidoModel model)
         {
-            var mod = GetPedidoModel();
-            MapperModel(mod,model);
+            //var mod = GetPedidoModel();
+            //MapperModel(mod,model);
             return View(model);
         }
 
         public ActionResult CancelarPedido()
         {
-            SetPedidoModel(null);
+            //SetPedidoModel(null);
             return View("Index");
         }
 
-        private void SetPedidoModel(PedidoModel pedido)
-        {
-            Session["PedidoModel"] = pedido;
-        }
-        private PedidoModel GetPedidoModel()
-        {
-            return (PedidoModel)Session["PedidoModel"];
-        }
+        //private void SetPedidoModel(PedidoModel pedido)
+        //{
+        //    Session["PedidoModel"] = pedido;
+        //}
+        //private PedidoModel GetPedidoModel()
+        //{
+        //    return (PedidoModel)Session["PedidoModel"];
+        //}
         public ActionResult SolicitaNumeroMesa()
         {
             return View(new NovoPedidoModel());
         }
-
+        [HttpPost]
         public ActionResult NovoPedido(NovoPedidoModel model)
         {
             var entity = new global::RestauranteService.RestauranteService().NovaMesa(model.Mesa);
@@ -60,7 +60,7 @@ namespace RestauranteMobile.Controllers
             {
                 Entity = entity
             };
-            SetPedidoModel(mod);
+            //SetPedidoModel(mod);
             return View("TelaPedido", mod);
         }
         [HttpPost]
@@ -68,6 +68,7 @@ namespace RestauranteMobile.Controllers
         {
             if (ModelState.IsValid)
             {
+                ErrorMessage("O pedido contém erros. Favor verificar");
                 return RedirectToAction("Index", "ListaPedido");
             }
             return TelaPedido(model);
@@ -76,25 +77,25 @@ namespace RestauranteMobile.Controllers
         public ActionResult AddItemPedido(PedidoModel model)
         {
 
-            var mod = GetPedidoModel();
-            mod.Entity.Produtos.Add(ComposicaoProdutoRepository.CreateComposicaoProduto(
+            //var mod = GetPedidoModel();
+            model.Entity.Produtos.Add(ComposicaoProdutoRepository.CreateComposicaoProduto(
                             ProdutoRepository.GetById(model.ProdutoPedido.IdProduto),
                             model.ProdutoPedido.Quantidade));
-            MapperModel(mod, model);
+            //MapperModel(mod, model);
             return View("TelaPedido", model);
         }
 
-        private void MapperModel(PedidoModel origem, PedidoModel destino)
+        //private void MapperModel(PedidoModel origem, PedidoModel destino)
+        //{
+        //    var prod = destino.ProdutoPedido;
+        //    Mapper.CreateMap(typeof(PedidoModel), typeof(PedidoModel));
+        //    Mapper.Map(origem, destino);
+        //    destino.ProdutoPedido = prod;
+        //}
+        [HttpPost]
+        public ActionResult RemoveItemPedido(PedidoModel model, Guid composicao)
         {
-            var prod = destino.ProdutoPedido;
-            Mapper.CreateMap(typeof(PedidoModel), typeof(PedidoModel));
-            Mapper.Map(origem, destino);
-            destino.ProdutoPedido = prod;
-        }
-
-        public ActionResult RemoveItemPedido(Guid composicao)
-        {
-            PedidoModel model = GetPedidoModel();
+            //PedidoModel model = GetPedidoModel();
             var mod = model.Entity.Produtos.SingleOrDefault(x => x.IdGuid == composicao);
             if (mod != null)
             {
@@ -103,13 +104,14 @@ namespace RestauranteMobile.Controllers
 
             return View("TelaPedido", model);
         }
-
-        public ActionResult ComporItem(Guid composicao)
+        [HttpPost]
+        public ActionResult ComporItem(PedidoModel model, Guid composicao)
         {
-            var model = GetPedidoModel();
+            //var model = GetPedidoModel();
             var comp = model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == composicao);
             if (comp == null)
             {
+                ErrorMessage("Composição não encontrada.");
                 return View("TelaPedido", model);
             }
             if (model.ProdutoPedido == null)
@@ -123,14 +125,14 @@ namespace RestauranteMobile.Controllers
         [HttpPost]
         public ActionResult AddItemComposicaoPedido(PedidoModel model)
         {
-            var mod = GetPedidoModel();
+            //var mod = GetPedidoModel();
             
             var prod = ProdutoRepository.GetById(model.ProdutoPedido.IdProduto);
             // Pega a composição do modelo que está na Session.
-            var comp = mod.Entity.Produtos.FirstOrDefault(x => x.IdGuid == model.ProdutoPedido.Composicao);
+            var comp = model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == model.ProdutoPedido.Composicao);
             if (comp == null)
             {
-                return View("TelaPedido", mod);
+                return View("TelaPedido", model);
             }
             // Adiciona o produto à composição
             comp.Composicao.Add(new ProdutoPedido()
@@ -144,30 +146,32 @@ namespace RestauranteMobile.Controllers
             // Passa a composição ajustada para a composição do produto que está na session.
             Mapper.Map(service.VerificaComposicao(comp), comp);
             // Mapea os dados para o modelo que vai para a view.
-            MapperModel(mod,model);
+            //MapperModel(mod,model);
             return View("ComporItem", model);
         }
         [HttpPost]
         public ActionResult RemoveItemComposicaoPedido(PedidoModel model,Guid produto)
         {
-            var mod = GetPedidoModel();
-            var comp = mod.Entity.Produtos.FirstOrDefault(x => x.IdGuid == model.ProdutoPedido.Composicao);
+            //var mod = GetPedidoModel();
+            var comp = model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == model.ProdutoPedido.Composicao);
             if (comp == null)
             {
-                return View("TelaPedido", mod);
+                ErrorMessage("Composição não encontrada.");
+                return View("TelaPedido", model);
             }
             var prod = comp.Composicao.FirstOrDefault(x=>x.IdGuid == produto);
             if (prod == null)
             {
-                return View("TelaPedido", mod);
+                ErrorMessage("Produto não encontrado.");
+                return View("TelaPedido", model);
             }
             comp.Composicao.Remove(prod);
             if (comp.Composicao.Count == 0)
             {
-                RemoveItemPedido(comp.IdGuid);
+                RemoveItemPedido(model, comp.IdGuid);
                 return View("TelaPedido", model);
             }
-            MapperModel(mod,model);
+            //MapperModel(mod,model);
             return View("ComporItem",model);
         }
         [HttpPost]
@@ -181,25 +185,27 @@ namespace RestauranteMobile.Controllers
             return View();
         }
 
-        public ActionResult ConsumoMesa(int mesa)
+        public ActionResult Consumo(int mesa)
         {
             var m = service.GetMesa(mesa);
             if (m == null)
             {
+                ErrorMessage("Mesa não encontrada");
                 if (ControllerContext.RequestContext.HttpContext.Request.Url != null)
-                    return RedirectToAction(ControllerContext.RequestContext.HttpContext.Request.Url.AbsolutePath);
+                    return RedirectToAction("Index");
             }
-            return View(new PedidoModel()
+            var model = new PedidoModel()
             {
                 Entity = m
-            });
+            };
+            model = CalculaPedido(model);
+            return View(model);
         }
         public ActionResult MesasConsumindo()
         {
             var mesas = service.GetMesasAbertas();
-            
             var mod = mesas.Select(mesa => mesa.Mesa).ToList();
-            return View("MesasDisponiveis", mod);
+            return View(mod);
         }
         public ActionResult MesasDisponiveis()
         {

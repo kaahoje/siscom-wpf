@@ -10,22 +10,26 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryval")
-    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.24.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/scripts.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+    @*<script src="@Url.Content("~/Scripts/jquery-ui-1.8.24.min.js")" type="text/javascript"></script>*@
+    @*<script src="@Url.Content("~/Scripts/scripts.js")" type="text/javascript"></script>*@
     @{ var version = Assembly.GetExecutingAssembly().GetName().Version;
      ViewBag.Version = version.Major + "." + version.Minor + "." + version.Build + "." + version.Revision;
     }
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container" style="font-size: 14px">
-            <div class="navbar-header">
+    <body>
+        @{
+            Html.RenderPartial("_MessagePartial");
+        }
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container" style="font-size: 14px">
+                <div class="navbar-header">
                 
-                @Html.ActionLink("Restaurante", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            @*<div class="navbar-collapse collapse">
+                    @Html.ActionLink("Restaurante", "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+                @*<div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Pedidos", "Index", "Pedido")</li>
@@ -34,20 +38,20 @@
                 </ul>
 
             </div>*@
+            </div>
         </div>
-    </div>
-    <div class="container body-content" style="width: 100%" >
-        <div align="center" style="width: 100%" id="content">
-            @RenderBody()
+        <div class="container body-content" style="width: 100%" >
+            <div align="center" style="width: 100%" id="content">
+                @RenderBody()
+            </div>
+            <hr />
+            <footer>
+                <p>&copy; Sistema de pedidos para restaurante</p>
+                <p>Versão: @ViewBag.Version</p>
+            </footer>
         </div>
-        <hr />
-        <footer>
-            <p>&copy; Sistema de pedidos para restaurante</p>
-            <p>Versão: @ViewBag.Version</p>
-        </footer>
-    </div>
 
 
-    @RenderSection("scripts", required: false)
-</body>
+        @RenderSection("scripts", required: false)
+    </body>
 </html>

@@ -1,0 +1,19 @@
+﻿@using RestauranteMobile.Extensions
+@model System.Collections.Generic.List<int>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var m in Model)
+{
+    <div class="btn btn-lg btn-primary" style="">
+
+        @Ajax.Link(("0" + m).Substring(("0" + m).Length - 2),
+                   "Consumo", "Pedido", new { mesa = m })
+        @*@Html.Link(("0" + m).Substring(("0" + m).Length - 2),
+            @Url.Action("ConsumoMesa","Pedido", new { mesa = m }))*@
+    </div>
+
+
+}

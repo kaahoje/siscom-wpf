@@ -1,31 +1,60 @@
-﻿@model Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas.ProdutoPedido
+﻿@model PedidoModel
 @using Erp.Business
 @using RestauranteMobile.Extensions
+@using RestauranteMobile.Models
+
 @{
-    <table>
-    <tr>
-        <td rowspan="2">
-            @Html.ActionLink("X", "RemoveItemPedido", "Pedido", new { composicao = Model.IdGuid },
-            new { @class = "btn btn-lg btn-primary" })
-        </td>
 
-        <td>@Model.Produto.Descricao </td>
 
-    </tr>
-    <tr>
+    for (int i = 0; i < Model.Entity.Produtos.Count; i++)
+    {
+        @Html.HiddenFor(x => x.Entity.Produtos[i].IdGuid)
+        @Html.HiddenFor(x => x.Entity.Produtos[i].Quantidade)
+        @Html.HiddenFor(x => x.Entity.Produtos[i].ValorUnitario)
+        @Html.HiddenFor(x => x.Entity.Produtos[i].Valor)
+        @Html.HiddenFor(x => x.Entity.Produtos[i].Produto.Id)
+        using (Html.BeginForm("ComporItem", "Pedido", null, FormMethod.Post))
+        {
+            <div class="form-group" align="left" style="width: 100%">
+                <a href="@Url.Action("ComporItem", "Pedido", new { composicao = Model.Entity.Produtos[i].IdGuid })">
+                    <table>
+                        <tr>
+                            <td rowspan="2">
+                                @Html.HiddenFor(x=>x.Entity.Produtos[i].IdGuid)
+                                @Html.SubmitButton("X")
+                                @*@Ajax.LinkBlock("X", "RemoveItemPedido", "Pedido",
+                                    new { composicao = Model.Entity.Produtos[i].IdGuid })*@
+                            </td>
 
-        <td>
-            <table width="100%">
-                <tr>
-                    <td>@Model.Quantidade</td>
-                    <td>@Html.FormatedDisplay(Model.ValorUnitario, Constants.MaskMoney)</td>
-                    <td>@Html.FormatedDisplay(Model.Valor, Constants.MaskMoney)</td>
-                </tr>
-            </table>
-        </td>
+                            <td>
 
-    </tr>
-</table>
+                                @Model.Entity.Produtos[i].Produto.Descricao
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <td>
+
+                                <table width="100%">
+                                    <tr>
+                                        <td>@Model.Entity.Produtos[i].Quantidade</td>
+                                        <td>@Html.FormatedDisplay(Model.Entity.Produtos[i].ValorUnitario, Constants.MaskMoney)</td>
+                                        <td>@Html.FormatedDisplay(Model.Entity.Produtos[i].Valor, Constants.MaskMoney)</td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                        </tr>
+                    </table>
+                </a>
+                <hr style="background-color: black" />
+            </div>
+        }
+
+
+    }
+
 }
 
 

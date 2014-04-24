@@ -3,10 +3,55 @@
 <div class="form-group" style="font-size: 26px" align="left">
     @Html.HiddenFor(x => x.Entity.Mesa)
     @Html.HiddenFor(x => x.Entity.DataPedido)
-    @Html.HiddenFor(x => x.Entity.Garcon)
+    @Html.HiddenFor(x => x.Entity.Garcon.Id)
 
-    @* Composição que está sendo editada*@
-    @Html.HiddenFor(x => x.ProdutoPedido.Composicao)
+    @* Totais do pedido*@
+    @Html.HiddenFor(x => x.Entity.ValorPedido)
+    @Html.HiddenFor(x => x.Entity.Acressimos)
+    @Html.HiddenFor(x => x.Entity.Descontos)
 
+
+    @*Dados dos produtos*@
+    @for (var i = 0; i < Model.Entity.Produtos.Count; i++)
+    {
+        @Html.HiddenFor(x => x.Entity.Produtos[i].IdGuid)
+        @Html.HiddenFor(x => x.Entity.Produtos[i].Produto.Descricao)
+        @Html.HiddenFor(x => x.Entity.Produtos[i].Sequencia)
+        @Html.HiddenFor(x => x.Entity.Produtos[i].Quantidade)
+        @Html.HiddenFor(x => x.Entity.Produtos[i].ValorUnitario)
+        @Html.HiddenFor(x => x.Entity.Produtos[i].Valor)
+        @Html.HiddenFor(x => x.Entity.Produtos[i].Produto.Id)
+        for (int p = 0; p < Model.Entity.Produtos[i].Composicao.Count; p++)
+        {
+            <input type="hidden" id="@string.Format("Entity_Produtos_{0}_Composicao_{1}_IdGuid", i, p)"
+                   name="@string.Format("Entity.Produtos[{0}].Composicao[{1}].IdGuid", i, p)"
+                   value="@Model.Entity.Produtos[i].Composicao[p].IdGuid" />
+            <input type="hidden" id="@string.Format("Entity_Produtos_{0}_Composicao_{1}_Quantidade", i, p)"
+                   name="@string.Format("Entity.Produtos[{0}].Composicao[{1}].Quantidade", i, p)"
+                   value="@Model.Entity.Produtos[i].Composicao[p].Quantidade" />
+            <input type="hidden" id="@string.Format("Entity_Produtos_{0}_Composicao_{1}_Sequencia", i, p)"
+                   name="@string.Format("Entity.Produtos[{0}].Composicao[{1}].Sequencia", i, p)"
+                   value="@Model.Entity.Produtos[i].Composicao[p].Sequencia" />
+            <input type="hidden" id="@string.Format("Entity_Produtos_{0}_Composicao_{1}_Valor", i, p)"
+                   name="@string.Format("Entity.Produtos[{0}].Composicao[{1}].Valor", i, p)"
+                   value="@Model.Entity.Produtos[i].Composicao[p].Valor" />
+            <input type="hidden" id="@string.Format("Entity_Produtos_{0}_Composicao_{1}_ValorUnitario", i, p)"
+                   name="@string.Format("Entity.Produtos[{0}].Composicao[{1}].ValorUnitario", i, p)"
+                   value="@Model.Entity.Produtos[i].Composicao[p].ValorUnitario" />
+            <input type="hidden" id="@string.Format("Entity_Produtos_{0}_Composicao_{1}_Produto_Descricao", i, p)"
+                   name="@string.Format("Entity.Produtos[{0}].Composicao[{1}].Produto.Descricao", i, p)"
+                   value="@Model.Entity.Produtos[i].Composicao[p].Produto.Descricao" />
+            <input type="hidden" id="@string.Format("Entity_Produtos_{0}_Composicao_{1}_Produto_PrecoVenda", i, p)"
+                   name="@string.Format("Entity.Produtos[{0}].Composicao[{1}].Produto.PrecoVenda", i, p)"
+                   value="@Model.Entity.Produtos[i].Composicao[p].Produto.PrecoVenda" />
+            //Html.TextBoxFor(x => x.Composicao[p].Quantidade);
+            //Html.TextBoxFor(x => x.Composicao[p].Sequencia);
+            //Html.HiddenFor(x => x.Composicao[p].Valor);
+            //Html.HiddenFor(x => x.Composicao[p].ValorUnitario);
+            //Html.HiddenFor(x => x.Composicao[p].Produto.Id);
+            //Html.HiddenFor(x => x.Composicao[p].Produto.Descricao);
+            //Html.HiddenFor(x => x.Composicao[p].Produto.PrecoVenda);
+        }
+    }
     Mesa: @Html.DisplayFor(x => x.Entity.Mesa)
 </div>

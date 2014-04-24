@@ -4,6 +4,8 @@ using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
+using DevExpress.Office.Utils;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio;
 using Erp.Business.Entity.Estoque.Produto;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante;
@@ -11,6 +13,7 @@ using Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas;
 using Erp.Business.Enum;
 using RestauranteMobile.Extensions;
 using RestauranteMobile.Models;
+using RestauranteService;
 
 namespace RestauranteMobile.Controllers
 {
@@ -25,7 +28,7 @@ namespace RestauranteMobile.Controllers
         {
             return View();
         }
-
+        [HttpPost]
         public ActionResult TelaPedido(PedidoModel model)
         {
             //var mod = GetPedidoModel();
@@ -63,15 +66,49 @@ namespace RestauranteMobile.Controllers
             //SetPedidoModel(mod);
             return View("TelaPedido", mod);
         }
+
+        public ActionResult NovoPedido(int mesa)
+        {
+            var entity = new global::RestauranteService.RestauranteService().NovaMesa(mesa);
+            var mod = new PedidoModel()
+            {
+                Entity = entity
+            };
+            return View("TelaPedido",mod);
+        }
         [HttpPost]
         public ActionResult ConfirmarPedido(PedidoModel model)
         {
-            if (ModelState.IsValid)
+            foreach (var comp in model.Entity.Produtos)
             {
-                ErrorMessage("O pedido contém erros. Favor verificar");
-                return RedirectToAction("Index", "ListaPedido");
+                comp.Produto = ProdutoRepository.GetById(comp.Produto.Id);
+                foreach (var prod in comp.Composicao)
+                {
+                    prod.Produto = ProdutoRepository.GetById(prod.Produto.Id);
+                }
             }
-            return TelaPedido(model);
+            if (model.Entity.Garcon != null && model.Entity.Garcon.Id != 0)
+            {
+                model.Entity.Garcon = ParceiroNegocioPessoaFisicaRepository.GetById(model.Entity.Id);
+            }
+            try
+            {
+                if (PedidoRestauranteRepository.Validate(model.Entity))
+                {
+                    // Salva o pedido no servidor e verifica o retorno do mesmo.
+                    if (service.ConfirmarPedido(model.Entity) == StatusComando.ConcluidoSucesso)
+                    {
+                        return View("Index");
+                    }
+                    // Caso não seja confirmado o salvamento do pedido o sistema retorna o erro.
+                    ErrorMessage(service.GetLastException());
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage(ex.Message);
+            }
+            return View("TelaPedido", model);
         }
         [HttpPost]
         public ActionResult AddItemPedido(PedidoModel model)
@@ -93,10 +130,10 @@ namespace RestauranteMobile.Controllers
         //    destino.ProdutoPedido = prod;
         //}
         [HttpPost]
-        public ActionResult RemoveItemPedido(PedidoModel model, Guid composicao)
+        public ActionResult RemoveItemPedido(PedidoModel model)
         {
             //PedidoModel model = GetPedidoModel();
-            var mod = model.Entity.Produtos.SingleOrDefault(x => x.IdGuid == composicao);
+            var mod = model.Entity.Produtos.SingleOrDefault(x => x.IdGuid == model.ProdutoPedido.Composicao);
             if (mod != null)
             {
                 model.Entity.Produtos.Remove(mod);
@@ -105,10 +142,10 @@ namespace RestauranteMobile.Controllers
             return View("TelaPedido", model);
         }
         [HttpPost]
-        public ActionResult ComporItem(PedidoModel model, Guid composicao)
+        public ActionResult ComporItem(PedidoModel model)
         {
             //var model = GetPedidoModel();
-            var comp = model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == composicao);
+            var comp = model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == model.ProdutoPedido.Composicao);
             if (comp == null)
             {
                 ErrorMessage("Composição não encontrada.");
@@ -118,7 +155,7 @@ namespace RestauranteMobile.Controllers
             {
                 model.ProdutoPedido = new ProdutoPedidoModel();
             }
-            model.ProdutoPedido.Composicao = composicao;
+            model.ProdutoPedido.ComposicaoEdit = model.ProdutoPedido.Composicao;
             return View(model);
         }
 
@@ -129,7 +166,7 @@ namespace RestauranteMobile.Controllers
             
             var prod = ProdutoRepository.GetById(model.ProdutoPedido.IdProduto);
             // Pega a composição do modelo que está na Session.
-            var comp = model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == model.ProdutoPedido.Composicao);
+            var comp = model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == model.ProdutoPedido.ComposicaoEdit);
             if (comp == null)
             {
                 return View("TelaPedido", model);
@@ -147,10 +184,11 @@ namespace RestauranteMobile.Controllers
             Mapper.Map(service.VerificaComposicao(comp), comp);
             // Mapea os dados para o modelo que vai para a view.
             //MapperModel(mod,model);
+            model.ProdutoPedido.ComposicaoEdit = comp.IdGuid;
             return View("ComporItem", model);
         }
         [HttpPost]
-        public ActionResult RemoveItemComposicaoPedido(PedidoModel model,Guid produto)
+        public ActionResult RemoveItemComposicaoPedido(PedidoModel model)
         {
             //var mod = GetPedidoModel();
             var comp = model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == model.ProdutoPedido.Composicao);
@@ -159,7 +197,7 @@ namespace RestauranteMobile.Controllers
                 ErrorMessage("Composição não encontrada.");
                 return View("TelaPedido", model);
             }
-            var prod = comp.Composicao.FirstOrDefault(x=>x.IdGuid == produto);
+            var prod = comp.Composicao.FirstOrDefault(x=>x.IdGuid == model.ProdutoPedido.Produto);
             if (prod == null)
             {
                 ErrorMessage("Produto não encontrado.");
@@ -168,9 +206,10 @@ namespace RestauranteMobile.Controllers
             comp.Composicao.Remove(prod);
             if (comp.Composicao.Count == 0)
             {
-                RemoveItemPedido(model, comp.IdGuid);
+                RemoveItemPedido(model);
                 return View("TelaPedido", model);
             }
+            model.ProdutoPedido.ComposicaoEdit = comp.IdGuid;
             //MapperModel(mod,model);
             return View("ComporItem",model);
         }

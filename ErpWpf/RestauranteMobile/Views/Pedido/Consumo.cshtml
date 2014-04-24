@@ -5,13 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div>
-    @Ajax.Link("Editar","TelaPedido","Pedido")
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <a class="btn btn-lg" href="@Url.Action("NovoPedido", "Pedido", new { mesa = Model.Entity.Mesa })">
+            <img src="~/Images/novoPedido.png" />
+        </a>
+    </div>
     @{
-        Html.RenderPartial("_PedidoPartialPage",Model);
-        
-        Html.RenderPartial("_TotaisPedido",Model);
-        
-        Html.RenderPartial("_ProdutoPedidoPartialPage",Model);
+        Html.RenderPartial("_PedidoPartialPage", Model);
+
+        Html.RenderPartial("_TotaisPedido", Model);
+
+        Html.RenderPartial("_ProdutoPedidoPartialPage", Model);
     }
 
 </div>

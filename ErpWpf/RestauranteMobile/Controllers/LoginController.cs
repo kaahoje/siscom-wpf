@@ -20,7 +20,7 @@ namespace RestauranteMobile.Controllers
 
         public ActionResult Entrar(LoginModel model)
         {
-            var pessoa = ParceiroNegocioPessoaFisicaRepository.GetByLogin(model.Usuario);
+            var pessoa = PessoaFisicaRepository.GetByLogin(model.Usuario);
             if (pessoa == null)
             {
                 return View("Index");

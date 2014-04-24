@@ -6,6 +6,7 @@ using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;
 using Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas.Endereco;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio;
 using Erp.Business.Enum;
 
 namespace Erp.Business.InformacoesIniciais
@@ -41,7 +42,7 @@ namespace Erp.Business.InformacoesIniciais
             };
 
          
-            var administradorJoao = new PessoaFisica
+            var administrador = new ParceiroNegocioPessoaFisica()
             {
                 DataCadastro = DateTime.Now,
 
@@ -66,7 +67,7 @@ namespace Erp.Business.InformacoesIniciais
                 Status = Status.Ativo
             };
 
-            PessoaFisicaRepository.Save(administradorJoao);
+            ParceiroNegocioPessoaFisicaRepository.Save(administrador);
             var pessoa = PessoaFisicaRepository.GetByLogin("admin");
             if (pessoa != null)
             {

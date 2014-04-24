@@ -246,7 +246,7 @@ namespace RestauranteMobile.Controllers
             var mod = mesas.Select(mesa => mesa.Mesa).ToList();
             return View(mod);
         }
-        public ActionResult MesasDisponiveis()
+        public ActionResult MesasEstabelecimento()
         {
             var list = service.GetMesasDisponiveis();
             return View(list);

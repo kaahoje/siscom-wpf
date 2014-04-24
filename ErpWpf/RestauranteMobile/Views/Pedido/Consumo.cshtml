@@ -6,9 +6,10 @@
 }
 <div>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <a class="btn btn-lg" href="@Url.Action("NovoPedido", "Pedido", new { mesa = Model.Entity.Mesa })">
+        <a href="@Url.Action("NovoPedido", "Pedido", new { mesa = Model.Entity.Mesa })">
             <img src="~/Images/novoPedido.png" />
         </a>
+        <a href="@Url.Action("Index","Pedido")" ><img src="~/Images/voltar.png"/></a>
     </div>
     @{
         Html.RenderPartial("_PedidoPartialPage", Model);

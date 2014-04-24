@@ -8,9 +8,9 @@
 <div align="center">
     <br />
     @Html.ActionLink("Novo", "SolicitaNumeroMesa", "Pedido", null, new { @class = "btn-primary btn-block btn-lg" })
-    @Html.ActionLink("Pedidos", "ListarPedidosFeitos", "Pedido", null, new { @class = "btn-primary btn-block btn-lg" })
+    @*@Html.ActionLink("Pedidos", "ListarPedidosFeitos", "Pedido", null, new { @class = "btn-primary btn-block btn-lg" })*@
     @Html.ActionLink("Mesas abertas", "MesasConsumindo", "Pedido", null, new { @class = "btn-primary btn-block btn-lg" })
-    @Html.ActionLink("Mesas disponíveis", "MesasDisponiveis", "Pedido", null, new { @class = "btn-primary btn-block btn-lg" })
+    @Html.ActionLink("Mesas", "MesasEstabelecimento", "Pedido", null, new { @class = "btn-primary btn-block btn-lg" })
     @*@Ajax.LinkBlock("Novo", "SolicitaNumeroMesa", "Pedido")
     @Ajax.LinkBlock("Pedidos", "ListarPedidosFeitos", "Pedido")
     @Ajax.LinkBlock("Mesas abertas", "MesasConsumindo", "Pedido")

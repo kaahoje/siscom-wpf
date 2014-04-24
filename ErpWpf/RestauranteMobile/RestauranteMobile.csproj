@@ -450,7 +450,7 @@
     <None Include="Service References\RestauranteService\RestauranteService9.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Pedido\MesasDisponiveis.cshtml" />
+    <Content Include="Views\Pedido\MesasEstabelecimento.cshtml" />
     <Content Include="Views\Pedido\SolicitaNumeroMesa.cshtml" />
     <Content Include="Views\Pedido\TelaPedido.cshtml" />
     <Content Include="Views\Pedido\ComporItem.cshtml" />

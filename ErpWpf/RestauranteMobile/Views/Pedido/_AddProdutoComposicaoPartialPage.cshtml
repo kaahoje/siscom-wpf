@@ -1,7 +1,5 @@
 ﻿@using RestauranteMobile.Extensions
 @model RestauranteMobile.Models.PedidoModel
-
-@Html.HiddenFor(x => x.ProdutoPedido.Composicao)
 <table>
     <tr>
         <td align="center">@Html.LabelFor(x => x.ProdutoPedido.IdProduto)</td>
@@ -15,8 +13,6 @@
         <td align="center">
             @Html.SubmitButton()
             @Html.ResetButton()
-
-
         </td>
     </tr>
 </table>

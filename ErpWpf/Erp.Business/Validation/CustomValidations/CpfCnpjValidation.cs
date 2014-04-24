@@ -7,15 +7,17 @@ namespace Erp.Business.Validation.CustomValidations
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var ret = IsCpfCnpjValid(value.ToString());
-            if(ret != null) ErrorMessage = ret.ErrorMessage;
+
+            var ret = IsCpfCnpjValid(value == null ? "" : value.ToString());
+
+            if (ret != null) ErrorMessage = ret.ErrorMessage;
             return ret;
         }
 
         public static ValidationResult IsCpfCnpjValid(string cpfCnpj)
         {
 
-            
+
             var val = Validation.GetOnlyNumber(cpfCnpj);
 
             if (String.IsNullOrEmpty(val))

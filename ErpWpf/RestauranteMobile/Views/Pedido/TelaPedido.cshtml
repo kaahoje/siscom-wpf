@@ -6,18 +6,41 @@
 
 
 }
-
-@using (Html.BeginForm("AddItemPedido", "Pedido", null, FormMethod.Post, new { @autocomplete = "false" }))
+<script type="text/javascript" language="javascript">
+    $(function() {
+        $("#ProdutoPedido_Quantidade").attr("value", "1");
+        $("#ProdutoPedido_IdProdutoAutoComplete").focus();
+    });
+    function cancelar() {
+        window.location.href('@Url.Action("CancelarPedido","Pedido")');
+    }
+    function confirmarPedido() {
+        $.post('@Url.Action("ConfirmarPedido","Pedido")', $('#formPedido').serialize(), function (data) {
+            alert('Confirmou');
+            $("#content").html(data);
+            return data;
+        },'html');
+    }
+</script>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <a class="btn btn-lg" onclick="confirmarPedido()"><img src="~/Images/save.png" /></a>
+    <a class="btn btn-lg" onclick="cancelar()"><img src="~/Images/delete.png" /></a>
+</div>
+@using (Html.BeginForm("AddItemPedido", "Pedido", null, FormMethod.Post, new
 {
-   Html.RenderPartial("_PedidoPartialPage", Model);
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <a href="@Url.Action("Index","Pedido")"><img src="~/Images/pedido.png"></a>
-        <a href="@Url.Action("ConfirmarPedido","Pedido")"><img src="~/Images/save.png" /></a>
-        <a href="@Url.Action("CancelarPedido","Pedido")"><img src="~/Images/delete.png" /></a>
-    </div>
+   id = "formPedido"
+}))
+{
+    Html.RenderPartial("_PedidoPartialPage", Model);
+
     Html.RenderPartial("_AddProdutoPartialPage", Model);
     <hr />
+    <div style="visibility: hidden">
+        Html.RenderPartial("_ProdutoPedidoPartialPage", Model);
+    </div>
+
+
+}
+@{
     Html.RenderPartial("_ProdutoPedidoPartialPage", Model);
-
-
 }

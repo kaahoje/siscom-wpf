@@ -1,32 +1,35 @@
 ﻿@using System.Diagnostics
-@using RestauranteMobile.Extensions
 @model RestauranteMobile.Models.PedidoModel
 @{
     Layout = "~/Views/Shared/_PedidoLayoutPage.cshtml";
-    var composicao = Model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == Model.ProdutoPedido.Composicao);
+    var composicao = Model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == Model.ProdutoPedido.ComposicaoEdit);
 }
-<div class="container">
-    
-</div>
-
 <script type="text/javascript" language="javascript">
+    $(function() {
+        $("#ProdutoPedido_IdProdutoAutoComplete").focus();
+    });
+    function IrParaPedido() {
+        $.post('@Url.Action("TelaPedido","Pedido")', $("#formAddItem").serialize(), function (data) {
+            $("#content").html(data);
+            return data;
+        },'html');
+    }
     $(function () {
         $('#ProdutoPedido_IdProdutoAutoComplete').width(250);
     });
 </script>
-@using (Html.BeginForm("AddItemComposicaoPedido", "Pedido", FormMethod.Post))
-{
-    Html.RenderPartial("_PedidoPartialPage",Model);
-    Html.RenderPartial("_AddProdutoComposicaoPartialPage",Model);
-    <div style="visibility: hidden">
-    @{
-        Html.RenderPartial("_ProdutoPedidoPartialPage",Model);
-    }
-
+<div class="navbar navbar-inverse navbar-fixed-top" >
+    <a onclick="IrParaPedido()"><img src="~/Images/pedido.png"></a>
 </div>
-}
-<hr />
-@{
-    Debug.Assert(composicao != null, "composicao != null");
-}
+    
+    @using (Html.BeginForm("AddItemComposicaoPedido", "Pedido",null, FormMethod.Post,new{id="formAddItem"}))
+    {
+        @Html.HiddenFor(x => x.ProdutoPedido.ComposicaoEdit)
+        Html.RenderPartial("_PedidoPartialPage", Model);
+        Html.RenderPartial("_AddProdutoComposicaoPartialPage", Model);
 
+    }
+    <hr />
+    @{
+        Html.RenderPartial("_ProdutoPedidoComposicaoPartialPage", Model);
+    }

@@ -5,8 +5,12 @@ namespace Erp.Business
 {
     class CalculaMelhorRota
     {
-        public void MelhorRota(string origem, string destino)
+        public void MelhorRota(string origemLogradouro, string origemCidade, string destinoLogradouro, string destinoCidade)
         {
+            var origem = string.Format("{0} {1}", origemLogradouro, origemCidade);
+
+            var destino = string.Format("{0} {1}", destinoLogradouro, destinoCidade);
+
             //URL do distancematrix - adicionando endereço de origem e destino
             var url = string.Format("http://maps.googleapis.com/maps/api/distancematrix/xml?origins={0}&destinations={1}&mode=driving&language=pt-BR&sensor=false", origem, destino);
 

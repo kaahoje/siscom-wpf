@@ -45,10 +45,12 @@
 
         <div class="form-group" align="left" style="width: 100%">
 
-            <table>
+            <table width="100%">
                 <tr>
-                    <td>
-                        <a class="btn btn-lg btn-primary" onclick="removerItem('@Model.Entity.Produtos[i].IdGuid');">X</a>
+                    <td style="width: 50px">
+                        <a onclick="removerItem('@Model.Entity.Produtos[i].IdGuid');">
+                            <img src="~/Images/delete.png"/>
+                        </a>
                     </td>
                     <td>
                         <a onclick="comporItem('@Model.Entity.Produtos[i].IdGuid');">

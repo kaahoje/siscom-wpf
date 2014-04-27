@@ -7,28 +7,30 @@
 
 }
 <script type="text/javascript" language="javascript">
-    $(function() {
+    $(function () {
         $("#ProdutoPedido_Quantidade").attr("value", "1");
         $("#ProdutoPedido_IdProdutoAutoComplete").focus();
     });
-    
+
     function confirmarPedido() {
-        $.post('@Url.Action("ConfirmarPedido","Pedido")', $('#formPedido').serialize(), function (data) {
-            alert('Pedido confirmado com sucesso');
+        $.post('@Url.Action("ConfirmarPedido","Pedido")', $('#formProduto').serialize(), function (data) {
+            
             $("#content").html(data);
+            alert('Pedido confirmado com sucesso');
             return data;
-        },'html');
+        }, 'html');
     }
 </script>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <a onclick="confirmarPedido()"><img src="~/Images/save.png" /></a>
-    <a href="@Url.Action("CancelarPedido","Pedido")"><img src="~/Images/delete.png" /></a>
-</div>
+
 @using (Html.BeginForm("AddItemPedido", "Pedido", null, FormMethod.Post, new
 {
-   id = "formPedido"
+    id = "formPedido"
 }))
 {
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <a onclick="confirmarPedido()"><img src="~/Images/save.png" /></a>
+        <a href="@Url.Action("CancelarPedido","Pedido")"><img src="~/Images/delete.png" /></a>
+    </div>
     Html.RenderPartial("_PedidoPartialPage", Model);
 
     Html.RenderPartial("_AddProdutoPartialPage", Model);

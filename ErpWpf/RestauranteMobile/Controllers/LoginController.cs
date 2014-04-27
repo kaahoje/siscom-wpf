@@ -1,15 +1,11 @@
 ﻿using System.Web.Mvc;
-using Erp.Business;
-using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio;
-using Erp.Business.Entity.Trabalhista;
-using NHibernate.Hql.Ast.ANTLR;
 using RestauranteMobile.Models;
 using Util.Seguranca;
 
 namespace RestauranteMobile.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         //
         // GET: /Login/
@@ -20,14 +16,16 @@ namespace RestauranteMobile.Controllers
 
         public ActionResult Entrar(LoginModel model)
         {
-            var pessoa = PessoaFisicaRepository.GetByLogin(model.Usuario);
+            var pessoa = ParceiroNegocioPessoaFisicaRepository.GetByLogin(model.Usuario);
             if (pessoa == null)
             {
+                ErrorMessage("Usuário inválido.");
                 return View("Index");
             }
             var senha = Criptografia.CriptografarSenha(model.Senha);
             if (!senha.Equals(pessoa.Senha))
             {
+                ErrorMessage("Senha inválida.");
                 return View("Index");
             }
             return RedirectToAction("Index", "Home");

@@ -1,8 +1,10 @@
-﻿@using RestauranteMobile.Extensions
+﻿@using Erp.Business
+@using RestauranteMobile.Extensions
 @model RestauranteMobile.Models.PedidoModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
 <div>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -16,7 +18,41 @@
 
         Html.RenderPartial("_TotaisPedido", Model);
 
-        Html.RenderPartial("_ProdutoPedidoPartialPage", Model);
+        
     }
+    @for (int i = 0; i < Model.Entity.Produtos.Count; i++)
+    {
+        @*<div style="visibility:  hidden">
+            @{
+        Html.RenderPartial("_PedidoPartialPage", Model);
+            }
 
+        </div>*@
+
+        <div class="form-group" align="left" style="width: 100%">
+
+            <table width="100%">
+                <tr>
+                   <td>
+                        <a onclick="comporItem('@Model.Entity.Produtos[i].IdGuid');">
+                            <table width="100%">
+                                <tr>
+                                    <td colspan="3">
+                                        @Model.Entity.Produtos[i].Produto.Descricao
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>@Model.Entity.Produtos[i].Quantidade</td>
+                                    <td>@Html.FormatedDisplay(Model.Entity.Produtos[i].ValorUnitario, Constants.MaskMoney)</td>
+                                    <td>@Html.FormatedDisplay(Model.Entity.Produtos[i].Valor, Constants.MaskMoney)</td>
+                                </tr>
+                            </table>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+
+            <hr style="background-color: black" />
+        </div>
+    }
 </div>

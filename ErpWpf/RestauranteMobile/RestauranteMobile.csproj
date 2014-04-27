@@ -234,7 +234,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\PedidosGarconModel.cs" />
     <Compile Include="Extensions\AutoCompleteHelper.cs" />
     <Compile Include="Extensions\ButtonHelper.cs" />
     <Compile Include="Extensions\DateBoxHelper.cs" />
@@ -247,7 +246,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ListaPedidoController.cs" />
+    <Compile Include="Controllers\ResultadoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -255,6 +254,7 @@
     <Compile Include="Models\NovoPedidoModel.cs" />
     <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Models\ProdutoPedidoModel.cs" />
+    <Compile Include="Models\ResultadoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\RestauranteService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -350,6 +350,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Scripts.js" />
+    <Content Include="Scripts\zebra_dialog.js" />
     <Content Include="Scripts\_references.js" />
     <None Include="Service References\RestauranteService\RestauranteService.disco" />
     <None Include="Service References\RestauranteService\configuration91.svcinfo" />
@@ -358,7 +359,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -456,7 +459,6 @@
     <Content Include="Views\Pedido\ComporItem.cshtml" />
     <Content Include="Views\Pedido\_AddProdutoPartialPage.cshtml" />
     <Content Include="Views\Pedido\_ProdutoPedidoPartialPage.cshtml" />
-    <Content Include="Views\Pedido\ListarPedidosFeitos.cshtml" />
     <Content Include="Views\Pedido\_MesasPartialPage.cshtml" />
     <Content Include="Views\Pedido\Consumo.cshtml" />
     <Content Include="Views\Pedido\_PedidoPartialPage.cshtml" />
@@ -467,6 +469,7 @@
     <Content Include="Views\Pedido\_AddProdutoComposicaoPartialPage.cshtml" />
     <Content Include="Views\Pedido\_ProdutoPedidoComposicaoPartialPage.cshtml" />
     <Content Include="Views\Pedido\_PedidoComposicaoPartialPage.cshtml" />
+    <Content Include="Views\Resultado\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

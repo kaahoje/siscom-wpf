@@ -99,6 +99,7 @@ namespace RestauranteService
         StatusComando CancelarItemComposicaoMesa(int mesa, Guid composicao, Guid produto);
         [OperationContract]
         StatusComando AdicionarItemComposicaoMesa(int mesa, Guid composicao, ProdutoPedido produto);
+        
         [OperationContract]
         StatusComando AdicionarItemMesa(int mesa, ComposicaoProduto composicao);
         /// <summary>

@@ -17,6 +17,7 @@
     @{ var version = Assembly.GetExecutingAssembly().GetName().Version;
         Layout = null;
      ViewBag.Version = version.Major + "." + version.Minor + "." + version.Build + "." + version.Revision;
+     Html.RenderPartial("_MessagePartial");
     }
 
 </head>

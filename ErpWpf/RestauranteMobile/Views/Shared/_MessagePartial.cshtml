@@ -1,8 +1,10 @@
 ﻿@if (!string.IsNullOrEmpty(ViewBag.ReturnMessage))
 {
-    <script type="text/javascript" language="javascript">
-        $(function() {
+    <script type="text/javascript" language="javascript" charset="ISO-8859-1">
+        $(function () {
+            
             alert("@ViewBag.ReturnMessage");
+            $.Zebra_Dialog("@ViewBag.ReturnMessage");
         })
     </script>
 }

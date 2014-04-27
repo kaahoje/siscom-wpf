@@ -2,7 +2,45 @@
 @{
     var composicao = Model.Entity.Produtos.FirstOrDefault(x => x.IdGuid == Model.ProdutoPedido.ComposicaoEdit);
 }
-<script type="text/javascript" language="javascript">
+
+
+<form id="formProduto">
+    @Html.HiddenFor(x => x.ProdutoPedido.Composicao)
+    @Html.HiddenFor(x => x.ProdutoPedido.Produto)
+    @{
+        <div style="visibility: hidden">
+            @{
+                Html.RenderPartial("_PedidoPartialPage", Model);
+            }
+
+        </div>
+
+
+    }
+    <div align="left">
+        @if (composicao != null)
+        {
+            for (var i = 0; i < composicao.Composicao.Count; i++)
+            {
+                <table>
+                    <tr>
+                        <td>
+                            <a onclick="RemoveItemComposicao('@composicao.IdGuid', '@composicao.Composicao[i].IdGuid')">
+                                <img src="~/Images/delete.png" />
+                            </a>
+                        </td>
+                        <td>@composicao.Composicao[i].Produto.Descricao</td>
+                    </tr>
+                </table>
+            }
+        }
+    </div>
+   
+
+</form>
+@section scripts
+{
+    <script type="text/javascript" language="javascript">
     function RemoveItemComposicao(idComposicao, idProduto) {
 
         $("#ProdutoPedido_Produto").attr("value", idProduto);
@@ -22,31 +60,4 @@
         });*@
     }
 </script>
-
-<form id="formProduto">
-    @Html.HiddenFor(x => x.ProdutoPedido.Composicao)
-    @Html.HiddenFor(x => x.ProdutoPedido.Produto)
-    @{
-        <div style="visibility: hidden">
-            @{
-                Html.RenderPartial("_PedidoPartialPage", Model);
-            }
-
-        </div>
-
-
-    }
-    @if (composicao != null)
-    {
-        for (var i = 0; i < composicao.Composicao.Count; i++)
-        {
-            <table>
-                <tr>
-                    <td><a onclick="RemoveItemComposicao('@composicao.IdGuid', '@composicao.Composicao[i].IdGuid')" class="btn btn-lg btn-primary">X</a></td>
-                    <td>@composicao.Composicao[i].Produto.Descricao</td>
-                </tr>
-            </table>
-        }
-    }
-
-</form>
+}

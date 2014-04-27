@@ -16,8 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erp.Suporte.Business", "Erp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Erp.Suporte", "Erp.Suporte\Erp.Suporte.csproj", "{289631B8-7901-496C-8165-A2EA078798E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestauranteMobile", "RestauranteMobile\RestauranteMobile.csproj", "{7924BEF7-334F-4447-9C9C-E58CB65BBEA9}"
-EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -48,10 +46,6 @@ Global
 		{289631B8-7901-496C-8165-A2EA078798E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{289631B8-7901-496C-8165-A2EA078798E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{289631B8-7901-496C-8165-A2EA078798E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7924BEF7-334F-4447-9C9C-E58CB65BBEA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7924BEF7-334F-4447-9C9C-E58CB65BBEA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7924BEF7-334F-4447-9C9C-E58CB65BBEA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7924BEF7-334F-4447-9C9C-E58CB65BBEA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

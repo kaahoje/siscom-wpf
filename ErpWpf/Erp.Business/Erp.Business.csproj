@@ -95,12 +95,14 @@
     <Reference Include="System.Xml">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Annotations\GridAnnotation.cs" />
     <Compile Include="Annotations\IMenuDataAnnotation.cs" />
     <Compile Include="Annotations\MenuDataAnnotation.cs" />
     <Compile Include="AttributesFunctions.cs" />
+    <Compile Include="CalculaMelhorRota.cs" />
     <Compile Include="Common\CustomAttributes\ClassAttribute.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Common\CustomAttributes\MaskAttribute.cs" />

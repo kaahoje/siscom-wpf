@@ -21,7 +21,7 @@
       <Value Profile="(Default)">Server=localhost; Port= 5432;User Id=bonesoft; Password=123; Database=siscom;</Value>
     </Setting>
     <Setting Name="InitDbType" Type="System.String" Scope="User">
-      <Value Profile="(Default)">work</Value>
+      <Value Profile="(Default)">update</Value>
     </Setting>
   </Settings>
 </SettingsFile>

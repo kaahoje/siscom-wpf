@@ -96,7 +96,7 @@ namespace Erp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("work")]
+        [global::System.Configuration.DefaultSettingValueAttribute("update")]
         public string InitDbType {
             get {
                 return ((string)(this["InitDbType"]));

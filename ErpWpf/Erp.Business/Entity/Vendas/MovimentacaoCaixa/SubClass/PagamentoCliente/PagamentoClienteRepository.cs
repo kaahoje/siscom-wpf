@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Erp.Business.Entity.Contabil;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using NHibernate;
 using NHibernate.Criterion;
@@ -29,7 +30,7 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.PagamentoCliente
                 pag.Caixa = pedido.Caixa;
                 pag.DataMovimento = pedido.DataPedido;
                 pag.Usuario = pedido.Usuario;
-
+                TituloRepository.IncluirRecebimentoCliente(pag);
                 //var lanc = new Lancamento
                 //{
                 //    DataLancamento = pag.DataMovimento,

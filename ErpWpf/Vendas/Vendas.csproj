@@ -242,6 +242,9 @@
     <Compile Include="Component\View\Rest\RestTela.xaml.cs">
       <DependentUpon>RestTela.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\View\Telas\FechamentoCaixa.xaml.cs">
+      <DependentUpon>FechamentoCaixa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\View\Telas\MenuFiscalView.xaml.cs">
       <DependentUpon>MenuFiscalView.xaml</DependentUpon>
     </Compile>
@@ -250,6 +253,9 @@
     </Compile>
     <Compile Include="Component\View\Telas\PagamentoPedidoView.xaml.cs">
       <DependentUpon>PagamentoPedidoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\View\Telas\SuprimentoView.xaml.cs">
+      <DependentUpon>SuprimentoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dictionarys\TipoPdvDictionary.cs" />
     <Compile Include="Enums\TipoPdv.cs" />
@@ -305,6 +311,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Component\View\Telas\FechamentoCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Component\View\Telas\MenuFiscalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -314,6 +324,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\View\Telas\PagamentoPedidoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\View\Telas\SuprimentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -431,10 +445,6 @@
     <ProjectReference Include="..\Erp.Business\Erp.Business.csproj">
       <Project>{55625D1A-6E40-4259-93E8-4933525B96A9}</Project>
       <Name>Erp.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RestauranteService\RestauranteService.csproj">
-      <Project>{BF823A6B-3EBE-41E1-873B-E89C659FBA2F}</Project>
-      <Name>RestauranteService</Name>
     </ProjectReference>
     <ProjectReference Include="..\Util\Util.csproj">
       <Project>{88F82EF3-DE24-491F-89ED-93B4DC95AF6C}</Project>

@@ -324,5 +324,39 @@ namespace Erp.Business
 
             }
         }
+        /// <summary>
+        /// Calcula quantos por cento equivale a parte do todo.
+        /// </summary>
+        /// <param name="todo">Valor total</param>
+        /// <param name="parte">Parte da qual se quer saber a quantos por cento equivale do todo</param>
+        /// <returns></returns>
+        public static decimal GetPercentual(decimal todo, decimal parte)
+        {
+            return (parte*100)/todo;
+        }
+        /// <summary>
+        /// Obtém o valor monetário do todo em relação ao valor percentual.
+        /// </summary>
+        /// <param name="percentual">Percentual do valor a ser calculado.</param>
+        /// <param name="todo">Valor base para o cálculo.</param>
+        /// <returns></returns>
+        public static decimal GetValorDoPercentual(decimal percentual, decimal todo)
+        {
+            return (todo/100)*percentual;
+        }
+
+        /// <summary>
+        /// Método que calcula a proporção segundo a equação => extremoPrimeiroTermo : meioPrimeiroTermo = meioSegundoTermo : x.
+        /// Onde x é o resultado da equação segundo os valores fornecidos.
+        /// </summary>
+        /// <param name="extremoPrimeiroTermo">Extremo do primeiro termo</param>
+        /// <param name="meioPrimeiroTermo">Meio do primeiro termo</param>
+        /// <param name="meioSegundoTermo">Meio do segundo termo</param>
+        /// <returns></returns>
+        public static decimal CalculaProporcao(decimal extremoPrimeiroTermo, decimal meioPrimeiroTermo, decimal meioSegundoTermo)
+        {
+            
+            return (meioPrimeiroTermo*meioSegundoTermo)/extremoPrimeiroTermo;
+        }
     }
 }

@@ -50,8 +50,15 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
 
         public virtual TipoTitulo TipoTituloMercadoria { get; set; }
 
+        /// <summary>
+        /// <br>Tipo de título para lançamento de serviços.</br>
+        /// </summary>
         public virtual TipoTitulo TipoTituloServico { get; set; }
 
-        public virtual TipoTitulo TipoTitulo { get; set; }
+        public virtual TipoTitulo TipoTituloAPrazo { get; set; }
+        /// <summary>
+        /// Tipo de título usado para o recebimento de valores de clientes.
+        /// </summary>
+        public virtual TipoTitulo TipoTituloRecebimentoCliente { get; set; }
     }
 }

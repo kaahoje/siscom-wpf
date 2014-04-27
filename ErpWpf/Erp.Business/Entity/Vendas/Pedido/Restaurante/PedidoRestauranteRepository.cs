@@ -1,4 +1,5 @@
 ﻿using System;
+using Erp.Business.Entity.Contabil;
 using Erp.Business.Entity.Estoque.Produto;
 using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
 using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.RecebimentoVenda;
@@ -45,7 +46,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
                         .CreateRecebimentoVendaByPedido(pag, pedido));
                 }
                 // Efetua o lançamento no contávil.
-                EfetuarLancamentoRestaurante(session, pedido);
+                PagamentoPedidoRepository.LancarPagamentoRestaurante(pedido);
                 // Baixa as quantidades no estoque.
                 BaixaEstoque(session, pedido);
                 transaction.Commit();
@@ -59,27 +60,20 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
             return pedido;
         }
 
-        public static bool EfetuarLancamentoRestaurante(ISession session, PedidoRestaurante pedido)
+
+        public static decimal GetTotalServicos(PedidoRestaurante pedido)
         {
-            RepositoryBase<Pedido>.Session = session;
-            foreach (PagamentoPedido pag in pedido.Pagamento)
-            {
-                decimal fator = pag.ValorTotal / pedido.ValorPedido;
-                //Lancamento lanc = PedidoRepository.CriaLancamento(pedido, PedidoRepository.CriaHistorico(pedido));
-                //lanc.Valor = fator * pag.Valor;
-                //lanc.Desconto = pag.Desconto;
-                //lanc.Juros = pag.Juros;
-                //foreach (ComposicaoProduto prod in pedido.Produtos)
-                //{
-                //    PedidoRepository.DeterminarPartida(lanc, prod.Produto, pag.FormaPagamento);
-                //}
-                //if (!pag.FormaPagamento.AVista)
-                //{
-                //    PedidoRepository.LancaTitulo(pag);
-                //}
-                //session.Save(lanc);
-            }
-            return true;
+            throw new NotImplementedException();
+        }
+
+        public static decimal GetTotalMercadorias(PedidoRestaurante pedido)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static decimal GetTotalProdutos(PedidoRestaurante pedido)
+        {
+            throw new NotImplementedException();
         }
 
         private static void BaixaEstoque(ISession session, PedidoRestaurante pedido)
@@ -88,7 +82,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
             foreach (ComposicaoProduto prods in pedido.Produtos)
             {
                 // Entra dentro das composições do produto.
-                // Observação: Todo produto é paixado por meio de sua composição nos pedidos de restaurante,
+                // Observação: os produtos são baixados por meio de sua composição nos pedidos de restaurante,
                 // sejam eles produção própria ou de terceiros.
                 foreach (ProdutoPedido composicao in prods.Composicao)
                 {

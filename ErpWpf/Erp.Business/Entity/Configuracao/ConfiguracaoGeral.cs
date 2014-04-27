@@ -28,6 +28,10 @@ namespace Erp.Business.Entity.Configuracao
         #region Estoque
 
         public virtual Unidade UnidadeProdutoPadrao { get; set; }
+        /// <summary>
+        /// Limite usado para adentrar na composição do produto para efetuar a baixa do mesmo.
+        /// </summary>
+        public virtual int LimiteArvoreBaixaEstoque { get; set; }
 
         #endregion
 
@@ -65,12 +69,20 @@ namespace Erp.Business.Entity.Configuracao
         ///     Condição de pagamento padrão.
         /// </summary>
         public virtual CondicaoPagamento CondicaoPagamentoPadrao { get; set; }
-
+        /// <summary>
+        /// Número que indica a quantidade de mesas que contém o estabelecimento.
+        /// </summary>
+        public virtual int LimiteMesas { get; set; }
         /// <summary>
         ///     Se esta opão estiver marcada como true o programa vai entender que só há composição
         ///     de produtos próprios e o que for mercadoria de terceiros não formarão composição.
         /// </summary>
         public virtual bool LimitarComposicaoParaProprios { get; set; }
+        /// <summary>
+        /// O sistema deve trabalhar em modo de comissão. Sendo assim haverá separação em telas e poderá
+        /// ser feita a apuração de comissões para garçons.
+        /// </summary>
+        public virtual bool SistemaComissao { get; set; }
 
         #endregion
     }

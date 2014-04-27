@@ -1,5 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.UI.WebControls;
+using AutoMapper;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.ParceiroNegocio.ClassesRelacionadas;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.ParceiroNegocio.ClassesRelacionadas;
+using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.PagamentoCliente;
+using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using NHibernate.Criterion;
 
 namespace Erp.Business.Entity.Contabil
@@ -169,5 +177,74 @@ namespace Erp.Business.Entity.Contabil
         }
 
         #endregion
+
+        #region Métodos para o setor contas à receber/pagar.
+
+        public static void BaixarTitulo(Titulo titulo,int idPessoa)
+        {
+            Pessoa.Pessoa pessoa = ParceiroNegocioPessoaFisicaRepository.GetById(idPessoa);
+            if (pessoa != null)
+            {
+                var tituloParceiro = new TituloParceiroNegocioPessoaFisica();
+                Mapper.CreateMap<Titulo,TituloParceiroNegocioPessoaFisica>();
+                Mapper.Map(titulo, tituloParceiro);
+                tituloParceiro.ParceiroNegocioPessoaFisica = (ParceiroNegocioPessoaFisica) pessoa;
+                TituloParceiroNegocioPessoaFisicaRepository.BaixarTitulo(tituloParceiro);
+            }
+            else
+            {
+                pessoa = ParceiroNegocioPessoaJuridicaRepository.GetById(idPessoa);
+                if (pessoa != null)
+                {
+                    var tituloParceiro = new TituloParceiroNegocioPessoaJuridica();
+                    Mapper.CreateMap<Titulo, TituloParceiroNegocioPessoaFisica>();
+                    Mapper.Map(titulo, tituloParceiro);
+                    tituloParceiro.ParceiroNegocioPessoaJuridica = (ParceiroNegocioPessoaJuridica)pessoa;
+                    TituloParceiroNegocioPessoaJuridicaRepository.BaixarTitulo(tituloParceiro);
+                }
+            }
+        }
+
+        #endregion
+
+        #region Métodos para o setor de vendas.
+        public static void IncluirRecebimentoCliente(PagamentoCliente pagamento)
+        {
+            var titulo = GerarTitulo(true,
+                pagamento.DataMovimento,
+                pagamento.Valor,
+                pagamento.Descontos,
+                pagamento.Acrescimos,
+                pagamento.FormaPagamento.TipoTituloRecebimentoCliente);
+            BaixarTitulo(titulo,pagamento.Cliente.Id);
+        }
+
+        public static void IncluirPagamentoPedido(PagamentoPedido pagamento)
+        {
+            
+        }
+        #endregion
+
+        #region Métodos gerais
+
+        public static Titulo GerarTitulo(bool aReceber, DateTime vencimento, decimal valor, decimal acrescimos, decimal descontos,
+             TipoTitulo tipo, string numeroOrdem = "", string historico = "")
+        {
+            return new Titulo()
+            {
+                AReceber = aReceber,
+                Valor = valor,
+                Acrescimos =acrescimos,
+                Desconto = descontos,
+                NumeroOrdem = numeroOrdem,
+                TipoTitulo = tipo,
+                DataVencimento = vencimento,
+                DataLancamento = DateTime.Now.Date,
+                Historico = historico
+            };
+        }
+
+        #endregion
+
     }
 }

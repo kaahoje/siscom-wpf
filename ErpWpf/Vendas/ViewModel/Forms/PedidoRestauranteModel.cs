@@ -11,19 +11,22 @@ using Erp.Business.Entity.Vendas.Pedido.Restaurante;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas;
 using Erp.Business.Enum;
 using FluentNHibernate.Conventions;
+using RestauranteService;
+using Util;
 using Util.Seguranca;
 using Vendas.Component.View.Telas;
 using Vendas.Properties;
 using Vendas.ViewModel.Grids;
-using MessageBox = System.Windows.MessageBox;
 
 namespace Vendas.ViewModel.Forms
 {
 
     public class PedidoRestauranteModel : PedidoModel
     {
+        private global::RestauranteService.RestauranteService Service { get; set; }
         public PedidoRestauranteModel()
         {
+            Service = new global::RestauranteService.RestauranteService();
             Entity = new PedidoRestaurante();
 
         }
@@ -111,7 +114,7 @@ namespace Vendas.ViewModel.Forms
             get { return _isProdutoEditable; }
             set
             {
-                _isProdutoEditable = value; 
+                _isProdutoEditable = value;
                 OnPropertyChanged();
             }
         }
@@ -264,6 +267,7 @@ namespace Vendas.ViewModel.Forms
                 Entity.Usuario = App.Usuario;
                 Entity.Empresa = App.Proprietaria;
                 CupomFiscal.FecharPedidoRestaurante((PedidoRestaurante)Entity);
+                
                 Entity = null;
                 OnPedidoFinalizado(this, EventArgs.Empty);
             }
@@ -279,7 +283,7 @@ namespace Vendas.ViewModel.Forms
             get { return base.Entity; }
             set
             {
-                base.Entity = value; 
+                base.Entity = value;
                 OnPropertyChanged("EntityRestaurante");
             }
         }
@@ -310,43 +314,42 @@ namespace Vendas.ViewModel.Forms
 
         public override void CalculaPedido()
         {
-            decimal total = 0;
-            if (_produtos == null)
-            {
-                return;
-            }
-            int cont = 1;
-            foreach (var composicaoProduto in _produtos)
-            {
-                composicaoProduto.Sequencia = cont;
-                composicaoProduto.Valor = composicaoProduto.Quantidade * composicaoProduto.ValorUnitario;
-                total += composicaoProduto.Valor;
-                cont += 1;
-            }
-            Entity.ValorPedido = total;
-            TotalProduto = total;
-            TotalPedido = total - Desconto + Frete + Acressimo;
-            AjustarSequencia();
-        }
-
-        private void AjustarSequencia()
-        {
-            for (int i = 0; i < Produtos.Count; i++)
-            {
-                Produtos[i].Sequencia = i + 1;
-            }
+            var ret = RestauranteModel.Service.CalcularPedido(EntityRestaurante);
+            Mapper.CreateMap(typeof(PedidoRestaurante), typeof(PedidoRestaurante));
+            Mapper.Map(EntityRestaurante, ret);
+            TotalProduto = ret.ValorPedido;
+            TotalPedido = ret.ValorPedido - Desconto + Frete + Acressimo;
+            OnPropertyChanged("Entity");
+            OnPropertyChanged("EntityRestaurante");
             OnPropertyChanged("Produtos");
         }
 
+
+
         public void RemoveProduto(ComposicaoProduto composicao)
         {
-            var result = MessageBox.Show("Deseja realmente excluir este item", "Excluir produto", MessageBoxButton.YesNo,
-                MessageBoxImage.Asterisk, MessageBoxResult.No);
+
+            var result = CustomMessageBox.MensagemConfirmacao("Deseja realmente excluir este item");
             if (result == MessageBoxResult.Yes)
             {
                 if (composicao != null)
                 {
-                    Produtos.Remove(composicao);
+                    if (EntityRestaurante.Confirmado)
+                    {
+                        var ret = Service.CancelarItemMesa(EntityRestaurante.Mesa, composicao);
+                        if (ret == StatusComando.ConcluidoSucesso)
+                        {
+                            Produtos.Remove(composicao);
+                        }
+                        else
+                        {
+                            CustomMessageBox.MensagemErro(Service.GetLastException());
+                        }
+                    }
+                    else
+                    {
+                        Produtos.Remove(composicao);
+                    }
                 }
             }
             ProdutoAtual = null;
@@ -356,26 +359,70 @@ namespace Vendas.ViewModel.Forms
 
         public void AddProdutoComposicao(Produto prod)
         {
-
-            ProdutoAtual.Composicao.Add(new ProdutoPedido()
+            var prodPedido = new ProdutoPedido()
             {
                 Produto = prod
-            });
+            };
+            if (EntityRestaurante.Confirmado)
+            {
+                var ret = Service.AdicionarItemComposicaoMesa(EntityRestaurante.Mesa, ProdutoAtual.IdGuid, prodPedido);
+                if (ret == StatusComando.ConcluidoSucesso)
+                {
+                    ProdutoAtual.Composicao.Add(prodPedido);
+                }
+                else
+                {
+                    CustomMessageBox.MensagemErro(Service.GetLastException());
+                }
+            }
+            else
+            {
+                ProdutoAtual.Composicao.Add(prodPedido);
+            }
+
             VerificaProdutoComposicao();
+            CalculaPedido();
         }
 
+        public void RemoveProdutoComposicao()
+        {
+            if (ProdutoComposicaoAtual != null)
+            {
+                var prodComposicao = ProdutoAtual.Composicao
+                                .FirstOrDefault(x => x.IdGuid == ProdutoComposicaoAtual.IdGuid);
+                if (CustomMessageBox.MensagemConfirmacao("Deseja realmente excluir o produto.") == MessageBoxResult.Yes)
+                {
+                    if (EntityRestaurante.Confirmado)
+                    {
+                        if (Service.CancelarItemComposicaoMesa(EntityRestaurante.Mesa, ProdutoAtual.IdGuid,
+                            ProdutoComposicaoAtual.IdGuid) == StatusComando.ConcluidoSucesso)
+                        {
+                            
+                            if (prodComposicao != null)
+                            {
+                                ProdutoAtual.Composicao.Remove(prodComposicao);
+                            }
+                        }
+                        else
+                        {
+                            CustomMessageBox.MensagemErro(Service.GetLastException());
+                        }
+                    }
+                    else
+                    {
+                        ProdutoAtual.Composicao.Remove(prodComposicao);
+                    }
+                }
+                ProdutoComposicaoAtual = null;
+                VerificaProdutoComposicao();
+            }
+        }
         private void VerificaProdutoComposicao()
         {
-            var ret = RestauranteModel.Service.VerificaProdutoCobranca(ProdutoAtual.Composicao);
-            if (ret.Count == 0)
-            {
-                return;
-            }
-            var prod = ProdutoAtual.Composicao[ret.Keys.ToArray()[0]];
-            var valor = ret[0];
-            ProdutoAtual.Produto = prod.Produto;
-            ProdutoAtual.Valor = ProdutoAtual.Quantidade * valor;
-            ProdutoAtual.ValorUnitario = valor;
+            var ret = RestauranteModel.Service.VerificaComposicao(ProdutoAtual);
+            Mapper.CreateMap(typeof(ComposicaoProduto), typeof(ComposicaoProduto));
+            Mapper.Map(ProdutoAtual, ret);
+            CalculaPedido();
         }
     }
 }

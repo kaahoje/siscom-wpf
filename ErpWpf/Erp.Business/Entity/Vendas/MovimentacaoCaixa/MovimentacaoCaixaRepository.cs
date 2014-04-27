@@ -4,6 +4,7 @@ using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.LancamentoInicial;
 using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.RecebimentoVenda;
 using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.Sangria;
+using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.Suprimento;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using NHibernate;
 
@@ -40,6 +41,23 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa
             PessoaFisica usuario)
         {
             var lanc = new Sangria
+            {
+                DataMovimento = dia,
+                Caixa = caixa,
+                Usuario = usuario,
+                Empresa = empresa,
+                Historico = historico,
+                Valor = valor
+            };
+
+            Session.Save(lanc);
+
+            return true;
+        }
+        public static bool LancarSuprimento(Decimal valor, String historico,int caixa, DateTime dia, PessoaJuridica empresa,
+            PessoaFisica usuario)
+        {
+            var lanc = new Suprimento
             {
                 DataMovimento = dia,
                 Caixa = caixa,

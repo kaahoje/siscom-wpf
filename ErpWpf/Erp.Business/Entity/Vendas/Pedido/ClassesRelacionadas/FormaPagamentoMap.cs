@@ -22,7 +22,8 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
             References(x => x.TipoTituloMercadoria);
             References(x => x.TipoTituloProduto);
             References(x => x.TipoTituloServico);
-            References(x => x.TipoTitulo);
+            References(x => x.TipoTituloAPrazo);
+            References(x => x.TipoTituloRecebimentoCliente);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace RestauranteMobile.Controllers
 {
-    public class ListaPedidoController : Controller
+    public class ResultadoController : Controller
     {
         //
         // GET: /ListaPedido/

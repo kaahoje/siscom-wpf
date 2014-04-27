@@ -3,39 +3,52 @@
 @model RestauranteMobile.Models.PedidoModel
            
 <div class="form-group">
-    <table>
+    <table width="100%" class="table">
         <tr>
             <td>
-                <div class="form-group">
-                    @Html.LabelFor(x => x.ValorProduto)
+                @Html.LabelFor(x => x.ValorProduto)
+            </td>
+            <td>
+                <div class="form-group" align="right">
+
                     @Html.FormatedDisplay(Model.ValorProduto, Constants.MaskMoney)
                 </div>
             </td>
+            
+        </tr>
+        <tr>
             <td>
-                <div class="form-group">
-                    @Html.LabelFor(x => x.Entity.ValorPedido)
+                @Html.LabelFor(x => x.Entity.Acressimos)
+            </td>
+            <td>
+                <div class="form-group" align="right">
+                    @Html.FormatedDisplay(Model.Entity.Acressimos, Constants.MaskMoney)
+                </div>
+            </td>
+            
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.Entity.Descontos)
+            </td>
+            <td>
+                <div class="form-group" align="right">
+                    @Html.FormatedDisplay(Model.Entity.Descontos,Constants.MaskMoney)
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.Entity.ValorPedido)
+            </td>
+            <td>
+                <div class="form-group" align="right">
+
                     @Html.FormatedDisplay(Model.Entity.ValorPedido, Constants.MaskMoney)
                 </div>
             </td>
         </tr>
-        <tr>
-            <td>
-                <div class="form-group">
-                    @Html.LabelFor(x => x.Entity.Acressimos)
-                    @Html.FormatedDisplay(Model.Entity.Acressimos)
-                </div>
-            </td>
-            <td>
-                <div class="form-group">
-                    @Html.LabelFor(x => x.Entity.Descontos)
-                    @Html.FormatedDisplay(Model.Entity.Descontos)
-                </div>
-                
-            </td>
-        </tr>
     </table>
-    <div class="form-group">
-        @Html.LabelFor(x => x.Entity.ValorPedido)
-        @Html.Label("Valor total")
-    </div>
+   
 </div>

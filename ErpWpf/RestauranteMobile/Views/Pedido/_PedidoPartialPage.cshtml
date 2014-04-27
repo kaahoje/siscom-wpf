@@ -1,6 +1,6 @@
 ﻿@model RestauranteMobile.Models.PedidoModel
 
-<div class="form-group" style="font-size: 26px" align="left">
+<div class="form-group" style="font-size: 26px ;width: 100%"  align="left">
     @Html.HiddenFor(x => x.Entity.Mesa)
     @Html.HiddenFor(x => x.Entity.DataPedido)
     @Html.HiddenFor(x => x.Entity.Garcon.Id)
@@ -41,6 +41,9 @@
             <input type="hidden" id="@string.Format("Entity_Produtos_{0}_Composicao_{1}_Produto_Descricao", i, p)"
                    name="@string.Format("Entity.Produtos[{0}].Composicao[{1}].Produto.Descricao", i, p)"
                    value="@Model.Entity.Produtos[i].Composicao[p].Produto.Descricao" />
+            <input type="hidden" id="@string.Format("Entity_Produtos_{0}_Composicao_{1}_Produto_Id", i, p)"
+                   name="@string.Format("Entity.Produtos[{0}].Composicao[{1}].Produto.Id", i, p)"
+                   value="@Model.Entity.Produtos[i].Composicao[p].Produto.Id" />
             <input type="hidden" id="@string.Format("Entity_Produtos_{0}_Composicao_{1}_Produto_PrecoVenda", i, p)"
                    name="@string.Format("Entity.Produtos[{0}].Composicao[{1}].Produto.PrecoVenda", i, p)"
                    value="@Model.Entity.Produtos[i].Composicao[p].Produto.PrecoVenda" />

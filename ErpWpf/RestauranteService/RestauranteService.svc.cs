@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Security.Cryptography;
+using Erp.Business.Entity.Configuracao;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante.ClassesRelacionadas;
@@ -16,6 +17,8 @@ namespace RestauranteService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class RestauranteService : IRestauranteService
     {
+        private ConfiguracaoGeral _configuracao;
+
         public RestauranteService()
         {
             Parciais = new List<ParcialMesaDataContract>();
@@ -34,6 +37,16 @@ namespace RestauranteService
         {
 
         }
+
+        private ConfiguracaoGeral Configuracao
+        {
+            get
+            {
+                return _configuracao ?? (_configuracao = ConfiguracaoGeralRepository.GetById(1));
+            }
+            
+        }
+
         private int NumeroControle { get; set; }
         private IList<ParcialMesaDataContract> Parciais { get; set; }
         private string LastException { get; set; }
@@ -238,22 +251,26 @@ namespace RestauranteService
             return MesasAbertas;
         }
 
-        public int GetMaximoMesas()
-        {
-            var setting = ConfigurationManager.AppSettings["MaximoMesa"];
-            return Convert.ToInt32(setting);
-        }
+        
         public IList<int> GetMesasDisponiveis()
         {
-            var ret = new List<int>();
-            for (var i = 1; i <= GetMaximoMesas(); i++)
+            try
             {
-                if (null == MesasAbertas.FirstOrDefault(x=>x.Mesa == i))
+                var ret = new List<int>();
+                for (var i = 1; i <= Configuracao.LimiteMesas; i++)
                 {
-                    ret.Add(i);
+                    if (null == MesasAbertas.FirstOrDefault(x => x.Mesa == i))
+                    {
+                        ret.Add(i);
+                    }
                 }
+                return ret;
             }
-            return ret;
+            catch (Exception ex)
+            {
+                LastException = ex.Message;
+            }
+            return null;
         }
 
         public StatusComando FecharMesa(int mesa)
@@ -538,9 +555,9 @@ namespace RestauranteService
 
         public Dictionary<int, decimal> VerificaProdutoCobranca(IList<ProdutoPedido> produtos)
         {
-            var cobrarMaiorValor = ConfigurationManager.AppSettings["CobrarMaiorValor"];
+            
             var ret = new Dictionary<int, decimal>();
-            if (cobrarMaiorValor.Equals("true"))
+            if (Configuracao.CobrarComposicaoPorMaiorValor)
             {
                 decimal preco = 0;
                 var index = 0;

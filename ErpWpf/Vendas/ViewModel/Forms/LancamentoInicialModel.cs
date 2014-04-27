@@ -4,8 +4,10 @@ using System.Windows.Input;
 using Ecf;
 using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
+using Erp.Business.Entity.Vendas.MovimentacaoCaixa;
 using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.LancamentoInicial;
 using Erp.Business.Enum;
+using NHibernate;
 using Util;
 using Util.Wpf;
 using Settings = Vendas.Properties.Settings;
@@ -27,19 +29,10 @@ namespace Vendas.ViewModel.Forms
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
-        private ICommand _salvarLancamento;
-
-        public ICommand SalvarLancamento
-        {
-            get { return _salvarLancamento ?? (_salvarLancamento = new RelayCommandBase(o => Salvar())); }
-            set { _salvarLancamento = value; }
-        }
-
         public override void Salvar()
         {
             try
             {
-
                 var session = NHibernateHttpModule.Session;
                 Entity.Caixa = Settings.Default.Caixa;
                 Entity.DataMovimento = DateTime.Now.Date;
@@ -47,7 +40,6 @@ namespace Vendas.ViewModel.Forms
                 Entity.Usuario = App.Usuario;
                 Entity.Empresa = session.Get<PessoaJuridica>(Settings.Default.IdEmpresa);
                 Entity.Status = Status.Ativo;
-                
                 LancamentoInicialRepository.Save(Entity);
                 try
                 {

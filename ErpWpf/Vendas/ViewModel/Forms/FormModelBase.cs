@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+
+using Erp.Business;
 using Util;
 using Util.Wpf;
 using Vendas.Annotations;
@@ -13,6 +15,13 @@ namespace Vendas.ViewModel.Forms
     {
         private ICommand _cmdSalvar;
         private ICommand _cmdSair;
+        private Constants _constantsProperties;
+
+        public Constants ConstantsProperties
+        {
+            get { return _constantsProperties ?? (_constantsProperties = new Constants()); }
+            set { _constantsProperties = value; }
+        }
 
         #region Eventos
 

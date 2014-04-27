@@ -1,6 +1,7 @@
 ﻿using System;
 using Erp.Business.Entity.Contabil.Pessoa;
 using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.PagamentoCliente.ClassesRelacionadas;
+using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 
 namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.PagamentoCliente
 {
@@ -16,6 +17,6 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.PagamentoCliente
 
         public virtual String Documento { get; set; }
 
-        public virtual TipoRecebimentoCliente TipoRecebimento { get; set; }
+        public virtual FormaPagamento FormaPagamento { get; set; }
     }
 }

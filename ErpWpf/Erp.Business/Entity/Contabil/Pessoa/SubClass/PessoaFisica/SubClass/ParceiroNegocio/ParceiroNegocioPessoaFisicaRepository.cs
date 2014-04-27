@@ -110,7 +110,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
 
         public static ParceiroNegocioPessoaFisica GetByLogin(string usuario)
         {
-            var list = GetQueryOver().Where(p => p.Login == usuario).List();
+            var list = GetQueryOver().Where(p => p.Login.IsInsensitiveLike(usuario)).List();
             return list.FirstOrDefault();
         }
     }

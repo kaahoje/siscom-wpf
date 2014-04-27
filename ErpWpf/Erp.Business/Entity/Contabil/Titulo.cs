@@ -73,7 +73,7 @@ namespace Erp.Business.Entity.Contabil
             }
         }
 
-        [Display(Name = "Número de ordem", Description = "Código alfa-numérico que identifica o título")]
+        [Display(Name = "Número de ordem", Description = "Código alfa-numérico que identifica o título(Para identificação de títulos na conta bancária)")]
         public virtual String NumeroOrdem
         {
             get { return _numeroOrdem; }

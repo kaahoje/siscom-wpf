@@ -16,7 +16,7 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.PagamentoCliente
 
             References(x => x.Cliente).Not.Nullable();
 
-            References(x => x.TipoRecebimento).Not.Nullable();
+            References(x => x.FormaPagamento).Column("tiporecebimento_id").Not.Nullable();
         }
     }
 }

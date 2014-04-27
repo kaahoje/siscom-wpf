@@ -108,6 +108,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculaMelhorRota.cs" />
     <Compile Include="CustomMessageBox.cs" />
     <Compile Include="FileSystem\FileInfo.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />

@@ -5,11 +5,11 @@ namespace Erp.Business
 {
     class CalculaMelhorRota
     {
-        public void MelhorRota(string origemLogradouro, string origemCidade, string destinoLogradouro, string destinoCidade)
+        public void MelhorRota(string origemLogradouroCliente, string origemCidadeCliente, string destinoLogradouroCliente, string destinoCidadeCliente, string[] proprietarios)
         {
-            var origem = string.Format("{0} {1}", origemLogradouro, origemCidade);
+            var origem = string.Format("{0} {1}", origemLogradouroCliente, origemCidadeCliente);
 
-            var destino = string.Format("{0} {1}", destinoLogradouro, destinoCidade);
+            var destino = string.Format("{0} {1}", destinoLogradouroCliente, destinoCidadeCliente);
 
             //URL do distancematrix - adicionando endereço de origem e destino
             var url = string.Format("http://maps.googleapis.com/maps/api/distancematrix/xml?origins={0}&destinations={1}&mode=driving&language=pt-BR&sensor=false", origem, destino);
@@ -88,5 +88,7 @@ namespace Erp.Business
                 }
             }
         }
+
+
     }
 }

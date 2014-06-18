@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Erp.Business.Entity.Contabil;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using Erp.Business.Entity.Estoque.Produto;
 using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
 using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.RecebimentoVenda;
@@ -37,13 +40,14 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
                     }
                 }
                 session.Save(pedido);
-                RepositoryBase<RecebimentoVenda>.Session = session;
+
                 foreach (PagamentoPedido pag in pedido.Pagamento)
                 {
                     pag.Pedido = pedido;
                     // Cria o recebimento da venda para o caixa.
                     session.Save(RecebimentoVendaRepository
                         .CreateRecebimentoVendaByPedido(pag, pedido));
+                    
                 }
                 // Efetua o lançamento no contávil.
                 PagamentoPedidoRepository.LancarPagamentoRestaurante(pedido);
@@ -63,6 +67,25 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
 
         public static decimal GetTotalServicos(PedidoRestaurante pedido)
         {
+            
+            foreach (PagamentoPedido pag in pedido.Pagamento)
+            {
+                decimal fator = pag.ValorTotal / pedido.ValorPedido;
+                //Lancamento lanc = PedidoRepository.CriaLancamento(pedido, PedidoRepository.CriaHistorico(pedido));
+                //lanc.Valor = fator * pag.Valor;
+                //lanc.Desconto = pag.Desconto;
+                //lanc.Juros = pag.Juros;
+                //foreach (ComposicaoProduto prod in pedido.Produtos)
+                //{
+                //    PedidoRepository.DeterminarPartida(lanc, prod.Produto, pag.FormaPagamento);
+                //}
+                //if (!pag.FormaPagamento.AVista)
+                //{
+                //    PedidoRepository.LancaTitulo(pag);
+                //}
+                //session.Save(lanc);
+            }
+            //return true;
             throw new NotImplementedException();
         }
 
@@ -94,21 +117,21 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
                             {
                                 decimal qtd = itemReceita.Quantidade * (composicao.Quantidade *
                                                                       composicao.Produto.UnidadeVenda.Quantidade);
-                                ProdutoRepository.BaixarQuantidadeProduto(session, itemReceita.MateriaPrima, qtd);
+                                ProdutoRepository.BaixarQuantidadeProduto( itemReceita.MateriaPrima, qtd);
                             }
                         }
                         else
                         {
                             decimal qtd = (composicao.Quantidade *
                                            composicao.Produto.UnidadeVenda.Quantidade);
-                            ProdutoRepository.BaixarQuantidadeProduto(session, composicao.Produto, qtd);
+                            ProdutoRepository.BaixarQuantidadeProduto( composicao.Produto, qtd);
                         }
                     }
                     else
                     {
                         decimal qtd = (composicao.Quantidade *
                                        composicao.Produto.UnidadeVenda.Quantidade);
-                        ProdutoRepository.BaixarQuantidadeProduto(session, composicao.Produto, qtd);
+                        ProdutoRepository.BaixarQuantidadeProduto( composicao.Produto, qtd);
                     }
                 }
             }
@@ -122,6 +145,14 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
                 total += prod.Valor;
             }
             return total;
+        }
+
+        public static IList<PedidoRestaurante> GetVendasDia(int caixa, DateTime dataMovimento, PessoaJuridica proprietaria)
+        {
+            return
+                GetList()
+                    .Where(x => x.Empresa == proprietaria && x.Caixa == caixa && x.DataPedido == dataMovimento)
+                    .ToList();
         }
     }
 }

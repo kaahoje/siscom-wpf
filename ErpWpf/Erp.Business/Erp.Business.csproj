@@ -36,6 +36,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.3.2.0\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper.Net4, Version=3.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -463,11 +470,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryBase.cs" />
     <Compile Include="Seguranca\SegurancaUtils.cs" />
-    <Compile Include="Service References\RestauranteService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="SqlInterceptor.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Validation\CustomValidations\PessoaFisicaValidation.cs" />
@@ -476,84 +478,13 @@
     <Compile Include="Validation\DataValidation.cs" />
     <Compile Include="Validation\EntityValidationResult.cs" />
     <Compile Include="Validation\EntityValidator.cs" />
+    <Compile Include="Validation\TruncateAttribute.cs" />
     <Compile Include="Validation\Validation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
-    <None Include="Service References\RestauranteService\RestauranteService.wsdl" />
-    <None Include="Service References\RestauranteService\RestauranteService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService11.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService12.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService13.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService14.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService15.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService16.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService17.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService18.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService19.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService20.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService21.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService22.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService23.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService6.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService7.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService8.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RestauranteService\RestauranteService9.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entity\Sistema\Administrador\" />
@@ -574,21 +505,12 @@
       <Link>AutoMapper.Net4.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\RestauranteService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\RestauranteService\configuration.svcinfo" />
-    <None Include="Service References\RestauranteService\configuration91.svcinfo" />
-    <None Include="Service References\RestauranteService\RestauranteService.disco" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\RestauranteService\" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <Import Project="..\packages\AutoMapper.3.2.0\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.0\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

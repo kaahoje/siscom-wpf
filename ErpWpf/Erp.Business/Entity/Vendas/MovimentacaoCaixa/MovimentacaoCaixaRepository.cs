@@ -14,7 +14,7 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa
     {
         public static bool LancarMovmentacaoPedido(ISession session, Pedido.Pedido pedido)
         {
-            Session = session;
+            
             foreach (PagamentoPedido pag in pedido.Pagamento)
             {
                 // Pega o fator de multiplicação da parcela.

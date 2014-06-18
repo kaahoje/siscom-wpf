@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Erp.Business.Annotations;
 using Erp.Business.Entity.Contabil.Pessoa;
 using Erp.Business.Entity.Fiscal.ClassesRelacionadas;
 using Erp.Business.Enum;
@@ -7,7 +10,7 @@ using Erp.Business.Enum;
 namespace Erp.Business.Entity.Fiscal
 {
     [Serializable]
-    public class NotaFiscal
+    public class NotaFiscal : INotifyPropertyChanged
     {
         public NotaFiscal()
         {
@@ -62,6 +65,15 @@ namespace Erp.Business.Entity.Fiscal
         public virtual Decimal TotalNota
         {
             get { return NotaFiscalRepository.CalculaNota(this); }
+        }
+
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

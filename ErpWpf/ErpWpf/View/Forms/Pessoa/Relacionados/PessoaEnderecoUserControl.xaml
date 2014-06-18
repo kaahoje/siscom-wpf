@@ -1,0 +1,41 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:classesRelacionadas="clr-namespace:Erp.Business.Entity.Contabil.Pessoa.ClassesRelacionadas;assembly=Erp.Business"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+
+             mc:Ignorable="d" 
+             d:DesignHeight="90" d:DesignWidth="750">
+    <UserControl.DataContext>
+        <classesRelacionadas:PessoaEndereco/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="101"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Label Content="Logradouro:" Margin="5" />
+        <Label Grid.Row="0" Grid.Column="2" Content="Número:" Margin="5" />
+        <Label Grid.Row="0" Grid.Column="4" Content="Complemento:" Margin="5" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Cidade:" Margin="5" />
+        <Label Grid.Row="1" Grid.Column="2" Content="UF:" Margin="5" />
+        <Label Grid.Row="1" Grid.Column="4" Content="Bairro:" Margin="5" />
+        <dxe:TextEdit Grid.Row="0" Grid.Column="1" Margin="7" EditValue="{Binding Logradouro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <dxe:TextEdit Grid.Row="0" Grid.Column="3" Margin="7" EditValue="{Binding Numero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <dxe:TextEdit Grid.Row="0" Grid.Column="5" Margin="7" EditValue="{Binding Complemento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <dxe:TextEdit Grid.Row="1" Grid.Column="1" Margin="7" EditValue="{Binding Endereco.Cidade.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <dxe:TextEdit Grid.Row="1" Grid.Column="3" Margin="7" EditValue="{Binding Endereco.Cidade.Estado.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <dxe:TextEdit Grid.Row="1" Grid.Column="5" Margin="7" EditValue="{Binding Endereco.Bairro.Nome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+    </Grid>
+    
+</UserControl>

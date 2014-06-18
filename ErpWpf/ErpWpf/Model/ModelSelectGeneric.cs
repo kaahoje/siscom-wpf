@@ -21,7 +21,7 @@ namespace Erp.Model
 
         public ObservableCollection<T> Collection
         {
-            get { return _collection; }
+            get { return _collection ?? (_collection = new ObservableCollection<T>()); }
             set
             {
                 _collection = value;

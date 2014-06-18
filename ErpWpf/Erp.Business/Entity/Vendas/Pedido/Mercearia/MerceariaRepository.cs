@@ -29,7 +29,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.Mercearia
                     }
                 }
                 session.Save(pedido);
-                RepositoryBase<RecebimentoVenda>.Session = session;
+                
                 foreach (PagamentoPedido pag in pedido.Pagamento)
                 {
                     RepositoryBase<RecebimentoVenda>.Save(
@@ -51,7 +51,7 @@ namespace Erp.Business.Entity.Vendas.Pedido.Mercearia
 
         public static Boolean EfetuarLancamentoMercearia(ISession session, Mercearia pedido)
         {
-            Session = session;
+            
 
             foreach (PagamentoPedido pag in pedido.Pagamento)
             {
@@ -86,17 +86,17 @@ namespace Erp.Business.Entity.Vendas.Pedido.Mercearia
                         {
                             decimal qtd = itemReceita.Quantidade * (prods.Quantidade *
                                                                   prods.Produto.UnidadeVenda.Quantidade);
-                            ProdutoRepository.BaixarQuantidadeProduto(session, itemReceita.MateriaPrima, qtd);
+                            ProdutoRepository.BaixarQuantidadeProduto( itemReceita.MateriaPrima, qtd);
                         }
                     }
                     else
                     {
-                        ProdutoRepository.BaixarQuantidadeProduto(session, prods.Produto, prods.Quantidade);
+                        ProdutoRepository.BaixarQuantidadeProduto( prods.Produto, prods.Quantidade);
                     }
                 }
                 else
                 {
-                    ProdutoRepository.BaixarQuantidadeProduto(session, prods.Produto, prods.Quantidade);
+                    ProdutoRepository.BaixarQuantidadeProduto( prods.Produto, prods.Quantidade);
                 }
             }
         }

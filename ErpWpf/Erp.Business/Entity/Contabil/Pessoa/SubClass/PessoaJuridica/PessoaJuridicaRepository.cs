@@ -20,5 +20,7 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica
         {
             return GetList().SingleOrDefault(juridica => juridica.Cnpj == val);
         }
+
+        
     }
 }

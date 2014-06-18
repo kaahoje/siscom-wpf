@@ -6,7 +6,7 @@ namespace Erp.View.Forms.Pessoa.PessoaJuridica
     /// <summary>
     /// Interaction logic for PessoaJuridicaUserControl.xaml
     /// </summary>
-    public partial class PessoaJuridicaUserControl : UserControl
+    public partial class PessoaJuridicaUserControl
     {
         public PessoaJuridicaUserControl()
         {

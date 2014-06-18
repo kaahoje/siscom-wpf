@@ -26,5 +26,6 @@ namespace Util
         {
             DXMessageBox.Show(mensagem, "Erro com operação no banco", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
+        
     }
 }

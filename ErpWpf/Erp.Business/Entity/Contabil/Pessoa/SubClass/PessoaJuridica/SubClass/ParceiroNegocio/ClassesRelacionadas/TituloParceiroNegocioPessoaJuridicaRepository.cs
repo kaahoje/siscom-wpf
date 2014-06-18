@@ -19,7 +19,6 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica.SubClass.P
             {
                 try
                 {
-                    LancamentoRepository.Session = s;
                     LancamentoRepository.Save(l);
                     titulo.Lancamento = l;
                     titulo.Baixa = DateTime.Now;

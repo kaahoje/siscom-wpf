@@ -14,6 +14,7 @@ namespace Erp.Business.Entity.Configuracao
             Map(x => x.LimitarComposicaoParaProprios);
             Map(x => x.CobrarComposicaoPorMaiorValor).Column("cobrarcomposicaopormaiorvalor");
             Map(x => x.Ambiente).CustomType<int>().Not.Nullable();
+            Map(x => x.AvisaProdutoSemQuantidade).Default("true");
             //Map(x => x.SistemaComissao).Not.Nullable();
             Map(x => x.LimiteMesas).Not.Nullable();
 
@@ -23,6 +24,7 @@ namespace Erp.Business.Entity.Configuracao
             References(x => x.CondicaoPagamentoPadrao).LazyLoad();
             References(x => x.UnidadeProdutoPadrao).LazyLoad();
             References(x => x.TipoTituloTransferencia).LazyLoad();
+            References(x => x.Proprietaria).LazyLoad();
         }
     }
 }

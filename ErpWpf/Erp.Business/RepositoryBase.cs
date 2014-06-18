@@ -42,7 +42,7 @@ namespace Erp.Business
             return "%" + filter;
         }
 
-        public static ISession Session { get; set; }
+        public static ISession Session { get { return NHibernateHttpModule.Session; } }
 
         public static ISessionFactory SessionFactory
         {

@@ -25,8 +25,8 @@
                 <dxb:BarButtonItem x:Name="barButtonItem13" Content="Tipo de título" Command="{Binding CmdAbrirTelaTipoTitulo}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem2" Content="Condição de pagamento" Command="{Binding CmdAbrirTelaCondicaoPagamento}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem3" Content="Forma de pagamento" Command="{Binding CmdAbrirTelaFormaPagamento}"/>
-                <dxb:BarButtonItem x:Name="barButtonItem9" Content="Entradas" RibbonStyle="Large"/>
-                <dxb:BarButtonItem x:Name="barButtonItem14" Content="Saídas" RibbonStyle="Large"/>
+                <dxb:BarButtonItem x:Name="barButtonItem9" Content="Entradas" RibbonStyle="Large" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Arrows/MoveDown_32x32.png" Command="{Binding CmdAbrirTelaNotaFiscalEntrada}"/>
+                <dxb:BarButtonItem x:Name="barButtonItem14" Content="Saídas" RibbonStyle="Large" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Arrows/MoveUp_32x32.png" Command="{Binding CmdAbrirTelaNotaFiscalSaida}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem15" Content="Atualizar produtos" Command="{Binding CmdAbrirTelaAtualizacaoProduto}" RibbonStyle="Large" Glyph="pack://application:,,,/Erp;component/Images/AtualizarProduto.png"/>
                 <dxb:BarButtonItem x:Name="barButtonItem16" Content="Gerar mês" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Chart/DrillDownOnSeries_Chart_32x32.png" Command="{Binding CmdAbrirTelaGerarMes}"/>
                 <dxb:BarButtonItem x:Name="barButtonItem17" Content="Formas de pagamento" Command="{Binding CmdRelatorioFormaPagamento}"/>

@@ -132,6 +132,11 @@ namespace Erp.Model
             get { return new RelayCommandBase(o => AbrirTelaProduto()); }
 
         }
+        public ICommand CmdAbrirTelaNotaFiscalEntrada { get { return new RelayCommandBase(x=> AbrirTelaNotaFiscalEntrada());} }
+        public ICommand CmdAbrirTelaNotaFiscalSaida{ get { return new RelayCommandBase(x=> AbrirTelaNotaFiscalSaida());} }
+
+        
+
         public ICommand CmdAbrirTelaFormaPagamento
         {
             get { return new RelayCommandBase(o => AbrirTelaFormaPagamento()); }
@@ -210,6 +215,17 @@ namespace Erp.Model
         {
             new ProdutoFormView().ShowDialog();
         }
+        private void AbrirTelaNotaFiscalEntrada()
+        {
+            new NotaFiscalFormView(true).ShowDialog();
+        }
+
+        private void AbrirTelaNotaFiscalSaida()
+        {
+            new NotaFiscalFormView(false).ShowDialog();
+        }
+
+
         public void AbrirTelaFormaPagamento()
         {
             new FormaPagamentoFormView().ShowDialog();

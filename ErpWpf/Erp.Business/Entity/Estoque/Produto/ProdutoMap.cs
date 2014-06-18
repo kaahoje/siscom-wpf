@@ -26,6 +26,7 @@ namespace Erp.Business.Entity.Estoque.Produto
             Map(x => x.SaldoMinimo).Default("0");
             Map(x => x.TemReceita);
             Map(x => x.Origem).Not.Nullable();
+            Map(x => x.QuantidadeAtual);
             Map(x => x.Status);
             
             References(x => x.Ncm).Not.Nullable().LazyLoad();

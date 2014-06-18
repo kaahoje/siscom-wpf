@@ -74,7 +74,7 @@ namespace Erp.Business.Entity.Contabil
                 return partida;
             }
             // Caso não encontre uma partida correspondente ao código no lançamento cria uma nova partida.
-            RepositoryBase<PlanoContaReferencial>.Session = RepositoryBase<Pedido>.Session;
+            
             var p = new PartidasLancamento
             {
                 PlanoConta = PlanoContaReferencialRepository.GetByCodigoConta(planoConta.Codigo)

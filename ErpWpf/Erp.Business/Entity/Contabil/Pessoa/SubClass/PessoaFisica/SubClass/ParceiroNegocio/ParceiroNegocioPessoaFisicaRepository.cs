@@ -108,10 +108,9 @@ namespace Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.SubClass.Par
                 x.Alias.IsInsensitiveLike(ContainsStringFilter(filter))) && x.Status == Status.Ativo).Take(takePesquisa).List();
         }
 
-        public static ParceiroNegocioPessoaFisica GetByLogin(string usuario)
+        public static ParceiroNegocioPessoaFisica GetByLogin(string login)
         {
-            var list = GetQueryOver().Where(p => p.Login.IsInsensitiveLike(usuario)).List();
-            return list.FirstOrDefault();
+            return GetList().FirstOrDefault(x => x.Login == login);
         }
     }
 }

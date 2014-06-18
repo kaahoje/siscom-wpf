@@ -2,8 +2,8 @@
 {
     public enum StatusProducaoPedido
     {
-        Aguardando,
         EmProducao,
+        Confirmado,
         Produzido
     }
 }

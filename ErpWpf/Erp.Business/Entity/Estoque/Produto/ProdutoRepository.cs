@@ -1,14 +1,20 @@
 ﻿using System.Collections.Generic;
 using Erp.Business.Enum;
-using NHibernate;
 using NHibernate.Criterion;
 
 namespace Erp.Business.Entity.Estoque.Produto
 {
     public class ProdutoRepository : RepositoryBase<Produto>
     {
-        public static void BaixarQuantidadeProduto(ISession session, Produto produto, decimal quantidade)
+        public static void BaixarQuantidadeProduto( Produto produto, decimal quantidade)
         {
+            if (quantidade > 0)
+            {
+                quantidade = quantidade*-1;
+            }
+            var prod = GetById(produto.Id);
+            prod.QuantidadeAtual -= quantidade;
+            Session.Save(prod);
         }
 
         public static IList<Produto> GetByDescricao(string param)

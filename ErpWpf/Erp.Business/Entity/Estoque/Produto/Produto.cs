@@ -108,6 +108,7 @@ namespace Erp.Business.Entity.Estoque.Produto
         public virtual Unidade UnidadeVenda { get; set; }
         public virtual Status Status { get; set; }
 
-        public virtual IList<MovimentacaoProduto> Movimentacao { get; set; } 
+        public virtual IList<MovimentacaoProduto> Movimentacao { get; set; }
+        public virtual decimal QuantidadeAtual { get; set; }
     }
 }

@@ -25,9 +25,9 @@
         <rest:RestForm HorizontalAlignment="Left" x:Name="RestCommands" IsTabStop="False" VerticalAlignment="Top" Width="802" />
 
         <Grid Grid.Row="1">
-            <dx:DXTabControl Grid.Row="1" Margin="5">
+            <dx:DXTabControl Grid.Row="0" Margin="5">
                 <dx:DXTabItem Header="Dados do produto">
-                    <Grid Background="Transparent" Margin="0,0,0,-7">
+                    <Grid Background="Transparent" Margin="0,0,0,0">
                         <Grid HorizontalAlignment="Left" Height="280" Margin="5" VerticalAlignment="Top" Width="735">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="0"/>

@@ -1,4 +1,6 @@
-﻿using Erp.Business.Entity.Fiscal.ClassesRelacionadas;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Erp.Business.Entity.Fiscal.ClassesRelacionadas;
 
 namespace Erp.Business.Entity.Fiscal
 {
@@ -10,14 +12,20 @@ namespace Erp.Business.Entity.Fiscal
             {
                 return 0;
             }
-            decimal total = 0;
+            decimal total = nf.Produtos.Sum(prod => prod.ValorUnitario*prod.Quantidade);
 
-            foreach (ProdutoNotaFiscal prod in nf.Produtos)
-            {
-                total += prod.ValorUnitario*prod.Quantidade;
-            }
             total += nf.Frete + nf.OutrasDespesasAcessorias + nf.Seguro - nf.Desconto;
             return total;
+        }
+
+        public static IList<NotaFiscal> GetByRangeEntrada(string filter, int takePesquisa)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public static IList<NotaFiscal> GetByRangeSaida(string filter, int takePesquisa)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

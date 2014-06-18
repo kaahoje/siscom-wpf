@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Erp.Business.Entity.Contabil;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using NHibernate;
@@ -11,10 +12,11 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.PagamentoCliente
     {
         public static IList<PagamentoCliente> PagamentosDia(int caixa, DateTime dia, PessoaJuridica empresa)
         {
-            return NHibernateHttpModule.Session.CreateCriteria<PagamentoCliente>().Add(
-                Restrictions.Where<PagamentoCliente>(
-                    cliente => cliente.DataMovimento == dia &&
-                               cliente.Caixa == caixa && cliente.Empresa == empresa)).List<PagamentoCliente>();
+            return GetList().Where(x => x.Caixa == caixa && x.DataMovimento == dia).ToList();
+            //return NHibernateHttpModule.Session.CreateCriteria<PagamentoCliente>().Add(
+            //    Restrictions.Where<PagamentoCliente>(
+            //        cliente => cliente.DataMovimento == dia &&
+            //                   cliente.Caixa == caixa && cliente.Empresa == empresa)).List<PagamentoCliente>();
         }
 
         public static PagamentoCliente Save(PagamentoCliente pag, Pedido.Pedido pedido)

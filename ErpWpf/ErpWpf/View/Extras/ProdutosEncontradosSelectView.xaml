@@ -1,0 +1,48 @@
+﻿<dx:DXWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:Extras="clr-namespace:Erp.Model.Extras"
+    x:Class="Vendas.Component.View.Telas.ProdutosEncontradosView"
+        Title="Produtos encontrados" Height="479.051" Width="728.477" WindowStartupLocation="CenterScreen"  WindowStyle="None"  >
+
+    <dx:DXWindow.InputBindings>
+        <KeyBinding Command="{Binding CmdCancelarPesquisa}"
+                CommandParameter="About"
+                Gesture="Escape"/>
+        <KeyBinding Command="{Binding CmdSelecionar}"
+                CommandParameter="Selecionar"
+                Gesture="Enter"/>
+    </dx:DXWindow.InputBindings>
+    <dx:DXWindow.DataContext>
+        <Extras:ProdutosEncontradosGridModel/>
+    </dx:DXWindow.DataContext>
+    <Grid>
+        <dxb:BarManager CreateStandardLayout="True">
+            <dxb:BarManager.Items>
+                <dxb:BarButtonItem x:Name="CmdAdicionar" Content="Adicionar" RibbonStyle="Large" KeyGesture="{Binding KeySelecionarProduto, Mode=OneWay}" Glyph="pack://application:,,,/DevExpress.Images.v13.2;component/Images/Content/CheckBox_32x32.png" Command="{Binding CmdAdicionar}"/>
+                <dxb:BarButtonItem x:Name="CmdCancelar" Content="Cancelar" RibbonStyle="Large" KeyGesture="{Binding KeyCancelar, Mode=OneWay}" Command="{Binding CmdCancelar}"/>
+            </dxb:BarManager.Items>
+            <DockPanel/>
+        </dxb:BarManager>
+        <dxg:GridControl x:Name="GridProdutosEncontrados" EnableSmartColumnsGeneration="True" 
+			HorizontalAlignment="Left" VerticalAlignment="Top" 
+			ItemsSource="{Binding Collection}" SelectedItem="{Binding CurrentItem}" Width="720" Height="471">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Descricao" Header="Descrição" Width="300" ReadOnly="True"/>
+                <dxg:GridColumn FieldName="PrecoVenda" Header="Preço">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings Mask="c" MaskUseAsDisplayFormat="true" MaskType="Numeric"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="Referencia" Header="Referência"/>
+                <dxg:GridColumn FieldName="CodBarra" Header="Cód. barras"/>
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView ShowTotalSummary="True" AllowGrouping="False" AllowHorizontalScrollingVirtualization="False" AllowFilterEditor="False" AllowEditing="True" AllowMoveColumnToDropArea="False" ShowGroupPanel="False"/>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</dx:DXWindow>

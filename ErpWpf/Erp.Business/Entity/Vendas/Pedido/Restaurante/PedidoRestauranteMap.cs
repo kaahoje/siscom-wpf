@@ -8,8 +8,8 @@ namespace Erp.Business.Entity.Vendas.Pedido.Restaurante
         {
             Map(x => x.Local).CustomType<int>();
             Map(x => x.Mesa);
+            Map(x => x.StatusProducao);
             Map(x => x.HoraEntrada).Not.Nullable();
-            Map(x => x.HoraEntrega);
             Map(x => x.HoraProducao);
             References(x => x.Controle);
             References(x => x.Garcon);

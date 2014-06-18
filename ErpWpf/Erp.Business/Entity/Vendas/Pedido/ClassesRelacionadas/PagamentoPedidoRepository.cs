@@ -26,22 +26,22 @@ namespace Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas
         private static void LancarProdutos(decimal totalPedido, decimal totalProdutos, PagamentoPedido pag)
         {
             var percentualProdutos= Utils.GetPercentual(totalProdutos, pag.ValorTotal);
-            var tituloProduto = TituloRepository.GerarTitulo(
-                    true,
-                    DateTime.Now.Date,
-                    Utils.CalculaProporcao(totalProdutos,),
-                    pag.Juros,
-                    pag.Desconto,
-                    pag.FormaPagamento.TipoTituloProduto);
+            //var tituloProduto = TituloRepository.GerarTitulo(
+            //        true,
+            //        DateTime.Now.Date,
+            //        Utils.CalculaProporcao(totalProdutos),
+            //        pag.Juros,
+            //        pag.Desconto,
+            //        pag.FormaPagamento.TipoTituloProduto);
         }
         private static void LancarMercadorias(decimal totalPedido, decimal totalMercadorias, PagamentoPedido pag)
         {
              var percentualMercadorias = Utils.GetPercentual(totalMercadorias, pag.ValorTotal);
-            var tituloMercadoria=TituloRepository.GerarTitulo(
-                    true,
-                    DateTime.Now.Date,
-                    Utils.GetValorDoPercentual(percentualMercadorias,totalMercadorias),
-                    pag.)
+            //var tituloMercadoria=TituloRepository.GerarTitulo(
+            //        true,
+            //        DateTime.Now.Date,
+            //        Utils.GetValorDoPercentual(percentualMercadorias,totalMercadorias),
+            //        pag.)
                 if (!pag.FormaPagamento.AVista)
                 {
                     

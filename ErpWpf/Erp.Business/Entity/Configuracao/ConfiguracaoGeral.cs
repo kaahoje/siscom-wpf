@@ -1,6 +1,7 @@
 ﻿using System;
 using Erp.Business.Entity.Contabil;
 using Erp.Business.Entity.Contabil.Pessoa;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using Erp.Business.Entity.Estoque.Produto.ClassesRelacionadas;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using Erp.Business.Enum;
@@ -10,7 +11,7 @@ namespace Erp.Business.Entity.Configuracao
     public class ConfiguracaoGeral
     {
         #region Configurações gerais.
-
+        public virtual PessoaJuridica Proprietaria { get; set; }
         public virtual TipoAmbiente Ambiente { get; set; }
 
         #endregion
@@ -41,7 +42,10 @@ namespace Erp.Business.Entity.Configuracao
         ///     Pessoa padrão usada para efetuar as operações de venda.
         /// </summary>
         public virtual Pessoa PessoaPadrao { get; set; }
-
+        /// <summary>
+        /// Diz ao sistema se deverá avisar quando o produto não tiver quantidade disponível.
+        /// </summary>
+        public virtual bool AvisaProdutoSemQuantidade { get; set; }
 
         /// <summary>
         ///     Data que está sendo processada as vendas do estabelecimento.
@@ -84,6 +88,7 @@ namespace Erp.Business.Entity.Configuracao
         /// </summary>
         public virtual bool SistemaComissao { get; set; }
 
+        
         #endregion
     }
 }

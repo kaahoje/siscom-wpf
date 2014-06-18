@@ -6,7 +6,7 @@
         public const string MaskCnpj = "##,###,###/####-##";
         public const string MaskDate = "dd/MM/yyyy";
         public const string MaskHour = "HH:mm";
-        public const string MaskMoney = "{0:C}";
+        public const string MaskMoney = "C";
         public const string MaskPercent = "P";
 
         public string MaskCpfProperty { get { return MaskCpf; } }

@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica.ClassesRelacionadas;
+using Erp.Business.Entity.Fiscal.ClassesRelacionadas;
 
 namespace Erp.Model
 {
@@ -10,6 +11,7 @@ namespace Erp.Model
     {
         private T _entity;
         private ModelSelectBase _modelSelect;
+        private ProdutoNotaFiscal _produtoAtual;
 
         public ModelFormGeneric()
         {
@@ -24,6 +26,17 @@ namespace Erp.Model
                 _entity = value; 
                 OnPropertyChanged("Entity");
                 //AplicaPermissoes();
+            }
+        }
+
+        public ProdutoNotaFiscal ProdutoAtual
+        {
+            get { return _produtoAtual ?? (_produtoAtual = new ProdutoNotaFiscal()); }
+            set
+            {
+                if (Equals(value, _produtoAtual)) return;
+                _produtoAtual = value;
+                OnPropertyChanged();
             }
         }
 

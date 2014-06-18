@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
 using Erp.Business.Entity.Vendas.Pedido.ClassesRelacionadas;
 using NHibernate.Criterion;
@@ -10,10 +11,11 @@ namespace Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.RecebimentoVenda
     {
         public static IList<RecebimentoVenda> RecebimentosDia(int caixa, DateTime dia, PessoaJuridica empresa)
         {
-            return NHibernateHttpModule.Session.CreateCriteria<RecebimentoVenda>().Add(
-                Restrictions.Where<RecebimentoVenda>(venda =>
-                    venda.DataMovimento == dia &&
-                    venda.Caixa == caixa && venda.Empresa == empresa)).List<RecebimentoVenda>();
+            return GetList().Where(x => x.Caixa == caixa && x.DataMovimento == dia ).ToList();
+            //return NHibernateHttpModule.Session.CreateCriteria<RecebimentoVenda>().Add(
+            //    Restrictions.Where<RecebimentoVenda>(venda =>
+            //        venda.DataMovimento == dia &&
+            //        venda.Caixa == caixa && venda.Empresa == empresa)).List<RecebimentoVenda>();
         }
 
         public static RecebimentoVenda CreateRecebimentoVendaByPedido(PagamentoPedido pag, Pedido.Pedido pedido)

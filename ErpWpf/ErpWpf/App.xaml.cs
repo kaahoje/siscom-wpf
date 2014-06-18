@@ -1,11 +1,17 @@
-﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Windows;
 using Erp.Business;
+using Erp.Business.Entity.Configuracao;
+using Erp.Business.Entity.Contabil.Pessoa;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaFisica;
+using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
+using Erp.Business.Entity.Fiscal.ClassesRelacionadas;
 using Erp.Business.Entity.Sped;
 using System.Collections.ObjectModel;
 using Erp.Properties;
@@ -23,11 +29,13 @@ namespace Erp
     public partial class App : Application
     {
         public static PessoaFisica Usuario { get; set; }
+        public static ConfiguracaoGeral Configuracao { get; set; }
         public static ObservableCollection<Ncm> Ncms { get; set; }
         public static ObservableCollection<Cst> Csts { get; set; }
         public static ObservableCollection<CstPis> CstPis { get; set; }
         public static ObservableCollection<CstCofins> CstCofins { get; set; }
         public static ObservableCollection<CstIpi> CstIpi { get; set; }
+        public static ObservableCollection<Cfop> Cfops { get; set; }
 
         public App()
         {
@@ -37,7 +45,7 @@ namespace Erp
 
        
 
-        public static Splash splashScreen;
+        
 
         private ManualResetEvent ResetSplashCreated;
         private Thread SplashThread;
@@ -57,6 +65,7 @@ namespace Erp
 
             //// Wait for the blocker to be signaled before continuing. This is essentially the same as: while(ResetSplashCreated.NotSet) {}
             //ResetSplashCreated.WaitOne();
+            //var initType = ConfigurationManager.AppSettings["initDbType"];
             //if (Settings.Default.Lix == null)
             //{
             //    new RequisicaoLicencaView().ShowDialog();
@@ -64,20 +73,20 @@ namespace Erp
             //    {
             //        Process.GetCurrentProcess().Kill();
             //    }
-            Settings.Default.Lix = new LicencaConcedida(); // Apagar após o fim dos testes do serviço
+            //Settings.Default.Lix = new LicencaConcedida(); // Apagar após o fim dos testes do serviço
 
-            if (!Services.SuporteClient.LicenceActivated(Settings.Default.Lix.Codigo))
-            {
-                Services.SuporteClient.Log("Cliente:" + Settings.Default.Lix.Documento
-                    + "\nErro ao carregar aplicação.\n Código do erro: x0:001\n");
-            }
+            //if (!Services.SuporteClient.LicenceActivated(Settings.Default.Lix.Codigo))
+            //{
+            //    Services.SuporteClient.Log("Cliente:" + Settings.Default.Lix.Documento
+            //        + "\nErro ao carregar aplicação.\n Código do erro: x0:001\n");
+            //}
             //}
             //else
             //{
             
             //}
-            var initType = Settings.Default.InitDbType;
-            DataBaseManager.CnnStr = Settings.Default.ConnectionString;
+            var initType = ConfigurationManager.AppSettings["initDbType"];
+            //DataBaseManager.CnnStr = ConfigurationManager.AppSettings["cnnDeploy"];
             if (!string.IsNullOrEmpty(initType))
             {
                 switch (initType)
@@ -91,6 +100,13 @@ namespace Erp
                 }
             }
             
+            Configuracao = ConfiguracaoGeralRepository.GetById(1);
+            Ncms = new ObservableCollection<Ncm>(NcmRepository.GetList());
+            Csts = new ObservableCollection<Cst>(CstRepository.GetList());
+            CstCofins = new ObservableCollection<CstCofins>(CstCofinsRepository.GetList());
+            CstIpi = new ObservableCollection<CstIpi>(CstIpiRepository.GetList());
+            CstPis = new ObservableCollection<CstPis>(CstPisRepository.GetList());
+            Cfops = new ObservableCollection<Cfop>(CfopRepository.GetList());
             base.OnStartup(e);
             //SplashThread.Interrupt();
         }

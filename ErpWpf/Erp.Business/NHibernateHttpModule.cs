@@ -117,7 +117,7 @@ namespace Erp.Business
             }
             catch (Exception ex)
             {
-                LogException( ex);
+                LogException(ex);
                 throw;
             }
             

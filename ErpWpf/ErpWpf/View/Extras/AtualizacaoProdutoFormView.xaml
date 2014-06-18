@@ -6,11 +6,15 @@
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         xmlns:Grids="clr-namespace:Erp.Model.Grids" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:Extras="clr-namespace:Erp.Model.Extras"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dicionary="clr-namespace:Erp.Business.Dicionary;assembly=Erp.Business"
     x:Class="Erp.View.Extras.AtualizacaoProdutoFormView"
-        Title="Atualização do cadastro de produtos" Height="439.85" Width="768.045" WindowStartupLocation="CenterScreen" Visibility="{Binding IsVisible}">
+        Title="Atualização do cadastro de produtos" Height="439.85" Width="850" WindowStartupLocation="CenterScreen" Visibility="{Binding IsVisible}">
     <Window.DataContext>
         <Extras:AtualizacaoProdutoFormModel/>
     </Window.DataContext>
+    <dx:DXWindow.Resources>
+        <dicionary:SituacaoTributariaDictionary x:Key="SituacaoTributariaDictionary" />
+    </dx:DXWindow.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -22,8 +26,8 @@
         <dxe:TextEdit x:Name="txtFiltro" Grid.Row="1" HorizontalAlignment="Left" Margin="50,5" VerticalAlignment="Top" Width="300" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <dxg:GridControl HorizontalAlignment="Left" 
-			Margin="10" Grid.Row="2" VerticalAlignment="Top"
-			Width="740" Height="253" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+			Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"
+			Width="832" Height="253" ItemsSource="{Binding Collection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <dxg:GridControl.Columns>
                 <dxg:GridColumn FieldName="Descricao" Header="Descrição" Width="300"/>
                 <dxg:GridColumn FieldName="NumeroCardapio" Header="N. cardápio" Width="75"/>
@@ -39,9 +43,22 @@
                         <dxe:ComboBoxEditSettings ItemsSource="{Binding Ncms}" DisplayMember="Codigo" AutoComplete="True" IncrementalFiltering="True"/>
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
+                <dxg:GridColumn FieldName="Tributacao.TipoTributacaoIcms" Header="Trib. ICMS">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:ComboBoxEditSettings 
+                            AutoComplete="True" DisplayMember="Description" ValueMember="Value" IncrementalFiltering="True"
+                            ItemsSource="{Binding Values, Source={StaticResource SituacaoTributariaDictionary}}"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="Tributacao.IcmsDevedor" Header="ICMS devedor">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:SpinEditSettings MinValue="0" MaxValue="100"
+                                              Mask="p" MaskUseAsDisplayFormat="True"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
             </dxg:GridControl.Columns>
             <dxg:GridControl.View>
-                <dxg:TableView ShowGroupPanel="False"/>
+                <dxg:TableView ShowTotalSummary="True" ShowGroupPanel="False" AutoWidth="True"/>
             </dxg:GridControl.View>
         </dxg:GridControl>
         <dxb:BarManager Grid.Row="0" CreateStandardLayout="False">

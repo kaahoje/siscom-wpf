@@ -71,8 +71,13 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper">
-      <HintPath>..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -222,7 +227,9 @@
     </Compile>
     <Compile Include="Enum\TipoPessoa.cs" />
     <Compile Include="Model\Extras\AtualizacaoProdutoFormModel.cs" />
+    <Compile Include="Model\Extras\ProdutosEncontradosGridModel.cs" />
     <Compile Include="Model\Forms\CondicaoPagamentoFormModel.cs" />
+    <Compile Include="Model\Forms\ConfiguracaoFormModel.cs" />
     <Compile Include="Model\Forms\CustoFixo\PessoaFisica\ParceiroNegocioPessoaFisica\CustoFixoParceiroNegocioPessoaFisicaFormModel.cs" />
     <Compile Include="Model\Forms\CustoFixo\PessoaJuridica\ParceiroNegocioPessoaJuridica\CustoFixoParceiroNegocioPessoaJuridicaFormModel.cs" />
     <Compile Include="Model\Forms\FormaPagamentoFormModel.cs" />
@@ -232,6 +239,7 @@
     <Compile Include="Model\Forms\LoginModelForm.cs" />
     <Compile Include="Model\Forms\MesGeradoFormModel.cs" />
     <Compile Include="Model\Forms\NcmFormModel.cs" />
+    <Compile Include="Model\Forms\NotaFiscalFormModelModel.cs" />
     <Compile Include="Model\Forms\PermissaoUsuarioFormModel.cs" />
     <Compile Include="Model\Forms\Pessoa\IPessoa.cs" />
     <Compile Include="Model\Forms\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaFormModel.cs" />
@@ -256,6 +264,7 @@
     <Compile Include="Model\Grids\Lancamento\PessoaFisica\ParceiroNegocioPessoaFisica\LancamentoParceiroNegocioPessoaFisicaFormModel.cs" />
     <Compile Include="Model\Grids\Lancamento\PessoaJuridica\ParceiroNegocioPessoaJuridica\LancamentoParceiroNegocioPessoaJuridicaSelectModel.cs" />
     <Compile Include="Model\Grids\NcmSelectModel.cs" />
+    <Compile Include="Model\Grids\NotaFiscalSelectModel.cs" />
     <Compile Include="Model\Grids\PermissaoUsuarioSelectModel.cs" />
     <Compile Include="Model\Grids\Pessoa\PessoaFisica\ParceiroNegocioPessoaFisica\ParceiroNegocioPessoaFisicaSelectModel.cs" />
     <Compile Include="Model\Grids\Pessoa\PessoaFisica\PessoaFisicaSelectModel.cs" />
@@ -271,6 +280,7 @@
     <Compile Include="Model\LargeDataModel\ParceiroNegocioPessoaFisicaLargeDataModel.cs" />
     <Compile Include="Model\LargeDataModel\PessoaFisicaLargeDataModel.cs" />
     <Compile Include="Model\LargeDataModel\PlanoContaReferencialLargeDataModel.cs" />
+    <Compile Include="Model\LargeDataModel\ProdutoLargeDataModel.cs" />
     <Compile Include="Model\LargeDataModel\TipoTituloLargeDataModel.cs" />
     <Compile Include="Model\ModelBase.cs" />
     <Compile Include="Model\ModelFormGeneric.cs" />
@@ -463,6 +473,9 @@
     <Compile Include="View\Extras\AtualizacaoProdutoFormView.xaml.cs">
       <DependentUpon>AtualizacaoProdutoFormView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Extras\ProdutosEncontradosSelectView.xaml.cs">
+      <DependentUpon>ProdutosEncontradosSelectView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\CondicaoPagamentoFormView.xaml.cs">
       <DependentUpon>CondicaoPagamentoFormView.xaml</DependentUpon>
     </Compile>
@@ -494,6 +507,9 @@
     <Compile Include="View\Forms\NcmFormView.xaml.cs">
       <DependentUpon>NcmFormView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\NotaFiscalFormView.xaml.cs">
+      <DependentUpon>NotaFiscalFormView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\PermissaoUsuarioFormView.xaml.cs">
       <DependentUpon>PermissaoUsuarioFormView.xaml</DependentUpon>
     </Compile>
@@ -523,6 +539,9 @@
     </Compile>
     <Compile Include="View\Forms\Pessoa\PessoaUserControl.xaml.cs">
       <DependentUpon>PessoaUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Pessoa\Relacionados\PessoaEnderecoUserControl.xaml.cs">
+      <DependentUpon>PessoaEnderecoUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\Pessoa\TipoPessoaSelectView.xaml.cs">
       <DependentUpon>TipoPessoaSelectView.xaml</DependentUpon>
@@ -584,6 +603,9 @@
     <Compile Include="View\Selections\NcmSelectView.xaml.cs">
       <DependentUpon>NcmSelectView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Selections\NotaFiscalSelectView.xaml.cs">
+      <DependentUpon>NotaFiscalSelectView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Selections\PermissaoUsuarioSelectView.xaml.cs">
       <DependentUpon>PermissaoUsuarioSelectView.xaml</DependentUpon>
     </Compile>
@@ -642,6 +664,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Extras\ProdutosEncontradosSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Forms\CondicaoPagamentoFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -682,6 +708,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Forms\NotaFiscalFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Forms\PermissaoUsuarioFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -719,6 +749,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Forms\Pessoa\PessoaUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Forms\Pessoa\Relacionados\PessoaEnderecoUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -799,6 +833,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Selections\NcmSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Selections\NotaFiscalSelectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -954,6 +992,7 @@
       <DependentUpon>TituloPeriodoReport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Arquivos\dados.zip" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Erp_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Erp.Business.Constants.datasource" />
@@ -1175,6 +1214,7 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

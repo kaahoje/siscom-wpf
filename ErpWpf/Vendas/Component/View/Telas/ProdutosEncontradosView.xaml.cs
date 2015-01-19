@@ -3,8 +3,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using DevExpress.Xpf.Ribbon.Customization;
+using DevExpress.XtraPrinting.Native;
 using Erp.Business.Entity.Estoque.Produto;
-using FluentNHibernate.Conventions;
 using Vendas.ViewModel.Grids;
 
 namespace Vendas.Component.View.Telas

@@ -26,8 +26,8 @@ namespace Vendas
                 throw new Exception("Informe ao menos um produto para poder fechar o pedido.");
             }
             var s =NHibernateHttpModule.Session;
-            CondicaoPagamentoRepository.Session = s;
-            FormaPagamentoRepository.Session = s;
+            //CondicaoPagamentoRepository.Session = s;
+            //FormaPagamentoRepository.Session = s;
             
             // quando do uso de cupom fiscal deve ser chamado o comando de impressão aqui.
             pedido.Caixa = Properties.Settings.Default.Caixa;

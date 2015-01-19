@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Windows.Input;
 using Ecf;
 using Erp.Business;
 using Erp.Business.Entity.Contabil.Pessoa.SubClass.PessoaJuridica;
-using Erp.Business.Entity.Vendas.MovimentacaoCaixa;
 using Erp.Business.Entity.Vendas.MovimentacaoCaixa.SubClass.LancamentoInicial;
 using Erp.Business.Enum;
-using NHibernate;
 using Util;
-using Util.Wpf;
 using Settings = Vendas.Properties.Settings;
 
 namespace Vendas.ViewModel.Forms

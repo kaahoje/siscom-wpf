@@ -255,7 +255,7 @@ namespace Erp.Business
                 {
                     Directory.CreateDirectory(path);
                 }
-                path += "\\log" + DateTime.Now.Date.ToString("yyyy-MM-dd") + ".txt";
+                path += "\\log" + DateTime.Now.Date.ToString("yyyyMMdd") + ".txt";
 
                 GravarArquivo(path, message);
             }
@@ -276,7 +276,7 @@ namespace Erp.Business
                 {
                     Directory.CreateDirectory(path);
                 }
-                path += "\\log" + DateTime.Now.Date.ToString("yyyy-MM-dd") + ".txt";
+                path += "\\log" + DateTime.Now.Date.ToString("yyyyMMdd") + ".txt";
 
                 GravarArquivo(path, message);
 
@@ -289,10 +289,10 @@ namespace Erp.Business
 
         public static string GetStackTrace(Exception ex)
         {
-            var e = ex.InnerException;
+            var e = ex;
             var trace = ex.StackTrace;
 
-            var message = "Source:" + ex.Source + "\n";
+            var message ="";
 
             while (e != null)
             {

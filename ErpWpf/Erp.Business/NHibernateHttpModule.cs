@@ -128,6 +128,7 @@ namespace Erp.Business
 
         private static void LogException(Exception exception)
         {
+            Utils.GerarLog(exception);
             if (exception is ReflectionTypeLoadException)
             {
                 Utils.GerarLogDataBase(exception);
@@ -143,6 +144,10 @@ namespace Erp.Business
             else if (null != exception.InnerException)
             {
                 LogException(exception.InnerException);
+            }
+            else
+            {
+                
             }
 
         }

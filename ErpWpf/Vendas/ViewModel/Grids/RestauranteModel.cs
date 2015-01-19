@@ -5,17 +5,14 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using AutoMapper;
-using DevExpress.Xpf.Ribbon.Customization;
 using Ecf.Forms;
 using Erp.Business.Entity.Vendas.Pedido.Restaurante;
 using Erp.Business.Enum;
-using RestauranteService;
 using Util;
 using Util.Wpf;
 using Vendas.Component.View.Telas;
 using Vendas.ViewModel.Forms;
 using MessageBox = System.Windows.Forms.MessageBox;
-using RestauranteService = RestauranteService.RestauranteService;
 
 namespace Vendas.ViewModel.Grids
 {
@@ -186,6 +183,8 @@ namespace Vendas.ViewModel.Grids
         #endregion Fim Commands
 
         private PedidoRestauranteModel _currentItem;
+        private ObservableCollection<PedidoRestauranteModel> _filaEntrega;
+        private ObservableCollection<PedidoRestauranteModel> _filaSalao;
         private bool _funcoesFilaVisible;
         private bool _funcoesPedidoVisible;
         private bool _entregasVisible;
@@ -201,21 +200,26 @@ namespace Vendas.ViewModel.Grids
         private Visibility _telaPedidoVisible = Visibility.Hidden;
         private ICommand _cmdProcurarMesa;
         private ICommand _cmdMenuFiscal;
-        private static global::RestauranteService.RestauranteService _service;
 
-        #region Funções de restaurante para o caixa.
 
-        public static global::RestauranteService.RestauranteService Service
+        public ObservableCollection<PedidoRestauranteModel> FilaEntrega
         {
-            get
+            get { return _filaEntrega; }
+            set
             {
-                if (_service == null)
-                {
-                    _service = new global::RestauranteService.RestauranteService();
-                }
-                return _service;
+                _filaEntrega = value;
+                OnPropertyChanged();
             }
-            set { _service = value; }
+        }
+
+        public ObservableCollection<PedidoRestauranteModel> FilaSalao
+        {
+            get { return _filaSalao; }
+            set
+            {
+                _filaSalao = value;
+                OnPropertyChanged();
+            }
         }
 
         public override PedidoRestauranteModel CurrentItem
@@ -302,17 +306,6 @@ namespace Vendas.ViewModel.Grids
         {
             new FormMenuFiscal(FormMenuFiscal.MenuFiscalTipo.Restaurante).ShowDialog();
         }
-
-        public event AcaoConcluidaEventHandler AcaoConcluida;
-
-        protected virtual void OnAcaoConcluida()
-        {
-            AcaoConcluidaEventHandler handler = AcaoConcluida;
-            if (handler != null) handler(this, EventArgs.Empty);
-        }
-
-        #endregion
-
         private void TrocarMesa()
         {
             try
@@ -343,7 +336,7 @@ namespace Vendas.ViewModel.Grids
                 CustomMessageBox.MensagemErro(ex.Message);
                 Erp.Business.Utils.GerarLog(ex);
             }
-
+            
         }
 
         private void ProcurarMesa()
@@ -367,8 +360,8 @@ namespace Vendas.ViewModel.Grids
             {
                 CustomMessageBox.MensagemErro(ex.Message);
                 Erp.Business.Utils.GerarLog(ex);
-            }
-
+            } 
+            
         }
 
         private void NovaMesa()
@@ -401,7 +394,7 @@ namespace Vendas.ViewModel.Grids
                 CustomMessageBox.MensagemErro(ex.Message);
                 Erp.Business.Utils.GerarLog(ex);
             }
-
+            
         }
         private void NovoBalcao()
         {
@@ -415,7 +408,7 @@ namespace Vendas.ViewModel.Grids
                 CustomMessageBox.MensagemErro(ex.Message);
                 Erp.Business.Utils.GerarLog(ex);
             }
-
+            
         }
 
         private void Parcial()
@@ -448,6 +441,14 @@ namespace Vendas.ViewModel.Grids
 
         }
 
+        public event AcaoConcluidaEventHandler AcaoConcluida;
+
+        protected virtual void OnAcaoConcluida()
+        {
+            AcaoConcluidaEventHandler handler = AcaoConcluida;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
         private void FecharPedido()
         {
             try
@@ -467,7 +468,7 @@ namespace Vendas.ViewModel.Grids
                     if (!ped.IsPagamentoCancelado)
                     {
                         Collection.Remove(ped);
-
+                        FilaSalao.Remove(ped);
                         CurrentItem = null;
                     }
                 }
@@ -477,10 +478,10 @@ namespace Vendas.ViewModel.Grids
                     FecharEntrega();
                     if (!ped.IsPagamentoCancelado)
                     {
+                        FilaEntrega.Remove(ped);
                         CurrentItem = null;
                     }
                 }
-                AtualizarMesasAbertas();
                 OnAcaoConcluida();
             }
             catch (Exception ex)
@@ -513,7 +514,7 @@ namespace Vendas.ViewModel.Grids
                             return;
                         }
                         CurrentItem = mesa;
-                        if (CurrentItem.FecharPedido()) Service.FecharMesa(mesa.EntityRestaurante.Mesa);
+                        if (CurrentItem.FecharPedido()) RemoveMesa(mesa);
 
                     }
                 }
@@ -537,7 +538,7 @@ namespace Vendas.ViewModel.Grids
                     var entrega = GetEntrega(numControle.Value);
                     if (entrega != null)
                     {
-                        if (entrega.FecharPedido()) Service.FecharEntrega(numControle.Value);
+                        if (entrega.FecharPedido()) RemoveEntrega(entrega);
                     }
                 }
             }
@@ -563,8 +564,7 @@ namespace Vendas.ViewModel.Grids
                     var result = MessageBox.Show("Deseja realmente cancelar esta mesa", "Cancelar mesa", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
                     if (result == DialogResult.Yes)
                     {
-                        Service.CancelarMesa(CurrentItem.EntityRestaurante.Mesa);
-
+                        RemoveMesa(CurrentItem);
                     }
 
                 }
@@ -573,18 +573,17 @@ namespace Vendas.ViewModel.Grids
                     var result = MessageBox.Show("Deseja realmente cancelar esta entrega", "Cancelar entrega", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
                     if (result == DialogResult.Yes)
                     {
-                        Service.CancelarEntrega(CurrentItem.EntityRestaurante.Controle.Controle);
+                        RemoveEntrega(CurrentItem);
                     }
 
                 }
-                AtualizarMesasAbertas();
             }
             catch (Exception ex)
             {
                 CustomMessageBox.MensagemErro(ex.Message);
                 Erp.Business.Utils.GerarLog(ex);
             }
-
+            
 
         }
         private void ConfirmarPedido()
@@ -601,8 +600,35 @@ namespace Vendas.ViewModel.Grids
                 }
                 if (!CurrentItem.EntityRestaurante.Confirmado)
                 {
-                    TrataRetornoRestauranteService(Service.ConfirmarPedido(CurrentItem.EntityRestaurante));
-                    AtualizarMesasAbertas();
+                    switch (CurrentItem.EntityRestaurante.Local)
+                    {
+                        case LocalPedidoRestaurante.Mesa:
+                            var mesaAberta = GetMesa(CurrentItem.EntityRestaurante.Mesa);
+                            if (mesaAberta != null)
+                            {
+                                foreach (var prod in CurrentItem.Produtos)
+                                {
+                                    mesaAberta.AddProduto(prod);
+                                }
+                            }
+                            else
+                            {
+                                Collection.Add(CurrentItem);
+                            }
+                            break;
+                        default:
+                            switch (CurrentItem.EntityRestaurante.Local)
+                            {
+                                case LocalPedidoRestaurante.Balcao:
+                                    FilaSalao.Add(CurrentItem);
+                                    break;
+                                case LocalPedidoRestaurante.Entrega:
+                                    FilaEntrega.Add(CurrentItem);
+                                    break;
+                            }
+                            break;
+                    }
+                    CurrentItem.ConfirmarPedido();
                     CurrentItem = null;
                 }
             }
@@ -611,87 +637,76 @@ namespace Vendas.ViewModel.Grids
                 CustomMessageBox.MensagemErro(ex.Message);
                 Erp.Business.Utils.GerarLog(ex);
             }
-
+            
 
         }
-
-        private void AtualizarMesasAbertas()
+        private void RemoveEntrega(PedidoRestauranteModel entrega)
         {
-            Collection.Clear();
-            foreach (var pedido in Service.GetMesasAbertas())
+            try
             {
-                Collection.Add(new PedidoRestauranteModel()
+                FilaEntrega.Remove(entrega);
+                if (CurrentItem != null && CurrentItem.IdGuid == entrega.IdGuid)
                 {
-                    Entity = pedido
-                });
+                    CurrentItem = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
             }
             
         }
 
-        public static void TrataRetornoRestauranteService(StatusComando statusComando)
+        private void RemoveMesa(PedidoRestauranteModel mesa)
         {
-            switch (statusComando)
+            try
             {
-                    case StatusComando.ConcluidoSucesso:
-                    break;
-                default:
-                    CustomMessageBox.MensagemErro(Service.GetLastException());
-                    break;
+                if (mesa.EntityRestaurante.Confirmado)
+                {
+                    Collection.Remove(mesa);
+                }
+                if (CurrentItem != null && CurrentItem.EntityRestaurante.Mesa == mesa.EntityRestaurante.Mesa)
+                {
+                    CurrentItem = null;
+                }
+                FilaSalao.Remove(mesa);
             }
+            catch (Exception ex)
+            {
+                CustomMessageBox.MensagemErro(ex.Message);
+                Erp.Business.Utils.GerarLog(ex);
+            }
+            
+
         }
-
-        //private void RemoveEntrega(PedidoRestauranteModel entrega)
-        //{
-        //    try
-        //    {
-        //        FilaEntrega.Remove(entrega);
-        //        if (CurrentItem != null && CurrentItem.IdGuid == entrega.IdGuid)
-        //        {
-        //            CurrentItem = null;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        CustomMessageBox.MensagemErro(ex.Message);
-        //        Erp.Business.Utils.GerarLog(ex);
-        //    }
-
-        //}
-
-        //private void RemoveMesa(PedidoRestauranteModel mesa)
-        //{
-        //    try
-        //    {
-        //        if (mesa.EntityRestaurante.Confirmado)
-        //        {
-        //            Collection.Remove(mesa);
-        //        }
-        //        if (CurrentItem != null && CurrentItem.EntityRestaurante.Mesa == mesa.EntityRestaurante.Mesa)
-        //        {
-        //            CurrentItem = null;
-        //        }
-        //        FilaSalao.Remove(mesa);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        CustomMessageBox.MensagemErro(ex.Message);
-        //        Erp.Business.Utils.GerarLog(ex);
-        //    }
-
-
-        //}
 
         private PedidoRestauranteModel GetMesa(int mesa)
         {
-            return new PedidoRestauranteModel() { Entity = Service.GetMesa(mesa) };
+            return Collection.SingleOrDefault(m => m.EntityRestaurante.Mesa == mesa);
         }
         private PedidoRestauranteModel GetEntrega(int controle)
         {
-            return new PedidoRestauranteModel(){Entity = Service.GetEntrega(controle)};
+            return Collection.SingleOrDefault(m => m.EntityRestaurante.Controle.Controle == controle);
         }
         public RestauranteModel()
         {
-            
+            Collection = new ObservableCollection<PedidoRestauranteModel>();
+            FilaEntrega = new ObservableCollection<PedidoRestauranteModel>();
+            FilaSalao = new ObservableCollection<PedidoRestauranteModel>();
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    Collection.Add(new PedidoRestauranteModel()
+            //    {
+            //        Entity = new PedidoRestaurante()
+            //        {
+            //            DataPedido = DateTime.Now,
+            //            Mesa = i
+            //        }
+            //    });
+            //}
+
+
         }
     }
 }
